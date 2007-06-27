@@ -1,0 +1,67 @@
+#summary One-sentence summary of this page.
+
+
+= Timesheet Mangement Community Use Cases =
+
+
+Use case 1:
+Name: User Login
+Description: User should validate his credential to enter the website.
+
+Use case 2:
+Name: User Registration
+Description: User should have to ability to register and start using the website.
+
+Use case 3:
+Name: Forgot Password
+Description: User should be able to recover his lost password by providing additional information regarding his account
+
+Use case 4:
+Name: Create a new Company
+Description: User can create any no of companies and can thereafter receive Timesheet from other users for the created company.
+
+
+Use case 5:
+Name: Search Companies
+Description: User should be able to search companies in the system and can see its public details
+
+
+Use case 6:
+Name: Request to Join a Company
+Description: User can request any number of companies for joining it.
+Once accepted user can send timesheets.
+
+Use case 7:
+Name: Create Company Admin
+Description: Creator of the company or an Admin can assign any other user with Admin roles, this should be audited for future use
+
+
+Use case 8:
+Name: Process Request to Join
+Description: Any Admin should be able to see the request to join the company by other users and can accept or decline the request, and proper reason should be recorded for his decision. If user is accepted then that user can start submitting timesheets.
+
+Use case 9:
+Name: Create Timesheet
+Description: User should be able to create timesheets ( weekly MON-SUN, bi-monthly 1-15 16-31), save timesheets and can submit saved timesheets to any company he is registered too.
+
+Use case 10:
+Name: Delete and Edit Timesheet
+Description: User can delete or edit any timesheets before it approved
+
+Use case 11:
+Name: Print Timesheets
+Description: User should be able to print timesheets in a standard format
+
+Use case 12:
+Name: Timesheets Reminder
+Description: User should be reminded of timesheets via email
+
+Use case 13:
+Name: Approved Timesheets
+Description: Admin can approve or disapprove or leave a query for a Timesheet.
+And any change in the status of the Timesheet should be notified to user via email
+
+Use case 14:
+Name: 
+Description:
+
