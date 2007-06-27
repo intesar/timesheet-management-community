@@ -1,4 +1,3 @@
-
 = Timesheet Mangement Community Use Cases =
 
 
@@ -7,6 +6,9 @@ Use case 1:
 Name: User Login
 
 Description: User should validate his credential to enter the website.
+
+Detail : 
+
 
 
 Use case 2:
