@@ -101,6 +101,13 @@ And any change in the status of the Timesheet should be notified to user via ema
 
 Use case 14:
 
-Name: 
+Name: Create Expense Report
 
-Description:
+Description: User Should be able to create and submit expense report to on of the registere company
+
+
+Use case 15:
+
+Name: Approve or Decline Expense Report
+
+Description: Admins should be able to approve or decline expense reports with an appropriate message
