@@ -10,6 +10,7 @@
 package com.abbh.authenticator.bo.impl;
 
 import com.abbh.authenticator.bo.UserBO;
+import com.abbh.authenticator.dao.UserDAO;
 import com.abbh.authenticator.entity.Users;
 
 /**
@@ -21,8 +22,19 @@ public class UserBOImpl implements UserBO {
     public UserBOImpl() {
     }
 
+    
+
     public void addUser(Users user) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.getUserDAO().save(user);
+    }
+    
+    public UserDAO getUserDAO() {
+        return userDAO;
     }
 
+    public void setUserDAO(UserDAO userDAO) {
+        this.userDAO = userDAO;
+    }
+    
+    private UserDAO userDAO;
 }
