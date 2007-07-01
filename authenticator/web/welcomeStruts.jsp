@@ -3,6 +3,7 @@
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
  
 
+
 <html:html locale="true">
 <head>
 <title><bean:message key="welcome.title"/></title>
