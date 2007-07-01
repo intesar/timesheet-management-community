@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    
+    <!-- DAO Injection -->
+    
+    <bean id="UserDAO" class="com.abbh.authenticator.dao.impl.UserDAOImpl" />
+    
+    <!-- End Of DAO Injection -->
+    
+    <!-- BO Injection -->
+    
+    <bean id="UserBO" class="com.abbh.authenticator.bo.impl.UserBOImpl" >
+        <property name="userDAO">
+            <ref bean="UserDAO" />
+        </property>
+    </bean>
+    
+    <!-- End of BO Injection -->
+    
+</beans>
