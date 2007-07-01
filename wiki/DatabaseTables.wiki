@@ -1,5 +1,4 @@
-
-database structure User Information
+=database structure for User Information (LDAP)=
 
 user [ username pk, password, password_strength, encryption_key, is_encrypted, first_name, last_name, middle_name, title, company, secret_question, secret_answer, creation_date, last_modified_date ]
 
@@ -26,4 +25,3 @@ user_roles [ username pk, role pk, creation_date, last_modified_date  ]
 user_roles_audit [username, role, creation_date, last_modified_date, audit_user, audit_date  ]
 
 role [ role pk, type, description, creation_date, last_modified_date  ]
-
