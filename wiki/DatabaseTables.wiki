@@ -1,27 +1,26 @@
 =database structure for User Information (LDAP)=
 
-user [ username pk, password, password_strength, encryption_key, is_encrypted, first_name, last_name, middle_name, title, company, secret_question, secret_answer, creation_date, last_modified_date ]
+user [ username pk, password, password_strength, encryption_key, is_encrypted, first_name, last_name, middle_name, title, company, secret_question, secret_answer, creation_date, last_modified_date, is_deleted ]
 
 user_audit [ username, password, password_strength, encryption_key, is_encrypted, first_name, last_name, middle_name, title, company, secret_question, secret_answer, creation_date, last_modified_date, audit_user, audit_date ]
 
-user_address [ id pk auto increment, userame, type, street, city, state, zipcode, country, is_public, creation_date, last_modified_date ]
+user_address [ id pk auto increment, userame, type, street, city, state, zipcode, country, is_public, creation_date, last_modified_date, is_deleted ]
 
 user_address_audit[id, userame, type, street, city, state, zipcode, country, is_public, creation_date, last_modified_date, audit_user, audit_date  ]
 
 
-user_phone [ id pk auto increment, username, type, phone_number, is_public, creation_date, last_modified_date ] 
+user_phone [ id pk auto increment, username, type, phone_number, is_public, creation_date, last_modified_date, is_deleted ] 
 
 user_phone_audit [id, username, type, phone_number, is_public, creation_date, last_modified_date, audit_user, audit_date ]
 
 user_old_password_audit [ username, password, password_strength, creation_date, last_modified_date, audit_date ]
 
-user_company [ username pk, company pk, enabled, creation_date, last_modified_date , expiration_date, creation_user, last_modified_user]
+user_company [ username pk, company pk, enabled, creation_date, last_modified_date , expiration_date, creation_user, last_modified_user, is_deleted]
 
 user_company_audit [ username, company, enabled, creation_date, last_modified_date , expiration_date, creation_user, last_modified_user, audit_user, audit_date ]
 
-
-user_roles [ username pk, role pk, creation_date, last_modified_date  ]
+user_roles [ username pk, role pk, creation_date, last_modified_date, is_deleted  ]
 
 user_roles_audit [username, role, creation_date, last_modified_date, audit_user, audit_date  ]
 
-role [ role pk, type, description, creation_date, last_modified_date  ]
+role [ role pk, type, description, creation_date, last_modified_date, is_deleted  ]
