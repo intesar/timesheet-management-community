@@ -1,6 +1,6 @@
 =database structure for User Information (LDAP)=
 
-users [ username pk char, password char, password_strength char, encryption_key char, is_encrypted boolean, first_name char, last_name char, middle_name char, title char, company char, summary text, last_login_ip char, enabled boolean, lock_reason char, secret_question char, secret_answer char, creation_date date, last_modified_date date, is_deleted boolean ]
+users [ username pk char, password char, password_strength char, encryption_key char, is_encrypted boolean, first_name char, last_name char, middle_name char, secondary_email char, title char, company char, summary text, last_login_ip char, enabled boolean, lock_reason char, secret_question char, secret_answer char, creation_date date, last_modified_date date, is_deleted boolean ]
 
 user_login_ip_audit [username, login_ip, audit_date]
 
