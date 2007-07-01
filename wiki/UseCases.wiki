@@ -47,6 +47,8 @@ Every Company or Division will have registered user with titles and contact info
 
 User have some administrative roles and some users can approve time sheets
 
+There should be a notion of groups meaning a group of users in a company send timesheets for approval and these groups are handle by some particular admin
+
 
 Use case 5:
 
