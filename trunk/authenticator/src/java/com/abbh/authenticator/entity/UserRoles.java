@@ -1,7 +1,7 @@
 /*
  * UserRoles.java
  * 
- * Created on Jul 1, 2007, 5:40:35 PM
+ * Created on Jul 1, 2007, 7:11:49 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -44,6 +44,10 @@ public class UserRoles implements Serializable {
 
     @Column(name = "is_deleted")
     private Boolean isDeleted;
+
+    @JoinColumn(name = "username", referencedColumnName = " username", insertable = false, updatable = false)
+    @ManyToOne
+    private Users users;
 
     @JoinColumn(name = "role", referencedColumnName = "role", insertable = false, updatable = false)
     @ManyToOne
@@ -90,6 +94,14 @@ public class UserRoles implements Serializable {
 
     public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     public Role getRole1() {
