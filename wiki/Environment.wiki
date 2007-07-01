@@ -23,6 +23,12 @@ JDK1.6 & Netbeans 6 bundled together
 http://dlc.sun.com/netbeans/download/6.0/milestones/latest/bundles/netbeans-6.0m9-standard-windows.exe
 
 
+Tomcat 6.x
+
+http://mirrors.isc.org/pub/apache/tomcat/tomcat-6/v6.0.13/bin/apache-tomcat-6.0.13.zip
+
+SVN 
+
 
 
 
