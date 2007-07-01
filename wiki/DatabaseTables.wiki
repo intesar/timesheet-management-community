@@ -13,7 +13,7 @@ user_address [ id pk auto increment, userame, type, street, city, state, zipcode
 user_address_audit[id, userame, type, street, city, state, zipcode, country, is_public, creation_date, last_modified_date, audit_user, audit_date  ]
 
 
-user_phone [ id pk auto increment, username, type, phone_number, is_public, creation_date, last_modified_date, is_deleted ] 
+user_phone [ id pk auto increment, username, type, phone_number char, is_public boolean, creation_date, last_modified_date, is_deleted ] 
 
 user_phone_audit [id, username, type, phone_number, is_public, creation_date, last_modified_date, audit_user, audit_date ]
 
