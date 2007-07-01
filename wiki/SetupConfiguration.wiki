@@ -1,0 +1,22 @@
+=MySQL=
+
+Installaion
+
+Databases
+
+DEV
+
+
+=JAVA=
+
+JDK1.6 Installation, Include in you Path
+
+
+All the jars for other framework should be in a /lib folder inside the application
+
+
+=Tomcat=
+
+Download latest apache Tomcat
+
+=END=
