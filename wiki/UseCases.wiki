@@ -17,6 +17,12 @@ Name: User Registration
 
 Description: User should have to ability to register and start using the website.
 
+Use case 2a:
+
+Name: Edit User Profile
+
+Description: User can edit the registration information.
+
 
 Use case 3:
 
