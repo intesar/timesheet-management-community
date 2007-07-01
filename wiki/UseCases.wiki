@@ -39,7 +39,7 @@ user_address [ userame, type, street, city, state, zipcode, country, is_public, 
 
 user_phones [ username, type, phone_number, is_public, creation_date, last_modified_date ] 
 
-user_old_password [ username, password, creation_date, last_modified_date ]
+user_old_password [ username, password, password_strength, creation_date, last_modified_date ]
 
 user_company [ username, company, enabled, creation_date, last_modified_date , expiration_date]
 
