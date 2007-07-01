@@ -43,7 +43,7 @@ Detail: If user clicks on "New Company Registration" tab, form should be present
 User can create new divisions under a existing company, division is simply different divisions of a company and a division can have more divisions under it
 every division will have a name, address, summary, no of employees working, phones, fax, emails
 
-Every Company or Division will have registered user with titles and contact information (phones, fax, emails and address)
+Every Company or Division will have registered user with titles and contact information (Title, phones, fax, emails and address)
 
 User have some administrative roles and some users can approve time sheets
 
@@ -55,6 +55,11 @@ Use case 5:
 Name: Search Companies
 
 Description: User should be able to search companies in the system and can see its public details
+
+User can search for companies based on different criteria 
+company's partial name, full name, city, username, etc
+
+User should be able to see details for any company
 
 
 Use case 6:
