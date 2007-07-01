@@ -1,0 +1,16 @@
+= Single Database for managing User Credentials =
+Every Registered user information is stored in single database and used by multiple applications
+
+
+database structure
+
+user [ username, password, password_strength, encryption_key, is_encrypted, creation_date, lastModified_date ]
+
+user_old_password [ username, password, creation_date, modified_date ]
+
+user_company [ username, company, enabled, creation_date, lastModified_date, expiration_date]
+
+user_roles [ username, role ]
+
+role [ role, type, description ]
+
