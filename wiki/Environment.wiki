@@ -3,17 +3,17 @@
 
 JDK1.6
 
-MySQL
+MySQL, Query Browser, Admin, Connector/J Driver
 
-JPA (TopLink)
+JPA (Hibernate)
 
-Spring IOC
+Spring IOC (2.x)
 
-JUnit
+JUnit (4.x)
 
-Strut2
+Strut2 (1.2.x)
 
-JWebUnit
+JWebUnit (1.4.x)
 
 JSP
 
