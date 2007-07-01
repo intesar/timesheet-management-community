@@ -1,9 +1,12 @@
 =Recommendations=
 
 
+MySQL Server 5.x, Query Browser, Admin, Connector/J Driver
+
+
 JDK1.6
 
-MySQL, Query Browser, Admin, Connector/J Driver
+
 
 JPA (Hibernate)
 
