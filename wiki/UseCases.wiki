@@ -58,9 +58,15 @@ Description: Creator of the company or an Admin can assign any other user with A
 
 Use case 8:
 
-Name: Process Request to Join
+Name: Process Request to Join / Add User
 
 Description: Any Admin should be able to see the request to join the company by other users and can accept or decline the request, and proper reason should be recorded for his decision. If user is accepted then that user can start submitting timesheets.
+
+Use Case 8a:
+
+Name: Edit user information
+
+Desc: Any admin of a company must be able to edit company specific user information.
 
 
 Use case 9:
