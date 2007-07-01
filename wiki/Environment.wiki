@@ -1,7 +1,12 @@
 =Recommendations=
 
 
-MySQL Server 5.x, Query Browser, Admin, Connector/J Driver
+MySQL Server 5.x, download from here....
+
+http://dev.mysql.com/get/Downloads/MySQL-5.0/mysql-essential-5.0.41-win32.msi/from/ftp://mirror.services.wisc.edu/mirrors/mysql/
+
+
+Query Browser, Admin, Connector/J Driver
 
 
 JDK1.6
