@@ -1,12 +1,12 @@
 #Evaluation of tenrox time sheet product
 
 Considerations:
-1. Labor compliance
-2. Shift and work schedule
-3. Leave time / usage rules
-4. Configurable pay rules and rates
-5. Analytics (reports)
-6. Integration with accounting, payroll, project mgmt, HR, CRM (could be done by providing web services)
+*1. Labor compliance
+*2. Shift and work schedule
+*3. Leave time / usage rules
+*4. Configurable pay rules and rates
+*5. Analytics (reports)
+*6. Integration with accounting, payroll, project mgmt, HR, CRM (could be done by providing web services)
 
 Special features:
 1. Graphical work-flow engine
@@ -36,4 +36,3 @@ Compliance:
 6. GAAP compliant revenue recognition.
 
 Available on-demand or on-premises
-
