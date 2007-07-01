@@ -1,8 +1,8 @@
 /*
  * UserDAOImpl.java
- * 
+ *
  * Created on Jul 1, 2007, 4:19:35 PM
- * 
+ *
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
  */
@@ -23,12 +23,12 @@ public class UserDAOImpl implements UserDAO{
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecureAuthPU");
     
     
-
+    
     public UserDAOImpl() {
     }
-
+    
     public void save(Users user) {
-          EntityManager em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
             em.persist(user);
@@ -36,27 +36,13 @@ public class UserDAOImpl implements UserDAO{
         } catch (Exception e) {
             java.util.logging.Logger.getLogger(getClass().getName()).log(java.util.logging.Level.SEVERE, "exception caught", e);
             em.getTransaction().rollback();
+            throw new RuntimeException();
         } finally {
             em.close();
         }
         
-      
-        
-        throw new UnsupportedOperationException("Not supported yet.");
     }
-
-    public void persist(Object object) {
-        javax.persistence.EntityManager em = emf.createEntityManager();
-        try {
-            em.getTransaction().begin();
-            em.persist(object);
-            em.getTransaction().commit();
-        } catch (Exception e) {
-            java.util.logging.Logger.getLogger(getClass().getName()).log(java.util.logging.Level.SEVERE, "exception caught", e);
-            em.getTransaction().rollback();
-        } finally {
-            em.close();
-        }
-    }
-
+    
+    
+    
 }
