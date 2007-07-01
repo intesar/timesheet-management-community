@@ -33,11 +33,11 @@ Description: User should be able to recover his lost password by providing addit
 
 database structure User Information
 
-user [ username, password, password_strength, encryption_key, is_encrypted, first_name, last_name, middle_name, secret_question, secret_answer, creation_date, last_modified_date ]
+user [ username, password, password_strength, encryption_key, is_encrypted, first_name, last_name, middle_name, title, company, secret_question, secret_answer, creation_date, last_modified_date ]
 
-user_address [ userame, type, street, city, state, zipcode, country, creation_date, last_modified_date ]
+user_address [ userame, type, street, city, state, zipcode, country, is_public, creation_date, last_modified_date ]
 
-user_phones [ username, type, phone_number, creation_date, last_modified_date ] 
+user_phones [ username, type, phone_number, is_public, creation_date, last_modified_date ] 
 
 user_old_password [ username, password, creation_date, last_modified_date ]
 
