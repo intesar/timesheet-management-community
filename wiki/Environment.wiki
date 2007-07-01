@@ -11,7 +11,11 @@ Query Browser, Admin Download all gui tools from here click this link download s
 http://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-gui-tools-5.0-r12-win32.msi/from/ftp://mirror.mcs.anl.gov/pub/mysql/
 
 
-Connector/J Driver
+Connector/J Driver Click the below link for download
+
+http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.0.6.zip/from/ftp://mirror.mcs.anl.gov/pub/mysql/
+
+
 
 
 JDK1.6
