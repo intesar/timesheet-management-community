@@ -18,7 +18,11 @@ http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.0.6.zip/fr
 
 
 
-JDK1.6
+JDK1.6 & Netbeans 6 bundled together
+
+http://dlc.sun.com/netbeans/download/6.0/milestones/latest/bundles/netbeans-6.0m9-standard-windows.exe
+
+
 
 
 
