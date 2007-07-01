@@ -13,6 +13,7 @@ Connector/J Driver Click the below link for download
 http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.0.6.zip/from/ftp://mirror.mcs.anl.gov/pub/mysql/
 
 
+create a database name "ldap" user/pass "ldap/ldap"
 
 JDK1.6 & Netbeans 6 bundled together
 
