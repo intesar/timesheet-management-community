@@ -1,22 +1,44 @@
-Recommendations
+=Recommendations=
+
+
 JDK1.6
+
 MySQL
+
 JPA (TopLink)
+
 Spring IOC
+
 JUnit
+
 Strut2
+
 JWebUnit
+
 JSP
+
 HTML
+
 JavaScript
+
 AJAX
+
 Maven or Ant
+
 Hudson
+
 SVN
+
 XPlanner
+
 Google Issue Tracker
+
 Google SVN Repository
+
 Google Wiki
+
 Apache Tomcat 6.x
+
 Windows, 
+
 Eclipse, MyClipse, Netbeans
