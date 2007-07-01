@@ -38,6 +38,14 @@ Name: Create a new Company
 
 Description: User can create any no of companies and can thereafter receive Timesheet from other users for the created company.
 
+Detail: If user clicks on "New Company Registration" tab, form should be presented to user which collects information like company name, user title, company address, type, summary, phones, emails and fax.
+
+User can create new divisions under a existing company, division is simply different divisions of a company and a division can have more divisions under it
+every division will have a name, address, summary, no of employees working, phones, fax, emails
+
+Every Company or Division will have registered user with titles and contact information (phones, fax, emails and address)
+
+User have some administrative roles and some users can approve time sheets
 
 
 Use case 5:
