@@ -19,6 +19,8 @@ user_phone_audit [id, username, type, phone_number, is_public, creation_date, la
 
 user_old_password_audit [ username, password, password_strength, creation_date, last_modified_date, audit_date ]
 
+community [ name pk, description,creation_date, last_modified_date ]
+
 user_community[ username pk, company pk, enabled, creation_date, last_modified_date , expiration_date, creation_user, last_modified_user, is_deleted]
 
 user_community_audit [ username, company, enabled, creation_date, last_modified_date , expiration_date, creation_user, last_modified_user, audit_user, audit_date ]
