@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="RegistrationBean" type="com.abbh.authenticator.struts.bean.RegistrationBean"/>
     
     </form-beans>
     
@@ -19,6 +20,7 @@
     </global-forwards>
 
     <action-mappings>
+        <action input="/Registration.jsp" name="RegistrationBean" path="/Registration" scope="session" type="com.abbh.authenticator.struts.action.RegistrationAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
