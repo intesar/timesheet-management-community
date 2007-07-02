@@ -22,15 +22,15 @@ import org.springframework.core.io.Resource;
  *  loads Spring IOC Container and creates beans
  */
 public class BOFactory {
-    private static final BOFactory factory = new BOFactory();
-    
-    public BOFactory() {
+    private static final BOFactory instance = new BOFactory();
+    private static BeanFactory factory;
+    private BOFactory() {
         Resource resource = new ClassPathResource("context/applicationContext.xml");
-        BeanFactory factory = new XmlBeanFactory(resource);
+        factory = new XmlBeanFactory(resource);
     }
     
     public final static BOFactory getInstance() {
-        return factory;
+        return instance;
     }
     
     /**
@@ -41,6 +41,7 @@ public class BOFactory {
      *
      */
     public final Object getBean( String beanName) {
+        System.out.println ( factory);
         return factory.getBean(beanName);
     }
 }
