@@ -20,7 +20,9 @@ import javax.persistence.Persistence;
  * @author Mohammed Hamed
  */
 public class UserDAOImpl implements UserDAO{
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecureAuthPU");
+    
+    
+    private EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecureAuthPU");
     
     
     
