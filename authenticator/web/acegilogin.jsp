@@ -12,8 +12,8 @@
 		<p>Please login to obtain the secret of becoming a Java Guru.</p>
 
       <table>
-        <tr><td>User:</td><td><input type='text' name='j_username'> (sapient)</td></tr>
-        <tr><td>Password:</td><td><input type='password' name='j_password'> (password)</td></tr>
+        <tr><td>User:</td><td><input type='text' name='j_username'> (a)</td></tr>
+        <tr><td>Password:</td><td><input type='password' name='j_password'> (a)</td></tr>
 
         <tr><td colspan='2'><input name="submit" type="submit"></td></tr>
       </table>
