@@ -97,6 +97,10 @@ Name: Create Timesheet
 
 Description: User should be able to create timesheets ( weekly MON-SUN, bi-monthly 1-15 16-31), save timesheets and can submit saved timesheets to any company he is registered too.
 
+Use can work on multiple project and mulitple task for a given week
+
+user should be able to write notes for a given time
+
 
 Use case 10:
 
