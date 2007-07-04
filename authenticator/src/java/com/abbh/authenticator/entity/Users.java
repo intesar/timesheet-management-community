@@ -1,7 +1,7 @@
 /*
  * Users.java
  * 
- * Created on Jul 1, 2007, 7:11:48 PM
+ * Created on Jul 4, 2007, 2:04:50 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -30,7 +30,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "users")
-@NamedQueries({@NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"), @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"), @NamedQuery(name = "Users.findByPasswordStrength", query = "SELECT u FROM Users u WHERE u.passwordStrength = :passwordStrength"), @NamedQuery(name = "Users.findByEncryptionKey", query = "SELECT u FROM Users u WHERE u.encryptionKey = :encryptionKey"), @NamedQuery(name = "Users.findByIsEncrypted", query = "SELECT u FROM Users u WHERE u.isEncrypted = :isEncrypted"), @NamedQuery(name = "Users.findByPasswordExpirationDate", query = "SELECT u FROM Users u WHERE u.passwordExpirationDate = :passwordExpirationDate"), @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = :firstName"), @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName"), @NamedQuery(name = "Users.findByMiddleName", query = "SELECT u FROM Users u WHERE u.middleName = :middleName"), @NamedQuery(name = "Users.findBySecondaryEmail", query = "SELECT u FROM Users u WHERE u.secondaryEmail = :secondaryEmail"), @NamedQuery(name = "Users.findByTitle", query = "SELECT u FROM Users u WHERE u.title = :title"), @NamedQuery(name = "Users.findByCompany", query = "SELECT u FROM Users u WHERE u.company = :company"), @NamedQuery(name = "Users.findByLastLoginIp", query = "SELECT u FROM Users u WHERE u.lastLoginIp = :lastLoginIp"), @NamedQuery(name = "Users.findByEnabled", query = "SELECT u FROM Users u WHERE u.enabled = :enabled"), @NamedQuery(name = "Users.findByLockReason", query = "SELECT u FROM Users u WHERE u.lockReason = :lockReason"), @NamedQuery(name = "Users.findBySecretQuestion", query = "SELECT u FROM Users u WHERE u.secretQuestion = :secretQuestion"), @NamedQuery(name = "Users.findBySecretAnswer", query = "SELECT u FROM Users u WHERE u.secretAnswer = :secretAnswer"), @NamedQuery(name = "Users.findByCreationDate", query = "SELECT u FROM Users u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "Users.findByLastModifiedDate", query = "SELECT u FROM Users u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Users.findByIsDeleted", query = "SELECT u FROM Users u WHERE u.isDeleted = :isDeleted")})
+@NamedQueries({@NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = :username"), @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password"), @NamedQuery(name = "Users.findByPasswordStrength", query = "SELECT u FROM Users u WHERE u.passwordStrength = :passwordStrength"), @NamedQuery(name = "Users.findByEncryptionKey", query = "SELECT u FROM Users u WHERE u.encryptionKey = :encryptionKey"), @NamedQuery(name = "Users.findByIsEncrypted", query = "SELECT u FROM Users u WHERE u.isEncrypted = :isEncrypted"), @NamedQuery(name = "Users.findByPasswordExpirationDate", query = "SELECT u FROM Users u WHERE u.passwordExpirationDate = :passwordExpirationDate"), @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = :firstName"), @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = :lastName"), @NamedQuery(name = "Users.findByMiddleName", query = "SELECT u FROM Users u WHERE u.middleName = :middleName"), @NamedQuery(name = "Users.findBySecondaryEmail", query = "SELECT u FROM Users u WHERE u.secondaryEmail = :secondaryEmail"), @NamedQuery(name = "Users.findByTitle", query = "SELECT u FROM Users u WHERE u.title = :title"), @NamedQuery(name = "Users.findByCompany", query = "SELECT u FROM Users u WHERE u.company = :company"), @NamedQuery(name = "Users.findByLastLoginIp", query = "SELECT u FROM Users u WHERE u.lastLoginIp = :lastLoginIp"), @NamedQuery(name = "Users.findByEnabled", query = "SELECT u FROM Users u WHERE u.enabled = :enabled"), @NamedQuery(name = "Users.findByLockReason", query = "SELECT u FROM Users u WHERE u.lockReason = :lockReason"), @NamedQuery(name = "Users.findBySecretQuestion", query = "SELECT u FROM Users u WHERE u.secretQuestion = :secretQuestion"), @NamedQuery(name = "Users.findBySecretAnswer", query = "SELECT u FROM Users u WHERE u.secretAnswer = :secretAnswer"), @NamedQuery(name = "Users.findByCreationDate", query = "SELECT u FROM Users u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "Users.findByLastModifiedDate", query = "SELECT u FROM Users u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Users.findByIsDeleted", query = "SELECT u FROM Users u WHERE u.isDeleted = :isDeleted"), @NamedQuery(name = "Users.findByCreatedBy", query = "SELECT u FROM Users u WHERE u.createdBy = :createdBy"), @NamedQuery(name = "Users.findByLastModifiedBy", query = "SELECT u FROM Users u WHERE u.lastModifiedBy = :lastModifiedBy")})
 public class Users implements Serializable {
 
     @Id
@@ -101,16 +101,22 @@ public class Users implements Serializable {
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
+    @Column(name = "CREATED_BY")
+    private String createdBy;
+
+    @Column(name = "LAST_MODIFIED_BY")
+    private String lastModifiedBy;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
     private Collection<UserRoles> userRolesCollection;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "username")
     private Collection<UserAddress> userAddressCollection;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
     private Collection<UserCommunity> userCommunityCollection;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "users")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "username")
     private Collection<UserPhone> userPhoneCollection;
 
     public Users() {
@@ -293,6 +299,22 @@ public class Users implements Serializable {
 
     public void setIsDeleted(Boolean isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public Collection<UserRoles> getUserRolesCollection() {

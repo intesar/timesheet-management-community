@@ -1,7 +1,7 @@
 /*
  * UserPhoneAudit.java
  * 
- * Created on Jul 1, 2007, 7:11:55 PM
+ * Created on Jul 4, 2007, 2:05:08 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "user_phone_audit")
-@NamedQueries({@NamedQuery(name = "UserPhoneAudit.findById", query = "SELECT u FROM UserPhoneAudit u WHERE u.id = :id"), @NamedQuery(name = "UserPhoneAudit.findByUsername", query = "SELECT u FROM UserPhoneAudit u WHERE u.username = :username"), @NamedQuery(name = "UserPhoneAudit.findByType", query = "SELECT u FROM UserPhoneAudit u WHERE u.type = :type"), @NamedQuery(name = "UserPhoneAudit.findByPhoneNumber", query = "SELECT u FROM UserPhoneAudit u WHERE u.phoneNumber = :phoneNumber"), @NamedQuery(name = "UserPhoneAudit.findByIsPublic", query = "SELECT u FROM UserPhoneAudit u WHERE u.isPublic = :isPublic"), @NamedQuery(name = "UserPhoneAudit.findByCreationDate", query = "SELECT u FROM UserPhoneAudit u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserPhoneAudit.findByLastModifiedDate", query = "SELECT u FROM UserPhoneAudit u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserPhoneAudit.findByAuditUser", query = "SELECT u FROM UserPhoneAudit u WHERE u.auditUser = :auditUser"), @NamedQuery(name = "UserPhoneAudit.findByAuditDate", query = "SELECT u FROM UserPhoneAudit u WHERE u.auditDate = :auditDate")})
+@NamedQueries({@NamedQuery(name = "UserPhoneAudit.findById", query = "SELECT u FROM UserPhoneAudit u WHERE u.id = :id"), @NamedQuery(name = "UserPhoneAudit.findByUsername", query = "SELECT u FROM UserPhoneAudit u WHERE u.username = :username"), @NamedQuery(name = "UserPhoneAudit.findByPhoneType", query = "SELECT u FROM UserPhoneAudit u WHERE u.phoneType = :phoneType"), @NamedQuery(name = "UserPhoneAudit.findByPhoneNumber", query = "SELECT u FROM UserPhoneAudit u WHERE u.phoneNumber = :phoneNumber"), @NamedQuery(name = "UserPhoneAudit.findByIsPublic", query = "SELECT u FROM UserPhoneAudit u WHERE u.isPublic = :isPublic"), @NamedQuery(name = "UserPhoneAudit.findByCreationDate", query = "SELECT u FROM UserPhoneAudit u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserPhoneAudit.findByLastModifiedDate", query = "SELECT u FROM UserPhoneAudit u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserPhoneAudit.findByAuditUser", query = "SELECT u FROM UserPhoneAudit u WHERE u.auditUser = :auditUser"), @NamedQuery(name = "UserPhoneAudit.findByAuditDate", query = "SELECT u FROM UserPhoneAudit u WHERE u.auditDate = :auditDate"), @NamedQuery(name = "UserPhoneAudit.findByUserId", query = "SELECT u FROM UserPhoneAudit u WHERE u.userId = :userId"), @NamedQuery(name = "UserPhoneAudit.findByIsDeleted", query = "SELECT u FROM UserPhoneAudit u WHERE u.isDeleted = :isDeleted")})
 public class UserPhoneAudit implements Serializable {
 
     @Id
@@ -36,8 +36,8 @@ public class UserPhoneAudit implements Serializable {
     @Column(name = "username")
     private String username;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "phone_type")
+    private String phoneType;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -58,6 +58,12 @@ public class UserPhoneAudit implements Serializable {
     @Column(name = "audit_date")
     @Temporal(TemporalType.DATE)
     private Date auditDate;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "is_deleted")
+    private Short isDeleted;
 
     public UserPhoneAudit() {
     }
@@ -82,12 +88,12 @@ public class UserPhoneAudit implements Serializable {
         this.username = username;
     }
 
-    public String getType() {
-        return type;
+    public String getPhoneType() {
+        return phoneType;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setPhoneType(String phoneType) {
+        this.phoneType = phoneType;
     }
 
     public String getPhoneNumber() {
@@ -136,6 +142,22 @@ public class UserPhoneAudit implements Serializable {
 
     public void setAuditDate(Date auditDate) {
         this.auditDate = auditDate;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
+    public Short getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Short isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     @Override

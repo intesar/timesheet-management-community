@@ -1,7 +1,7 @@
 /*
  * UserPhone.java
  * 
- * Created on Jul 1, 2007, 7:11:58 PM
+ * Created on Jul 4, 2007, 2:05:12 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -12,8 +12,8 @@ package com.abbh.authenticator.entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -28,53 +28,57 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "user_phone")
-@NamedQueries({@NamedQuery(name = "UserPhone.findById", query = "SELECT u FROM UserPhone u WHERE u.id = :id"), @NamedQuery(name = "UserPhone.findByUsername", query = "SELECT u FROM UserPhone u WHERE u.userPhonePK.username = :username"), @NamedQuery(name = "UserPhone.findByType", query = "SELECT u FROM UserPhone u WHERE u.userPhonePK.type = :type"), @NamedQuery(name = "UserPhone.findByPhoneNumber", query = "SELECT u FROM UserPhone u WHERE u.phoneNumber = :phoneNumber"), @NamedQuery(name = "UserPhone.findByIsPublic", query = "SELECT u FROM UserPhone u WHERE u.isPublic = :isPublic"), @NamedQuery(name = "UserPhone.findByCreationDate", query = "SELECT u FROM UserPhone u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserPhone.findByLastModifiedDate", query = "SELECT u FROM UserPhone u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserPhone.findByIsDeleted", query = "SELECT u FROM UserPhone u WHERE u.isDeleted = :isDeleted")})
+@NamedQueries({@NamedQuery(name = "UserPhone.findById", query = "SELECT u FROM UserPhone u WHERE u.id = :id"), @NamedQuery(name = "UserPhone.findByPhoneType", query = "SELECT u FROM UserPhone u WHERE u.phoneType = :phoneType"), @NamedQuery(name = "UserPhone.findByPhoneNumber", query = "SELECT u FROM UserPhone u WHERE u.phoneNumber = :phoneNumber"), @NamedQuery(name = "UserPhone.findByIsPublic", query = "SELECT u FROM UserPhone u WHERE u.isPublic = :isPublic"), @NamedQuery(name = "UserPhone.findByIsDeleted", query = "SELECT u FROM UserPhone u WHERE u.isDeleted = :isDeleted"), @NamedQuery(name = "UserPhone.findByCreationDate", query = "SELECT u FROM UserPhone u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserPhone.findByCreatedBy", query = "SELECT u FROM UserPhone u WHERE u.createdBy = :createdBy"), @NamedQuery(name = "UserPhone.findByLastModifiedDate", query = "SELECT u FROM UserPhone u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserPhone.findByLastModifiedBy", query = "SELECT u FROM UserPhone u WHERE u.lastModifiedBy = :lastModifiedBy")})
 public class UserPhone implements Serializable {
 
-    @EmbeddedId
-    protected UserPhonePK userPhonePK;
-
-    @Column(name = "id")
+    @Id
+    @Column(name = "ID", nullable = false)
     private Integer id;
 
-    @Column(name = "phone_number")
+    @Column(name = "PHONE_TYPE", nullable = false)
+    private String phoneType;
+
+    @Column(name = "PHONE_NUMBER", nullable = false)
     private String phoneNumber;
 
-    @Column(name = "is_public")
-    private Boolean isPublic;
+    @Column(name = "IS_PUBLIC")
+    private Short isPublic;
 
-    @Column(name = "creation_date")
+    @Column(name = "IS_DELETED")
+    private Short isDeleted;
+
+    @Column(name = "CREATION_DATE")
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
-    @Column(name = "last_modified_date")
+    @Column(name = "CREATED_BY", nullable = false)
+    private String createdBy;
+
+    @Column(name = "LAST_MODIFIED_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date lastModifiedDate;
 
-    @Column(name = "is_deleted")
-    private Boolean isDeleted;
+    @Column(name = "LAST_MODIFIED_BY", nullable = false)
+    private String lastModifiedBy;
 
-    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
+    @JoinColumn(name = "USERNAME", referencedColumnName = "username")
     @ManyToOne
-    private Users users;
+    private Users username;
 
     public UserPhone() {
     }
 
-    public UserPhone(UserPhonePK userPhonePK) {
-        this.userPhonePK = userPhonePK;
+    public UserPhone(Integer id) {
+        this.id = id;
     }
 
-    public UserPhone(String username, String type) {
-        this.userPhonePK = new UserPhonePK(username, type);
-    }
-
-    public UserPhonePK getUserPhonePK() {
-        return userPhonePK;
-    }
-
-    public void setUserPhonePK(UserPhonePK userPhonePK) {
-        this.userPhonePK = userPhonePK;
+    public UserPhone(Integer id, String phoneType, String phoneNumber, String createdBy, Date lastModifiedDate, String lastModifiedBy) {
+        this.id = id;
+        this.phoneType = phoneType;
+        this.phoneNumber = phoneNumber;
+        this.createdBy = createdBy;
+        this.lastModifiedDate = lastModifiedDate;
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public Integer getId() {
@@ -85,6 +89,14 @@ public class UserPhone implements Serializable {
         this.id = id;
     }
 
+    public String getPhoneType() {
+        return phoneType;
+    }
+
+    public void setPhoneType(String phoneType) {
+        this.phoneType = phoneType;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -93,12 +105,20 @@ public class UserPhone implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public Boolean getIsPublic() {
+    public Short getIsPublic() {
         return isPublic;
     }
 
-    public void setIsPublic(Boolean isPublic) {
+    public void setIsPublic(Short isPublic) {
         this.isPublic = isPublic;
+    }
+
+    public Short getIsDeleted() {
+        return isDeleted;
+    }
+
+    public void setIsDeleted(Short isDeleted) {
+        this.isDeleted = isDeleted;
     }
 
     public Date getCreationDate() {
@@ -109,6 +129,14 @@ public class UserPhone implements Serializable {
         this.creationDate = creationDate;
     }
 
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public Date getLastModifiedDate() {
         return lastModifiedDate;
     }
@@ -117,26 +145,26 @@ public class UserPhone implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public Boolean getIsDeleted() {
-        return isDeleted;
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
     }
 
-    public void setIsDeleted(Boolean isDeleted) {
-        this.isDeleted = isDeleted;
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 
-    public Users getUsers() {
-        return users;
+    public Users getUsername() {
+        return username;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setUsername(Users username) {
+        this.username = username;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (userPhonePK != null ? userPhonePK.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -147,7 +175,7 @@ public class UserPhone implements Serializable {
             return false;
         }
         UserPhone other = (UserPhone) object;
-        if (this.userPhonePK != other.userPhonePK && (this.userPhonePK == null || !this.userPhonePK.equals(other.userPhonePK))) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -155,7 +183,7 @@ public class UserPhone implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbh.authenticator.entity.UserPhone[userPhonePK=" + userPhonePK + "]";
+        return "com.abbh.authenticator.entity.UserPhone[id=" + id + "]";
     }
 
 }
