@@ -14,6 +14,7 @@ import com.abbh.authenticator.entity.Users;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -21,7 +22,7 @@ import javax.persistence.Persistence;
  */
 public class UserDAOImpl implements UserDAO{
     
-    
+    private Logger logger = Logger.getLogger(UserDAOImpl.class);
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("SecureAuthPU");
     
     
@@ -36,7 +37,8 @@ public class UserDAOImpl implements UserDAO{
             em.persist(user);
             em.getTransaction().commit();
         } catch (Exception e) {
-            java.util.logging.Logger.getLogger(getClass().getName()).log(java.util.logging.Level.SEVERE, "exception caught", e);
+            logger.error(e.getMessage(), e);
+          //  java.util.logging.Logger.getLogger(getClass().getName()).log(java.util.logging.Level.SEVERE, "exception caught", e);
             em.getTransaction().rollback();
             throw new RuntimeException();
         } finally {
