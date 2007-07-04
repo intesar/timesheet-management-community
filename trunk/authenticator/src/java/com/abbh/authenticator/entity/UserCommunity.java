@@ -1,7 +1,7 @@
 /*
  * UserCommunity.java
  * 
- * Created on Jul 1, 2007, 7:11:54 PM
+ * Created on Jul 4, 2007, 2:05:06 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -61,13 +61,13 @@ public class UserCommunity implements Serializable {
     @Column(name = "id")
     private Integer id;
 
-    @JoinColumn(name = "community_name", referencedColumnName = "community_name", insertable = false, updatable = false)
-    @ManyToOne
-    private Community community;
-
     @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
     @ManyToOne
     private Users users;
+
+    @JoinColumn(name = "community_name", referencedColumnName = "community_name", insertable = false, updatable = false)
+    @ManyToOne
+    private Community community;
 
     public UserCommunity() {
     }
@@ -152,20 +152,20 @@ public class UserCommunity implements Serializable {
         this.id = id;
     }
 
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
     public Users getUsers() {
         return users;
     }
 
     public void setUsers(Users users) {
         this.users = users;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 
     @Override

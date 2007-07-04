@@ -1,7 +1,7 @@
 /*
  * UserAddress.java
  * 
- * Created on Jul 1, 2007, 7:11:49 PM
+ * Created on Jul 4, 2007, 2:04:58 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -12,8 +12,8 @@ package com.abbh.authenticator.entity;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -28,14 +28,15 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "user_address")
-@NamedQueries({@NamedQuery(name = "UserAddress.findById", query = "SELECT u FROM UserAddress u WHERE u.id = :id"), @NamedQuery(name = "UserAddress.findByUsername", query = "SELECT u FROM UserAddress u WHERE u.userAddressPK.username = :username"), @NamedQuery(name = "UserAddress.findByType", query = "SELECT u FROM UserAddress u WHERE u.userAddressPK.type = :type"), @NamedQuery(name = "UserAddress.findByStreet", query = "SELECT u FROM UserAddress u WHERE u.street = :street"), @NamedQuery(name = "UserAddress.findByCity", query = "SELECT u FROM UserAddress u WHERE u.city = :city"), @NamedQuery(name = "UserAddress.findByState", query = "SELECT u FROM UserAddress u WHERE u.state = :state"), @NamedQuery(name = "UserAddress.findByZipcode", query = "SELECT u FROM UserAddress u WHERE u.zipcode = :zipcode"), @NamedQuery(name = "UserAddress.findByCountry", query = "SELECT u FROM UserAddress u WHERE u.country = :country"), @NamedQuery(name = "UserAddress.findByIsPublic", query = "SELECT u FROM UserAddress u WHERE u.isPublic = :isPublic"), @NamedQuery(name = "UserAddress.findByCreationDate", query = "SELECT u FROM UserAddress u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserAddress.findByLastModifiedDate", query = "SELECT u FROM UserAddress u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserAddress.findByIsDeleted", query = "SELECT u FROM UserAddress u WHERE u.isDeleted = :isDeleted")})
+@NamedQueries({@NamedQuery(name = "UserAddress.findById", query = "SELECT u FROM UserAddress u WHERE u.id = :id"), @NamedQuery(name = "UserAddress.findByType", query = "SELECT u FROM UserAddress u WHERE u.type = :type"), @NamedQuery(name = "UserAddress.findByStreet", query = "SELECT u FROM UserAddress u WHERE u.street = :street"), @NamedQuery(name = "UserAddress.findByCity", query = "SELECT u FROM UserAddress u WHERE u.city = :city"), @NamedQuery(name = "UserAddress.findByState", query = "SELECT u FROM UserAddress u WHERE u.state = :state"), @NamedQuery(name = "UserAddress.findByZipcode", query = "SELECT u FROM UserAddress u WHERE u.zipcode = :zipcode"), @NamedQuery(name = "UserAddress.findByCountry", query = "SELECT u FROM UserAddress u WHERE u.country = :country"), @NamedQuery(name = "UserAddress.findByIsPublic", query = "SELECT u FROM UserAddress u WHERE u.isPublic = :isPublic"), @NamedQuery(name = "UserAddress.findByCreationDate", query = "SELECT u FROM UserAddress u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserAddress.findByLastModifiedDate", query = "SELECT u FROM UserAddress u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserAddress.findByIsDeleted", query = "SELECT u FROM UserAddress u WHERE u.isDeleted = :isDeleted"), @NamedQuery(name = "UserAddress.findByCreatedBy", query = "SELECT u FROM UserAddress u WHERE u.createdBy = :createdBy"), @NamedQuery(name = "UserAddress.findByLastModifiedBy", query = "SELECT u FROM UserAddress u WHERE u.lastModifiedBy = :lastModifiedBy")})
 public class UserAddress implements Serializable {
 
-    @EmbeddedId
-    protected UserAddressPK userAddressPK;
-
-    @Column(name = "id")
+    @Id
+    @Column(name = "id", nullable = false)
     private Integer id;
+
+    @Column(name = "type")
+    private String type;
 
     @Column(name = "street", nullable = false)
     private String street;
@@ -59,43 +60,39 @@ public class UserAddress implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date creationDate;
 
-    @Column(name = "last_modified_date")
+    @Column(name = "last_modified_date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date lastModifiedDate;
 
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
-    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
+    @Column(name = "CREATED_BY")
+    private String createdBy;
+
+    @Column(name = "LAST_MODIFIED_BY", nullable = false)
+    private String lastModifiedBy;
+
+    @JoinColumn(name = "username", referencedColumnName = "username")
     @ManyToOne
-    private Users users;
+    private Users username;
 
     public UserAddress() {
     }
 
-    public UserAddress(UserAddressPK userAddressPK) {
-        this.userAddressPK = userAddressPK;
+    public UserAddress(Integer id) {
+        this.id = id;
     }
 
-    public UserAddress(UserAddressPK userAddressPK, String street, String city, String state, String zipcode, String country) {
-        this.userAddressPK = userAddressPK;
+    public UserAddress(Integer id, String street, String city, String state, String zipcode, String country, Date lastModifiedDate, String lastModifiedBy) {
+        this.id = id;
         this.street = street;
         this.city = city;
         this.state = state;
         this.zipcode = zipcode;
         this.country = country;
-    }
-
-    public UserAddress(String username, String type) {
-        this.userAddressPK = new UserAddressPK(username, type);
-    }
-
-    public UserAddressPK getUserAddressPK() {
-        return userAddressPK;
-    }
-
-    public void setUserAddressPK(UserAddressPK userAddressPK) {
-        this.userAddressPK = userAddressPK;
+        this.lastModifiedDate = lastModifiedDate;
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public Integer getId() {
@@ -104,6 +101,14 @@ public class UserAddress implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getStreet() {
@@ -178,18 +183,34 @@ public class UserAddress implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    public Users getUsers() {
-        return users;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
+    }
+
+    public Users getUsername() {
+        return username;
+    }
+
+    public void setUsername(Users username) {
+        this.username = username;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (userAddressPK != null ? userAddressPK.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -200,7 +221,7 @@ public class UserAddress implements Serializable {
             return false;
         }
         UserAddress other = (UserAddress) object;
-        if (this.userAddressPK != other.userAddressPK && (this.userAddressPK == null || !this.userAddressPK.equals(other.userAddressPK))) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -208,7 +229,7 @@ public class UserAddress implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbh.authenticator.entity.UserAddress[userAddressPK=" + userAddressPK + "]";
+        return "com.abbh.authenticator.entity.UserAddress[id=" + id + "]";
     }
 
 }

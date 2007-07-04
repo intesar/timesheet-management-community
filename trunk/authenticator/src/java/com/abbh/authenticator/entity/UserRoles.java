@@ -1,7 +1,7 @@
 /*
  * UserRoles.java
  * 
- * Created on Jul 1, 2007, 7:11:49 PM
+ * Created on Jul 4, 2007, 2:04:55 PM
  * 
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -28,7 +28,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "user_roles")
-@NamedQueries({@NamedQuery(name = "UserRoles.findByUsername", query = "SELECT u FROM UserRoles u WHERE u.userRolesPK.username = :username"), @NamedQuery(name = "UserRoles.findByRole", query = "SELECT u FROM UserRoles u WHERE u.userRolesPK.role = :role"), @NamedQuery(name = "UserRoles.findByCreationDate", query = "SELECT u FROM UserRoles u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserRoles.findByLastModifiedDate", query = "SELECT u FROM UserRoles u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserRoles.findByIsDeleted", query = "SELECT u FROM UserRoles u WHERE u.isDeleted = :isDeleted")})
+@NamedQueries({@NamedQuery(name = "UserRoles.findByUsername", query = "SELECT u FROM UserRoles u WHERE u.userRolesPK.username = :username"), @NamedQuery(name = "UserRoles.findByRole", query = "SELECT u FROM UserRoles u WHERE u.userRolesPK.role = :role"), @NamedQuery(name = "UserRoles.findByCreationDate", query = "SELECT u FROM UserRoles u WHERE u.creationDate = :creationDate"), @NamedQuery(name = "UserRoles.findByLastModifiedDate", query = "SELECT u FROM UserRoles u WHERE u.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "UserRoles.findByIsDeleted", query = "SELECT u FROM UserRoles u WHERE u.isDeleted = :isDeleted"), @NamedQuery(name = "UserRoles.findByCreatedBy", query = "SELECT u FROM UserRoles u WHERE u.createdBy = :createdBy"), @NamedQuery(name = "UserRoles.findByLastModifiedBy", query = "SELECT u FROM UserRoles u WHERE u.lastModifiedBy = :lastModifiedBy")})
 public class UserRoles implements Serializable {
 
     @EmbeddedId
@@ -45,13 +45,19 @@ public class UserRoles implements Serializable {
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
-    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
-    @ManyToOne
-    private Users users;
+    @Column(name = "CREATED_BY")
+    private String createdBy;
+
+    @Column(name = "LAST_MODIFIED_BY")
+    private String lastModifiedBy;
 
     @JoinColumn(name = "role", referencedColumnName = "role", insertable = false, updatable = false)
     @ManyToOne
     private Role role1;
+
+    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
+    @ManyToOne
+    private Users users;
 
     public UserRoles() {
     }
@@ -96,12 +102,20 @@ public class UserRoles implements Serializable {
         this.isDeleted = isDeleted;
     }
 
-    public Users getUsers() {
-        return users;
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public Role getRole1() {
@@ -110,6 +124,14 @@ public class UserRoles implements Serializable {
 
     public void setRole1(Role role1) {
         this.role1 = role1;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
     @Override
