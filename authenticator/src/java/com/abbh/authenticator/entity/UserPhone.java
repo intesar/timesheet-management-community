@@ -54,7 +54,7 @@ public class UserPhone implements Serializable {
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
-    @JoinColumn(name = "username", referencedColumnName = " username", insertable = false, updatable = false)
+    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
     @ManyToOne
     private Users users;
 

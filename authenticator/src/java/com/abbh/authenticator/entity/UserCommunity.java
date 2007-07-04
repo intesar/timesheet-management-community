@@ -65,7 +65,7 @@ public class UserCommunity implements Serializable {
     @ManyToOne
     private Community community;
 
-    @JoinColumn(name = "username", referencedColumnName = " username", insertable = false, updatable = false)
+    @JoinColumn(name = "username", referencedColumnName = "username", insertable = false, updatable = false)
     @ManyToOne
     private Users users;
 
