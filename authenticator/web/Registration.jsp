@@ -1,36 +1,58 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
-<%--
-The taglib directive below imports the JSTL library. If you uncomment it,
-you must also add the JSTL library to the project. The Add Library... action
-on Libraries node in Projects view can be used to add the JSTL 1.1 library.
---%>
-<%--
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
---%>
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title> Registration Page </title>
     </head>
-    <body>
-
-    <h1>JSP Page</h1>
-    
-    <%--
-    This example uses JSTL, uncomment the taglib directive above.
-    To test, display the page like this: index.jsp?sayHello=true&name=Murphy
-    --%>
-    <%--
-    <c:if test="${param.sayHello}">
-        <!-- Let's welcome the user ${param.name} -->
-        Hello ${param.name}!
-    </c:if>
-    --%>
-    
-    </body>
+<body>
+    <table border="1">
+            <tr>
+                <td>Username:</td>
+                <td><html:text property="username" value="" /></td>
+            </tr>
+            <tr>
+                <td>Enter Password:</td>
+                <td<html:password property="password1" value="" /></td>
+            </tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td><html:password property="password2" value="" /></td>
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <td><html:text property="firstName" value="" /></td>
+            </tr>
+            <tr>
+                <td>Middle Name:</td>
+                <td><html:text property="middleName" value="" /></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><html:text property="lastName" value="" /></td>
+            </tr>
+            <tr>
+                <td>Secondary Email:</td>
+                <td><html:text property="secondaryEmail" /></td>
+            </tr>
+            <tr>
+                <td>Enter a secret question:</td>
+                <td><html:text property="secretQuestion" /></td>
+            </tr>
+            <tr>
+                <td>Your answer:</td>
+                <td><html:text property="secretAnswer" /></td>
+            </tr>
+            <tr>
+                <td>Company name:</td>
+                <td><html:text property="company" /></td>
+            </tr>
+            <tr>
+                <td>Your title:</td>
+                <td><html:text property="title" /></td>
+            </tr>
+            <tr>
+                <td>Company Summary:</td>
+                <td><html:textarea property="summary" /></td>
+            </tr>
+        </table>
+</body>
 </html>
