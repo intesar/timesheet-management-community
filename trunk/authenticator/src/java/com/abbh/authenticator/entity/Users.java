@@ -34,10 +34,10 @@ import javax.persistence.TemporalType;
 public class Users implements Serializable {
 
     @Id
-    @Column(name = " username", nullable = false)
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = " password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "password_strength")
