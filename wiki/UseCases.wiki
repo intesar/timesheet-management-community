@@ -137,6 +137,9 @@ Name: Create Expense Report
 
 Description: User Should be able to create and submit expense report to on of the registere company
 
+user submits expenses by providing these information : pay-period, Cash Advance,
+
+Items [ date, category, amount, description ]
 
 Use case 15:
 
