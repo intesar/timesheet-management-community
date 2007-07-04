@@ -2,7 +2,11 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
 <beans>
     
-    <!-- DAO Injection -->
+    <!-- 
+    ###########################################################################
+                          DAO Injection 
+    ###########################################################################
+    -->   
     
     <bean id="UserDAO" class="com.abbh.authenticator.dao.impl.UserDAOImpl" />
     
@@ -16,8 +20,34 @@
         </property>
     </bean>
     
-    <!-- End of BO Injection -->
+    <!-- 
+    ###########################################################################
+                         End Of DAO Injection 
+    ###########################################################################
+    -->
     
+    
+    <!-- 
+    ###########################################################################
+                          BO/Service Injection 
+    ###########################################################################
+    -->
+    
+    
+    
+    <!-- 
+    ###########################################################################
+                         End Of BO/Service Injection 
+    ###########################################################################
+    -->
+    
+    
+    
+    <!-- 
+    ###########################################################################
+                         Security Injection 
+    ###########################################################################
+    -->
     
     <bean id="filterChainProxy" class="net.sf.acegisecurity.util.FilterChainProxy">
         <property name="filterInvocationDefinitionSource">
@@ -140,5 +170,9 @@
     <!-- This bean automatically receives AuthenticationEvent messages from DaoAuthenticationProvider -->
     <bean id="loggerListener" class="net.sf.acegisecurity.providers.dao.event.LoggerListener"/>
     
-    
+    <!-- 
+    ###########################################################################
+                        End Security Injection 
+    ###########################################################################
+    -->
 </beans>
