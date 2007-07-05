@@ -82,7 +82,7 @@
                                             </tr>
                                             <tr id="ga-fprow">
                                                 <td class="gaia le fpwd" valign="bottom" nowrap="nowrap" height="70" align="center" colspan="2">
-                                                <a target="_top" href="                "> Create a new account </a></td>
+                                                <a  href="registration.jsp"> Create a new account </a></td>
                                             </tr>
                                         </tbody>
                                     </table>
