@@ -42,6 +42,30 @@
                 <td><html:text property="secretAnswer" /></td>
             </tr>
             <tr>
+                <td>Address:</td>
+                <td> &nbsp; </td>
+            </tr>
+            <tr>
+                <td>Street:</td>
+                <td><html:text property="addressStreet" /></td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td><html:text property="addressCity" /></td>
+            </tr>
+            <tr>
+                <td>State;</td>
+                <td><html:text property="State" /></td>
+            </tr>
+            <tr>
+                <td>Country:</td>
+                <td><html:text property="addressCountry" /></td>
+            </tr>
+            <tr>
+                <td>Zipcode:</td>
+                <td><html:text property="addressZipcode" /></td>
+            </tr>
+            <tr>
                 <td>Company name:</td>
                 <td><html:text property="company" /></td>
             </tr>
