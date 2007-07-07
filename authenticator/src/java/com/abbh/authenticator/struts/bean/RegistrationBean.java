@@ -6,12 +6,9 @@ package com.abbh.authenticator.struts.bean;
  * Created on July 4, 2007, 7:30 PM
  */
 
-
-
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 /**
  *
@@ -33,6 +30,51 @@ public class RegistrationBean extends org.apache.struts.action.ActionForm {
     private String summary;
     private String secretQuestion;
     private String secretAnswer;
+    private String addressStreet;
+    private String addressCity;
+    private String addressState;
+    private String addressCountry;
+    private String addressZipcode;
+
+    public String getAddressStreet() {
+        return addressStreet;
+    }
+
+    public void setAddressStreet(String addressStreet) {
+        this.addressStreet = addressStreet;
+    }
+
+    public String getAddressCity() {
+        return addressCity;
+    }
+
+    public void setAddressCity(String addressCity) {
+        this.addressCity = addressCity;
+    }
+
+    public String getAddressState() {
+        return addressState;
+    }
+
+    public void setAddressState(String addressState) {
+        this.addressState = addressState;
+    }
+
+    public String getAddressCountry() {
+        return addressCountry;
+    }
+
+    public void setAddressCountry(String addressCountry) {
+        this.addressCountry = addressCountry;
+    }
+
+    public String getAddressZipcode() {
+        return addressZipcode;
+    }
+
+    public void setAddressZipcode(String addressZipcode) {
+        this.addressZipcode = addressZipcode;
+    }
 
     public String getUsername() {
         return username;
@@ -130,13 +172,13 @@ public class RegistrationBean extends org.apache.struts.action.ActionForm {
         this.secretAnswer = secretAnswer;
     }
 
-    /*
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
+       /* ActionErrors errors = new ActionErrors();
         if (getName() == null || getName().length() < 1) {
             errors.add("name", new ActionMessage("error.name.required"));
             // TODO: add 'error.name.required' key to your resources
         }
-        return errors;
-    }*/
+        return errors;*/
+        return null;
+    }
 }
