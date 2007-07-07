@@ -8,6 +8,7 @@ package com.abbh.authenticator.struts.action;
 
 import com.abbh.authenticator.bo.BOFactory;
 import com.abbh.authenticator.bo.UserBO;
+import com.abbh.authenticator.entity.UserAddress;
 import com.abbh.authenticator.entity.Users;
 import com.abbh.authenticator.struts.bean.RegistrationBean;
 import javax.servlet.http.HttpServletRequest;
@@ -65,6 +66,18 @@ public class RegistrationAction extends Action {
         user.setSummary(bean.getSummary());
         user.setTitle(bean.getTitle());
         user.setUsername(bean.getUsername());
+                
         return user;
+    }
+    
+    private UserAddress createAddress(RegistrationBean bean)
+    {        
+        UserAddress address = new UserAddress();
+        address.setStreet(bean.getAddressStreet());
+        address.setCity(bean.getAddressCity());
+        address.setState(bean.getAddressState());
+        address.setCountry(bean.getAddressCountry());
+        address.setZipcode(bean.getAddressZipcode());
+        return address;
     }
 }
