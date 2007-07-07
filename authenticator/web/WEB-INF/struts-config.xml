@@ -20,7 +20,7 @@
     </global-forwards>
 
     <action-mappings>
-        <action input="/registration.jsp" name="RegistrationBean" path="/register" scope="session" type="com.abbh.authenticator.action.RegistrationAction"/>
+        <action name="RegistrationBean" path="/register" scope="session" type="com.abbh.authenticator.action.RegistrationAction"/>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
