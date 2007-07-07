@@ -4,6 +4,7 @@
         <title> Registration Page </title>
     </head>
 <body>
+    <html:form action="/register.do">
     <table border="1">
             <tr>
                 <td>Username:</td>
@@ -77,6 +78,10 @@
                 <td>Company Summary:</td>
                 <td><html:textarea property="summary" /></td>
             </tr>
+            <tr>
+            <td colspan="2" align="center"><html:submit/></td>
+            </tr>
         </table>
+    </html:form>
 </body>
 </html>
