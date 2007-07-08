@@ -12,7 +12,7 @@
             </tr>
             <tr>
                 <td>Enter Password:</td>
-                <td<html:password property="password1" value="" /></td>
+                <td><html:password property="password1" value="" /></td>
             </tr>
             <tr>
                 <td>Confirm Password:</td>
@@ -56,7 +56,7 @@
             </tr>
             <tr>
                 <td>State;</td>
-                <td><html:text property="State" /></td>
+                <td><html:text property="addressState" /></td>
             </tr>
             <tr>
                 <td>Country:</td>
