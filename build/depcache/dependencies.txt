@@ -1,0 +1,16 @@
+||:com.abbh.timesheet.serviceImpl.AddressServiceImpl
+java.lang.Object
+com.abbh.timesheet.serviceImpl.AddressServiceImpl
+com.abbh.timesheet.service.AddressService
+com.abbh.timesheet.dao.AddressDAO
+||:com.abbh.timesheet.service.AddressService
+java.lang.Object
+com.abbh.timesheet.service.AddressService
+||:com.abbh.timesheet.serviceImpl.Main
+java.lang.String
+java.lang.Object
+com.abbh.timesheet.model.Address
+java.lang.Long
+org.springframework.context.support.ClassPathXmlApplicationContext
+com.abbh.timesheet.service.AddressService
+com.abbh.timesheet.serviceImpl.Main
