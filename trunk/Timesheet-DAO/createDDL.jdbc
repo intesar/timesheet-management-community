@@ -1,0 +1,1 @@
+CREATE TABLE address (id BIGINT NOT NULL, city VARCHAR(255) NOT NULL, create_date DATETIME, country VARCHAR(255), last_modified_date VARCHAR(255), create_user VARCHAR(255), state VARCHAR(255), type VARCHAR(255) NOT NULL, last_modified_user VARCHAR(255), zipcode VARCHAR(255), street VARCHAR(255), PRIMARY KEY (id))

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    
+    <!-- EntityManagerFactory -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="Timesheet-DAOPU"/>
+    </bean>
+    
+    <!-- Production Deployement -->
+    <!-- <jndi:lookup id="entityManagerFactory" jndi-name="jpa/Timesheet-DAOPU"/> -->
+
+    <!--
+     ##########################################################################
+                            DAO Declerations Begin
+     ##########################################################################
+    -->
+    
+    <!-- Example DAO Decleration -->
+    <!--
+    <bean id="addressDAOImpl" class="com.abbh.timesheet.daoImpl.AddressDAOImpl" >
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    -->
+    
+    <bean id="addressDAOImpl" class="com.abbh.timesheet.daoImpl.AddressDAOImpl" >
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>        
+    </bean>
+    
+    
+    <!--
+     ##########################################################################
+                            DAO Declerations End
+     ##########################################################################
+    -->
+    
+</beans>
