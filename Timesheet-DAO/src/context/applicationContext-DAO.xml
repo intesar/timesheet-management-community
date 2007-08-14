@@ -34,7 +34,12 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" parent="emfTemplate" />
     
     
-    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql:///time_sheet_db"/>
+      <property name="username" value="root"/>
+      <property name="password" value="apple123"/>
+   </bean>
     <!--
      ##########################################################################
                             DAO Declerations End
