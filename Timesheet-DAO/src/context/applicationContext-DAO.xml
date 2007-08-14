@@ -22,14 +22,17 @@
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
     -->
-    
-    <bean id="addressDAOImpl" class="com.abbh.timesheet.daoImpl.AddressDAOImpl" >
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+
+    <bean id="emfTemplate" abstract="true">
+	<property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
     </bean>
     
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>        
-    </bean>
+    <bean id="addressDAOImpl" class="com.abbh.timesheet.daoImpl.AddressDAOImpl" parent="emfTemplate" />       
+    
+    <bean id="valueListHandlerDAOImpl" class="com.abbh.timesheet.daoImpl.ValueListHandlerDAOImpl" parent="emfTemplate" />       
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" parent="emfTemplate" />
+    
     
     
     <!--
