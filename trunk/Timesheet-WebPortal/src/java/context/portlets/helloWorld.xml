@@ -5,7 +5,9 @@
     <!-- Reused Portlet -->
 
     <bean id="helloWorldPortlet" class="org.springframework.web.portlet.mvc.PortletWrappingController">
-       
+        <property name="portletClass">
+            <value>com.abbh.timesheet.portlets.HelloWorld</value>
+        </property>
     </bean>
     
     <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
