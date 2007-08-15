@@ -16,45 +16,46 @@ import static org.junit.Assert.*;
 /**
  *
  * @author shannan
+ * 
+ *  Creating Spring JUnit Test are simple, follow these steps
+ *  1. extends AbstractTransactionalDataSourceSpringContextTests
+ *  2. create instance variables and setters for all required daos
+ *  3. copy the "getConfigLocations() " method from below
+ *  4. write "onSetupInTransaction()" and "onTearDownAfterTransaction"
+ *  5. write all required test cases * 
+ * 
  */
+
 public class AddressDAOImplTest extends AbstractTransactionalDataSourceSpringContextTests {
 
     public AddressDAOImplTest() {
-       // instance = (AddressDAO) SpringSupport.getBean("addressDAOImpl");
     }
 
-//    @BeforeClass
-//    public static void setUpClass() throws Exception {
-//    }
-//
-//    @AfterClass
-//    public static void tearDownClass() throws Exception {
-//    }
-//
-//    @Before
-//    public void setUp() throws Exception {
-//    }
-//
-//    @After
-//    public void tearDown() throws Exception {
-//    }
+
     private AddressDAO addressDAO = null;
 
     public void setAddressDAO(AddressDAO addressDAO) {
         this.addressDAO = addressDAO;
     }
 
+    @Override
     protected String[] getConfigLocations() {
         return new String[]{"classpath:context/applicationContext-DAO.xml"};
     }
 
-    protected void onSetUp() throws Exception {
-//        jdbcTemplate.execute("insert into address (id, city, street, type) values (1003, 'CHICAGO', 'MAIN STREET', 'HOME')");
-//        jdbcTemplate.execute("insert into address (id, city, street, type) values (1001, 'CHICAGO', 'DEVON STREET', 'OFFICE')");
-//        jdbcTemplate.execute("insert into address (id, city, street, type) values (1002, 'CHICAGO', 'TALMAN AVE', 'OTHER')");       
+    @Override
+    protected void onSetUpInTransaction() throws Exception {
+        jdbcTemplate.execute("insert into address (id, city, street, type, zipcode, country,state) values (1003, 'CHICAGO', 'MAIN STREET', 'HOME', '00000', 'USA', 'IL')");
+        jdbcTemplate.execute("insert into address (id, city, street, type, zipcode, country,state) values (1001, 'CHICAGO', 'DEVON STREET', 'OFFICE', '00000', 'USA', 'IL')");
+        jdbcTemplate.execute("insert into address (id, city, street, type, zipcode, country,state) values (1002, 'CHICAGO', 'TALMAN AVE', 'OTHER', '00000', 'USA', 'IL')");
     }
 
-    
+    @Override
+    protected void onTearDownAfterTransaction() throws Exception {
+
+        super.onTearDownAfterTransaction();
+        deleteFromTables(new String[]{"address"});
+    }
 
     @Test
     public void testFindByStreet() {
@@ -70,7 +71,7 @@ public class AddressDAOImplTest extends AbstractTransactionalDataSourceSpringCon
     @Test
     public void testFindByZipcode() {
         System.out.println("findByZipcode");
-        String zipcode = "ZIPCODE";
+        String zipcode = "00000";
 
 
         Collection result = addressDAO.findByZipcode(zipcode);
@@ -90,7 +91,7 @@ public class AddressDAOImplTest extends AbstractTransactionalDataSourceSpringCon
     @Test
     public void testFindByState() {
         System.out.println("findByState");
-        String state = "STATE";
+        String state = "IL";
 
 
         Collection result = addressDAO.findByState(state);
@@ -98,7 +99,7 @@ public class AddressDAOImplTest extends AbstractTransactionalDataSourceSpringCon
     } /* Test of findByState method, of class AddressDAOImpl. */
 
     @Test
-    public void findByType() {
+    public void testFindByType() {
         System.out.println("findByType");
         String type = "HOME";
 
@@ -110,7 +111,7 @@ public class AddressDAOImplTest extends AbstractTransactionalDataSourceSpringCon
     @Test
     public void testFindByCountry() {
         System.out.println("findByCountry");
-        String country = "COUNTRY";
+        String country = "USA";
 
 
         Collection result = addressDAO.findByCountry(country);
