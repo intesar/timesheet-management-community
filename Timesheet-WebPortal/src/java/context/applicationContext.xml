@@ -31,6 +31,6 @@
         </property>  
     </bean>
     
-    <bean id="portletNameInterceptor" class="org.springframework.web.portlet.sample.PortletNameInterceptor"/>
+    <!-- <bean id="portletNameInterceptor" class="org.springframework.web.portlet.sample.PortletNameInterceptor"/>-->
     
 </beans>
