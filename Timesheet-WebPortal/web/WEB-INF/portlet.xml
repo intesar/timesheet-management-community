@@ -2,19 +2,37 @@
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" version="1.0">
     
     <portlet>
-    <portlet-name>helloworld</portlet-name>
-    <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
-    <init-param>
-        <name>contextConfigLocation</name>
-        <value>classpath:context/portlet/helloWorld.xml</value>
-    </init-param>
-    <supports>
-        <mime-type>text/html</mime-type>
-        <portlet-mode>view</portlet-mode>
-    </supports>
-    <portlet-info>
-        <title>Hello World</title>
-    </portlet-info>     
+        <portlet-name>helloworld</portlet-name>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>classpath:context/portlets/helloWorld.xml</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Hello World</title>
+        </portlet-info>     
+    </portlet>
     
-    
+
+ <portlet>
+        <description>Hello1</description>
+        <portlet-name>Hello1</portlet-name>
+        <display-name>Hello1</display-name>
+        <portlet-class>com.abbh.timesheet.portlets.Hello1</portlet-class>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>          
+            <portlet-mode>VIEW</portlet-mode>
+            <portlet-mode>EDIT</portlet-mode>
+            <portlet-mode>HELP</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Hello1</title>
+            <short-title>Hello1</short-title>
+        </portlet-info>
+ </portlet>
 </portlet-app>
