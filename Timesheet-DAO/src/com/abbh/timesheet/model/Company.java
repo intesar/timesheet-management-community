@@ -30,11 +30,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "company")
-@NamedQueries({@NamedQuery(name = "Company.findById", query = "SELECT c FROM Company c WHERE c.id = :id"), @NamedQuery(name = "Company.findByName", query = "SELECT c FROM Company c WHERE c.name = :name"), @NamedQuery(name = "Company.findByType", query = "SELECT c FROM Company c WHERE c.type = :type"), @NamedQuery(name = "Company.findByCity", query = "SELECT c FROM Company c WHERE c.city = :city"), @NamedQuery(name = "Company.findByDescription", query = "SELECT c FROM Company c WHERE c.description = :description"), @NamedQuery(name = "Company.findByOwner", query = "SELECT c FROM Company c WHERE c.owner = :owner"), @NamedQuery(name = "Company.findByCreateDate", query = "SELECT c FROM Company c WHERE c.createDate = :createDate"), @NamedQuery(name = "Company.findByCreateUser", query = "SELECT c FROM Company c WHERE c.createUser = :createUser"), @NamedQuery(name = "Company.findByLastModifiedUser", query = "SELECT c FROM Company c WHERE c.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Company.findByLastModifiedDate", query = "SELECT c FROM Company c WHERE c.lastModifiedDate = :lastModifiedDate")})
+@NamedQueries({
+    @NamedQuery(name = "Company.findByCountAll", query = "SELECT count(c) FROM Company c WHERE c.id = :id or c.name like :name or c.type like :type or c.city like :city"),
+    @NamedQuery(name = "Company.findByAll", query = "SELECT c FROM Company c WHERE c.id = :id or c.name like :name or c.type like :type or c.city like :city"),
+    @NamedQuery(name = "Company.findById", query = "SELECT c FROM Company c WHERE c.id = :id"), @NamedQuery(name = "Company.findByName", query = "SELECT c FROM Company c WHERE c.name = :name"), @NamedQuery(name = "Company.findByType", query = "SELECT c FROM Company c WHERE c.type = :type"), @NamedQuery(name = "Company.findByCity", query = "SELECT c FROM Company c WHERE c.city = :city"), @NamedQuery(name = "Company.findByDescription", query = "SELECT c FROM Company c WHERE c.description = :description"), @NamedQuery(name = "Company.findByOwner", query = "SELECT c FROM Company c WHERE c.owner = :owner"), @NamedQuery(name = "Company.findByCreateDate", query = "SELECT c FROM Company c WHERE c.createDate = :createDate"), @NamedQuery(name = "Company.findByCreateUser", query = "SELECT c FROM Company c WHERE c.createUser = :createUser"), @NamedQuery(name = "Company.findByLastModifiedUser", query = "SELECT c FROM Company c WHERE c.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Company.findByLastModifiedDate", query = "SELECT c FROM Company c WHERE c.lastModifiedDate = :lastModifiedDate")})
 public class Company implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "type")
@@ -63,22 +66,22 @@ public class Company implements Serializable {
     public Company() {
     }
 
-    public Company(Integer id) {
+    public Company(Long id) {
         this.id = id;
     }
 
-    public Company(Integer id, String name, String city, String owner) {
+    public Company(Long id, String name, String city, String owner) {
         this.id = id;
         this.name = name;
         this.city = city;
         this.owner = owner;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
