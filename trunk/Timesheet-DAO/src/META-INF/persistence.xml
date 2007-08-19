@@ -3,6 +3,10 @@
   <persistence-unit name="Timesheet-DAOPU" transaction-type="RESOURCE_LOCAL">
     <provider>oracle.toplink.essentials.PersistenceProvider</provider>
     <class>com.abbh.timesheet.model.Address</class>
+    <class>com.abbh.timesheet.model.Company</class>
+    <class>com.abbh.timesheet.model.CompanyGroup</class>
+    <class>com.abbh.timesheet.model.CompanyGroupUser</class>
+    <class>com.abbh.timesheet.model.Users</class>
     <properties>
       <property name="toplink.jdbc.user" value="root"/>
       <property name="toplink.jdbc.password" value="apple123"/>
