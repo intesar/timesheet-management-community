@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd" version="1.0">
     
+    <!--
     <portlet>
         <portlet-name>helloworld</portlet-name>
         <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
@@ -16,8 +17,23 @@
             <title>Hello World</title>
         </portlet-info>     
     </portlet>
-    
-
+    -->
+<portlet>
+        <portlet-name>search</portlet-name>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>classpath:context/portlets/search.xml</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Search</title>
+        </portlet-info>     
+    </portlet>
+    <!--
  <portlet>
         <description>Hello1</description>
         <portlet-name>Hello1</portlet-name>
@@ -35,4 +51,5 @@
             <short-title>Hello1</short-title>
         </portlet-info>
  </portlet>
+ -->
 </portlet-app>
