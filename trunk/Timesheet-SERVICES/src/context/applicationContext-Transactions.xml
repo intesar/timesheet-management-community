@@ -13,15 +13,15 @@
   </bean>
 
   <aop:config>
-    <aop:pointcut id="serviceMethods" expression="execution(* com.abbh.timesheet.service.AddressService.*(..))"/>
+    <aop:pointcut id="serviceMethods" expression="execution(* com.abbh.timesheet.service.CompanyService.*(..))"/>
     <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
   </aop:config>
 
   <tx:advice id="txAdvice" transaction-manager="myTxManager">
     <tx:attributes>
       <tx:method name="**" propagation="REQUIRED"/>
-      <tx:method name="someOtherBusinessMethod" propagation="REQUIRES_NEW"/>
-      <tx:method name="*" propagation="SUPPORTS" read-only="true"/>
+      <!--<tx:method name="someOtherBusinessMethod" propagation="REQUIRES_NEW"/>-->
+      <!--<tx:method name="*" propagation="SUPPORTS" read-only="true"/>-->
     </tx:attributes>
   </tx:advice>
 

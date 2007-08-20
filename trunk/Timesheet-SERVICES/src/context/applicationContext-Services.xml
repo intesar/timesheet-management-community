@@ -20,6 +20,11 @@
         <property name="addressDAO" ref="addressDAOImpl"/>
     </bean>
 
+    <bean id="companyServiceImpl" class="com.abbh.timesheet.serviceImpl.CompanyServiceImpl" >
+        <property name="companyDAO" ref="companyDAOImpl"/>
+    </bean>
+
+
     <!--
      ##########################################################################
                             Services Declerations End
