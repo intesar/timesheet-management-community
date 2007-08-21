@@ -10,18 +10,10 @@
     -->
     
     <!-- Example Services Decleration -->
-    <!--
-    <bean id="addressServiceImpl" class="com.abbh.timesheet.daoImpl.AddressServiceImpl" >
-        <property name="addressDAO" ref="addressDAOImpl"/>
-    </bean>
-    -->
     
-    <bean id="addressServiceImpl" class="com.abbh.timesheet.serviceImpl.AddressServiceImpl" >
-        <property name="addressDAO" ref="addressDAOImpl"/>
-    </bean>
-
-    <bean id="companyServiceImpl" class="com.abbh.timesheet.serviceImpl.CompanyServiceImpl" >
-        <property name="companyDAO" ref="companyDAOImpl"/>
+    
+    <bean id="itemServiceImpl" class="com.abbhsoft.ecommerce.serviceImpl.ItemServiceImpl" >
+        <property name="itemDAO" ref="itemDAOImpl"/>
     </bean>
 
 
