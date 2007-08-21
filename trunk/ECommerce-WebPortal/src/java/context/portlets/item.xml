@@ -4,10 +4,10 @@
     
     <!-- Reused Portlet -->
     
-    <bean id="searchController" class="com.abbh.timesheet.controllers.search.SearchController">
+    <bean id="itemController" class="com.abbhsoft.ecommerce.controller.ItemController">
        
-        <property name="companyService">
-            <ref bean="companyServiceImpl" />
+        <property name="itemService">
+            <ref bean="itemServiceImpl" />
         </property>        
         
     </bean>
@@ -23,7 +23,7 @@
     <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
         <property name="portletModeMap">
             <map>
-                <entry key="view"><ref bean="searchController"/></entry>
+                <entry key="view"><ref bean="itemController"/></entry>
             </map>
         </property>
     </bean>

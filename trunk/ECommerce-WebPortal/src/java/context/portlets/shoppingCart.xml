@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    
+    <!-- Reused Portlet -->
+    
+    <bean id="shoppingCartController" class="com.abbhsoft.ecommerce.controller.ShoppingCartController">
+       
+        <property name="itemService">
+            <ref bean="itemServiceImpl" />
+        </property>        
+        
+    </bean>
+    
+    <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
+	<bean id="simplePortletHandlerAdapter" class="org.springframework.web.portlet.handler.SimplePortletHandlerAdapter"/>
+	<bean id="simplePortletPostProcessor" class="org.springframework.web.portlet.handler.SimplePortletPostProcessor"/>
+	<bean id="helloWorldPortlet" class="org.springframework.web.portlet.sample.HelloWorldPortlet"/>
+	-->
+
+    <!-- Handler Mapping -->
+	
+    <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
+        <property name="portletModeMap">
+            <map>
+                <entry key="view"><ref bean="shoppingCartController"/></entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!-- Exceptions Handler -->
+
+    <bean id="defaultExceptionHandler" parent="defaultExceptionHandlerTemplate"/>
+    
+</beans>

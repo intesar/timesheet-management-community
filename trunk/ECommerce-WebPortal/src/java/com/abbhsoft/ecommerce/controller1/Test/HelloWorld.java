@@ -1,4 +1,4 @@
-package com.abbhsoft.ecommerce.controller.Test;
+package com.abbhsoft.ecommerce.controller1.Test;
 import javax.portlet.GenericPortlet;
 import javax.portlet.ActionRequest;
 import javax.portlet.RenderRequest;
