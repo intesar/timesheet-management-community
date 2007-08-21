@@ -1,7 +1,7 @@
 /*
  * Catagory.java
  * 
- * Created on Aug 20, 2007, 9:11:42 PM
+ * Created on Aug 20, 2007, 9:38:01 PM
  * 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -10,9 +10,11 @@
 package com.abbhsoft.ecommerce.model;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -30,6 +32,8 @@ public class Catagory implements Serializable {
     private String catagoryName;
     @Column(name = "timings", nullable = false)
     private String timings;
+    @ManyToMany(mappedBy = "catagoryNameCollection")
+    private Collection<Item> itemNoCollection;
 
     public Catagory() {
     }
@@ -57,6 +61,14 @@ public class Catagory implements Serializable {
 
     public void setTimings(String timings) {
         this.timings = timings;
+    }
+
+    public Collection<Item> getItemNoCollection() {
+        return itemNoCollection;
+    }
+
+    public void setItemNoCollection(Collection<Item> itemNoCollection) {
+        this.itemNoCollection = itemNoCollection;
     }
 
     @Override
