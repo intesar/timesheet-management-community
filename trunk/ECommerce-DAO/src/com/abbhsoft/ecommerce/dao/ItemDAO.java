@@ -9,15 +9,21 @@
 
 package com.abbhsoft.ecommerce.dao;
 
+import com.abbhsoft.ecommerce.model.Item;
 import java.util.List;
 
 /**
  *
  * @author shannan
  */
-public interface ItemDAO {
+public interface ItemDAO {    
     
-    public abstract List findAllCatagories () ;
-    public abstract List findCatagoryItems ( String catagory );
+   
+    /**
+     * 
+     * @param catagoryId 
+     * @return 
+     */
+    public abstract List<Item> findCatagoryItems ( Long catagoryId );
 
 }

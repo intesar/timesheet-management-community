@@ -1,7 +1,7 @@
 /*
- * ItemDAOImpl.java
+ * CatagoryDAOImpl.java
  * 
- * Created on Aug 20, 2007, 11:15:30 PM
+ * Created on Aug 21, 2007, 7:03:28 PM
  * 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -9,22 +9,20 @@
 
 package com.abbhsoft.ecommerce.daoImpl;
 
-import com.abbhsoft.ecommerce.dao.ItemDAO;
-import com.abbhsoft.ecommerce.model.Item;
+import com.abbhsoft.ecommerce.dao.CatagoryDAO;
+import com.abbhsoft.ecommerce.model.Catagory;
 import java.util.List;
 
 /**
  *
  * @author shannan
  */
-public class ItemDAOImpl implements ItemDAO {
+public class CatagoryDAOImpl implements CatagoryDAO  {
 
-    public ItemDAOImpl() {
+    public CatagoryDAOImpl() {
     }
 
-    
-
-    public List<Item> findCatagoryItems(Long catagory) {
+    public List<Catagory> findAllCatagories() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
