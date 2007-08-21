@@ -23,11 +23,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     public List getCatagories() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return itemDAO.findAllCatagories();
     }
 
     public List getCatagoryItems(String catagory) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return itemDAO.findCatagoryItems(catagory);
     }
 
     public void setItemDAO(ItemDAO itemDAO) {
