@@ -1,7 +1,7 @@
 /*
  * Item.java
  * 
- * Created on Aug 20, 2007, 9:38:02 PM
+ * Created on Aug 21, 2007, 6:59:22 PM
  * 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -14,8 +14,6 @@ import java.util.Collection;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -24,55 +22,53 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Mohammed Hamed
+ * @author shannan
  */
 @Entity
-@Table(name = "_item")
-@NamedQueries({@NamedQuery(name = "Item.findByItemNo", query = "SELECT i FROM Item i WHERE i.itemNo = :itemNo"), @NamedQuery(name = "Item.findByName", query = "SELECT i FROM Item i WHERE i.name = :name"), @NamedQuery(name = "Item.findByDescription", query = "SELECT i FROM Item i WHERE i.description = :description"), @NamedQuery(name = "Item.findByIngredients", query = "SELECT i FROM Item i WHERE i.ingredients = :ingredients"), @NamedQuery(name = "Item.findByQuantity", query = "SELECT i FROM Item i WHERE i.quantity = :quantity"), @NamedQuery(name = "Item.findByPrice", query = "SELECT i FROM Item i WHERE i.price = :price")})
+@Table(name = "item")
+@NamedQueries({@NamedQuery(name = "Item.findById", query = "SELECT i FROM Item i WHERE i.id = :id"), @NamedQuery(name = "Item.findByName", query = "SELECT i FROM Item i WHERE i.name = :name"), @NamedQuery(name = "Item.findByDescription", query = "SELECT i FROM Item i WHERE i.description = :description"), @NamedQuery(name = "Item.findByIngredients", query = "SELECT i FROM Item i WHERE i.ingredients = :ingredients"), @NamedQuery(name = "Item.findByPrice", query = "SELECT i FROM Item i WHERE i.price = :price"), @NamedQuery(name = "Item.findByTax", query = "SELECT i FROM Item i WHERE i.tax = :tax"), @NamedQuery(name = "Item.findByIsEnabled", query = "SELECT i FROM Item i WHERE i.isEnabled = :isEnabled"), @NamedQuery(name = "Item.findByQuantityAvailable", query = "SELECT i FROM Item i WHERE i.quantityAvailable = :quantityAvailable")})
 public class Item implements Serializable {
     @Id
-    @Column(name = "item_no", nullable = false)
-    private Integer itemNo;
+    @Column(name = "id", nullable = false)
+    private Integer id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
-    @Column(name = "ingredients", nullable = false)
+    @Column(name = "ingredients")
     private String ingredients;
-    @Column(name = "quantity", nullable = false)
-    private int quantity;
-    @Column(name = "price", nullable = false)
-    private double price;
+    @Column(name = "price")
+    private Double price;
+    @Column(name = "tax")
+    private Double tax;
+    @Column(name = "is_enabled")
+    private Short isEnabled;
     @Lob
-    @Column(name = "image", nullable = false)
-    private byte[] image;
-    @JoinTable(name = "catagory_item", joinColumns = {@JoinColumn(name = "item_no", referencedColumnName = "item_no")}, inverseJoinColumns = {@JoinColumn(name = "catagory_name", referencedColumnName = "catagory_name")})
-    @ManyToMany
-    private Collection<Catagory> catagoryNameCollection;
+    @Column(name = "img")
+    private byte[] img;
+    @Column(name = "quantity_available")
+    private Integer quantityAvailable;
+    @ManyToMany(mappedBy = "itemIdCollection")
+    private Collection<Catagory> catagoryIdCollection;
 
     public Item() {
     }
 
-    public Item(Integer itemNo) {
-        this.itemNo = itemNo;
+    public Item(Integer id) {
+        this.id = id;
     }
 
-    public Item(Integer itemNo, String name, String description, String ingredients, int quantity, double price, byte[] image) {
-        this.itemNo = itemNo;
+    public Item(Integer id, String name) {
+        this.id = id;
         this.name = name;
-        this.description = description;
-        this.ingredients = ingredients;
-        this.quantity = quantity;
-        this.price = price;
-        this.image = image;
     }
 
-    public Integer getItemNo() {
-        return itemNo;
+    public Integer getId() {
+        return id;
     }
 
-    public void setItemNo(Integer itemNo) {
-        this.itemNo = itemNo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -99,42 +95,58 @@ public class Item implements Serializable {
         this.ingredients = ingredients;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public double getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 
-    public byte[] getImage() {
-        return image;
+    public Double getTax() {
+        return tax;
     }
 
-    public void setImage(byte[] image) {
-        this.image = image;
+    public void setTax(Double tax) {
+        this.tax = tax;
     }
 
-    public Collection<Catagory> getCatagoryNameCollection() {
-        return catagoryNameCollection;
+    public Short getIsEnabled() {
+        return isEnabled;
     }
 
-    public void setCatagoryNameCollection(Collection<Catagory> catagoryNameCollection) {
-        this.catagoryNameCollection = catagoryNameCollection;
+    public void setIsEnabled(Short isEnabled) {
+        this.isEnabled = isEnabled;
+    }
+
+    public byte[] getImg() {
+        return img;
+    }
+
+    public void setImg(byte[] img) {
+        this.img = img;
+    }
+
+    public Integer getQuantityAvailable() {
+        return quantityAvailable;
+    }
+
+    public void setQuantityAvailable(Integer quantityAvailable) {
+        this.quantityAvailable = quantityAvailable;
+    }
+
+    public Collection<Catagory> getCatagoryIdCollection() {
+        return catagoryIdCollection;
+    }
+
+    public void setCatagoryIdCollection(Collection<Catagory> catagoryIdCollection) {
+        this.catagoryIdCollection = catagoryIdCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (itemNo != null ? itemNo.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -145,7 +157,7 @@ if (!(object instanceof Item)) {
             return false;
         }
         Item other = (Item) object;
-        if (this.itemNo != other.itemNo && (this.itemNo == null || !this.itemNo.equals(other.itemNo))) {
+        if (this.id != other.id && (this.id == null || !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -153,7 +165,7 @@ if (!(object instanceof Item)) {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.ecommerce.model.Item[itemNo=" + itemNo + "]";
+        return "com.abbhsoft.ecommerce.model.Item[id=" + id + "]";
     }
 
 }
