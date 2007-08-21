@@ -27,15 +27,9 @@
 	<property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
     </bean>
     
-    <bean id="addressDAOImpl" class="com.abbh.timesheet.daoImpl.AddressDAOImpl" parent="emfTemplate" />       
+    <bean id="itemDAOImpl" class="com.abbhsoft.ecommerce.dao.ItemDAO.ItemDAOImpl" parent="emfTemplate" />       
     
-    <bean id="companyDAOImpl" class="com.abbh.timesheet.daoImpl.CompanyDAOImpl" parent="emfTemplate" >       
-        <property name="valueListHandlerDAO" > <ref bean="valueListHandlerDAOImpl" /> </property>
-    </bean>
-    
-
-    <bean id="valueListHandlerDAOImpl" class="com.abbh.timesheet.daoImpl.ValueListHandlerDAOImpl" parent="emfTemplate" />       
-
+   
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" parent="emfTemplate" />
     
     <!--
