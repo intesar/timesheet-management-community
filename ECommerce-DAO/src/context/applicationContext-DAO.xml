@@ -4,7 +4,7 @@
     
     <!-- EntityManagerFactory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="Timesheet-DAOPU"/>
+        <property name="persistenceUnitName" value="ECommerce-DAOPU"/>
     </bean>
     
     <!-- Production Deployement -->
