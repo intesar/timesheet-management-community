@@ -1,7 +1,7 @@
 /*
  * Item.java
  * 
- * Created on Aug 20, 2007, 9:11:44 PM
+ * Created on Aug 20, 2007, 9:38:02 PM
  * 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -11,14 +11,15 @@ package com.abbhsoft.ecommerce.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -45,8 +46,9 @@ public class Item implements Serializable {
     @Lob
     @Column(name = "image", nullable = false)
     private byte[] image;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
-    private Collection<CatagoryItem> catagoryItemCollection;
+    @JoinTable(name = "catagory_item", joinColumns = {@JoinColumn(name = "item_no", referencedColumnName = "item_no")}, inverseJoinColumns = {@JoinColumn(name = "catagory_name", referencedColumnName = "catagory_name")})
+    @ManyToMany
+    private Collection<Catagory> catagoryNameCollection;
 
     public Item() {
     }
@@ -121,12 +123,12 @@ public class Item implements Serializable {
         this.image = image;
     }
 
-    public Collection<CatagoryItem> getCatagoryItemCollection() {
-        return catagoryItemCollection;
+    public Collection<Catagory> getCatagoryNameCollection() {
+        return catagoryNameCollection;
     }
 
-    public void setCatagoryItemCollection(Collection<CatagoryItem> catagoryItemCollection) {
-        this.catagoryItemCollection = catagoryItemCollection;
+    public void setCatagoryNameCollection(Collection<Catagory> catagoryNameCollection) {
+        this.catagoryNameCollection = catagoryNameCollection;
     }
 
     @Override
