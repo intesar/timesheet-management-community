@@ -10,17 +10,15 @@
 package com.abbhsoft.ecommerce.dao;
 
 import com.abbhsoft.ecommerce.model.Catagory;
+import com.abbhsoft.ecommerce.model.Item;
 import java.util.List;
 
 /**
  *
  * @author shannan
  */
-public interface CatagoryDAO {
+public interface CatagoryDAO extends GenericDAO<Catagory, Long> {
 
-    /**
-     * 
-     * @return 
-     */
-    public abstract List<Catagory> findAllCatagories();
+    public List<Item> findCatagoryItems(Long catagory);
+    
 }
