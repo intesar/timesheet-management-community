@@ -1,7 +1,7 @@
 /*
  * Catagory.java
  * 
- * Created on Aug 21, 2007, 6:59:19 PM
+ * Created on Aug 21, 2007, 7:53:05 PM
  * 
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -27,15 +27,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "catagory")
-@NamedQueries({@NamedQuery(name = "Catagory.findById", query = "SELECT c FROM Catagory c WHERE c.id = :id"), @NamedQuery(name = "Catagory.findByName", query = "SELECT c FROM Catagory c WHERE c.name = :name"), @NamedQuery(name = "Catagory.findByTimings", query = "SELECT c FROM Catagory c WHERE c.timings = :timings")})
+@NamedQueries({@NamedQuery(name = "Catagory.findById", query = "SELECT c FROM Catagory c WHERE c.id = :id"), @NamedQuery(name = "Catagory.findByName", query = "SELECT c FROM Catagory c WHERE c.name = :name"), @NamedQuery(name = "Catagory.findByTimings", query = "SELECT c FROM Catagory c WHERE c.timings = :timings"), @NamedQuery(name = "Catagory.findByIsEnabled", query = "SELECT c FROM Catagory c WHERE c.isEnabled = :isEnabled")})
 public class Catagory implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "timings")
     private String timings;
+    @Column(name = "is_enabled")
+    private Short isEnabled;
     @JoinTable(name = "item_catagory", joinColumns = {@JoinColumn(name = "catagory_id", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "item_id", referencedColumnName = "id")})
     @ManyToMany
     private Collection<Item> itemIdCollection;
@@ -43,20 +45,20 @@ public class Catagory implements Serializable {
     public Catagory() {
     }
 
-    public Catagory(Integer id) {
+    public Catagory(Long id) {
         this.id = id;
     }
 
-    public Catagory(Integer id, String name) {
+    public Catagory(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -74,6 +76,14 @@ public class Catagory implements Serializable {
 
     public void setTimings(String timings) {
         this.timings = timings;
+    }
+
+    public Short getIsEnabled() {
+        return isEnabled;
+    }
+
+    public void setIsEnabled(Short isEnabled) {
+        this.isEnabled = isEnabled;
     }
 
     public Collection<Item> getItemIdCollection() {

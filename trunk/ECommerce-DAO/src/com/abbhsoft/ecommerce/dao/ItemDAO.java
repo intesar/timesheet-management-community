@@ -16,14 +16,8 @@ import java.util.List;
  *
  * @author shannan
  */
-public interface ItemDAO {    
+public interface ItemDAO extends GenericDAO<Item, Long> {    
     
    
-    /**
-     * 
-     * @param catagoryId 
-     * @return 
-     */
-    public abstract List<Item> findCatagoryItems ( Long catagoryId );
-
+ 
 }

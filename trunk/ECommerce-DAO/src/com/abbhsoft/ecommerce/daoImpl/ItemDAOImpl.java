@@ -11,21 +11,17 @@ package com.abbhsoft.ecommerce.daoImpl;
 
 import com.abbhsoft.ecommerce.dao.ItemDAO;
 import com.abbhsoft.ecommerce.model.Item;
-import java.util.List;
 
 /**
  *
  * @author shannan
  */
-public class ItemDAOImpl implements ItemDAO {
+public class ItemDAOImpl extends GenericAbstractDAO<Item, Long> implements ItemDAO {
 
     public ItemDAOImpl() {
+        super(Item.class);
     }
 
     
-
-    public List<Item> findCatagoryItems(Long catagory) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
 }
