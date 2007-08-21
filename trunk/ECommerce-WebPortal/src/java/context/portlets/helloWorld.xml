@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "../../dtd/spring-beans.dtd">
+<beans>
+    
+    <!-- Reused Portlet -->
+
+    <bean id="helloWorldPortlet" class="org.springframework.web.portlet.mvc.PortletWrappingController">
+        <property name="portletClass">
+            <value>com.abbh.timesheet.portlets.HelloWorld</value>
+        </property>
+    </bean>
+    
+    <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
+	<bean id="simplePortletHandlerAdapter" class="org.springframework.web.portlet.handler.SimplePortletHandlerAdapter"/>
+	<bean id="simplePortletPostProcessor" class="org.springframework.web.portlet.handler.SimplePortletPostProcessor"/>
+	<bean id="helloWorldPortlet" class="org.springframework.web.portlet.sample.HelloWorldPortlet"/>
+	-->
+
+    <!-- Handler Mapping -->
+	
+    <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
+        <property name="portletModeMap">
+            <map>
+                <entry key="view"><ref bean="helloWorldPortlet"/></entry>
+            </map>
+        </property>
+    </bean>
+    
+    <!-- Exceptions Handler -->
+
+    <bean id="defaultExceptionHandler" parent="defaultExceptionHandlerTemplate"/>
+    
+</beans>
