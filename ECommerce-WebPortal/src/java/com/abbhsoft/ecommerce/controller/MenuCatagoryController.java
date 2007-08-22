@@ -9,10 +9,10 @@
 
 package com.abbhsoft.ecommerce.controller;
 
-
-
-
 import com.abbhsoft.ecommerce.service.CatagoryService;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -27,7 +27,7 @@ import org.springframework.web.portlet.mvc.AbstractController;
  */
 public class MenuCatagoryController extends AbstractController implements InitializingBean {
 
-     public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() throws Exception {
         if (this.catagoryService == null) {
             throw new NullPointerException();
         }
@@ -35,13 +35,21 @@ public class MenuCatagoryController extends AbstractController implements Initia
 
     @Override
     protected void handleActionRequestInternal(ActionRequest request, ActionResponse response) throws Exception {
-        
-        //request.getPortletSession().setAttribute("SEARCH_VLH", vlh, request.getPortletSession().APPLICATION_SCOPE);
+        try {
+            Long catagory = Long.parseLong(request.getParameter("catagory"));
+            request.getPortletSession().setAttribute("catagory", catagory, request.getPortletSession().APPLICATION_SCOPE);
+        } catch (RuntimeException re) {
+            //log
+        }
     }
 
     @Override
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
-        return new ModelAndView("menuCatagory/view");
+
+        Map<String, Collection> model = new HashMap<String, Collection>();
+        model.put("catagories", catagoryService.getCatagories());
+
+        return new ModelAndView("menuCatagory/view", "model", model);
     }
 
 
@@ -50,6 +58,6 @@ public class MenuCatagoryController extends AbstractController implements Initia
     }
 
 
-  
+
     private CatagoryService catagoryService;
 }
