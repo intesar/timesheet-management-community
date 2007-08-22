@@ -14,13 +14,13 @@ import org.springframework.test.AbstractTransactionalDataSourceSpringContextTest
  *
  * @author shannan
  */
-public class ItemServiceTest extends AbstractTransactionalDataSourceSpringContextTests {
+public class CatagoryServiceTest extends AbstractTransactionalDataSourceSpringContextTests {
 
   
 
-    private ItemService itemService;
+    private CatagoryService itemService;
 
-    public void setCompanyDAO(ItemService itemService) {
+    public void setCompanyDAO(CatagoryService itemService) {
         this.itemService = itemService;
     }
 
@@ -43,13 +43,13 @@ public class ItemServiceTest extends AbstractTransactionalDataSourceSpringContex
         deleteFromTables(new String[]{"company", "users"});
     }
 
-    public ItemServiceTest (String testName) {
+    public CatagoryServiceTest (String testName) {
         super (testName);
     }
 
     public void testGetCatagories() {
         System.out.println("getCatagories");
-        ItemService instance = itemService;
+        CatagoryService instance = itemService;
         List expResult = null;
         List result = instance.getCatagories();
         assertEquals(expResult, result);
@@ -58,8 +58,8 @@ public class ItemServiceTest extends AbstractTransactionalDataSourceSpringContex
 
     public void testGetCatagoryItems() {
         System.out.println("getCatagoryItems");
-        String catagory = "";
-        ItemService instance = itemService;
+        Long catagory = 0L;
+        CatagoryService instance = itemService;
         List expResult = null;
         List result = instance.getCatagoryItems(catagory);
         assertEquals(expResult, result);
