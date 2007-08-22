@@ -1,12 +1,29 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" isELIgnored="false" %>
 
-<%-- Uncomment below lines to add portlet taglibs to jsp
-<%@ page import="javax.portlet.*"%>
-<%@ taglib uri="http://java.sun.com/portlet" prefix="portlet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<portlet:defineObjects />
-<%PortletPreferences prefs = renderRequest.getPreferences();%> 
---%>
 
-<b>HelloWorld - VIEW MODE</b>
+
+<%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
+<%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
+
+
+<table border="0" cellpadding="4">
+
+<c:forEach items="${model.catagories}" var="catagory">
+<tr>
+
+<td>
+<a href="<portlet:actionURL>
+   <portlet:param name="action" value="viewCatagory"/>
+   <portlet:param name="catagory" value="${catagory.id}"/>
+    </portlet:actionURL>">${catagory.name}
+</a>
+</td>
+
+</tr>
+</c:forEach>
+
+</table>
