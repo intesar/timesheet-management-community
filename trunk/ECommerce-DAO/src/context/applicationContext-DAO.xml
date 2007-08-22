@@ -27,7 +27,9 @@
 	<property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
     </bean>
     
-    <bean id="itemDAOImpl" class="com.abbhsoft.ecommerce.dao.ItemDAO.ItemDAOImpl" parent="emfTemplate" />       
+    <bean id="itemDAOImpl" class="com.abbhsoft.ecommerce.daoImpl.ItemDAOImpl" parent="emfTemplate" />       
+    
+   <bean id="catagoryDAOImpl" class="com.abbhsoft.ecommerce.daoImpl.CatagoryDAOImpl" parent="emfTemplate" />       
     
    
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" parent="emfTemplate" />
