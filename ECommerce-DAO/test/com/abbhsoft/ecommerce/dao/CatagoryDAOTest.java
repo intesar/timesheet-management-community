@@ -7,6 +7,9 @@
 
 package com.abbhsoft.ecommerce.dao;
 
+import com.abbhsoft.ecommerce.model.Catagory;
+import com.abbhsoft.ecommerce.model.Item;
+import java.util.Collection;
 import java.util.List;
 import org.springframework.test.AbstractTransactionalDataSourceSpringContextTests;
 
@@ -14,15 +17,17 @@ import org.springframework.test.AbstractTransactionalDataSourceSpringContextTest
  *
  * @author shannan
  */
-public class ItemDAOTest  extends AbstractTransactionalDataSourceSpringContextTests {
+public class CatagoryDAOTest  extends AbstractTransactionalDataSourceSpringContextTests {
 
   
 
-    private ItemDAO itemDAO;
+    private CatagoryDAO catagoryDAO;
 
-    public void setItemDAO(ItemDAO itemDAO) {
-        this.itemDAO = itemDAO;
+    public void setCatagoryDAO(CatagoryDAO catagoryDAO) {
+        this.catagoryDAO = catagoryDAO;
     }
+
+   
 
   
     @Override
@@ -45,7 +50,7 @@ public class ItemDAOTest  extends AbstractTransactionalDataSourceSpringContextTe
     }
 
     
-    public ItemDAOTest (String testName) {
+    public CatagoryDAOTest (String testName) {
         super (testName);
     }
 
@@ -53,19 +58,19 @@ public class ItemDAOTest  extends AbstractTransactionalDataSourceSpringContextTe
 
     public void testFindAllCatagories() {
         System.out.println("findAllCatagories");
-        ItemDAO instance = itemDAO;
+        Long catagory = 0L;
         List expResult = null;
-        List result = instance.findAllCatagories();
+        Collection<Catagory> result = catagoryDAO.findAll();
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     } /* Test of findAllCatagories method, of class ItemDAO. */
 
     public void testFindCatagoryItems() {
         System.out.println("findCatagoryItems");
-        String catagory = "";
-        ItemDAO instance = itemDAO;
+        Long catagory = 0L;
+        
         List expResult = null;
-        List result = instance.findCatagoryItems(catagory);
+        List<Item> result = catagoryDAO.findCatagoryItems(catagory);
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     } /* Test of findCatagoryItems method, of class ItemDAO. */
