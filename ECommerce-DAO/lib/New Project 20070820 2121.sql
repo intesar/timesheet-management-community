@@ -1,0 +1,103 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.41-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema e_commerce
+--
+
+CREATE DATABASE IF NOT EXISTS e_commerce;
+USE e_commerce;
+
+--
+-- Definition of table `catagory`
+--
+
+DROP TABLE IF EXISTS `catagory`;
+CREATE TABLE `catagory` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `name` varchar(45) NOT NULL,
+  `timings` varchar(45) default NULL,
+  `is_enabled` tinyint(4) default '1',
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `Index_2` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `catagory`
+--
+
+/*!40000 ALTER TABLE `catagory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `catagory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `item`
+--
+
+DROP TABLE IF EXISTS `item`;
+CREATE TABLE `item` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `name` varchar(45) NOT NULL,
+  `description` varchar(45) default NULL,
+  `ingredients` varchar(45) default NULL,
+  `price` double default '0',
+  `tax` double default '0',
+  `is_enabled` tinyint(3) unsigned default '1',
+  `img` blob,
+  `quantity_available` int(10) unsigned default NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `Index_2` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `item`
+--
+
+/*!40000 ALTER TABLE `item` DISABLE KEYS */;
+/*!40000 ALTER TABLE `item` ENABLE KEYS */;
+
+
+--
+-- Definition of table `item_catagory`
+--
+
+DROP TABLE IF EXISTS `item_catagory`;
+CREATE TABLE `item_catagory` (
+  `item_id` int(10) unsigned NOT NULL,
+  `catagory_id` int(10) unsigned NOT NULL,
+  UNIQUE KEY `Index_1` (`item_id`,`catagory_id`),
+  KEY `FK_item_catagory_1` (`catagory_id`),
+  CONSTRAINT `FK_item_catagory_1` FOREIGN KEY (`catagory_id`) REFERENCES `catagory` (`id`),
+  CONSTRAINT `FK_item_catagory_2` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `item_catagory`
+--
+
+/*!40000 ALTER TABLE `item_catagory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `item_catagory` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
