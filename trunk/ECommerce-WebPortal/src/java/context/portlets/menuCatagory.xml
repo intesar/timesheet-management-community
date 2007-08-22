@@ -6,8 +6,8 @@
     
     <bean id="menuCatagoryController" class="com.abbhsoft.ecommerce.controller.MenuCatagoryController">
        
-        <property name="itemService">
-            <ref bean="itemServiceImpl" />
+        <property name="catagoryService">
+            <ref bean="catagoryServiceImpl" />
         </property>        
         
     </bean>

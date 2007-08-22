@@ -6,10 +6,10 @@
     
     <bean id="itemController" class="com.abbhsoft.ecommerce.controller.ItemController">
        
-        <property name="itemService">
-            <ref bean="itemServiceImpl" />
+        <property name="catagoryService">
+            <ref bean="catagoryServiceImpl" />
         </property>        
-        
+               
     </bean>
     
     <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
