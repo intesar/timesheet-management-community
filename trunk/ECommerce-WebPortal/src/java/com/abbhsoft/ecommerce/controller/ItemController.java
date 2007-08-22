@@ -9,7 +9,8 @@
 
 package com.abbhsoft.ecommerce.controller;
 
-import com.abbhsoft.ecommerce.service.ItemService;
+import com.abbhsoft.ecommerce.service.CatagoryService;
+
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -25,7 +26,7 @@ import org.springframework.web.portlet.mvc.AbstractController;
 public class ItemController extends AbstractController implements InitializingBean {
 
     public void afterPropertiesSet() throws Exception {
-        if (this.itemService == null) {
+        if (this.catagoryService == null) {
             throw new NullPointerException();
         }
     }
@@ -41,12 +42,11 @@ public class ItemController extends AbstractController implements InitializingBe
         return new ModelAndView("item/view");
     }
 
-
-    public void setItemService(ItemService itemService) {
-        this.itemService = itemService;
+    public void setCatagoryService(CatagoryService catagoryService) {
+        this.catagoryService = catagoryService;
     }
 
 
-
-    private ItemService itemService;
+  
+    private CatagoryService catagoryService;
 }
