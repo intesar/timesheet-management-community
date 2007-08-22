@@ -44,9 +44,13 @@ public abstract class GenericAbstractDAO<T, Pk extends Serializable> extends Jpa
         return (T) this.find(clazz, pk);
     }
 
+    private String getClassName() {
+        return clazz.getName().replace("com.abbhsoft.ecommerce.model.", "");
+    }
     @SuppressWarnings(value = "unchecked")
     public Collection<T> findAll() {
-        final String ql = " select o from " + clazz.getName() + " where o.isEnabled = true ";
+        
+        final String ql = " select o from " +  this.getClassName() + " as o where o.isEnabled = true ";
         return (Collection<T>) execute(new JpaCallback() {
             public Object doInJpa(EntityManager em) throws PersistenceException {                
                 Query query = em.createQuery(ql);                
