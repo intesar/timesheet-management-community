@@ -6,8 +6,8 @@
     
     <bean id="shoppingCartController" class="com.abbhsoft.ecommerce.controller.ShoppingCartController">
        
-        <property name="itemService">
-            <ref bean="itemServiceImpl" />
+        <property name="catagoryService">
+            <ref bean="catagoryServiceImpl" />
         </property>        
         
     </bean>
