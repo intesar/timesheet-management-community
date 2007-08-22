@@ -12,8 +12,8 @@
     <!-- Example Services Decleration -->
     
     
-    <bean id="itemServiceImpl" class="com.abbhsoft.ecommerce.serviceImpl.ItemServiceImpl" >
-        <property name="itemDAO" ref="itemDAOImpl"/>
+    <bean id="catagoryServiceImpl" class="com.abbhsoft.ecommerce.serviceImpl.CatagoryServiceImpl" >
+        <property name="catagoryDAO" ref="catagoryDAOImpl"/>
     </bean>
 
 
