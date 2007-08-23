@@ -18,7 +18,15 @@ public class CartItem {
     public CartItem() {
     }
 
-    CartItem(long id, String name, String description, double price, Long quantity) {
+    /**
+     * 
+     * @param id 
+     * @param name 
+     * @param description 
+     * @param price 
+     * @param quantity 
+     */
+    public CartItem(Long id, String name, String description, Double price, Long quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
