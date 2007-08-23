@@ -111,7 +111,7 @@ public class ShoppingCart {
     }
 
     public Double getGrossTotal() {
-        return this.getSubTotal() + this.getTotalTax();
+        return DoubleFormatter.format(this.getSubTotal() + this.getTotalTax());
     }
 
 
@@ -132,13 +132,13 @@ public class ShoppingCart {
     }
 
     public Double getSubTotal() {
-        return calculateTotal();
+        return DoubleFormatter.format(calculateTotal());
     }
 
 
 
     public Double getTotalTax() {
-        return calculateTotal() * this.taxRate;
+        return DoubleFormatter.format(calculateTotal() * this.taxRate);
     }
 
 

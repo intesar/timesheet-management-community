@@ -19,12 +19,12 @@ public class CartItem {
     }
 
     /**
-     * 
-     * @param id 
-     * @param name 
-     * @param description 
-     * @param price 
-     * @param quantity 
+     *
+     * @param id
+     * @param name
+     * @param description
+     * @param price
+     * @param quantity
      */
     public CartItem(Long id, String name, String description, Double price, Long quantity) {
         this.id = id;
@@ -75,9 +75,9 @@ public class CartItem {
     }
 
     public Double subTotal() {
-        return this.quantity * this.price;
+        return DoubleFormatter.format(this.quantity * this.price);
     }
-    
+
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
