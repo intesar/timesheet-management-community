@@ -74,6 +74,10 @@ public class CartItem {
         this.quantity = quantity;
     }
 
+    public Double subTotal() {
+        return this.quantity * this.price;
+    }
+    
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;

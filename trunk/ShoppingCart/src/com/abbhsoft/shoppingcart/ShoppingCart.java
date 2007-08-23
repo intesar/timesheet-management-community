@@ -26,7 +26,7 @@ public class ShoppingCart {
         return cartItems.values();
     }
 
-    public CartItem getCartItem( Long id ) {
+    public CartItem getCartItem(Long id) {
         return cartItems.get(id);
     }
 
@@ -62,11 +62,11 @@ public class ShoppingCart {
         this.taxUsState = taxUsState;
     }
 
-    
+
     /**
-     * 
-     * @param cartItem 
-     *  
+     *
+     * @param cartItem
+     *
      *   adds this item to the shopping cart if it doesn't exits 
      *   or increments its quantity value for that item
      */
@@ -80,13 +80,13 @@ public class ShoppingCart {
     }
 
     /**
-     * 
-     * @param itemId 
-     * @param quantity 
-     *  
+     *
+     * @param itemId
+     * @param quantity
+     *
      *  if quantity is greater then zero then its replaced for that object
      *  else the object is removed from the cart
-     * 
+     *
      */
     public void updateItemQuantity(Long itemId, Long quantity) {
         if (cartItems.containsKey(itemId)) {
@@ -100,9 +100,73 @@ public class ShoppingCart {
     }
 
 
+
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Double getGrossTotal() {
+        return this.getSubTotal() + this.getTotalTax();
+    }
+
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public void setPort(String port) {
+        this.port = port;
+    }
+
+    public Double getSubTotal() {
+        return calculateTotal();
+    }
+
+
+
+    public Double getTotalTax() {
+        return calculateTotal() * this.taxRate;
+    }
+
+
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    private Double calculateTotal() {
+        Double total = 0.0;
+        Collection<CartItem> cartItemsLocal = this.getCartItems();
+        for (CartItem cartItemLocal : cartItemsLocal) {
+            total += cartItemLocal.getPrice() * cartItemLocal.getQuantity();
+        }
+        return total;
+    }
+
     private Map<Long, CartItem> cartItems = new HashMap<Long, CartItem>();
     private String shippingMethod;
     private Double shippingMethodPrice;
     private Double taxRate;
     private String taxUsState;
+    private String address;
+    private String host;
+    private String port;
+    private String user;
 }
