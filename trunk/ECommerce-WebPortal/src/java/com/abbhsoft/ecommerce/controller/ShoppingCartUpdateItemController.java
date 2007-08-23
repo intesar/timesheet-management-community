@@ -46,6 +46,6 @@ public class ShoppingCartUpdateItemController extends AbstractController impleme
 
     @Override
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
-        return new ModelAndView("cart/view");
+        return new ModelAndView("shoppingCart/view");
     }
 }
