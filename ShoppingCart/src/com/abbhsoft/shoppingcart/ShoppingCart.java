@@ -1,0 +1,108 @@
+/*
+ * ShoppingCart.java
+ *
+ * Created on Aug 22, 2007, 10:07:04 PM
+ *
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package com.abbhsoft.shoppingcart;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ *
+ * @author shannan
+ */
+public class ShoppingCart {
+
+    public ShoppingCart() {
+    }
+
+    public Collection<CartItem> getCartItems() {
+        return cartItems.values();
+    }
+
+    public CartItem getCartItem( Long id ) {
+        return cartItems.get(id);
+    }
+
+    public String getShippingMethod() {
+        return shippingMethod;
+    }
+
+    public void setShippingMethod(String shippingMethod) {
+        this.shippingMethod = shippingMethod;
+    }
+
+    public Double getShippingMethodPrice() {
+        return shippingMethodPrice;
+    }
+
+    public void setShippingMethodPrice(Double shippingMethodPrice) {
+        this.shippingMethodPrice = shippingMethodPrice;
+    }
+
+    public Double getTaxRate() {
+        return taxRate;
+    }
+
+    public void setTaxRate(Double taxRate) {
+        this.taxRate = taxRate;
+    }
+
+    public String getTaxUsState() {
+        return taxUsState;
+    }
+
+    public void setTaxUsState(String taxUsState) {
+        this.taxUsState = taxUsState;
+    }
+
+    
+    /**
+     * 
+     * @param cartItem 
+     *  
+     *   adds this item to the shopping cart if it doesn't exits 
+     *   or increments its quantity value for that item
+     */
+    public void addItem(CartItem cartItem) {
+        if (cartItems.containsKey(cartItem.getId())) {
+            CartItem cartItem1 = cartItems.get(cartItem.getId());
+            cartItem1.setQuantity(cartItem1.getQuantity() + 1);
+        } else {
+            cartItems.put(cartItem.getId(), cartItem);
+        }
+    }
+
+    /**
+     * 
+     * @param itemId 
+     * @param quantity 
+     *  
+     *  if quantity is greater then zero then its replaced for that object
+     *  else the object is removed from the cart
+     * 
+     */
+    public void updateItemQuantity(Long itemId, Long quantity) {
+        if (cartItems.containsKey(itemId)) {
+            if (quantity > 0L) {
+                CartItem cartItem1 = cartItems.get(itemId);
+                cartItem1.setQuantity(quantity);
+            } else {
+                cartItems.remove(itemId);
+            }
+        }
+    }
+
+
+    private Map<Long, CartItem> cartItems = new HashMap<Long, CartItem>();
+    private String shippingMethod;
+    private Double shippingMethodPrice;
+    private Double taxRate;
+    private String taxUsState;
+}
