@@ -10,7 +10,6 @@
 package com.abbhsoft.ecommerce.controller;
 
 import com.abbhsoft.shoppingcart.ShoppingCart;
-import java.util.Enumeration;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -50,9 +49,13 @@ public class ShoppingCartUpdateItemController extends AbstractController impleme
             String key = request.getParameter("item_name_" + i);
             if (key != null && key.trim().length() > 0) {
                 Long id = Long.valueOf(key);
-                Long quantity = Long.valueOf(request.getParameter("item_quantity_" + i));
-                System.out.println (" ______ " + id + "  " + quantity);
-                
+                Long quantity = 0L;
+                try { 
+                    quantity = Long.valueOf(request.getParameter("item_quantity_" + i));
+                } catch ( Exception e) {                    
+                    // log exception
+                }
+                System.out.println (" ______ " + id + "  " + quantity);                
                 sp.updateItemQuantity(id, quantity);
             } else {
                 flag = false;
