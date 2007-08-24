@@ -42,10 +42,9 @@ public class Item implements Serializable {
     @Column(name = "tax")
     private Double tax;
     @Column(name = "is_enabled")
-    private Short isEnabled;
-    @Lob
-    @Column(name = "img")
-    private byte[] img;
+    private Short isEnabled;    
+    @Column(name = "img_url")
+    private String imgURL;
     @Column(name = "quantity_available")
     private Long quantityAvailable;
     @ManyToMany(mappedBy = "itemIdCollection")
@@ -119,12 +118,12 @@ public class Item implements Serializable {
         this.isEnabled = isEnabled;
     }
 
-    public byte[] getImg() {
-        return img;
+    public String getImgURL() {
+        return imgURL;
     }
 
-    public void setImg(byte[] img) {
-        this.img = img;
+    public void setImgURL(String imgURL) {
+        this.imgURL = imgURL;
     }
 
     public Long getQuantityAvailable() {
