@@ -12,7 +12,7 @@
         
     </bean>
 
-    <bean id="shoppingCartAddItemController" class="com.abbhsoft.ecommerce.controller.ShoppingCartAddItemController">
+    <bean id="shoppingCartAddItemController" class="com.abbhsoft.ecommerce.controller.ShoppingCartAddItemController" />
     
     <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
 	<bean id="simplePortletHandlerAdapter" class="org.springframework.web.portlet.handler.SimplePortletHandlerAdapter"/>

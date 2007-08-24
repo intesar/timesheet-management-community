@@ -5,7 +5,7 @@
     <!-- Reused Portlet -->
     
     <bean id="shoppingCartUpdateItemController" class="com.abbhsoft.ecommerce.controller.ShoppingCartUpdateItemController">
-    
+        
     </bean>
     
     <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
@@ -15,7 +15,28 @@
 	-->
 
     <!-- Handler Mapping -->
-	
+    
+    <bean id="parameterMappingInterceptor" class="org.springframework.web.portlet.handler.ParameterMappingInterceptor"/>
+    
+    <bean id="portletModeParameterHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeParameterHandlerMapping">
+        <property name="order" value="10"/>
+        <property name="interceptors">
+            <list>
+                <ref bean="parameterMappingInterceptor"/>
+            </list>
+        </property>
+        <property name="portletModeParameterMap">
+            <map>
+                <entry key="view">
+                    <map>
+                        <entry key="updateShoppingCart"><ref bean="shoppingCartUpdateItemController"/></entry>                    
+                    </map>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    
+    
     <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
         <property name="portletModeMap">
             <map>
