@@ -30,7 +30,10 @@ public class DoubleFormatter {
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
         df.setDecimalSeparatorAlwaysShown(true);
-        Double d = Double.valueOf(df.format(value));
+        String val = df.format(value).replaceAll(",", "");
+        Double d = Double.valueOf(val);
         return d;
     }
+    
+    
 }
