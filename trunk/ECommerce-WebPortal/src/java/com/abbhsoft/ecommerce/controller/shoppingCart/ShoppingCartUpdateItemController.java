@@ -7,7 +7,7 @@
  * and open the template in the editor.
  */
 
-package com.abbhsoft.ecommerce.controller;
+package com.abbhsoft.ecommerce.controller.shoppingCart;
 
 import com.abbhsoft.shoppingcart.ShoppingCart;
 import javax.portlet.ActionRequest;

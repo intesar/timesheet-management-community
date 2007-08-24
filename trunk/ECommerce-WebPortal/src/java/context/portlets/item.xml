@@ -4,13 +4,15 @@
     
     <!-- Reused Portlet -->
     
-    <bean id="itemController" class="com.abbhsoft.ecommerce.controller.ItemController">
+    <bean id="itemController" class="com.abbhsoft.ecommerce.controller.item.ItemController">
        
         <property name="catagoryService">
             <ref bean="catagoryServiceImpl" />
         </property>        
                
     </bean>
+
+    <bean id="shoppingCartAddItemController" class="com.abbhsoft.ecommerce.controller.item.ShoppingCartAddItemController" />
     
     <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
 	<bean id="simplePortletHandlerAdapter" class="org.springframework.web.portlet.handler.SimplePortletHandlerAdapter"/>
@@ -20,6 +22,28 @@
 
     <!-- Handler Mapping -->
 	
+
+    <bean id="parameterMappingInterceptor" class="org.springframework.web.portlet.handler.ParameterMappingInterceptor"/>
+    
+    <bean id="portletModeParameterHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeParameterHandlerMapping">
+        <property name="order" value="10"/>
+        <property name="interceptors">
+            <list>
+                <ref bean="parameterMappingInterceptor"/>
+            </list>
+        </property>
+        <property name="portletModeParameterMap">
+            <map>
+                <entry key="view">
+                    <map>
+                        <entry key="shoppingCartAddItemController"><ref bean="shoppingCartAddItemController"/></entry>                    
+                    </map>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+
     <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
         <property name="portletModeMap">
             <map>

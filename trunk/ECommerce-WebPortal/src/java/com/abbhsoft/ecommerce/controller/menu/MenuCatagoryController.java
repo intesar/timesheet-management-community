@@ -7,10 +7,12 @@
  * and open the template in the editor.
  */
 
-package com.abbhsoft.ecommerce.controller;
+package com.abbhsoft.ecommerce.controller.menu;
 
 import com.abbhsoft.ecommerce.service.CatagoryService;
-
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -23,7 +25,7 @@ import org.springframework.web.portlet.mvc.AbstractController;
  *
  * @author shannan
  */
-public class ItemController extends AbstractController implements InitializingBean {
+public class MenuCatagoryController extends AbstractController implements InitializingBean {
 
     public void afterPropertiesSet() throws Exception {
         if (this.catagoryService == null) {
@@ -33,20 +35,30 @@ public class ItemController extends AbstractController implements InitializingBe
 
     @Override
     protected void handleActionRequestInternal(ActionRequest request, ActionResponse response) throws Exception {
-        
-        //request.getPortletSession().setAttribute("SEARCH_VLH", vlh, request.getPortletSession().APPLICATION_SCOPE);
+        try {
+            Long catagory = Long.parseLong(request.getParameter("catagory").trim());
+            request.getPortletSession().setAttribute("CATAGORY", catagory, request.getPortletSession().APPLICATION_SCOPE);
+            System.out.println ( " Select Catagory : __ " + catagory );
+        } catch (RuntimeException re) {
+            //log
+        }
     }
 
     @Override
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
-        return new ModelAndView("item/view");
+
+        Map<String, Collection> model = new HashMap<String, Collection>();
+        model.put("catagories", catagoryService.getCatagories());
+
+        return new ModelAndView("menuCatagory/view", "model", model);
     }
+
 
     public void setCatagoryService(CatagoryService catagoryService) {
         this.catagoryService = catagoryService;
     }
 
 
-  
+
     private CatagoryService catagoryService;
 }
