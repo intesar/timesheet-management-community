@@ -40,7 +40,30 @@ CREATE TABLE `catagory` (
 --
 
 /*!40000 ALTER TABLE `catagory` DISABLE KEYS */;
+INSERT INTO `catagory` (`id`,`name`,`timings`,`is_enabled`) VALUES 
+ (1,'DINNER',NULL,1),
+ (20,'LUNCH',NULL,1),
+ (30,'BEVERAGES',NULL,1);
 /*!40000 ALTER TABLE `catagory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `images`
+--
+
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE `images` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `img` blob NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `images`
+--
+
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
 
 
 --
@@ -56,7 +79,7 @@ CREATE TABLE `item` (
   `price` double default '0',
   `tax` double default '0',
   `is_enabled` tinyint(3) unsigned default '1',
-  `img` blob,
+  `img_url` varchar(100) default NULL,
   `quantity_available` int(10) unsigned default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `Index_2` (`name`)
