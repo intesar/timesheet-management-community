@@ -17,17 +17,17 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Shopping Cart</title>
-    <script type="text/javascript" src="/JQueryDemo1/jquery.tablesorter/jquery-1.1.3.js"></script>
-    <script type="text/javascript" src="/JQueryDemo1/jquery.tablesorter/jquery.tablesorter.pack.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter/jquery-1.1.3.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter/jquery.tablesorter.pack.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="/JQueryDemo1/jquery.tablesorter/doc/js/chili/javascript.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.tablesorter/doc/js/chili/javascript.css" />
     
-    <link rel="stylesheet" type="text/css" href="/JQueryDemo1/jquery.tablesorter/doc/js/chili/html.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.tablesorter/doc/js/chili/html.css" />
     
-    <link rel="stylesheet" type="text/css" href="/JQueryDemo1/jquery.tablesorter/doc/js/chili/css.css" />
+    <link rel="stylesheet" type="text/css" href="jquery.tablesorter/doc/js/chili/css.css" />
     
-    <link rel="stylesheet" href="/JQueryDemo1/jquery.tablesorter/doccss/jq.css" type="text/css" media="print, projection, screen" />
-    <link rel="stylesheet" href="/JQueryDemo1/jquery.tablesorter/themes/blue/style.css" type="text/css" id="" media="print, projection, screen" />
+    <link rel="stylesheet" href="jquery.tablesorter/doccss/jq.css" type="text/css" media="print, projection, screen" />
+    <link rel="stylesheet" href="jquery.tablesorter/themes/blue/style.css" type="text/css" id="" media="print, projection, screen" />
 </head>
 <script type="text/javascript" id="js">
         $(function() {
