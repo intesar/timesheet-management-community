@@ -7,7 +7,7 @@
  * and open the template in the editor.
  */
 
-package com.abbhsoft.ecommerce.controller;
+package com.abbhsoft.ecommerce.controller.item;
 
 import com.abbhsoft.shoppingcart.CartItem;
 import com.abbhsoft.shoppingcart.ShoppingCart;

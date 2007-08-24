@@ -4,7 +4,7 @@
     
     <!-- Reused Portlet -->
     
-    <bean id="shoppingCartUpdateItemController" class="com.abbhsoft.ecommerce.controller.ShoppingCartUpdateItemController">
+    <bean id="shoppingCartUpdateItemController" class="com.abbhsoft.ecommerce.controller.shoppintCart.ShoppingCartUpdateItemController">
         
     </bean>
     

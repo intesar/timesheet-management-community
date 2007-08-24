@@ -7,12 +7,10 @@
  * and open the template in the editor.
  */
 
-package com.abbhsoft.ecommerce.controller;
+package com.abbhsoft.ecommerce.controller.item;
 
 import com.abbhsoft.ecommerce.service.CatagoryService;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -25,7 +23,7 @@ import org.springframework.web.portlet.mvc.AbstractController;
  *
  * @author shannan
  */
-public class MenuCatagoryController extends AbstractController implements InitializingBean {
+public class ItemController extends AbstractController implements InitializingBean {
 
     public void afterPropertiesSet() throws Exception {
         if (this.catagoryService == null) {
@@ -35,29 +33,20 @@ public class MenuCatagoryController extends AbstractController implements Initia
 
     @Override
     protected void handleActionRequestInternal(ActionRequest request, ActionResponse response) throws Exception {
-        try {
-            Long catagory = Long.parseLong(request.getParameter("catagory"));
-            request.getPortletSession().setAttribute("catagory", catagory, request.getPortletSession().APPLICATION_SCOPE);
-        } catch (RuntimeException re) {
-            //log
-        }
+        
+        //request.getPortletSession().setAttribute("SEARCH_VLH", vlh, request.getPortletSession().APPLICATION_SCOPE);
     }
 
     @Override
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
-
-        Map<String, Collection> model = new HashMap<String, Collection>();
-        model.put("catagories", catagoryService.getCatagories());
-
-        return new ModelAndView("menuCatagory/view", "model", model);
+        return new ModelAndView("item/view");
     }
-
 
     public void setCatagoryService(CatagoryService catagoryService) {
         this.catagoryService = catagoryService;
     }
 
 
-
+  
     private CatagoryService catagoryService;
 }
