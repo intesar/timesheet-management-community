@@ -161,10 +161,10 @@ public class ShoppingCart {
     }
 
     private Map<Long, CartItem> cartItems = new HashMap<Long, CartItem>();
-    private String shippingMethod;
-    private Double shippingMethodPrice;
-    private Double taxRate;
-    private String taxUsState;
+    private String shippingMethod = "PICK UP";
+    private Double shippingMethodPrice = 0.0;
+    private Double taxRate = 0.0;
+    private String taxUsState = "PA";
     private String address;
     private String host;
     private String port;
