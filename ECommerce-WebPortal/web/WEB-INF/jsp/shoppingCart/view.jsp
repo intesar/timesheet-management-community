@@ -1,84 +1,136 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="UTF-8"%>
+<%@ page contentType="text/html" isELIgnored="false" %>
 
-<%-- Uncomment below lines to add portlet taglibs to jsp
-<%@ page import="javax.portlet.*"%>
-<%@ taglib uri="http://java.sun.com/portlet" prefix="portlet"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<portlet:defineObjects />
-<%PortletPreferences prefs = renderRequest.getPreferences();%> 
---%>
 
-<b>HelloWorld - VIEW MODE</b>
 
-<% 
-com.abbhsoft.shoppingcart.ShoppingCart shoppingCart = (ShoppingCart) request.getSession ().getAttribute ("SHOPPING_CART");
+<%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
-if ( shoppingCart == null ) {
-    out.println ( " Cart Empty! ");
+<%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+" http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Shopping Cart</title>
+    <script type="text/javascript" src="/JQueryDemo1/jquery.tablesorter/jquery-1.1.3.js"></script>
+    <script type="text/javascript" src="/JQueryDemo1/jquery.tablesorter/jquery.tablesorter.pack.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="/JQueryDemo1/jquery.tablesorter/doc/js/chili/javascript.css" />
+    
+    <link rel="stylesheet" type="text/css" href="/JQueryDemo1/jquery.tablesorter/doc/js/chili/html.css" />
+    
+    <link rel="stylesheet" type="text/css" href="/JQueryDemo1/jquery.tablesorter/doc/js/chili/css.css" />
+    
+    <link rel="stylesheet" href="/JQueryDemo1/jquery.tablesorter/doccss/jq.css" type="text/css" media="print, projection, screen" />
+    <link rel="stylesheet" href="/JQueryDemo1/jquery.tablesorter/themes/blue/style.css" type="text/css" id="" media="print, projection, screen" />
+</head>
+<script type="text/javascript" id="js">
+        $(function() {
+ $("#myTable").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
+ });
+ 
+</script>
+<body>
+<%    
+com.abbhsoft.shoppingcart.ShoppingCart sp = (com.abbhsoft.shoppingcart.ShoppingCart)request.getSession ().getAttribute ("SHOPPING_CART");
+if ( sp == null )  {
+    <B> Cart Empty </B>
 } else {
 %>
-<FORM method="POST" action="https://sandbox.google.com/checkout/cws/v2/Merchant/1234567890/checkoutForm" accept-charset="utf-8">
+<form  method="post" action="<portlet:actionURL>
+       <portlet:param name="action" value="updateShoppingCart"/>			
+       </portlet:actionURL>">
+    <table id="myTable" border="0" cellspacing="5" cellpadding="5"  class="tablesorter">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>                        
+                <th>Sub-Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%
+            int count = 1;
+            Double total = 0.0;
+            for ( com.abbhsoft.shoppingcart.CartItem i : sp.getCartItems () ) {
+            %>
+            <tr>
+                <td>
+                    <input type="hidden" name="item_name_<%= count %>" value="<%= i.getId () %>" />
+                    <%= i.getId () %>
+                </td>
+                <td>
+                    <%= i.getName () %>
+                </td>
+                <td>
+                    <%= i.getDescription () %>
+                </td>
+                <td>
+                    <input type="text" name="item_quantity_<%= count++ %>" value="<%= i.getQuantity () %>" size="4" />
+                </td>
+                <td>
+                    <%= i.getPrice () %>
+                </td>                       
+                <td>
+                    <%= i.subTotal ()   %>
+                </td>
+            </tr>
+            <%
+            
+            }
+            %>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="Update" name="update" /></td>
+                <td><b> Total   </b></td>
+                <td><b> <%= sp.getGrossTotal () %> </b></td>
+            </tr>
+        </tbody>
+    </table>            
+</form>
+
+<form name="google">
     
-    <TABLE>
-        <TH>
-            ID
-        </TH>
-        <TH>
-            Name
-        </TH>
-        <TH>
-            Quantity
-        </TH>
-        <TH>
-            Price
-        </TH>        
-        
-        <% 
-        java.util.Collection<CartItem> cartItems = shoppingCart.getCartItems ();
-        int count = 1;
-        for ( com.abbhsoft.shoppingcart.CartItem cartItem : cartItems ) {
-        %>
-        
-        <TR>
-            <TD>
-                <input type="hidden" name='item_name_<%= count++ %>' value="<%= cartItem.getId () %>"/>
-                <input type="text" name="item_name_<%= cartItem.getId () %>" value="<%= cartItem.getId () %>"/>
-            </TD>
-            <TD>
-                <input type="hidden" name="item_description_<%= count++ %>" value="<%= cartItem.getName () %>"/>
-                <input type="text" name="item_description_<%= cartItem.getId () %>" value="<%= cartItem.getName () %>"/>
-            </TD>
-            <TD>
-                <input type="hidden" name="item_quantity_<%= count++ %>" value="1"/>
-                <input type="text" name="item_quantity_<%= cartItem.getId () %>" value="<%= cartItem.getQuantity () %>"/>
-            </TD>
-            <TD>
-                <input type="hidden" name="item_price_<%= count++ %>" value="3.99"/>
-                <input type="text" name="item_price_<%= cartItem.getId () %>" value="<%= cartItem.getPrice () %>"/>  
-            </TD>    
-        </TR>
-        <%
-        }
-        %>
-        
-    </TABLE>
+    <%
+    count = 1;
+    for ( com.abbhsoft.shoppingcart.CartItem i : sp.getCartItems () ) {
+    %>
+    <input type="hidden" name="item_name_<%= count %>" value="<%= i.getName () %>" /> 
+    <input type="hidden" name="item_description_<%= count %>" value="<%= i.getDescription () %>" /> 
+    <input type="hidden" name="item_quantity_<%= count %>" value="<%= i.getQuantity () %>" /> 
+    <input type="hidden" name="item_price_<%= count %>" value="<%= i.getPrice () %>" /> 
     
-    <input type="hidden" name="ship_method_name_1" value="PICK UP"/>
-    <input type="hidden" name="ship_method_price_1" value="0.0"/>
+    <%
+    count++;
+    }
+    %>     
+    <input type="hidden" name="ship_method_name_1" value="<%= sp.getShippingMethod () %>"/>
+    <input type="hidden" name="ship_method_price_1" value="<%= sp.getShippingMethodPrice () %>"/>
     
-    <input type="hidden" name="tax_rate" value="0.0875"/>
-    <input type="hidden" name="tax_us_state" value="PA"/>
+    <input type="hidden" name="tax_rate" value="<%= sp.getTaxRate () %>"/>
+    <input type="hidden" name="tax_us_state" value="<%= sp.getTaxUsState () %>"/>
     
     <input type="hidden" name="_charset_"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="image" name="Google Checkout" alt="Fast checkout through Google" 
+                                                           src="http://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=1234567890&w=180&h=46&style=white&variant=text&loc=en_US" 
+                                                           height="46" width="180"/>
     
-    <input type="image" name="Google Checkout" alt="Fast checkout through Google" 
-           src="http://sandbox.google.com/checkout/buttons/checkout.gif?merchant_id=1234567890&w=180&h=46&style=white&variant=text&loc=en_US" 
-           height="46" width="180"/>
-    
-</FORM>
+</form>
+
 <%
 }
 %>
 
-%>
+</body>
+
+</html>
