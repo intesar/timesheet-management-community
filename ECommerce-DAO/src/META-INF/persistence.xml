@@ -7,7 +7,7 @@
     <properties>
       <property name="toplink.jdbc.user" value="root"/>
       <property name="toplink.jdbc.password" value="apple123"/>
-      <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/e_commerce"/>
+      <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/e_commerce_test"/>
       <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
     </properties>
   </persistence-unit>
