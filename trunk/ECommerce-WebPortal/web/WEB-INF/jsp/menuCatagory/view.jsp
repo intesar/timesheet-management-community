@@ -10,7 +10,7 @@
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Menu</title>
+
 <script type="text/javascript" src="jquery.tablesorter/jquery-1.1.3.js"></script>
 <script type="text/javascript" src="jquery.tablesorter/jquery.tablesorter.pack.js"></script>
 

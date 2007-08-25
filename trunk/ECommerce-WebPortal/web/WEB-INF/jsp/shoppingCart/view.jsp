@@ -39,8 +39,10 @@
 <%    
 com.abbhsoft.shoppingcart.ShoppingCart sp = (com.abbhsoft.shoppingcart.ShoppingCart)request.getSession ().getAttribute ("SHOPPING_CART");
 if ( sp == null )  {
+    %>
     <B> Cart Empty </B>
-} else {
+<%
+    } else {
 %>
 <form  method="post" action="<portlet:actionURL>
        <portlet:param name="action" value="updateShoppingCart"/>			
