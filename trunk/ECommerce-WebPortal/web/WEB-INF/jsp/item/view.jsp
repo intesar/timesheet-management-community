@@ -6,6 +6,55 @@
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
 
+<link rel="stylesheet" href="http://jquery.bassistance.de/tooltip/jquery.tooltip.css" />
+<script src=" http://jquery.bassistance.de/tooltip/jquery.js" type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/jquery.bgiframe.js " type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/jquery.dimensions.js" type="text/javascript"></script>
+<script src="http://jquery.bassistance.de/tooltip/chili-1.7.pack.js" type="text/javascript"></script>
+<script src=" http://jquery.bassistance.de/tooltip/jquery.tooltip.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+$(function() {
+
+
+$('img1').Tooltip({
+    track: true,
+    delay: 0,
+    showURL: false,
+    showBody: " - ",
+    extraClass: "pretty",
+    fixPNG: true,
+    opacity: 0.95,
+    left: -120
+});
+
+
+
+$("img").Tooltip({
+    track: true,
+    delay: 0,
+    showURL: false,
+    opacity: 1,
+    fixPNG: true,
+    showBody: " - ",
+    extraClass: "pretty fancy",
+    top: -15,
+    left: 5
+});
+
+$('#right a').Tooltip({
+    track: true,
+    delay: 0,
+    showURL: false,
+    extraClass: "right"
+});
+$('#right2 a').Tooltip({ showURL: false });
+
+$("#block").click($.Tooltip.block);
+
+});
+</script>
+
 
 <table border="0" cellspacing="3" cellpadding="3">
 <tbody>
@@ -21,7 +70,7 @@ for ( com.abbhsoft.ecommerce.model.Item item : items ) {
        </portlet:actionURL>">
     
     <td>
-        <img src="images/<%= item.getImgURL () %>" width="400" height="400" alt="images"/>
+        <img src="/ECommerce-WebPortal/images/<%= item.getImgURL () %>" title="<%= item.getDescription () %>" width="100" height="100" />
     </td>
     <td>
         <input type="hidden" name="id" value="<%= item.getId () %>" />
@@ -29,12 +78,11 @@ for ( com.abbhsoft.ecommerce.model.Item item : items ) {
         <input type="hidden" name="description" value="<%= item.getDescription () %>" />
         <input type="hidden" name="price" value="<%= item.getPrice () %>" />
         <br/>
-        <b><%= item.getName() %></b>
+        <h4><%= item.getName () %></h4>
         <br/>
-        <b><%= item.getPrice() %></b>
-        <br/>
+        <h4><%= item.getPrice () %></h4>        
         <input type="submit" value="Buy Now" name="buyNow" />
-        <br/>
+        
         <input type="submit" value="Cart to Cart" name="addToCart" />
     </td>            
 </form>

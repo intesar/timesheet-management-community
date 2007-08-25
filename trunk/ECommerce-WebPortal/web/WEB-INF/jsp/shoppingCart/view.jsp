@@ -77,6 +77,10 @@ if ( sp == null )  {
             
             }
             %>
+        </tbody>
+    </table>  
+    <table>
+        <tbody>
             <tr>
                 <td></td>
                 <td></td>
