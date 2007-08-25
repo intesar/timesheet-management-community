@@ -9,8 +9,12 @@
 
 package com.abbhsoft.ecommerce.controller.item;
 
+import com.abbhsoft.ecommerce.model.Item;
 import com.abbhsoft.ecommerce.service.CatagoryService;
-
+import com.abbhsoft.shoppingcart.CartItem;
+import com.abbhsoft.shoppingcart.ShoppingCart;
+import java.util.ArrayList;
+import java.util.Collection;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -33,12 +37,35 @@ public class ItemController extends AbstractController implements InitializingBe
 
     @Override
     protected void handleActionRequestInternal(ActionRequest request, ActionResponse response) throws Exception {
-        
-        //request.getPortletSession().setAttribute("SEARCH_VLH", vlh, request.getPortletSession().APPLICATION_SCOPE);
+        //read required params
+        Long id = Long.valueOf(request.getParameter("id").trim());
+        String name = request.getParameter("name").trim();
+        String description = request.getParameter("description");
+        Double price = Double.valueOf(request.getParameter("price").trim());
+
+        // find cart in session
+        ShoppingCart shoppingCart = (ShoppingCart) request.getPortletSession().getAttribute("SHOPPING_CART",request.getPortletSession().APPLICATION_SCOPE);
+        // create one if doens't exists
+        if (shoppingCart == null) {
+            shoppingCart = new ShoppingCart();
+            request.getPortletSession().setAttribute("SHOPPING_CART", shoppingCart, request.getPortletSession().APPLICATION_SCOPE);
+        }
+        //add the item 
+        // no need to add the cart reference to session its already added
+        CartItem cartItem = new CartItem(id, name, description, price, 1L);
+        shoppingCart.addItem(cartItem);
     }
 
     @Override
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
+        Long id = (Long) request.getPortletSession().getAttribute("CATAGORY", request.getPortletSession().APPLICATION_SCOPE);
+        Collection<Item> items = new ArrayList<Item>();
+        if (id != null) {
+            items = catagoryService.getCatagoryItems(id);            
+        } else {
+            // get all best Selling
+        }
+        request.setAttribute("ITEMS", items);
         return new ModelAndView("item/view");
     }
 
@@ -47,6 +74,6 @@ public class ItemController extends AbstractController implements InitializingBe
     }
 
 
-  
+
     private CatagoryService catagoryService;
 }
