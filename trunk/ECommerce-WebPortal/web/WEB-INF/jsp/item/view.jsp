@@ -1,10 +1,14 @@
 <%@ page contentType="text/html" isELIgnored="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
+
+<%--
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
-
+--%>
 
 <link rel="stylesheet" href="http://jquery.bassistance.de/tooltip/jquery.tooltip.css" />
 <script src=" http://jquery.bassistance.de/tooltip/jquery.js" type="text/javascript"></script>
