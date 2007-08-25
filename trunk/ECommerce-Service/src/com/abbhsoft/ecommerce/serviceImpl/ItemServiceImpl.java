@@ -29,6 +29,10 @@ public class ItemServiceImpl implements ItemService{
         
     }
 
+    public void setItemDAO(ItemDAO itemDAO) {
+        this.itemDAO = itemDAO;
+    }
+
 
 private ItemDAO itemDAO;
 }
