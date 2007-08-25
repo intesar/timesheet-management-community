@@ -1,48 +1,36 @@
 <%@ page contentType="text/html" isELIgnored="false" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
-
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 " http://www.w3.org/TR/html4/loose.dtd">
 
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Shopping Cart</title>
-    <script type="text/javascript" src="jquery.tablesorter/jquery-1.1.3.js"></script>
-    <script type="text/javascript" src="jquery.tablesorter/jquery.tablesorter.pack.js"></script>
-    
-    <link rel="stylesheet" type="text/css" href="jquery.tablesorter/doc/js/chili/javascript.css" />
-    
-    <link rel="stylesheet" type="text/css" href="jquery.tablesorter/doc/js/chili/html.css" />
-    
-    <link rel="stylesheet" type="text/css" href="jquery.tablesorter/doc/js/chili/css.css" />
-    
-    <link rel="stylesheet" href="jquery.tablesorter/doccss/jq.css" type="text/css" media="print, projection, screen" />
-    <link rel="stylesheet" href="jquery.tablesorter/themes/blue/style.css" type="text/css" id="" media="print, projection, screen" />
-</head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Shopping Cart</title>
+<link rel="stylesheet" href="http://tablesorter.com/docs/css/jq.css" type="text/css" media="print, projection, screen" />
+<link rel="stylesheet" href="http://tablesorter.com/themes/blue/style.css" type="text/css" media="print, projection, screen" />
+<script type="text/javascript" src="http://tablesorter.com/jquery-1.1.3.js"></script>
+<script type="text/javascript" src="http://tablesorter.com/docs/jquery.tablesorter.pack.js"></script>
+<script type="text/javascript" src="http://tablesorter.com/docs/js/chili/chili-1.8b.js"></script>
+<script type="text/javascript" src="http://tablesorter.com/docs/js/docs.js"></script>
 <script type="text/javascript" id="js">
         $(function() {
  $("#myTable").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
  });
  
 </script>
-<body>
+
 <%    
 com.abbhsoft.shoppingcart.ShoppingCart sp = (com.abbhsoft.shoppingcart.ShoppingCart)request.getSession ().getAttribute ("SHOPPING_CART");
 if ( sp == null )  {
-    %>
-    <B> Cart Empty </B>
+%>
+<B> Cart Empty </B>
 <%
-    } else {
+} else {
 %>
 <form  method="post" action="<portlet:actionURL>
        <portlet:param name="action" value="updateShoppingCart"/>			
@@ -133,6 +121,3 @@ if ( sp == null )  {
 }
 %>
 
-</body>
-
-</html>

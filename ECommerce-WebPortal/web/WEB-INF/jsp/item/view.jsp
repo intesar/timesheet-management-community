@@ -29,9 +29,12 @@ for ( com.abbhsoft.ecommerce.model.Item item : items ) {
         <input type="hidden" name="description" value="<%= item.getDescription () %>" />
         <input type="hidden" name="price" value="<%= item.getPrice () %>" />
         <br/>
-        <b></b>
-        <b></b>
+        <b><%= item.getName() %></b>
+        <br/>
+        <b><%= item.getPrice() %></b>
+        <br/>
         <input type="submit" value="Buy Now" name="buyNow" />
+        <br/>
         <input type="submit" value="Cart to Cart" name="addToCart" />
     </td>            
 </form>
