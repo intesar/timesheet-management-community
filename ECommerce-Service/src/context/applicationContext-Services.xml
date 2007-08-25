@@ -17,7 +17,7 @@
     </bean>
     
     <bean id="itemServiceImpl" class="com.abbhsoft.ecommerce.serviceImpl.ItemServiceImpl">
-             <property name="itemDAO" ref="ItemDAOImpl"/>
+             <property name="itemDAO" ref="itemDAOImpl"/>
     </bean>
 
 
