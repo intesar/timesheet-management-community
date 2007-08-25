@@ -36,7 +36,7 @@
             <map>
                 <entry key="view">
                     <map>
-                        <entry key="shoppingCartAddItemController"><ref bean="shoppingCartAddItemController"/></entry>                    
+                        <entry key="shoppingCartAddItemController"><ref bean="itemController"/></entry>                    
                     </map>
                 </entry>
             </map>
