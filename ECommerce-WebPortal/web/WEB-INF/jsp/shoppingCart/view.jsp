@@ -1,12 +1,12 @@
 <%@ page contentType="text/html" isELIgnored="false" %>
 <%@ taglib prefix="portlet" uri="http://java.sun.com/portlet" %>
-<%--
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
---%>
+
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Shopping Cart</title>
