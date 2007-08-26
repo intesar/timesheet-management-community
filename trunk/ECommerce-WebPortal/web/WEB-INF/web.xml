@@ -36,7 +36,7 @@
   
     <taglib>
         <taglib-uri>http://java.sun.com/jsp/jstl/core</taglib-uri>
-        <taglib-location>/web/WEB-INF/tags/c.tld</taglib-location>
+        <taglib-location>tags/c.tld</taglib-location>
     </taglib>
     
     <taglib>
