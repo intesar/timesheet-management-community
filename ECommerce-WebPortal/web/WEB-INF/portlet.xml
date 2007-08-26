@@ -3,7 +3,7 @@
 
  
     <portlet>
-        <portlet-name>Menu Catagory</portlet-name>
+        <portlet-name>Menu_Catagory</portlet-name>
         <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
         <init-param>
             <name>contextConfigLocation</name>
@@ -37,7 +37,7 @@
     </portlet>
 
     <portlet>
-        <portlet-name>Shopping Cart</portlet-name>
+        <portlet-name>Shopping_Cart</portlet-name>
         <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
         <init-param>
             <name>contextConfigLocation</name>
@@ -52,6 +52,21 @@
         </portlet-info>     
     </portlet>
 
+    <portlet>
+        <portlet-name>Search</portlet-name>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>classpath:context/portlets/search.xml</value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Search</title>
+        </portlet-info>     
+    </portlet>
    
 
 

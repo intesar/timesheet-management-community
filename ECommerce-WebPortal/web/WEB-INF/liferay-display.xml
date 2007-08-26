@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<display>
+    <category name="category.e_commerce">
+        <portlet id="Menu_Catagory" />
+        <portlet id="Item" />
+        <portlet id="Shopping_Cart" />
+        <portlet id="Search" />
+    </category>
+</display>
