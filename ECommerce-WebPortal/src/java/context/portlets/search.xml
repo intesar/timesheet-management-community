@@ -4,14 +4,11 @@
     
     <!-- Reused Portlet -->
     
-    <bean id="itemController" class="com.abbhsoft.ecommerce.controller.item.ItemController">
-       
-        <property name="catagoryService">
-            <ref bean="catagoryServiceImpl" />
-        </property>        
-               
+    <bean id="searchController" class="com.abbhsoft.ecommerce.controller.search.SearchController">      
+        
     </bean>
 
+     
     <!-- Alternate method to reuse portlet - simpler, but no ability to rename or set init parameters
 	<bean id="simplePortletHandlerAdapter" class="org.springframework.web.portlet.handler.SimplePortletHandlerAdapter"/>
 	<bean id="simplePortletPostProcessor" class="org.springframework.web.portlet.handler.SimplePortletPostProcessor"/>
@@ -34,7 +31,7 @@
             <map>
                 <entry key="view">
                     <map>
-                        <entry key="shoppingCartAddItemController"><ref bean="itemController"/></entry>                    
+                        <entry key="search"><ref bean="searchController"/></entry>                    
                     </map>
                 </entry>
             </map>
@@ -45,7 +42,7 @@
     <bean id="portletModeHandlerMapping" class="org.springframework.web.portlet.handler.PortletModeHandlerMapping">
         <property name="portletModeMap">
             <map>
-                <entry key="view"><ref bean="itemController"/></entry>
+                <entry key="view"><ref bean="searchController"/></entry>
             </map>
         </property>
     </bean>
