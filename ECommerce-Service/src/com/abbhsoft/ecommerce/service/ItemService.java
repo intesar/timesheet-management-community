@@ -11,6 +11,7 @@ package com.abbhsoft.ecommerce.service;
 
 import com.abbhsoft.ecommerce.model.Item;
 import java.util.Collection;
+import java.util.List;
 
 
 /**
@@ -21,5 +22,7 @@ public interface ItemService {
 
 
 public Collection<Item> getAllItems();
+
+public List<Item> getSearchedItems( String key );
 
 }
