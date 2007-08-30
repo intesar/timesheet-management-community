@@ -54,4 +54,11 @@ public interface GenericDAO<T, Pk> {
      */
     public Collection<T> findBySQL(final String sql, final Map<String, Object> params);
     
+    /**
+     * 
+     * @param ql 
+     * @param params 
+     * @return 
+     */
+    public Collection<T> findByJPAQL ( final String ql, final Map<String, Object> params );
 }
