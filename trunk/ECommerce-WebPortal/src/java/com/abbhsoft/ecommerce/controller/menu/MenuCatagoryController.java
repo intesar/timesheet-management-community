@@ -38,6 +38,8 @@ public class MenuCatagoryController extends AbstractController implements Initia
         try {
             Long catagory = Long.parseLong(request.getParameter("catagory").trim());
             request.getPortletSession().setAttribute("CATAGORY", catagory, request.getPortletSession().APPLICATION_SCOPE);
+            // removing session object for items_list
+            request.getPortletSession().removeAttribute("ITEM_LIST", request.getPortletSession().APPLICATION_SCOPE);
             System.out.println ( " Select Catagory : __ " + catagory );
         } catch (RuntimeException re) {
             //log
