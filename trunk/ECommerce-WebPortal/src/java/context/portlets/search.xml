@@ -6,6 +6,10 @@
     
     <bean id="searchController" class="com.abbhsoft.ecommerce.controller.search.SearchController">      
         
+        <property name="itemService">
+            <ref bean="itemServiceImpl" />
+        </property>        
+           
     </bean>
 
      
