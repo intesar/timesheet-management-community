@@ -18,7 +18,7 @@ import java.util.List;
  */
 public interface ItemDAO extends GenericDAO<Item, Long> {    
     
- 
+    public List<Item> findBySearchKeys ( String... keys );
   
  
 }

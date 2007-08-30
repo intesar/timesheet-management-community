@@ -47,10 +47,11 @@ public abstract class GenericAbstractDAO<T, Pk extends Serializable> extends Jpa
     private String getClassName() {
         return clazz.getName().replace("com.abbhsoft.ecommerce.model.", "");
     }
+
     @SuppressWarnings(value = "unchecked")
     public Collection<T> findAll() {
-        
-        final String ql = " select o from " +  this.getClassName() + " as o where o.isEnabled = true ";
+
+        final String ql = " select o from " + this.getClassName() + " as o where o.isEnabled = true ";
         return (Collection<T>) execute(new JpaCallback() {
             public Object doInJpa(EntityManager em) throws PersistenceException {                
                 Query query = em.createQuery(ql);                
@@ -78,6 +79,21 @@ public abstract class GenericAbstractDAO<T, Pk extends Serializable> extends Jpa
         return (Collection<T>) execute(new JpaCallback() {
             public Object doInJpa(EntityManager em) throws PersistenceException {
                 Query query = em.createNativeQuery(sql);
+                Set<String> keys = params.keySet();
+                for ( String key : keys ) {
+                query.setParameter(key, params.get(key));
+                }
+                List result = query.getResultList();
+                return result;
+            }
+        });
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    public Collection<T> findByJPAQL(final String sql, final Map<String, Object> params) {
+        return (Collection<T>) execute(new JpaCallback() {
+            public Object doInJpa(EntityManager em) throws PersistenceException {
+                Query query = em.createQuery(sql);
                 Set<String> keys = params.keySet();
                 for ( String key : keys ) {
                 query.setParameter(key, params.get(key));
