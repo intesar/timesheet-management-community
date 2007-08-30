@@ -15,6 +15,7 @@ import com.abbhsoft.shoppingcart.CartItem;
 import com.abbhsoft.shoppingcart.ShoppingCart;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
 import javax.portlet.RenderRequest;
@@ -50,20 +51,21 @@ public class ItemController extends AbstractController implements InitializingBe
             shoppingCart = new ShoppingCart();
             request.getPortletSession().setAttribute("SHOPPING_CART", shoppingCart, request.getPortletSession().APPLICATION_SCOPE);
         }
-        //add the item 
+        //add the item
         // no need to add the cart reference to session its already added
         CartItem cartItem = new CartItem(id, name, description, price, 1L);
         shoppingCart.addItem(cartItem);
     }
 
     @Override
+    @SuppressWarnings(value = "unchecked")
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
         Long id = (Long) request.getPortletSession().getAttribute("CATAGORY", request.getPortletSession().APPLICATION_SCOPE);
         Collection<Item> items = new ArrayList<Item>();
         if (id != null) {
-            items = catagoryService.getCatagoryItems(id);            
+            items = catagoryService.getCatagoryItems(id);
         } else {
-            // get all best Selling
+            items = (List<Item>) request.getPortletSession().getAttribute("ITEMS_LIST", request.getPortletSession().APPLICATION_SCOPE);
         }
         request.setAttribute("ITEMS", items);
         return new ModelAndView("item/view");
