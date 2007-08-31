@@ -29,7 +29,7 @@ public class MenuCatagoryController extends AbstractController implements Initia
 
     public void afterPropertiesSet() throws Exception {
         if (this.catagoryService == null) {
-            throw new NullPointerException();
+            //throw new NullPointerException();
         }
     }
 
@@ -42,7 +42,7 @@ public class MenuCatagoryController extends AbstractController implements Initia
             request.getPortletSession().removeAttribute("ITEM_LIST", request.getPortletSession().APPLICATION_SCOPE);
             System.out.println ( " Select Catagory : __ " + catagory );
         } catch (RuntimeException re) {
-            //log
+            re.printStackTrace();
         }
     }
 
