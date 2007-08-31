@@ -7,7 +7,7 @@
     <import resource="applicationContext-DAO.xml" />
     <import resource="applicationContext-Services.xml" />
     <import resource="applicationContext-Transactions.xml" />
-    
+   
     <!-- Message source for this context, loaded from localized "messages_xx" files -->
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
