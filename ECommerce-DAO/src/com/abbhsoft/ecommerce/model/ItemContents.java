@@ -29,7 +29,7 @@ import javax.persistence.Table;
 public class ItemContents implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
     @Column(name = "content", nullable = false)
     private String content;
     @JoinColumn(name = "item_id", referencedColumnName = "id")
@@ -39,20 +39,20 @@ public class ItemContents implements Serializable {
     public ItemContents() {
     }
 
-    public ItemContents(Integer id) {
+    public ItemContents(Long id) {
         this.id = id;
     }
 
-    public ItemContents(Integer id, String content) {
+    public ItemContents(Long id, String content) {
         this.id = id;
         this.content = content;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -30,7 +30,7 @@ import javax.persistence.Table;
 public class Item implements Serializable {
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "description")
@@ -44,27 +44,27 @@ public class Item implements Serializable {
     @Column(name = "img_url")
     private String imgUrl;
     @Column(name = "quantity_available")
-    private Integer quantityAvailable;
+    private Long quantityAvailable;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "itemId")
     private Collection<ItemContents> itemContents1Collection;
 
     public Item() {
     }
 
-    public Item(Integer id) {
+    public Item(Long id) {
         this.id = id;
     }
 
-    public Item(Integer id, String name) {
+    public Item(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -116,11 +116,11 @@ public class Item implements Serializable {
         this.imgUrl = imgUrl;
     }
 
-    public Integer getQuantityAvailable() {
+    public Long getQuantityAvailable() {
         return quantityAvailable;
     }
 
-    public void setQuantityAvailable(Integer quantityAvailable) {
+    public void setQuantityAvailable(Long quantityAvailable) {
         this.quantityAvailable = quantityAvailable;
     }
 
