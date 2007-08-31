@@ -75,7 +75,6 @@ CREATE TABLE `item` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `name` varchar(45) NOT NULL,
   `description` varchar(45) default NULL,
-  `ingredients` varchar(45) default NULL,
   `price` double default '0',
   `tax` double default '0',
   `is_enabled` tinyint(3) unsigned default '1',
@@ -90,8 +89,9 @@ CREATE TABLE `item` (
 --
 
 /*!40000 ALTER TABLE `item` DISABLE KEYS */;
-INSERT INTO `item` (`id`,`name`,`description`,`ingredients`,`price`,`tax`,`is_enabled`,`img_url`,`quantity_available`) VALUES 
- (1,'CHICKEN BIRYANI','HYD SPICY RICE DISH',NULL,5.99,0.00785,1,'biryani.jpg',100);
+INSERT INTO `item` (`id`,`name`,`description`,`price`,`tax`,`is_enabled`,`img_url`,`quantity_available`) VALUES 
+ (1,'CHICKEN BIRYANI','HYD SPICY RICE DISH',5.99,0.00785,1,'biryani.jpg',100),
+ (2,'EGG BIRYANI','SPICY EGG BIRYANI',6.99,0.00785,1,'biryani.jpg',100);
 /*!40000 ALTER TABLE `item` ENABLE KEYS */;
 
 
@@ -115,8 +115,32 @@ CREATE TABLE `item_catagory` (
 
 /*!40000 ALTER TABLE `item_catagory` DISABLE KEYS */;
 INSERT INTO `item_catagory` (`item_id`,`catagory_id`) VALUES 
- (1,1);
+ (1,1),
+ (2,1);
 /*!40000 ALTER TABLE `item_catagory` ENABLE KEYS */;
+
+
+--
+-- Definition of table `item_contents`
+--
+
+DROP TABLE IF EXISTS `item_contents`;
+CREATE TABLE `item_contents` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `content` varchar(45) NOT NULL,
+  `item_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY  USING BTREE (`id`),
+  UNIQUE KEY `Index_3` (`item_id`,`content`),
+  KEY `Index_2` (`content`),
+  CONSTRAINT `FK_item_contents_1` FOREIGN KEY (`item_id`) REFERENCES `item` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `item_contents`
+--
+
+/*!40000 ALTER TABLE `item_contents` DISABLE KEYS */;
+/*!40000 ALTER TABLE `item_contents` ENABLE KEYS */;
 
 
 
