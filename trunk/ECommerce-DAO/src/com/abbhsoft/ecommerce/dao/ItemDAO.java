@@ -10,6 +10,7 @@
 package com.abbhsoft.ecommerce.dao;
 
 import com.abbhsoft.ecommerce.model.Item;
+import java.util.List;
 
 /**
  *
