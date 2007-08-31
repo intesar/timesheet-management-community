@@ -4,6 +4,7 @@
     <provider>oracle.toplink.essentials.PersistenceProvider</provider>
     <class>com.abbhsoft.ecommerce.model.Item</class>
     <class>com.abbhsoft.ecommerce.model.Catagory</class>
+    <class>com.abbhsoft.ecommerce.model.ItemContents</class>
     <properties>
       <property name="toplink.jdbc.user" value="root"/>
       <property name="toplink.jdbc.password" value="apple123"/>
