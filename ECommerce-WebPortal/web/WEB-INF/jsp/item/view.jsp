@@ -74,7 +74,7 @@ for ( com.abbhsoft.ecommerce.model.Item item : items ) {
        </portlet:actionURL>">
     
     <td>
-        <img src="/ECommerce-WebPortal/images/<%= item.getImgURL () %>" title="<%= item.getDescription () %>" width="100" height="100" />
+        <img src="/ECommerce-WebPortal/images/<%= item.getImgUrl () %>" title="<%= item.getDescription () %>" width="100" height="100" />
     </td>
     <td>
         <input type="hidden" name="id" value="<%= item.getId () %>" />
