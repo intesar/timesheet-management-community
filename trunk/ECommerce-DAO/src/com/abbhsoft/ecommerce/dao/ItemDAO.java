@@ -1,8 +1,8 @@
 /*
  * ItemDAO.java
- * 
+ *
  * Created on Aug 20, 2007, 11:14:39 PM
- * 
+ *
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -16,9 +16,9 @@ import java.util.List;
  *
  * @author shannan
  */
-public interface ItemDAO extends GenericDAO<Item, Long> {    
-    
-    public List<Item> findBySearchKeys ( String... keys );
-  
- 
+public interface ItemDAO extends GenericDAO<Item, Long> {
+
+    public List<Item> findBySearchKeys(String... keys);
+
+    public List<Item> findByPrice(Double... prices);
 }
