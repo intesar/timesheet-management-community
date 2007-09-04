@@ -30,21 +30,29 @@ public class ItemServiceImpl implements ItemService {
         return itemDAO.findAll();
     }
 
-    public List<Item> getSearchedItems(String key) {
-        // make sure the string is not empty else return empty List but not Null
-        // apply SQLInjectionFilter by calling 
-        // u can find this jar inside dao/lib
+
+    public List<Item> getMatchingItems(String key) {
         key = SQLInjectionFilterManager.getInstance().filter(key);
-        // use String[] keys = key.split(" ");
-        // call dao
-        // return the result
-        return null;
+        key = key.toLowerCase();
+        key = key.replace("..", " ");
+        String[] keys = key.split(" ");
+        Double[] _keys = new Double[keys.length];
+        try {
+            for (int i = 0; i < keys.length; i++) {
+                _keys[i] = Double.valueOf(keys[i]);
+            }
+            return this.itemDAO.findByPrice(_keys);
+        } catch (RuntimeException re) {
+            return this.itemDAO.findBySearchKeys(keys);
+        }
     }
-    
+
+
+
+
     public void setItemDAO(ItemDAO itemDAO) {
         this.itemDAO = itemDAO;
     }
 
-    
     private ItemDAO itemDAO;
 }
