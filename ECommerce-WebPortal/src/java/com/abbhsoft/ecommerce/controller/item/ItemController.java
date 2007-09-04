@@ -61,11 +61,15 @@ public class ItemController extends AbstractController implements InitializingBe
     @SuppressWarnings(value = "unchecked")
     public ModelAndView handleRenderRequestInternal(RenderRequest request, RenderResponse response) throws Exception {
         Long id = (Long) request.getPortletSession().getAttribute("CATAGORY", request.getPortletSession().APPLICATION_SCOPE);
-        Collection<Item> items = new ArrayList<Item>();
+        Collection<Item> items = null;
         if (id != null) {
             items = catagoryService.getCatagoryItems(id);
         } else {
             items = (List<Item>) request.getPortletSession().getAttribute("ITEMS_LIST", request.getPortletSession().APPLICATION_SCOPE);
+        }
+
+        if (items == null) {
+            items = new ArrayList<Item>();
         }
         request.setAttribute("ITEMS", items);
         return new ModelAndView("item/view");
