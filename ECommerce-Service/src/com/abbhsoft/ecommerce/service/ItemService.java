@@ -1,8 +1,8 @@
 /*
  * ItemService.java
- * 
+ *
  * Created on Aug 24, 2007, 11:50:35 PM
- * 
+ *
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -20,9 +20,9 @@ import java.util.List;
  */
 public interface ItemService {
 
+    public Collection<Item> getAllItems();
 
-public Collection<Item> getAllItems();
+    public List<Item> getMatchingItems(String key);
 
-public List<Item> getSearchedItems( String key );
 
 }
