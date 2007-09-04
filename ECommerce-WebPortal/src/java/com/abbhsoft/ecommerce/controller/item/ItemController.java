@@ -65,7 +65,7 @@ public class ItemController extends AbstractController implements InitializingBe
         if (id != null) {
             items = catagoryService.getCatagoryItems(id);
         } else {
-            items = (List<Item>) request.getPortletSession().getAttribute("ITEMS_LIST", request.getPortletSession().APPLICATION_SCOPE);
+            items = (Collection<Item>) request.getPortletSession().getAttribute("ITEM_LIST", request.getPortletSession().APPLICATION_SCOPE);
         }
 
         if (items == null) {
