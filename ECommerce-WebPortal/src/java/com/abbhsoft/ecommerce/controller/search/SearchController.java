@@ -34,7 +34,7 @@ public class SearchController extends AbstractController implements Initializing
     @Override
     protected void handleActionRequestInternal(ActionRequest request, ActionResponse response) throws Exception {
         String key = request.getParameter("key");
-        List<Item> list = this.itemService.getSearchedItems(key);
+        List<Item> list = this.itemService.getMatchingItems(key);
         request.getPortletSession().setAttribute("ITEM_LIST", list, request.getPortletSession().APPLICATION_SCOPE);
         // removing selected category
         request.getPortletSession().removeAttribute("CATAGORY", request.getPortletSession().APPLICATION_SCOPE);
