@@ -8,20 +8,6 @@
 
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Shopping Cart</title>
-<link rel="stylesheet" href="http://tablesorter.com/docs/css/jq.css" type="text/css" media="print, projection, screen" />
-<link rel="stylesheet" href="http://tablesorter.com/themes/blue/style.css" type="text/css" media="print, projection, screen" />
-<script type="text/javascript" src="http://tablesorter.com/jquery-1.1.3.js"></script>
-<script type="text/javascript" src="http://tablesorter.com/docs/jquery.tablesorter.pack.js"></script>
-<script type="text/javascript" src="http://tablesorter.com/docs/js/chili/chili-1.8b.js"></script>
-<script type="text/javascript" src="http://tablesorter.com/docs/js/docs.js"></script>
-<script type="text/javascript" id="js">
-        $(function() {
- $("#myTable").tablesorter({sortList:[[0,0],[2,1]], widgets: ['zebra']});
- });
- 
-</script>
 
 <%    
 com.abbhsoft.shoppingcart.ShoppingCart sp = (com.abbhsoft.shoppingcart.ShoppingCart)request.getSession ().getAttribute ("SHOPPING_CART");
@@ -34,7 +20,7 @@ if ( sp == null )  {
 <form  method="post" action="<portlet:actionURL>
        <portlet:param name="action" value="updateShoppingCart"/>			
        </portlet:actionURL>">
-    <table id="myTable" border="0" cellspacing="5" cellpadding="5"  class="tablesorter">
+    <table id="myTable" border="0" cellspacing="20" cellpadding="20"  >
         <thead>
             <tr>
                 <th>ID</th>
