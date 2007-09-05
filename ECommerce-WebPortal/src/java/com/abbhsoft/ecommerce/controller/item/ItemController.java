@@ -39,7 +39,7 @@ public class ItemController extends AbstractController implements InitializingBe
     @Override
     protected void handleActionRequestInternal(ActionRequest request, ActionResponse response) throws Exception {
         //read required params
-        Long id = Long.valueOf(request.getParameter("id").trim());
+        Long id = Long.valueOf(request.getParameter("itemId").trim());
         String name = request.getParameter("name").trim();
         String description = request.getParameter("description");
         Double price = Double.valueOf(request.getParameter("price").trim());
