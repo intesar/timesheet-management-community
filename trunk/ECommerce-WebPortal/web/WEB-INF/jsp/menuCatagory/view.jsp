@@ -12,6 +12,8 @@
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link type="text/css" rel="stylesheet" href="http://www.joostdevalk.nl/default.css"/>
+<link type="text/css" rel="stylesheet"href="http://www.joostdevalk.nl/code/sortable-table/example.css"/>
 
 <script type="text/javascript" src="http://www.joostdevalk.nl/code/sortable-table/current/sortable.js"></script>
 

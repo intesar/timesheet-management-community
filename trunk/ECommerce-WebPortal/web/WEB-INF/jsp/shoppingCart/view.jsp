@@ -6,6 +6,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
+<link type="text/css" rel="stylesheet" href="http://www.joostdevalk.nl/default.css"/>
+<link type="text/css" rel="stylesheet"href="http://www.joostdevalk.nl/code/sortable-table/example.css"/>
 
 <script type="text/javascript" src="http://www.joostdevalk.nl/code/sortable-table/current/sortable.js"></script>
 
@@ -23,12 +25,12 @@ if ( sp == null )  {
     <table class="sortable" id="myTable" border="0" cellspacing="20" cellpadding="20"  >
         <thead>
             <tr>
-                <th>ID</th>
+                <th class="startsort">ID</th>
                 <th>Name</th>
                 <th>Price</th>                        
                 <th>Quantity</th>
                 <th>Sub-Total</th>
-                <th>Total</th>
+                <th class="unsortable">Total</th>
             </tr>
         </thead>
         <tbody>
