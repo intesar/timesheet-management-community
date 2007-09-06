@@ -14,7 +14,7 @@
 
 
 
-<table class="sortable" border="0" cellspacing="3" cellpadding="3">
+<table class="sortable" id="itemTable" border="0" cellspacing="3" cellpadding="3">
     <thead>
     <tr>
         <th> Image </th>
