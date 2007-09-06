@@ -13,12 +13,13 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<script type="text/javascript" src="http://www.joostdevalk.nl/code/sortable-table/current/sortable.js"></script>
 
 
-<table id="myTable" border="0" cellspacing="5" cellpadding="5"  >
+<table  class="sortable" id="myTable" border="0" cellspacing="5" cellpadding="5"  >
 <thead>
     <tr>
-        <th>Menu Catagories</th>
+        <th></th>
     </tr>    
 </thead>
 
