@@ -73,10 +73,14 @@ public class ShoppingCart {
     public void addItem(CartItem cartItem) {
         if (cartItems.containsKey(cartItem.getId())) {
             CartItem cartItem1 = cartItems.get(cartItem.getId());
+            System.out.println ( "__________________ " + cartItem1.getQuantity());            
             cartItem1.setQuantity(cartItem1.getQuantity() + 1);
+            System.out.println ( "__________________ " + cartItem1.getQuantity());
         } else {
             cartItems.put(cartItem.getId(), cartItem);
         }
+        
+        System.out.println ( "__________________ Cart " + this.getCartItems());
     }
 
     /**
