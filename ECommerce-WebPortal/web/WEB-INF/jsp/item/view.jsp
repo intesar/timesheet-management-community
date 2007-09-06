@@ -9,6 +9,8 @@
 
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
+<link type="text/css" rel="stylesheet" href="http://www.joostdevalk.nl/default.css"/>
+<link type="text/css" rel="stylesheet"href="http://www.joostdevalk.nl/code/sortable-table/example.css"/>
 <script type="text/javascript" src="http://www.joostdevalk.nl/code/sortable-table/current/sortable.js"></script>
 
 
@@ -17,8 +19,8 @@
 <table class="sortable" id="itemTable" border="0" cellspacing="3" cellpadding="3">
     <thead>
     <tr>
-        <th> Image </th>
-        <th> Name </th>
+        <th class="unsortable"> Image </th>
+        <th class="startsort"> Name </th>
         <th> Description </th>
         <th> Contents </th>
     </tr>    
