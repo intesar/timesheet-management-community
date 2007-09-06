@@ -94,7 +94,7 @@ if (!(object instanceof ItemContents)) {
 
     @Override
     public String toString() {
-        return "[id=" + id + "]";
+        return this.content;
     }
 
 }
