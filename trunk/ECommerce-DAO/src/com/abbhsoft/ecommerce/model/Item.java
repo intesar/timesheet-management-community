@@ -14,6 +14,7 @@ import java.util.Collection;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -45,8 +46,8 @@ public class Item implements Serializable {
     private String imgUrl;
     @Column(name = "quantity_available")
     private Long quantityAvailable;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "itemId")
-    private Collection<ItemContents> itemContents1Collection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "itemId", fetch = FetchType.EAGER)
+    private Collection<ItemContents> itemContentsCollection;
 
     public Item() {
     }
@@ -124,12 +125,12 @@ public class Item implements Serializable {
         this.quantityAvailable = quantityAvailable;
     }
 
-    public Collection<ItemContents> getItemContents1Collection() {
-        return itemContents1Collection;
+    public Collection<ItemContents> getItemContentsCollection() {
+        return itemContentsCollection;
     }
 
-    public void setItemContents1Collection(Collection<ItemContents> itemContents1Collection) {
-        this.itemContents1Collection = itemContents1Collection;
+    public void setItemContentsCollection(Collection<ItemContents> itemContentsCollection) {
+        this.itemContentsCollection = itemContentsCollection;
     }
 
     @Override
@@ -154,7 +155,7 @@ if (!(object instanceof Item)) {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.ecommerce.model.Item1[id=" + id + "]";
+        return this.name;
     }
 
 }
