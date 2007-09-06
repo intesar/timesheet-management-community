@@ -9,11 +9,20 @@
 
 <%@ taglib prefix="html" tagdir="/WEB-INF/tags/html" %>
 
+<script type="text/javascript" src="http://www.joostdevalk.nl/code/sortable-table/current/sortable.js"></script>
 
 
 
 
-<table border="0" cellspacing="3" cellpadding="3">
+<table class="sortable" border="0" cellspacing="3" cellpadding="3">
+    <thead>
+    <tr>
+        <th> Image </th>
+        <th> Name </th>
+        <th> Description </th>
+        <th> Contents </th>
+    </tr>    
+    </thead>
 <tbody>
 <%
 java.util.Collection<com.abbhsoft.ecommerce.model.Item> items = (java.util.Collection<com.abbhsoft.ecommerce.model.Item>)request.getAttribute ("ITEMS");
@@ -35,13 +44,17 @@ for ( com.abbhsoft.ecommerce.model.Item item : items ) {
         <input type="hidden" name="description" value="<%= item.getDescription () %>" />
         <input type="hidden" name="price" value="<%= item.getPrice () %>" />
         <br/>
-        <h4><%= item.getName () %></h4>
-        <br/>
-        <h4><%= item.getPrice () %></h4>        
-        <input type="submit" value="Buy Now" name="buyNow" />
-        
-        <input type="submit" value="Cart to Cart" name="addToCart" />
-    </td>            
+        <b><%= item.getName () %></b><br/>        
+        <b><%= item.getPrice () %></b><br/>        
+        <input type="submit" value="Buy Now" name="buyNow" />        
+        <input type="submit" value="Add to Cart" name="addToCart" />
+    </td>         
+    <td>
+        <%= item.getDescription() %>
+    </td>
+    <td>
+        <%= item.getItemContentsCollection() %>
+    </td>
 </form>
 </tr>
 <% } %>
