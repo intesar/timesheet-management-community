@@ -1,0 +1,14 @@
+1.  Download liferay4.3.x bundled with tomcat5.5 from www.liferay.com
+
+2. replace portlet.jar files from two locations inside the downloaded liferay with portlet-api.jar which is inside the /ECommerce-DAO/lib folder 
+  ( locations where portlet.jar can be found liferay-folder/commons/lib/ext and liferay-folder/lib/ )
+
+3. open mysql administrator and restore this file ( backup_tahoora.sql)
+
+4. (Optional) copy "mysql-connector-java-5.0.6-bin.jar" from /ECommerce-DAO/lib/ and paste it inside liferay/commons/lib/ext and liferay/lib/ext
+
+5. start liferay by double clicking liferay-folder/bin/startup.bat
+
+6. deploy "ecommerce-portal.war"
+
+7. arrange and see the portlets
