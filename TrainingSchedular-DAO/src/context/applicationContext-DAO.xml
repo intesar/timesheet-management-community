@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    
+    <!-- EntityManagerFactory -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="TrainingSchedular-DAOPU"/>
+    </bean>
+    
+    <!-- Production Deployement -->
+    <!-- <jndi:lookup id="entityManagerFactory" jndi-name="jpa/Timesheet-DAOPU"/> -->
+
+    <!--
+     ##########################################################################
+                            DAO Declerations Begin
+     ##########################################################################
+    -->
+    
+    <!-- Example DAO Decleration -->
+    <!--
+    <bean id="addressDAOImpl" class="com.abbh.timesheet.daoImpl.AddressDAOImpl" >
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+    -->
+
+    <bean id="emfTemplate" abstract="true">
+	<property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
+    </bean>
+    
+    <bean id="itemDAOImpl" class="com.abbhsoft.ecommerce.daoImpl.ItemDAOImpl" parent="emfTemplate" />       
+    
+   <bean id="catagoryDAOImpl" class="com.abbhsoft.ecommerce.daoImpl.CatagoryDAOImpl" parent="emfTemplate" />  
+   
+   
+    
+   <!--
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" parent="emfTemplate" />
+    -->
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql:///e_commerce_test"/>
+      <property name="username" value="root"/>
+      <property name="password" value="apple123"/>
+    </bean>
+   
+    <!--
+     ##########################################################################
+                            DAO Declerations End
+     ##########################################################################
+    -->
+    
+</beans>
