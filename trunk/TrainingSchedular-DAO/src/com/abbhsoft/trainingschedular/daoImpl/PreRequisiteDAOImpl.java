@@ -13,9 +13,9 @@ import java.math.BigDecimal;
  *
  * @author mdshannan
  */
-public class PrerequisiteDAOImpl extends GenericAbstractDAO <PreRequisite,BigDecimal> implements PrerequisiteDAO{
+public class PreRequisiteDAOImpl extends GenericAbstractDAO <PreRequisite,BigDecimal> implements PrerequisiteDAO{
 
-    public PrerequisiteDAOImpl()
+    public PreRequisiteDAOImpl()
     {
             super(PreRequisite.class);
     }

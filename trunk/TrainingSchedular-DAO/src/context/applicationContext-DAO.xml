@@ -27,9 +27,19 @@
 	<property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
     </bean>
     
-    <bean id="itemDAOImpl" class="com.abbhsoft.ecommerce.daoImpl.ItemDAOImpl" parent="emfTemplate" />       
+    <bean id="addressDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.AddressDAOImpl" parent="emfTemplate" />       
     
-   <bean id="catagoryDAOImpl" class="com.abbhsoft.ecommerce.daoImpl.CatagoryDAOImpl" parent="emfTemplate" />  
+   <bean id="courseClassDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.CourseClassDAOImpl" parent="emfTemplate" />       
+   
+   <bean id="courseDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.CourseDAOImpl" parent="emfTemplate" />       
+   
+   <bean id="instructorDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.InstructorDAOImpl" parent="emfTemplate" />       
+   
+   <bean id="phoneDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.PhoneDAOImpl" parent="emfTemplate" />       
+   
+   <bean id="preRequisiteDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.PreRequisiteDAOImpl" parent="emfTemplate" />       
+   
+   <bean id="usersDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.UsersDAOImpl" parent="emfTemplate" />       
    
    
     
@@ -38,10 +48,10 @@
     -->
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql:///e_commerce_test"/>
-      <property name="username" value="root"/>
-      <property name="password" value="apple123"/>
+      <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+      <property name="url" value="jdbc:oracle:thin:@192.168.0.107:1521:xe"/>
+      <property name="username" value="shannan"/>
+      <property name="password" value="shannan"/>
     </bean>
    
     <!--
