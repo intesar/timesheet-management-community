@@ -12,14 +12,19 @@
     <!-- Example Services Decleration -->
     
     
-    <bean id="catagoryServiceImpl" class="com.abbhsoft.ecommerce.serviceImpl.CatagoryServiceImpl" >
-        <property name="catagoryDAO" ref="catagoryDAOImpl"/>
+    <bean id="courseServiceImpl" class="com.abbhsoft.trainingschedular.serviceImpl.CourseServiceImpl" >
+        <property name="courseDAO" ref="courseDAOImpl"/>
     </bean>
     
-    <bean id="itemServiceImpl" class="com.abbhsoft.ecommerce.serviceImpl.ItemServiceImpl">
-             <property name="itemDAO" ref="itemDAOImpl"/>
+   
+    <bean id="instructorServiceImpl" class="com.abbhsoft.trainingschedular.serviceImpl.InstructorServiceImpl" >
+        <property name="instructorDAO" ref="instructorDAOImpl"/>
     </bean>
-
+    
+    <bean id="usersServiceImpl" class="com.abbhsoft.trainingschedular.serviceImpl.UsersServiceImpl" >
+        <property name="userDAO" ref="usersDAOImpl"/>
+    </bean>
+    
 
     <!--
      ##########################################################################
