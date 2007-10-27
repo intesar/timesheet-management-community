@@ -25,19 +25,17 @@ import javax.persistence.TemporalType;
  * @author mdshannan
  */
 @Entity
-@Table(name = "INSTRUCTOR")
-@NamedQueries({@NamedQuery(name = "Instructor.findById", query = "SELECT i FROM Instructor i WHERE i.id = :id"), @NamedQuery(name = "Instructor.findByFirstName", query = "SELECT i FROM Instructor i WHERE i.firstName = :firstName"), @NamedQuery(name = "Instructor.findByLastName", query = "SELECT i FROM Instructor i WHERE i.lastName = :lastName"), @NamedQuery(name = "Instructor.findByEmaiil", query = "SELECT i FROM Instructor i WHERE i.emaiil = :emaiil"), @NamedQuery(name = "Instructor.findByCreateDate", query = "SELECT i FROM Instructor i WHERE i.createDate = :createDate"), @NamedQuery(name = "Instructor.findByCreateUser", query = "SELECT i FROM Instructor i WHERE i.createUser = :createUser"), @NamedQuery(name = "Instructor.findByLastModiifiedDate", query = "SELECT i FROM Instructor i WHERE i.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Instructor.findByLastModiifiedUser", query = "SELECT i FROM Instructor i WHERE i.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "Instructor.findByVersionId", query = "SELECT i FROM Instructor i WHERE i.versionId = :versionId")})
-public class Instructor implements Serializable {
+@Table(name = "COURSE_CLASS")
+@NamedQueries({@NamedQuery(name = "CourseClass.findById", query = "SELECT c FROM CourseClass c WHERE c.id = :id"), @NamedQuery(name = "CourseClass.findByDescription", query = "SELECT c FROM CourseClass c WHERE c.description = :description"), @NamedQuery(name = "CourseClass.findByDuration", query = "SELECT c FROM CourseClass c WHERE c.duration = :duration"), @NamedQuery(name = "CourseClass.findByCreateDate", query = "SELECT c FROM CourseClass c WHERE c.createDate = :createDate"), @NamedQuery(name = "CourseClass.findByCreateUser", query = "SELECT c FROM CourseClass c WHERE c.createUser = :createUser"), @NamedQuery(name = "CourseClass.findByLastModiifiedDate", query = "SELECT c FROM CourseClass c WHERE c.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "CourseClass.findByLastModiifiedUser", query = "SELECT c FROM CourseClass c WHERE c.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "CourseClass.findByVersionId", query = "SELECT c FROM CourseClass c WHERE c.versionId = :versionId"), @NamedQuery(name = "CourseClass.findByName", query = "SELECT c FROM CourseClass c WHERE c.name = :name")})
+public class CourseClass implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
     private BigDecimal id;
-    @Column(name = "FIRST_NAME")
-    private String firstName;
-    @Column(name = "LAST_NAME")
-    private String lastName;
-    @Column(name = "EMAIIL")
-    private String emaiil;
+    @Column(name = "DESCRIPTION")
+    private String description;
+    @Column(name = "DURATION")
+    private String duration;
     @Column(name = "CREATE_DATE")
     @Temporal(TemporalType.DATE)
     private Date createDate;
@@ -50,17 +48,16 @@ public class Instructor implements Serializable {
     private String lastModiifiedUser;
     @Column(name = "VERSION_ID")
     private BigInteger versionId;
-    @JoinColumn(name = "ADDRESS", referencedColumnName = "ID")
+    @Column(name = "NAME")
+    private String name;
+    @JoinColumn(name = "INSTRUCTOR", referencedColumnName = "ID")
     @ManyToOne
-    private Address address;
-    @JoinColumn(name = "PHONE", referencedColumnName = "IID")
-    @ManyToOne
-    private Phone phone;
+    private Instructor instructor;
 
-    public Instructor() {
+    public CourseClass() {
     }
 
-    public Instructor(BigDecimal id) {
+    public CourseClass(BigDecimal id) {
         this.id = id;
     }
 
@@ -72,28 +69,20 @@ public class Instructor implements Serializable {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getDescription() {
+        return description;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getDuration() {
+        return duration;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmaiil() {
-        return emaiil;
-    }
-
-    public void setEmaiil(String emaiil) {
-        this.emaiil = emaiil;
+    public void setDuration(String duration) {
+        this.duration = duration;
     }
 
     public Date getCreateDate() {
@@ -136,20 +125,20 @@ public class Instructor implements Serializable {
         this.versionId = versionId;
     }
 
-    public Address getAddress() {
-        return address;
+    public String getName() {
+        return name;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Phone getPhone() {
-        return phone;
+    public Instructor getInstructor() {
+        return instructor;
     }
 
-    public void setPhone(Phone phone) {
-        this.phone = phone;
+    public void setInstructor(Instructor instructor) {
+        this.instructor = instructor;
     }
 
     @Override
@@ -162,10 +151,10 @@ public class Instructor implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Instructor)) {
+        if (!(object instanceof CourseClass)) {
             return false;
         }
-        Instructor other = (Instructor) object;
+        CourseClass other = (CourseClass) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -174,7 +163,7 @@ public class Instructor implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Instructor[id=" + id + "]";
+        return "com.abbhsoft.trainingschedular.model.CourseClass[id=" + id + "]";
     }
 
 }
