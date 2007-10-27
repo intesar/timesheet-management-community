@@ -63,8 +63,19 @@ public class Course implements Serializable {
     @JoinColumn(name = "ADDRESS", referencedColumnName = "ID")
     @ManyToOne
     private Address address;
+    @JoinTable(name = "COURSE_CLASS", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "IID")}, inverseJoinColumns = {@JoinColumn(name = "PRE_REQUISITE", referencedColumnName = "ID")})
+    @ManyToMany
+    private Collection<CourseClass> courseClassCollection;
 
     public Course() {
+    }
+
+    public Collection<CourseClass> getCourseClassCollection() {
+        return courseClassCollection;
+    }
+
+    public void setCourseClassCollection(Collection<CourseClass> courseClassCollection) {
+        this.courseClassCollection = courseClassCollection;
     }
 
     public Course(BigDecimal iid) {
