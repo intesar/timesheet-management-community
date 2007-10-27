@@ -21,7 +21,7 @@ public class ServiceFactory {
     private static BeanFactory factory = null;
     static {
         context = new ClassPathXmlApplicationContext(
-        new String[] {"context/applicationContext-DAO.xml", "applicationContext-Services.xml", "applicationContext-Transactions.xml"});
+        new String[] {"classpath:context/applicationContext-DAO.xml", "classpath:context/applicationContext-Services.xml", "classpath:context/applicationContext-Transactions.xml"});
         factory = (BeanFactory) context;
 
 // of course, an ApplicationContext is just a BeanFactory
