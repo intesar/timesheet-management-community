@@ -8,6 +8,7 @@
     <class>com.abbhsoft.trainingschedular.model.PreRequisite</class>
     <class>com.abbhsoft.trainingschedular.model.Users</class>
     <class>com.abbhsoft.trainingschedular.model.Course</class>
+    <class>com.abbhsoft.trainingschedular.model.CourseClass</class>
     <properties>
       <property name="toplink.jdbc.user" value="shannan"/>
       <property name="toplink.jdbc.password" value="shannan"/>
