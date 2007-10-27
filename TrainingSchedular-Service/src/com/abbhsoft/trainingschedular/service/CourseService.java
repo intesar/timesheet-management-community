@@ -18,6 +18,8 @@ import java.util.List;
  * @author mdshannan
  */
 public interface CourseService {
+    
+   void addCourse ( Course course) ;
 
     List<Course> getAll();
 

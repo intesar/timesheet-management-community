@@ -25,6 +25,9 @@ public class CourseServiceImpl implements CourseService {
         this.courseDAO = courseDAO;
     }
     
+    public void addCourse( Course course ) {
+        this.courseDAO.save(course);
+    }
     public List<Course> getAll () {
         return (List<Course>) courseDAO.findAll();
     }
