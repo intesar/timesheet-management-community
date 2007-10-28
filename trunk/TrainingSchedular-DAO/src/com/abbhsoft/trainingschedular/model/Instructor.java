@@ -28,7 +28,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "INSTRUCTOR")
-@NamedQueries({@NamedQuery(name = "Instructor1.findById", query = "SELECT i FROM Instructor1 i WHERE i.id = :id"), @NamedQuery(name = "Instructor1.findByFirstName", query = "SELECT i FROM Instructor1 i WHERE i.firstName = :firstName"), @NamedQuery(name = "Instructor1.findByLastName", query = "SELECT i FROM Instructor1 i WHERE i.lastName = :lastName"), @NamedQuery(name = "Instructor1.findByEmaiil", query = "SELECT i FROM Instructor1 i WHERE i.emaiil = :emaiil"), @NamedQuery(name = "Instructor1.findByCreateDate", query = "SELECT i FROM Instructor1 i WHERE i.createDate = :createDate"), @NamedQuery(name = "Instructor1.findByCreateUser", query = "SELECT i FROM Instructor1 i WHERE i.createUser = :createUser"), @NamedQuery(name = "Instructor1.findByLastModiifiedDate", query = "SELECT i FROM Instructor1 i WHERE i.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Instructor1.findByLastModiifiedUser", query = "SELECT i FROM Instructor1 i WHERE i.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "Instructor1.findByVersionId", query = "SELECT i FROM Instructor1 i WHERE i.versionId = :versionId")})
+@NamedQueries({@NamedQuery(name = "Instructor.findById", query = "SELECT i FROM Instructor i WHERE i.id = :id"), @NamedQuery(name = "Instructor.findByFirstName", query = "SELECT i FROM Instructor i WHERE i.firstName = :firstName"), @NamedQuery(name = "Instructor.findByLastName", query = "SELECT i FROM Instructor i WHERE i.lastName = :lastName"), @NamedQuery(name = "Instructor.findByEmaiil", query = "SELECT i FROM Instructor i WHERE i.emaiil = :emaiil"), @NamedQuery(name = "Instructor.findByCreateDate", query = "SELECT i FROM Instructor i WHERE i.createDate = :createDate"), @NamedQuery(name = "Instructor.findByCreateUser", query = "SELECT i FROM Instructor i WHERE i.createUser = :createUser"), @NamedQuery(name = "Instructor.findByLastModiifiedDate", query = "SELECT i FROM Instructor i WHERE i.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Instructor.findByLastModiifiedUser", query = "SELECT i FROM Instructor i WHERE i.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "Instructor.findByVersionId", query = "SELECT i FROM Instructor i WHERE i.versionId = :versionId")})
 public class Instructor implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -186,7 +186,7 @@ public class Instructor implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Instructor1[id=" + id + "]";
+        return "com.abbhsoft.trainingschedular.model.Instructor[id=" + id + "]";
     }
 
 }

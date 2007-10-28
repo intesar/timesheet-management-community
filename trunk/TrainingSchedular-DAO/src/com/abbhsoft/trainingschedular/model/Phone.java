@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "PHONE")
-@NamedQueries({@NamedQuery(name = "Phone1.findByIid", query = "SELECT p FROM Phone1 p WHERE p.iid = :iid"), @NamedQuery(name = "Phone1.findByType", query = "SELECT p FROM Phone1 p WHERE p.type = :type"), @NamedQuery(name = "Phone1.findByNo", query = "SELECT p FROM Phone1 p WHERE p.no = :no"), @NamedQuery(name = "Phone1.findByCreateDate", query = "SELECT p FROM Phone1 p WHERE p.createDate = :createDate"), @NamedQuery(name = "Phone1.findByCreateUser", query = "SELECT p FROM Phone1 p WHERE p.createUser = :createUser"), @NamedQuery(name = "Phone1.findByLastModiifiedDate", query = "SELECT p FROM Phone1 p WHERE p.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Phone1.findByLastModiifiedUser", query = "SELECT p FROM Phone1 p WHERE p.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "Phone1.findByVersionId", query = "SELECT p FROM Phone1 p WHERE p.versionId = :versionId")})
+@NamedQueries({@NamedQuery(name = "Phone.findByIid", query = "SELECT p FROM Phone p WHERE p.iid = :iid"), @NamedQuery(name = "Phone.findByType", query = "SELECT p FROM Phone p WHERE p.type = :type"), @NamedQuery(name = "Phone.findByNo", query = "SELECT p FROM Phone p WHERE p.no = :no"), @NamedQuery(name = "Phone.findByCreateDate", query = "SELECT p FROM Phone p WHERE p.createDate = :createDate"), @NamedQuery(name = "Phone.findByCreateUser", query = "SELECT p FROM Phone p WHERE p.createUser = :createUser"), @NamedQuery(name = "Phone.findByLastModiifiedDate", query = "SELECT p FROM Phone p WHERE p.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Phone.findByLastModiifiedUser", query = "SELECT p FROM Phone p WHERE p.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "Phone.findByVersionId", query = "SELECT p FROM Phone p WHERE p.versionId = :versionId")})
 public class Phone implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -157,7 +157,7 @@ public class Phone implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Phone1[iid=" + iid + "]";
+        return "com.abbhsoft.trainingschedular.model.Phone[iid=" + iid + "]";
     }
 
 }
