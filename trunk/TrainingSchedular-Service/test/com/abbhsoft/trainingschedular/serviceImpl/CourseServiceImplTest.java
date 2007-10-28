@@ -42,7 +42,7 @@ public class CourseServiceImplTest  extends AbstractTransactionalDataSourceSprin
     @Override
     protected void onSetUpInTransaction() throws Exception {
 
-        jdbcTemplate.execute("insert into course (iid, name, description) values (3, 'test', 'test')");
+        jdbcTemplate.execute("insert into course (iid, name, description) values (6, 'test', 'test')");
         
     }
 
@@ -50,7 +50,7 @@ public class CourseServiceImplTest  extends AbstractTransactionalDataSourceSprin
     protected void onTearDownAfterTransaction() throws Exception {
 
         super.onTearDownAfterTransaction();
-        deleteFromTables(new String[]{"course"});
+        //deleteFromTables(new String[]{"course"});ct
     }
 
     

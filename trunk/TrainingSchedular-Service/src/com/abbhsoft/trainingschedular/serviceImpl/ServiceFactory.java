@@ -23,12 +23,12 @@ public class ServiceFactory {
         context = new ClassPathXmlApplicationContext(
         new String[] {"classpath:context/applicationContext-DAO.xml", "classpath:context/applicationContext-Services.xml", "classpath:context/applicationContext-Transactions.xml"});
         factory = (BeanFactory) context;
-
-// of course, an ApplicationContext is just a BeanFactory
-
     }
     
     public static CourseService getCourseService() {
+        context = new ClassPathXmlApplicationContext(
+        new String[] {"classpath:context/applicationContext-DAO.xml", "classpath:context/applicationContext-Services.xml", "classpath:context/applicationContext-Transactions.xml"});
+        factory = (BeanFactory) context;
         return (CourseService) factory.getBean("courseServiceImpl");
     }
     
