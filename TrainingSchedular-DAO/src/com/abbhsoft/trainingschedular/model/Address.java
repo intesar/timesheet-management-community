@@ -26,7 +26,7 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "ADDRESS")
-@NamedQueries({@NamedQuery(name = "Address1.findById", query = "SELECT a FROM Address1 a WHERE a.id = :id"), @NamedQuery(name = "Address1.findByStreet", query = "SELECT a FROM Address1 a WHERE a.street = :street"), @NamedQuery(name = "Address1.findByCity", query = "SELECT a FROM Address1 a WHERE a.city = :city"), @NamedQuery(name = "Address1.findByState", query = "SELECT a FROM Address1 a WHERE a.state = :state"), @NamedQuery(name = "Address1.findByZipcode", query = "SELECT a FROM Address1 a WHERE a.zipcode = :zipcode"), @NamedQuery(name = "Address1.findByCountry", query = "SELECT a FROM Address1 a WHERE a.country = :country"), @NamedQuery(name = "Address1.findByCreateUser", query = "SELECT a FROM Address1 a WHERE a.createUser = :createUser"), @NamedQuery(name = "Address1.findByCreateDate", query = "SELECT a FROM Address1 a WHERE a.createDate = :createDate"), @NamedQuery(name = "Address1.findByLastModifiedDate", query = "SELECT a FROM Address1 a WHERE a.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Address1.findByLastModifiedUser", query = "SELECT a FROM Address1 a WHERE a.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Address1.findByVersionId", query = "SELECT a FROM Address1 a WHERE a.versionId = :versionId")})
+@NamedQueries({@NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = :id"), @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street"), @NamedQuery(name = "Address.findByCity", query = "SELECT a FROM Address a WHERE a.city = :city"), @NamedQuery(name = "Address.findByState", query = "SELECT a FROM Address a WHERE a.state = :state"), @NamedQuery(name = "Address.findByZipcode", query = "SELECT a FROM Address a WHERE a.zipcode = :zipcode"), @NamedQuery(name = "Address.findByCountry", query = "SELECT a FROM Address a WHERE a.country = :country"), @NamedQuery(name = "Address.findByCreateUser", query = "SELECT a FROM Address a WHERE a.createUser = :createUser"), @NamedQuery(name = "Address.findByCreateDate", query = "SELECT a FROM Address a WHERE a.createDate = :createDate"), @NamedQuery(name = "Address.findByLastModifiedDate", query = "SELECT a FROM Address a WHERE a.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Address.findByLastModifiedUser", query = "SELECT a FROM Address a WHERE a.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Address.findByVersionId", query = "SELECT a FROM Address a WHERE a.versionId = :versionId")})
 public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -182,7 +182,7 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Address1[id=" + id + "]";
+        return "com.abbhsoft.trainingschedular.model.Address[id=" + id + "]";
     }
 
 }
