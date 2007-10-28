@@ -42,27 +42,7 @@ public class CourseServiceImplTest  extends AbstractTransactionalDataSourceSprin
     @Override
     protected void onSetUpInTransaction() throws Exception {
 
-        jdbcTemplate.execute("insert into catagory (id, name, is_enabled ) values ( 1, 'DINNER', TRUE)");
-        jdbcTemplate.execute("insert into catagory (id, name, is_enabled ) values ( 2, 'LUNCH', TRUE)");
-        jdbcTemplate.execute("insert into catagory (id, name, is_enabled ) values ( 3, 'BEVERAGES', TRUE)");
-        jdbcTemplate.execute("insert into catagory (id, name, is_enabled ) values ( 4, 'DESERTS', TRUE)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (1, 'CHILLY CHICKEN', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (2, 'TANDOORI CHICKEN', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (3, 'BUTTER CHICKEN', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (4, 'BEEF KABAB', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (5, 'LAMB BIRYANI', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (6, 'NAAN', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM ( ID, NAME, DESCRIPTION, PRICE, TAX ) VALUES (7, 'LASSI', 'CHIKEN WITH CHILLY GRAVY', 5.99, .75)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 1,1)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 2,1)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 3,1)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 4,1)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 5,1)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 6,1)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 7,2)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 2,2)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 6,2)");
-        jdbcTemplate.execute("INSERT INTO ITEM_CATAGORY ( ITEM_ID, CATAGORY_ID ) VALUES ( 7,3)");
+        jdbcTemplate.execute("insert into course (iid, name, description) values (3, 'test', 'test')");
         
     }
 
@@ -70,7 +50,7 @@ public class CourseServiceImplTest  extends AbstractTransactionalDataSourceSprin
     protected void onTearDownAfterTransaction() throws Exception {
 
         super.onTearDownAfterTransaction();
-        deleteFromTables(new String[]{"item_catagory", "item", "catagory"});
+        deleteFromTables(new String[]{"course"});
     }
 
     
@@ -92,12 +72,11 @@ public class CourseServiceImplTest  extends AbstractTransactionalDataSourceSprin
      */
     public void testGetAll() {
         System.out.println("getAll");
-        CourseServiceImpl instance = new CourseServiceImpl();
-        List<Course> expResult = null;
-        List<Course> result = instance.getAll();
-        if ( result.size() != 3 ) 
+        CourseService instance = ServiceFactory.getCourseService();
+        List list = instance.getAll();
+        if ( list.size() != 1 ) {
             fail (" failed ");
-        
+        }
     }
 
     /**
