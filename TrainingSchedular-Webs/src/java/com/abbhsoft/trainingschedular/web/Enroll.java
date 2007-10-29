@@ -4,13 +4,11 @@
  */
 package com.abbhsoft.trainingschedular.web;
 
-import com.abbhsoft.trainingschedular.model.Course;
 import com.abbhsoft.trainingschedular.service.CourseService;
 import com.abbhsoft.trainingschedular.service.ServiceFactory;
 import java.io.*;
 import java.net.*;
 
-import java.util.List;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
@@ -18,7 +16,7 @@ import javax.servlet.http.*;
  *
  * @author mdshannan
  */
-public class Courses extends HttpServlet {
+public class Enroll extends HttpServlet {
 
     /** 
     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -29,30 +27,21 @@ public class Courses extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        CourseService cs = ServiceFactory.getCourseService();
-        List<Course> list = cs.getAll();
-
-
-
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Servlet Courses</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<table>");
-        for (Course c : list) {
-            out.write("<tr>");
-            out.write("<td>" + c.getName() + "</td>");
-            out.write("<td>" + c.getDescription() + "</td>");
+        try {
+            String firstName = request.getParameter("firstName");
+            String lastName = request.getParameter("lastName");
+            String mi = request.getParameter("mi");
+            String email = request.getParameter("email");
+            String homePhone = request.getParameter("homePhone");
+            String mobilePhone = request.getParameter("mobilePhone");
+            String comments = request.getParameter("comments");
+            Long courseId = Long.parseLong(request.getParameter("courseId"));
+            CourseService cs = ServiceFactory.getCourseService();
             
-            out.write("</tr>");
+
+        } finally {
+            out.close();
         }
-        out.write("</table>");
-        out.println("<h1>Servlet Courses at " + request.getContextPath() + "</h1>");
-        out.println("</body>");
-        out.println("</html>");
-
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
