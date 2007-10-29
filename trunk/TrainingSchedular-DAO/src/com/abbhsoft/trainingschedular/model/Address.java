@@ -7,7 +7,6 @@ package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
@@ -26,12 +25,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "ADDRESS")
-@NamedQueries({@NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = :id"), @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street"), @NamedQuery(name = "Address.findByCity", query = "SELECT a FROM Address a WHERE a.city = :city"), @NamedQuery(name = "Address.findByState", query = "SELECT a FROM Address a WHERE a.state = :state"), @NamedQuery(name = "Address.findByZipcode", query = "SELECT a FROM Address a WHERE a.zipcode = :zipcode"), @NamedQuery(name = "Address.findByCountry", query = "SELECT a FROM Address a WHERE a.country = :country"), @NamedQuery(name = "Address.findByCreateUser", query = "SELECT a FROM Address a WHERE a.createUser = :createUser"), @NamedQuery(name = "Address.findByCreateDate", query = "SELECT a FROM Address a WHERE a.createDate = :createDate"), @NamedQuery(name = "Address.findByLastModifiedDate", query = "SELECT a FROM Address a WHERE a.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Address.findByLastModifiedUser", query = "SELECT a FROM Address a WHERE a.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Address.findByVersionId", query = "SELECT a FROM Address a WHERE a.versionId = :versionId")})
+@NamedQueries({@NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = :id"), @NamedQuery(name = "Address.findByType", query = "SELECT a FROM Address a WHERE a.type = :type"), @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street"), @NamedQuery(name = "Address.findByCity", query = "SELECT a FROM Address a WHERE a.city = :city"), @NamedQuery(name = "Address.findByState", query = "SELECT a FROM Address a WHERE a.state = :state"), @NamedQuery(name = "Address.findByZipcode", query = "SELECT a FROM Address a WHERE a.zipcode = :zipcode"), @NamedQuery(name = "Address.findByCountry", query = "SELECT a FROM Address a WHERE a.country = :country"), @NamedQuery(name = "Address.findByCreateUser", query = "SELECT a FROM Address a WHERE a.createUser = :createUser"), @NamedQuery(name = "Address.findByCreateDate", query = "SELECT a FROM Address a WHERE a.createDate = :createDate"), @NamedQuery(name = "Address.findByLastModifiedDate", query = "SELECT a FROM Address a WHERE a.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Address.findByLastModifiedUser", query = "SELECT a FROM Address a WHERE a.lastModifiedUser = :lastModifiedUser")})
 public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
     private BigDecimal id;
+    @Column(name = "TYPE")
+    private String type;
     @Column(name = "STREET")
     private String street;
     @Column(name = "CITY")
@@ -52,10 +53,8 @@ public class Address implements Serializable {
     private Date lastModifiedDate;
     @Column(name = "LAST_MODIFIED_USER")
     private String lastModifiedUser;
-    @Column(name = "VERSION_ID")
-    private BigInteger versionId;
-    @OneToMany(mappedBy = "address")
-    private Collection<Instructor> instructor1Collection;
+    @OneToMany(mappedBy = "location")
+    private Collection<Course> courseCollection;
 
     public Address() {
     }
@@ -70,6 +69,14 @@ public class Address implements Serializable {
 
     public void setId(BigDecimal id) {
         this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getStreet() {
@@ -144,20 +151,12 @@ public class Address implements Serializable {
         this.lastModifiedUser = lastModifiedUser;
     }
 
-    public BigInteger getVersionId() {
-        return versionId;
+    public Collection<Course> getCourseCollection() {
+        return courseCollection;
     }
 
-    public void setVersionId(BigInteger versionId) {
-        this.versionId = versionId;
-    }
-
-    public Collection<Instructor> getInstructor1Collection() {
-        return instructor1Collection;
-    }
-
-    public void setInstructor1Collection(Collection<Instructor> instructor1Collection) {
-        this.instructor1Collection = instructor1Collection;
+    public void setCourseCollection(Collection<Course> courseCollection) {
+        this.courseCollection = courseCollection;
     }
 
     @Override
