@@ -6,8 +6,8 @@
 package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import java.lang.Long;
+import java.lang.Long;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
@@ -35,7 +35,7 @@ public class Course implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
-    private BigDecimal id;
+    private Long id;
     @Column(name = "NAME")
     private String name;
     @Column(name = "DESCRIPTION")
@@ -54,7 +54,7 @@ public class Course implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date lastModifiedDate;
     @Column(name = "VERSION_ID")
-    private BigInteger versionId;
+    private Long versionId;
     @JoinTable(name = "COURSE_PREREQUISITE", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "ID")}, inverseJoinColumns = {@JoinColumn(name = "PREREQUISITE", referencedColumnName = "ID")})
     @ManyToMany
     private Collection<Prerequisite> prerequisiteCollection;
@@ -73,15 +73,15 @@ public class Course implements Serializable {
     public Course() {
     }
 
-    public Course(BigDecimal id) {
+    public Course(Long id) {
         this.id = id;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -141,11 +141,11 @@ public class Course implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public BigInteger getVersionId() {
+    public Long getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(BigInteger versionId) {
+    public void setVersionId(Long versionId) {
         this.versionId = versionId;
     }
 

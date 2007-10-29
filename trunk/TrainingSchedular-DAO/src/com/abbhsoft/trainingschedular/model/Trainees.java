@@ -6,8 +6,8 @@
 package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import java.lang.Long;
+import java.lang.Long;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
@@ -31,7 +31,7 @@ public class Trainees implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
-    private BigDecimal id;
+    private Long id;
     @Column(name = "FIRST_NAME")
     private String firstName;
     @Column(name = "LAST_NAME")
@@ -57,7 +57,7 @@ public class Trainees implements Serializable {
     @Column(name = "LAST_MODIFIED_USER")
     private String lastModifiedUser;
     @Column(name = "VERSION_ID")
-    private BigInteger versionId;
+    private Long versionId;
     @ManyToMany(mappedBy = "traineeCollection")
     private Collection<Phone> phoneCollection;
     @ManyToMany(mappedBy = "traineeCollection")
@@ -66,15 +66,15 @@ public class Trainees implements Serializable {
     public Trainees() {
     }
 
-    public Trainees(BigDecimal id) {
+    public Trainees(Long id) {
         this.id = id;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -166,11 +166,11 @@ public class Trainees implements Serializable {
         this.lastModifiedUser = lastModifiedUser;
     }
 
-    public BigInteger getVersionId() {
+    public Long getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(BigInteger versionId) {
+    public void setVersionId(Long versionId) {
         this.versionId = versionId;
     }
 

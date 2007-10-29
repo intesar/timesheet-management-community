@@ -6,8 +6,8 @@
 package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import java.lang.Long;
+import java.lang.Long;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,18 +31,18 @@ public class Class implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
-    private BigDecimal id;
+    private Long id;
     @Column(name = "TOPIC")
     private String topic;
     @Column(name = "CLASS_NO")
-    private BigInteger classNo;
+    private Long classNo;
     @Column(name = "DESCRIPTION")
     private String description;
     @Column(name = "CLASS_DATE")
     @Temporal(TemporalType.DATE)
     private Date classDate;
     @Column(name = "DURATION")
-    private BigInteger duration;
+    private Long duration;
     @Column(name = "INSTRUCTOR")
     private String instructor;
     @Column(name = "STATUS")
@@ -58,7 +58,7 @@ public class Class implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date lastModifiedDate;
     @Column(name = "VERSION_ID")
-    private BigInteger versionId;
+    private Long versionId;
     @JoinColumn(name = "COURSE", referencedColumnName = "ID")
     @ManyToOne
     private Course course;
@@ -66,15 +66,15 @@ public class Class implements Serializable {
     public Class() {
     }
 
-    public Class(BigDecimal id) {
+    public Class(Long id) {
         this.id = id;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -86,11 +86,11 @@ public class Class implements Serializable {
         this.topic = topic;
     }
 
-    public BigInteger getClassNo() {
+    public Long getClassNo() {
         return classNo;
     }
 
-    public void setClassNo(BigInteger classNo) {
+    public void setClassNo(Long classNo) {
         this.classNo = classNo;
     }
 
@@ -110,11 +110,11 @@ public class Class implements Serializable {
         this.classDate = classDate;
     }
 
-    public BigInteger getDuration() {
+    public Long getDuration() {
         return duration;
     }
 
-    public void setDuration(BigInteger duration) {
+    public void setDuration(Long duration) {
         this.duration = duration;
     }
 
@@ -166,11 +166,11 @@ public class Class implements Serializable {
         this.lastModifiedDate = lastModifiedDate;
     }
 
-    public BigInteger getVersionId() {
+    public Long getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(BigInteger versionId) {
+    public void setVersionId(Long versionId) {
         this.versionId = versionId;
     }
 
