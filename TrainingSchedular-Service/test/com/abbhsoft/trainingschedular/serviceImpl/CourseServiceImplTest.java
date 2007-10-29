@@ -5,11 +5,10 @@
 
 package com.abbhsoft.trainingschedular.serviceImpl;
 
+import com.abbhsoft.trainingschedular.service.ServiceFactory;
 import com.abbhsoft.trainingschedular.dao.CourseDAO;
 import com.abbhsoft.trainingschedular.model.Course;
-import com.abbhsoft.trainingschedular.model.CourseClass;
-import com.abbhsoft.trainingschedular.model.PreRequisite;
-import com.abbhsoft.trainingschedular.model.Users;
+
 import com.abbhsoft.trainingschedular.service.CourseService;
 import java.math.BigDecimal;
 import java.util.List;
@@ -79,72 +78,6 @@ public class CourseServiceImplTest  extends AbstractTransactionalDataSourceSprin
         }
     }
 
-    /**
-     * Test of getById method, of class CourseServiceImpl.
-     */
-    public void testGetById() {
-        System.out.println("getById");
-        BigDecimal id = null;
-        CourseServiceImpl instance = new CourseServiceImpl();
-        Course expResult = null;
-        Course result = instance.getById(id);
-        
-        
-    }
-
-    /**
-     * Test of getCourseClasses method, of class CourseServiceImpl.
-     */
-    public void testGetCourseClasses() {
-        System.out.println("getCourseClasses");
-        BigDecimal pk = null;
-        CourseServiceImpl instance = new CourseServiceImpl();
-        List<CourseClass> expResult = null;
-        List<CourseClass> result = instance.getCourseClasses(pk);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getCoursePreRequisites method, of class CourseServiceImpl.
-     */
-    public void testGetCoursePreRequisites() {
-        System.out.println("getCoursePreRequisites");
-        BigDecimal pk = null;
-        CourseServiceImpl instance = new CourseServiceImpl();
-        List<PreRequisite> expResult = null;
-        List<PreRequisite> result = instance.getCoursePreRequisites(pk);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of enroll method, of class CourseServiceImpl.
-     */
-    public void testEnroll() {
-        System.out.println("enroll");
-        BigDecimal pk = null;
-        Users user = null;
-        CourseServiceImpl instance = new CourseServiceImpl();
-        instance.enroll(pk, user);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getTotalEnrollees method, of class CourseServiceImpl.
-     */
-    public void testGetTotalEnrollees() {
-        System.out.println("getTotalEnrollees");
-        BigDecimal courseId = null;
-        CourseServiceImpl instance = new CourseServiceImpl();
-        Integer expResult = null;
-        Integer result = instance.getTotalEnrollees(courseId);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+   
 
 }

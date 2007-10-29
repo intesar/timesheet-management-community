@@ -17,15 +17,7 @@
     </bean>
     
    
-    <bean id="instructorServiceImpl" class="com.abbhsoft.trainingschedular.serviceImpl.InstructorServiceImpl" >
-        <property name="instructorDAO" ref="instructorDAOImpl"/>
-    </bean>
-    
-    <bean id="usersServiceImpl" class="com.abbhsoft.trainingschedular.serviceImpl.UserServiceImpl" >
-        <property name="userDAO" ref="usersDAOImpl"/>
-    </bean>
-    
-
+  
     <!--
      ##########################################################################
                             Services Declerations End
