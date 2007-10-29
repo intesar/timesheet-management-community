@@ -3,11 +3,10 @@
  * and open the template in the editor.
  */
 
-package com.abbhsoft.trainingschedular.serviceImpl;
+package com.abbhsoft.trainingschedular.service;
 
 import com.abbhsoft.trainingschedular.service.CourseService;
-import com.abbhsoft.trainingschedular.service.InstructorService;
-import com.abbhsoft.trainingschedular.service.UsersService;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -32,11 +31,5 @@ public class ServiceFactory {
         return (CourseService) factory.getBean("courseServiceImpl");
     }
     
-    public static InstructorService getInstructorService() {
-        return (InstructorService) factory.getBean("instructorServiceImpl");
-    }
-    
-    public static UsersService getUserService() {
-        return (UsersService) factory.getBean("usersServiceImpl");
-    }
+   
 }
