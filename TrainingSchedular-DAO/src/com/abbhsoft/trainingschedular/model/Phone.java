@@ -7,15 +7,16 @@ package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -26,49 +27,47 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "PHONE")
-@NamedQueries({@NamedQuery(name = "Phone.findByIid", query = "SELECT p FROM Phone p WHERE p.iid = :iid"), @NamedQuery(name = "Phone.findByType", query = "SELECT p FROM Phone p WHERE p.type = :type"), @NamedQuery(name = "Phone.findByNo", query = "SELECT p FROM Phone p WHERE p.no = :no"), @NamedQuery(name = "Phone.findByCreateDate", query = "SELECT p FROM Phone p WHERE p.createDate = :createDate"), @NamedQuery(name = "Phone.findByCreateUser", query = "SELECT p FROM Phone p WHERE p.createUser = :createUser"), @NamedQuery(name = "Phone.findByLastModiifiedDate", query = "SELECT p FROM Phone p WHERE p.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Phone.findByLastModiifiedUser", query = "SELECT p FROM Phone p WHERE p.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "Phone.findByVersionId", query = "SELECT p FROM Phone p WHERE p.versionId = :versionId")})
+@NamedQueries({@NamedQuery(name = "Phone.findById", query = "SELECT p FROM Phone p WHERE p.id = :id"), @NamedQuery(name = "Phone.findByType", query = "SELECT p FROM Phone p WHERE p.type = :type"), @NamedQuery(name = "Phone.findByPhoneNo", query = "SELECT p FROM Phone p WHERE p.phoneNo = :phoneNo"), @NamedQuery(name = "Phone.findByCreateUser", query = "SELECT p FROM Phone p WHERE p.createUser = :createUser"), @NamedQuery(name = "Phone.findByCreateDate", query = "SELECT p FROM Phone p WHERE p.createDate = :createDate"), @NamedQuery(name = "Phone.findByLastModifiedDate", query = "SELECT p FROM Phone p WHERE p.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Phone.findByLastModifiedUser", query = "SELECT p FROM Phone p WHERE p.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Phone.findByVersionId", query = "SELECT p FROM Phone p WHERE p.versionId = :versionId")})
 public class Phone implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "IID", nullable = false)
-    private BigDecimal iid;
+    @Column(name = "ID", nullable = false)
+    private BigDecimal id;
     @Column(name = "TYPE")
     private String type;
-    @Column(name = "NO", nullable = false)
-    private String no;
-    @Column(name = "CREATE_ DATE")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
+    @Column(name = "PHONE_NO")
+    private String phoneNo;
     @Column(name = "CREATE_USER")
     private String createUser;
-    @Column(name = "LAST_MODIIFIED_DATE")
+    @Column(name = "CREATE_DATE")
     @Temporal(TemporalType.DATE)
-    private Date lastModiifiedDate;
-    @Column(name = "LAST_MODIIFIED_USER")
-    private String lastModiifiedUser;
+    private Date createDate;
+    @Column(name = "LAST_MODIFIED_DATE")
+    @Temporal(TemporalType.DATE)
+    private Date lastModifiedDate;
+    @Column(name = "LAST_MODIFIED_USER")
+    private String lastModifiedUser;
     @Column(name = "VERSION_ID")
-    private BigInteger versionId;
-    @OneToMany(mappedBy = "phone")
-    private Collection<Instructor> instructor1Collection;
+    private String versionId;
+    @JoinTable(name = "TRAINEE_PHONE", joinColumns = {@JoinColumn(name = "PHONE", referencedColumnName = "ID")}, inverseJoinColumns = {@JoinColumn(name = "TRAINEE", referencedColumnName = "ID")})
+    @ManyToMany
+    private Collection<Trainees> traineeCollection;
+    @ManyToMany(mappedBy = "phoneCollection")
+    private Collection<Course> courseCollection;
 
     public Phone() {
     }
 
-    public Phone(BigDecimal iid) {
-        this.iid = iid;
+    public Phone(BigDecimal id) {
+        this.id = id;
     }
 
-    public Phone(BigDecimal iid, String no) {
-        this.iid = iid;
-        this.no = no;
+    public BigDecimal getId() {
+        return id;
     }
 
-    public BigDecimal getIid() {
-        return iid;
-    }
-
-    public void setIid(BigDecimal iid) {
-        this.iid = iid;
+    public void setId(BigDecimal id) {
+        this.id = id;
     }
 
     public String getType() {
@@ -79,20 +78,12 @@ public class Phone implements Serializable {
         this.type = type;
     }
 
-    public String getNo() {
-        return no;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setNo(String no) {
-        this.no = no;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     public String getCreateUser() {
@@ -103,42 +94,58 @@ public class Phone implements Serializable {
         this.createUser = createUser;
     }
 
-    public Date getLastModiifiedDate() {
-        return lastModiifiedDate;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setLastModiifiedDate(Date lastModiifiedDate) {
-        this.lastModiifiedDate = lastModiifiedDate;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public String getLastModiifiedUser() {
-        return lastModiifiedUser;
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
     }
 
-    public void setLastModiifiedUser(String lastModiifiedUser) {
-        this.lastModiifiedUser = lastModiifiedUser;
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 
-    public BigInteger getVersionId() {
+    public String getLastModifiedUser() {
+        return lastModifiedUser;
+    }
+
+    public void setLastModifiedUser(String lastModifiedUser) {
+        this.lastModifiedUser = lastModifiedUser;
+    }
+
+    public String getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(BigInteger versionId) {
+    public void setVersionId(String versionId) {
         this.versionId = versionId;
     }
 
-    public Collection<Instructor> getInstructor1Collection() {
-        return instructor1Collection;
+    public Collection<Trainees> getTraineeCollection() {
+        return traineeCollection;
     }
 
-    public void setInstructor1Collection(Collection<Instructor> instructor1Collection) {
-        this.instructor1Collection = instructor1Collection;
+    public void setTraineeCollection(Collection<Trainees> traineeCollection) {
+        this.traineeCollection = traineeCollection;
+    }
+
+    public Collection<Course> getCourseCollection() {
+        return courseCollection;
+    }
+
+    public void setCourseCollection(Collection<Course> courseCollection) {
+        this.courseCollection = courseCollection;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (iid != null ? iid.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -149,7 +156,7 @@ public class Phone implements Serializable {
             return false;
         }
         Phone other = (Phone) object;
-        if ((this.iid == null && other.iid != null) || (this.iid != null && !this.iid.equals(other.iid))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -157,7 +164,7 @@ public class Phone implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Phone[iid=" + iid + "]";
+        return "com.abbhsoft.trainingschedular.model.Phone[id=" + id + "]";
     }
 
 }

@@ -19,6 +19,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,65 +30,59 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "COURSE")
-@NamedQueries({@NamedQuery(name = "Course.findByIid", query = "SELECT c FROM Course c WHERE c.iid = :iid"), @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name"), @NamedQuery(name = "Course.findByDescription", query = "SELECT c FROM Course c WHERE c.description = :description"), @NamedQuery(name = "Course.findByStartDate", query = "SELECT c FROM Course c WHERE c.startDate = :startDate"), @NamedQuery(name = "Course.findByCreateDate", query = "SELECT c FROM Course c WHERE c.createDate = :createDate"), @NamedQuery(name = "Course.findByCreateUser", query = "SELECT c FROM Course c WHERE c.createUser = :createUser"), @NamedQuery(name = "Course.findByLastModiifiedDate", query = "SELECT c FROM Course c WHERE c.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "Course.findByLastModiifiiedUser", query = "SELECT c FROM Course c WHERE c.lastModiifiiedUser = :lastModiifiiedUser"), @NamedQuery(name = "Course.findByVersionId", query = "SELECT c FROM Course c WHERE c.versionId = :versionId")})
+@NamedQueries({@NamedQuery(name = "Course.findById", query = "SELECT c FROM Course c WHERE c.id = :id"), @NamedQuery(name = "Course.findByName", query = "SELECT c FROM Course c WHERE c.name = :name"), @NamedQuery(name = "Course.findByDescription", query = "SELECT c FROM Course c WHERE c.description = :description"), @NamedQuery(name = "Course.findByStateDate", query = "SELECT c FROM Course c WHERE c.stateDate = :stateDate"), @NamedQuery(name = "Course.findByCreateUser", query = "SELECT c FROM Course c WHERE c.createUser = :createUser"), @NamedQuery(name = "Course.findByCreateDate", query = "SELECT c FROM Course c WHERE c.createDate = :createDate"), @NamedQuery(name = "Course.findByLastModifiedUser", query = "SELECT c FROM Course c WHERE c.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Course.findByLastModifiedDate", query = "SELECT c FROM Course c WHERE c.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Course.findByVersionId", query = "SELECT c FROM Course c WHERE c.versionId = :versionId")})
 public class Course implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "IID", nullable = false)
-    private BigDecimal iid;
+    @Column(name = "ID", nullable = false)
+    private BigDecimal id;
     @Column(name = "NAME")
     private String name;
     @Column(name = "DESCRIPTION")
     private String description;
-    @Column(name = "START_DATE")
+    @Column(name = "STATE_DATE")
     @Temporal(TemporalType.DATE)
-    private Date startDate;
+    private Date stateDate;
+    @Column(name = "CREATE_USER")
+    private String createUser;
     @Column(name = "CREATE_DATE")
     @Temporal(TemporalType.DATE)
     private Date createDate;
-    @Column(name = "CREATE_USER")
-    private String createUser;
-    @Column(name = "LAST_MODIIFIED_DATE")
+    @Column(name = "LAST_MODIFIED_USER")
+    private String lastModifiedUser;
+    @Column(name = "LAST_MODIFIED_DATE")
     @Temporal(TemporalType.DATE)
-    private Date lastModiifiedDate;
-    @Column(name = "LAST_MODIIFIIED_USER")
-    private String lastModiifiiedUser;
+    private Date lastModifiedDate;
     @Column(name = "VERSION_ID")
     private BigInteger versionId;
-    @JoinTable(name = "COURSE_PREREQUISITE", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "IID")}, inverseJoinColumns = {@JoinColumn(name = "PRE_REQUISITE", referencedColumnName = "ID")})
+    @JoinTable(name = "COURSE_PREREQUISITE", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "ID")}, inverseJoinColumns = {@JoinColumn(name = "PREREQUISITE", referencedColumnName = "ID")})
     @ManyToMany
-    private Collection<PreRequisite> preRequisiteCollection;
-    @JoinTable(name = "ENROLLMENT", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "IID")}, inverseJoinColumns = {@JoinColumn(name = "USER", referencedColumnName = "ID")})
+    private Collection<Prerequisite> prerequisiteCollection;
+    @JoinTable(name = "ENROLL", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "ID")}, inverseJoinColumns = {@JoinColumn(name = "TRAINEE", referencedColumnName = "ID")})
     @ManyToMany
-    private Collection<Users> userCollection;
-    @JoinColumn(name = "ADDRESS", referencedColumnName = "ID")
+    private Collection<Trainees> traineeCollection;
+    @JoinTable(name = "COURSE_PHONE", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "ID")}, inverseJoinColumns = {@JoinColumn(name = "PHONE", referencedColumnName = "ID")})
+    @ManyToMany
+    private Collection<Phone> phoneCollection;
+    @OneToMany(mappedBy = "course")
+    private Collection<Class> classCollection;
+    @JoinColumn(name = "LOCATION", referencedColumnName = "ID")
     @ManyToOne
-    private Address address;
-    @JoinTable(name = "COURSE_CLASS", joinColumns = {@JoinColumn(name = "COURSE", referencedColumnName = "IID")}, inverseJoinColumns = {@JoinColumn(name = "PRE_REQUISITE", referencedColumnName = "ID")})
-    @ManyToMany
-    private Collection<CourseClass> courseClassCollection;
+    private Address location;
 
     public Course() {
     }
 
-    public Collection<CourseClass> getCourseClassCollection() {
-        return courseClassCollection;
+    public Course(BigDecimal id) {
+        this.id = id;
     }
 
-    public void setCourseClassCollection(Collection<CourseClass> courseClassCollection) {
-        this.courseClassCollection = courseClassCollection;
+    public BigDecimal getId() {
+        return id;
     }
 
-    public Course(BigDecimal iid) {
-        this.iid = iid;
-    }
-
-    public BigDecimal getIid() {
-        return iid;
-    }
-
-    public void setIid(BigDecimal iid) {
-        this.iid = iid;
+    public void setId(BigDecimal id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -106,20 +101,12 @@ public class Course implements Serializable {
         this.description = description;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    public Date getStateDate() {
+        return stateDate;
     }
 
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setStateDate(Date stateDate) {
+        this.stateDate = stateDate;
     }
 
     public String getCreateUser() {
@@ -130,20 +117,28 @@ public class Course implements Serializable {
         this.createUser = createUser;
     }
 
-    public Date getLastModiifiedDate() {
-        return lastModiifiedDate;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setLastModiifiedDate(Date lastModiifiedDate) {
-        this.lastModiifiedDate = lastModiifiedDate;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public String getLastModiifiiedUser() {
-        return lastModiifiiedUser;
+    public String getLastModifiedUser() {
+        return lastModifiedUser;
     }
 
-    public void setLastModiifiiedUser(String lastModiifiiedUser) {
-        this.lastModiifiiedUser = lastModiifiiedUser;
+    public void setLastModifiedUser(String lastModifiedUser) {
+        this.lastModifiedUser = lastModifiedUser;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
     }
 
     public BigInteger getVersionId() {
@@ -154,34 +149,50 @@ public class Course implements Serializable {
         this.versionId = versionId;
     }
 
-    public Collection<PreRequisite> getPreRequisiteCollection() {
-        return preRequisiteCollection;
+    public Collection<Prerequisite> getPrerequisiteCollection() {
+        return prerequisiteCollection;
     }
 
-    public void setPreRequisiteCollection(Collection<PreRequisite> preRequisiteCollection) {
-        this.preRequisiteCollection = preRequisiteCollection;
+    public void setPrerequisiteCollection(Collection<Prerequisite> prerequisiteCollection) {
+        this.prerequisiteCollection = prerequisiteCollection;
     }
 
-    public Collection<Users> getUserCollection() {
-        return userCollection;
+    public Collection<Trainees> getTraineeCollection() {
+        return traineeCollection;
     }
 
-    public void setUserCollection(Collection<Users> userCollection) {
-        this.userCollection = userCollection;
+    public void setTraineeCollection(Collection<Trainees> traineeCollection) {
+        this.traineeCollection = traineeCollection;
     }
 
-    public Address getAddress() {
-        return address;
+    public Collection<Phone> getPhoneCollection() {
+        return phoneCollection;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setPhoneCollection(Collection<Phone> phoneCollection) {
+        this.phoneCollection = phoneCollection;
+    }
+
+    public Collection<Class> getClassCollection() {
+        return classCollection;
+    }
+
+    public void setClassCollection(Collection<Class> classCollection) {
+        this.classCollection = classCollection;
+    }
+
+    public Address getLocation() {
+        return location;
+    }
+
+    public void setLocation(Address location) {
+        this.location = location;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (iid != null ? iid.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -192,7 +203,7 @@ public class Course implements Serializable {
             return false;
         }
         Course other = (Course) object;
-        if ((this.iid == null && other.iid != null) || (this.iid != null && !this.iid.equals(other.iid))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -200,7 +211,7 @@ public class Course implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Course[iid=" + iid + "]";
+        return "com.abbhsoft.trainingschedular.model.Course[id=" + id + "]";
     }
 
 }

@@ -25,9 +25,9 @@ import javax.persistence.TemporalType;
  * @author mdshannan
  */
 @Entity
-@Table(name = "PRE_REQUISITE")
-@NamedQueries({@NamedQuery(name = "PreRequisite.findById", query = "SELECT p FROM PreRequisite p WHERE p.id = :id"), @NamedQuery(name = "PreRequisite.findByName", query = "SELECT p FROM PreRequisite p WHERE p.name = :name"), @NamedQuery(name = "PreRequisite.findByDescription", query = "SELECT p FROM PreRequisite p WHERE p.description = :description"), @NamedQuery(name = "PreRequisite.findByLastModiifiedDate", query = "SELECT p FROM PreRequisite p WHERE p.lastModiifiedDate = :lastModiifiedDate"), @NamedQuery(name = "PreRequisite.findByCreateUser", query = "SELECT p FROM PreRequisite p WHERE p.createUser = :createUser"), @NamedQuery(name = "PreRequisite.findByVersionId", query = "SELECT p FROM PreRequisite p WHERE p.versionId = :versionId"), @NamedQuery(name = "PreRequisite.findByLastModiifiedUser", query = "SELECT p FROM PreRequisite p WHERE p.lastModiifiedUser = :lastModiifiedUser"), @NamedQuery(name = "PreRequisite.findByCreateDate", query = "SELECT p FROM PreRequisite p WHERE p.createDate = :createDate")})
-public class PreRequisite implements Serializable {
+@Table(name = "PREREQUISITE")
+@NamedQueries({@NamedQuery(name = "Prerequisite.findById", query = "SELECT p FROM Prerequisite p WHERE p.id = :id"), @NamedQuery(name = "Prerequisite.findByName", query = "SELECT p FROM Prerequisite p WHERE p.name = :name"), @NamedQuery(name = "Prerequisite.findByDescription", query = "SELECT p FROM Prerequisite p WHERE p.description = :description"), @NamedQuery(name = "Prerequisite.findByCreateUser", query = "SELECT p FROM Prerequisite p WHERE p.createUser = :createUser"), @NamedQuery(name = "Prerequisite.findByCreateDate", query = "SELECT p FROM Prerequisite p WHERE p.createDate = :createDate"), @NamedQuery(name = "Prerequisite.findByLastModifiedDate", query = "SELECT p FROM Prerequisite p WHERE p.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Prerequisite.findByLastModifiedUser", query = "SELECT p FROM Prerequisite p WHERE p.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Prerequisite.findByVersionId", query = "SELECT p FROM Prerequisite p WHERE p.versionId = :versionId")})
+public class Prerequisite implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
@@ -36,25 +36,25 @@ public class PreRequisite implements Serializable {
     private String name;
     @Column(name = "DESCRIPTION")
     private String description;
-    @Column(name = "LAST_MODIIFIED_DATE")
-    @Temporal(TemporalType.DATE)
-    private Date lastModiifiedDate;
     @Column(name = "CREATE_USER")
     private String createUser;
-    @Column(name = "VERSION_ID")
-    private BigInteger versionId;
-    @Column(name = "LAST_MODIIFIED_USER")
-    private String lastModiifiedUser;
     @Column(name = "CREATE_DATE")
     @Temporal(TemporalType.DATE)
     private Date createDate;
-    @ManyToMany(mappedBy = "preRequisiteCollection")
+    @Column(name = "LAST_MODIFIED_DATE")
+    @Temporal(TemporalType.DATE)
+    private Date lastModifiedDate;
+    @Column(name = "LAST_MODIFIED_USER")
+    private String lastModifiedUser;
+    @Column(name = "VERSION_ID")
+    private BigInteger versionId;
+    @ManyToMany(mappedBy = "prerequisiteCollection")
     private Collection<Course> courseCollection;
 
-    public PreRequisite() {
+    public Prerequisite() {
     }
 
-    public PreRequisite(BigDecimal id) {
+    public Prerequisite(BigDecimal id) {
         this.id = id;
     }
 
@@ -82,14 +82,6 @@ public class PreRequisite implements Serializable {
         this.description = description;
     }
 
-    public Date getLastModiifiedDate() {
-        return lastModiifiedDate;
-    }
-
-    public void setLastModiifiedDate(Date lastModiifiedDate) {
-        this.lastModiifiedDate = lastModiifiedDate;
-    }
-
     public String getCreateUser() {
         return createUser;
     }
@@ -98,28 +90,36 @@ public class PreRequisite implements Serializable {
         this.createUser = createUser;
     }
 
-    public BigInteger getVersionId() {
-        return versionId;
-    }
-
-    public void setVersionId(BigInteger versionId) {
-        this.versionId = versionId;
-    }
-
-    public String getLastModiifiedUser() {
-        return lastModiifiedUser;
-    }
-
-    public void setLastModiifiedUser(String lastModiifiedUser) {
-        this.lastModiifiedUser = lastModiifiedUser;
-    }
-
     public Date getCreateDate() {
         return createDate;
     }
 
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastModifiedDate;
+    }
+
+    public void setLastModifiedDate(Date lastModifiedDate) {
+        this.lastModifiedDate = lastModifiedDate;
+    }
+
+    public String getLastModifiedUser() {
+        return lastModifiedUser;
+    }
+
+    public void setLastModifiedUser(String lastModifiedUser) {
+        this.lastModifiedUser = lastModifiedUser;
+    }
+
+    public BigInteger getVersionId() {
+        return versionId;
+    }
+
+    public void setVersionId(BigInteger versionId) {
+        this.versionId = versionId;
     }
 
     public Collection<Course> getCourseCollection() {
@@ -140,10 +140,10 @@ public class PreRequisite implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof PreRequisite)) {
+        if (!(object instanceof Prerequisite)) {
             return false;
         }
-        PreRequisite other = (PreRequisite) object;
+        Prerequisite other = (Prerequisite) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -152,7 +152,7 @@ public class PreRequisite implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.PreRequisite[id=" + id + "]";
+        return "com.abbhsoft.trainingschedular.model.Prerequisite[id=" + id + "]";
     }
 
 }
