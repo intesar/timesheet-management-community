@@ -11,6 +11,6 @@ import com.abbhsoft.trainingschedular.model.Course;
  *
  * @author mdshannan
  */
-public interface CourseService extends GenericDAO<Course, Long> {
+public interface CourseDAO extends GenericDAO<Course, Long> {
 
 }

@@ -181,7 +181,7 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.trainingschedular.model.Address[id=" + id + "]";
+        return this.street +", " + this.city + " " + this.state + ", " + this.zipcode + " " + this.country;
     }
 
 }

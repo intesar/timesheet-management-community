@@ -5,16 +5,16 @@
 
 package com.abbhsoft.trainingschedular.daoImpl;
 
-import com.abbhsoft.trainingschedular.dao.CourseService;
+import com.abbhsoft.trainingschedular.dao.CourseDAO;
 import com.abbhsoft.trainingschedular.model.Course;
 
 /**
  *
  * @author mdshannan
  */
-public class CourseServiceImpl extends GenericAbstractDAO<Course, Long> implements CourseService {
+public class CourseDAOImpl extends GenericAbstractDAO<Course, Long> implements CourseDAO {
 
-    public CourseServiceImpl() {
+    public CourseDAOImpl() {
         super ( Course.class );
     }
 }
