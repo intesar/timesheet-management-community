@@ -6,8 +6,8 @@
 package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
-import java.math.BigInteger;
+import java.lang.Long;
+import java.lang.Long;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
@@ -31,7 +31,7 @@ public class Prerequisite implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
-    private BigDecimal id;
+    private Long id;
     @Column(name = "NAME")
     private String name;
     @Column(name = "DESCRIPTION")
@@ -47,22 +47,22 @@ public class Prerequisite implements Serializable {
     @Column(name = "LAST_MODIFIED_USER")
     private String lastModifiedUser;
     @Column(name = "VERSION_ID")
-    private BigInteger versionId;
+    private Long versionId;
     @ManyToMany(mappedBy = "prerequisiteCollection")
     private Collection<Course> courseCollection;
 
     public Prerequisite() {
     }
 
-    public Prerequisite(BigDecimal id) {
+    public Prerequisite(Long id) {
         this.id = id;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -114,11 +114,11 @@ public class Prerequisite implements Serializable {
         this.lastModifiedUser = lastModifiedUser;
     }
 
-    public BigInteger getVersionId() {
+    public Long getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(BigInteger versionId) {
+    public void setVersionId(Long versionId) {
         this.versionId = versionId;
     }
 

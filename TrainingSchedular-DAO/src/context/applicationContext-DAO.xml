@@ -26,7 +26,8 @@
     <bean id="emfTemplate" abstract="true">
 	<property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
     </bean>
-    
+   
+    <!-- 
     <bean id="addressDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.AddressDAOImpl" parent="emfTemplate" />       
     
    <bean id="courseClassDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.CourseClassDAOImpl" parent="emfTemplate" />       
@@ -41,22 +42,23 @@
    
    <bean id="usersDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.UsersDAOImpl" parent="emfTemplate" />       
    
-   
+   -->
     
+   <bean id="courseDAOImpl" class="com.abbhsoft.trainingschedular.daoImpl.CourseDAOImpl" parent="emfTemplate" />       
    <!--
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager" parent="emfTemplate" />
     -->
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
-      <property name="url" value="jdbc:oracle:thin:@192.168.0.107:1521:xe"/>
-      <property name="username" value="shannan"/>
-      <property name="password" value="shannan"/>
+      <property name="url" value="jdbc:oracle:thin:@localhost:1521:xe"/>
+      <property name="username" value="test_ts"/>
+      <property name="password" value="test_ts"/>
     </bean>
    
     <!--
      ##########################################################################
-                            DAO Declerations End
+                            DAO Declerations End_
      ##########################################################################
     -->
     

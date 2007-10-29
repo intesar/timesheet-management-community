@@ -6,7 +6,7 @@
 package com.abbhsoft.trainingschedular.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
+import java.lang.Long;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
@@ -30,7 +30,7 @@ public class Address implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Column(name = "ID", nullable = false)
-    private BigDecimal id;
+    private Long id;
     @Column(name = "TYPE")
     private String type;
     @Column(name = "STREET")
@@ -59,15 +59,15 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public Address(BigDecimal id) {
+    public Address(Long id) {
         this.id = id;
     }
 
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
