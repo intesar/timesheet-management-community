@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.company.projectname.base;
+package com.abbhsoft.srm.base;
 
 /**
  *
