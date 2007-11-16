@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    
+    <!-- EntityManagerFactory -->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="ProjectName-daoPU"/>
+    </bean>
+    
+    <!-- Production Deployement -->
+    <!-- <jndi:lookup id="entityManagerFactory" jndi-name="jpa/Timesheet-DAOPU"/> -->
+
+    <!--
+     ##########################################################################
+                            Base Classes Declerations Begin
+     ##########################################################################
+    -->
+    
+    <!-- advisor -->
+   <bean id="finderIntroductionAdvisor" class="com.company.projectname.base.FinderIntroductionAdvisor" />
+
+   <!-- helper bean resolves the finder method name -->   
+   <bean id="extendedFinderNamingStrategy" class="com.company.projectname.base.ExtendedFinderNamingStrategy" />
+   
+   <!-- target -->
+   <bean id="abstractDaoTarget" class="com.company.projectname.base.GenericDaoJPAImpl" abstract="true">
+      <property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
+      <property name="namingStrategy">
+         <ref bean="extendedFinderNamingStrategy" />
+      </property>
+   </bean>
+
+   <!-- base Proxy -->
+   <bean id="abstractDao" class="org.springframework.aop.framework.ProxyFactoryBean" abstract="true">
+       <property name="exposeProxy" value="true" />
+      <property name="interceptorNames">
+         <list>
+            <value>finderIntroductionAdvisor</value>
+         </list>
+      </property>
+   </bean>
+
+
+   
+
+    <!--
+     ##########################################################################
+                            Base Declerations End
+     ##########################################################################
+    -->
+    
+  <!-- 
+    datasource bean is used by spring unit testing 
+  
+    
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+      <property name="url" value="jdbc:mysql:///persons"/>
+      <property name="username" value="root"/>
+      <property name="password" value="apple123"/>
+    </bean>
+   -->
+   
+    
+</beans>
