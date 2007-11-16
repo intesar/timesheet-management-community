@@ -1,4 +1,4 @@
-package com.company.projectname.base;
+package com.abbhsoft.srm.base;
 
 
 import java.util.Date;
