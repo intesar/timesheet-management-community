@@ -22,7 +22,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "student_faq")
-@NamedQueries({@NamedQuery(name = "StudentFaq.findByStudent", query = "SELECT s FROM StudentFaq s WHERE s.student = :student"), @NamedQuery(name = "StudentFaq.findByConvincedRate", query = "SELECT s FROM StudentFaq s WHERE s.convincedRate = :convincedRate"), @NamedQuery(name = "StudentFaq.findByCreateUser", query = "SELECT s FROM StudentFaq s WHERE s.createUser = :createUser"), @NamedQuery(name = "StudentFaq.findByCreateDate", query = "SELECT s FROM StudentFaq s WHERE s.createDate = :createDate"), @NamedQuery(name = "StudentFaq.findByLastModifiedDate", query = "SELECT s FROM StudentFaq s WHERE s.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "StudentFaq.findByLastModifiedUser", query = "SELECT s FROM StudentFaq s WHERE s.lastModifiedUser = :lastModifiedUser")})
+@NamedQueries({@NamedQuery(name = "StudentFaq.findByStudent", query = "SELECT s FROM StudentFaq s WHERE s.student = :?1"), @NamedQuery(name = "StudentFaq.findByConvincedRate", query = "SELECT s FROM StudentFaq s WHERE s.convincedRate = :?1"), @NamedQuery(name = "StudentFaq.findByCreateUser", query = "SELECT s FROM StudentFaq s WHERE s.createUser = :?1"), @NamedQuery(name = "StudentFaq.findByCreateDate", query = "SELECT s FROM StudentFaq s WHERE s.createDate = :?1"), @NamedQuery(name = "StudentFaq.findByLastModifiedDate", query = "SELECT s FROM StudentFaq s WHERE s.lastModifiedDate = :?1"), @NamedQuery(name = "StudentFaq.findByLastModifiedUser", query = "SELECT s FROM StudentFaq s WHERE s.lastModifiedUser = :?1")})
 public class StudentFaq extends BaseModel {
     private static final long serialVersionUID = 1L;
   
