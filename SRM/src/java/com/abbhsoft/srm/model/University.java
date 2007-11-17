@@ -5,18 +5,14 @@
 
 package com.abbhsoft.srm.model;
 
-import java.io.Serializable;
+import com.abbhsoft.srm.base.BaseModel;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,23 +21,12 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "university")
 @NamedQueries({@NamedQuery(name = "University.findById", query = "SELECT u FROM University u WHERE u.id = :id"), @NamedQuery(name = "University.findByName", query = "SELECT u FROM University u WHERE u.name = :name"), @NamedQuery(name = "University.findByCreateUser", query = "SELECT u FROM University u WHERE u.createUser = :createUser"), @NamedQuery(name = "University.findByCreateDate", query = "SELECT u FROM University u WHERE u.createDate = :createDate"), @NamedQuery(name = "University.findByLastModifiedUser", query = "SELECT u FROM University u WHERE u.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "University.findByLastModifiedDate", query = "SELECT u FROM University u WHERE u.lastModifiedDate = :lastModifiedDate")})
-public class University implements Serializable {
+public class University extends BaseModel {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+   
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "create_user")
-    private Integer createUser;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Column(name = "last_modified_user")
-    private Integer lastModifiedUser;
-    @Column(name = "last_modified_date")
-    @Temporal(TemporalType.DATE)
-    private Date lastModifiedDate;
+   
     @OneToMany(mappedBy = "university")
     private Collection<Student> studentCollection;
     @OneToMany(mappedBy = "university")
@@ -52,22 +37,15 @@ public class University implements Serializable {
     public University() {
     }
 
-    public University(Integer id) {
+    public University(Long id) {
         this.id = id;
     }
 
-    public University(Integer id, String name) {
+    public University(Long id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -77,37 +55,7 @@ public class University implements Serializable {
         this.name = name;
     }
 
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getLastModifiedUser() {
-        return lastModifiedUser;
-    }
-
-    public void setLastModifiedUser(Integer lastModifiedUser) {
-        this.lastModifiedUser = lastModifiedUser;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
+    
 
     public Collection<Student> getStudentCollection() {
         return studentCollection;
