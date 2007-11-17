@@ -5,73 +5,39 @@
 
 package com.abbhsoft.srm.service.impl;
 
-import com.abbhsoft.srm.dao.StudentDao;
-import com.abbhsoft.srm.model.Student;
-import java.util.List;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
+import com.abbhsoft.srm.base.BaseTest;
+import com.abbhsoft.srm.model.Student;
+import com.abbhsoft.srm.service.StudentService;
+import java.util.List;
 /**
  *
  * @author mdshannan
  */
-public class StudentServiceImplTest extends TestCase {
+public class StudentServiceImplTest extends BaseTest{
     
-    public StudentServiceImplTest(String testName) {
+    public StudentServiceImplTest(String testName){
         super(testName);
     }
-
-    public static Test suite() {
-        TestSuite suite = new TestSuite(StudentServiceImplTest.class);
-        return suite;
+    
+    private StudentService studentService;
+    
+    public void setStudentService(StudentService studentService){
+        this.studentService = studentService;
     }
-
-    @Override
-    protected void setUp() throws Exception {
-        super.setUp();
+    
+    public void testCurrentStudents(){
+        System.out.println("Current Students");
+        
+        Student student1 = new Student(11L, "Amer");
+        Student student2 = new Student(22L, "Saddam");
+        Student student3 = new Student(33L, "Ismail");
+        
+        studentService.save(student1);
+        studentService.save(student2);
+        studentService.save(student3);
+        
+        List<Student> currentStudents = studentService.getAll();
+        assertTrue(currentStudents.size() >= 3);
     }
-
-    @Override
-    protected void tearDown() throws Exception {
-        super.tearDown();
-    }
-
-    /**
-     * Test of recentStudents method, of class StudentServiceImpl.
-     */
-    public void testRecentStudents() {
-        System.out.println("recentStudents");
-        StudentServiceImpl instance = new StudentServiceImpl();
-        List<Student> expResult = null;
-        List<Student> result = instance.recentStudents();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of save method, of class StudentServiceImpl.
-     */
-    public void testSave() {
-        System.out.println("save");
-        Student student = null;
-        StudentServiceImpl instance = new StudentServiceImpl();
-        instance.save(student);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of setStudentDao method, of class StudentServiceImpl.
-     */
-    public void testSetStudentDao() {
-        System.out.println("setStudentDao");
-        StudentDao studentDao = null;
-        StudentServiceImpl instance = new StudentServiceImpl();
-        instance.setStudentDao(studentDao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
 }
