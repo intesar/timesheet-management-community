@@ -7,6 +7,7 @@ package com.abbhsoft.srm.model;
 
 import com.abbhsoft.srm.base.BaseModel;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
@@ -39,8 +40,17 @@ public class University extends BaseModel {
     private Collection<EmailGroup> group1Collection;
     @OneToMany(mappedBy = "university")
     private Collection<Campus> campusCollection;
-
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "university")
+    private Collection<Event> eventCollection;
     public University() {
+    }
+
+    public Collection<Event> getEventCollection() {
+        return eventCollection;
+    }
+
+    public void setEventCollection(Collection<Event> eventCollection) {
+        this.eventCollection = eventCollection;
     }
 
     public University(Long id) {

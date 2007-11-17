@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -44,12 +46,15 @@ public class Event extends BaseModel implements Serializable {
     private String type;
     @Column(name = "descript")
     private String descript;
-    @Column(name = "student" )
-    private String student;
-    @Column(name = "group_" )
-    private String group;
-    @Column(name = "university")
-    private String university;
+    @JoinColumn(name = "student", referencedColumnName = "id")
+    @ManyToOne
+    private Student student;
+    @JoinColumn(name = "group_", referencedColumnName = "id")
+    @ManyToOne
+    private EmailGroup emailGroup;
+    @JoinColumn(name = "university", referencedColumnName = "id")
+    @ManyToOne
+    private University university;
    
     public Event() {
     }
@@ -65,11 +70,10 @@ public class Event extends BaseModel implements Serializable {
         
     }
 
-    public Event(Long id, Date date, String student, String group) {
+    public Event(Long id, Date date) {
         this.id = id;
         this.date = date;
-        this.student = student;
-        this.group = group;
+        
     }
 
     public Date getDate() {
@@ -96,30 +100,31 @@ public class Event extends BaseModel implements Serializable {
         this.descript = descript;
     }
 
-    public String getStudent() {
+    public EmailGroup getEmailGroup() {
+        return emailGroup;
+    }
+
+    public void setEmailGroup(EmailGroup emailGroup) {
+        this.emailGroup = emailGroup;
+    }
+
+    public Student getStudent() {
         return student;
     }
 
-    public void setStudent(String student) {
+    public void setStudent(Student student) {
         this.student = student;
     }
 
-    public String getGroup() {
-        return group;
-    }
-
-    public void setGroup(String group) {
-        this.group = group;
-    }
-
-    public String getUniversity() {
+    public University getUniversity() {
         return university;
     }
 
-    public void setUniversity(String university) {
+    public void setUniversity(University university) {
         this.university = university;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 0;
