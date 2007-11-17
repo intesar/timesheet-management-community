@@ -5,8 +5,8 @@
 
 package com.abbhsoft.srm.service.impl;
 
-import com.abbhsoft.srm.dao.Group1Dao;
-import com.abbhsoft.srm.model.Group1;
+import com.abbhsoft.srm.dao.EmailGroupDao;
+import com.abbhsoft.srm.model.EmailGroup;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -43,8 +43,8 @@ public class EmailGroupServiceImplTest extends TestCase {
     public void testRecentEmailGroups() {
         System.out.println("recentEmailGroups");
         EmailGroupServiceImpl instance = new EmailGroupServiceImpl();
-        List<Group1> expResult = null;
-        List<Group1> result = instance.recentEmailGroups();
+        List<EmailGroup> expResult = null;
+        List<EmailGroup> result = instance.recentEmailGroups();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
@@ -55,7 +55,7 @@ public class EmailGroupServiceImplTest extends TestCase {
      */
     public void testSave() {
         System.out.println("save");
-        Group1 group = null;
+        EmailGroup group = null;
         EmailGroupServiceImpl instance = new EmailGroupServiceImpl();
         instance.save(group);
         // TODO review the generated test code and remove the default call to fail.
@@ -67,7 +67,7 @@ public class EmailGroupServiceImplTest extends TestCase {
      */
     public void testSetGroup1Dao() {
         System.out.println("setGroup1Dao");
-        Group1Dao group1Dao = null;
+        EmailGroupDao group1Dao = null;
         EmailGroupServiceImpl instance = new EmailGroupServiceImpl();
         instance.setGroup1Dao(group1Dao);
         // TODO review the generated test code and remove the default call to fail.
