@@ -93,6 +93,16 @@ public class Student extends BaseModel implements java.io.Serializable {
    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private Collection<Query> queryCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    private Collection<Event> eventCollection;
+
+    public Collection<Event> getEventCollection() {
+        return eventCollection;
+    }
+
+    public void setEventCollection(Collection<Event> eventCollection) {
+        this.eventCollection = eventCollection;
+    }
     @JoinColumn(name = "group", referencedColumnName = "id")
     @ManyToOne
     private EmailGroup group1;

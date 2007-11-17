@@ -7,6 +7,7 @@ package com.abbhsoft.srm.model;
 
 import com.abbhsoft.srm.base.BaseModel;
 import java.util.Collection;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -49,7 +50,16 @@ public class EmailGroup extends BaseModel implements java.io.Serializable  {
     @JoinColumn(name = "university", referencedColumnName = "id")
     @ManyToOne
     private University university;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "group_")
+    private Collection<Event> eventCollection;
 
+    public Collection<Event> getEventCollection() {
+        return eventCollection;
+    }
+
+    public void setEventCollection(Collection<Event> eventCollection) {
+        this.eventCollection = eventCollection;
+    }
     public EmailGroup() {
     }
 
