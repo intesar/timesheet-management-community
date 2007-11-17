@@ -18,8 +18,16 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "key_value")
-@NamedQueries({@NamedQuery(name = "KeyValue.findById", query = "SELECT k FROM KeyValue k WHERE k.id = ?1"), @NamedQuery(name = "KeyValue.findByKey", query = "SELECT k FROM KeyValue k WHERE k.key = ?1"), @NamedQuery(name = "KeyValue.findByValue", query = "SELECT k FROM KeyValue k WHERE k.value = ?1"), @NamedQuery(name = "KeyValue.findByDescriptIon", query = "SELECT k FROM KeyValue k WHERE k.descriptIon = ?1"), @NamedQuery(name = "KeyValue.findByCreateUser", query = "SELECT k FROM KeyValue k WHERE k.createUser = ?1"), @NamedQuery(name = "KeyValue.findByCreateDate", query = "SELECT k FROM KeyValue k WHERE k.createDate = ?1"), @NamedQuery(name = "KeyValue.findByLastModifiedUser", query = "SELECT k FROM KeyValue k WHERE k.lastModifiedUser = ?1"), @NamedQuery(name = "KeyValue.findByLastModifiedDate", query = "SELECT k FROM KeyValue k WHERE k.lastModifiedDate = ?1")})
-public class KeyValue extends BaseModel {
+@NamedQueries({
+    @NamedQuery(name = "KeyValue.findById", query = "SELECT k FROM KeyValue k WHERE k.id = ?1"), 
+    @NamedQuery(name = "KeyValue.findByKey", query = "SELECT k FROM KeyValue k WHERE k.key = ?1"),
+    @NamedQuery(name = "KeyValue.findByValue", query = "SELECT k FROM KeyValue k WHERE k.value = ?1"),
+    @NamedQuery(name = "KeyValue.findByDescriptIon", query = "SELECT k FROM KeyValue k WHERE k.descriptIon = ?1"), 
+    @NamedQuery(name = "KeyValue.findByCreateUser", query = "SELECT k FROM KeyValue k WHERE k.createUser = ?1"), 
+    @NamedQuery(name = "KeyValue.findByCreateDate", query = "SELECT k FROM KeyValue k WHERE k.createDate = ?1"), 
+    @NamedQuery(name = "KeyValue.findByLastModifiedUser", query = "SELECT k FROM KeyValue k WHERE k.lastModifiedUser = ?1"), 
+    @NamedQuery(name = "KeyValue.findByLastModifiedDate", query = "SELECT k FROM KeyValue k WHERE k.lastModifiedDate = ?1")})
+public class KeyValue extends BaseModel implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     
     @Column(name = "key", nullable = false)
