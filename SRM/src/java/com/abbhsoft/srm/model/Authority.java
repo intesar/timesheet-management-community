@@ -5,10 +5,10 @@
 
 package com.abbhsoft.srm.model;
 
+import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -20,11 +20,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "authority")
 @NamedQueries({@NamedQuery(name = "Authority.findById", query = "SELECT a FROM Authority a WHERE a.id = :id"), @NamedQuery(name = "Authority.findByAuthority", query = "SELECT a FROM Authority a WHERE a.authority = :authority"), @NamedQuery(name = "Authority.findByDescription", query = "SELECT a FROM Authority a WHERE a.description = :description")})
-public class Authority implements Serializable {
+public class Authority extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+   
     @Column(name = "authority", nullable = false)
     private String authority;
     @Column(name = "description")
@@ -33,21 +31,13 @@ public class Authority implements Serializable {
     public Authority() {
     }
 
-    public Authority(Integer id) {
+    public Authority(Long id) {
         this.id = id;
     }
 
-    public Authority(Integer id, String authority) {
+    public Authority(Long id, String authority) {
         this.id = id;
         this.authority = authority;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getAuthority() {
