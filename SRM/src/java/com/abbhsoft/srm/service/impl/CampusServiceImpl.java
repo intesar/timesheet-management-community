@@ -31,7 +31,7 @@ public class CampusServiceImpl implements CampusService {
         campusDao.update(campus);
     }
 
-    public List<Campus> findAll() {
+    public List<Campus> getAll() {
         return campusDao.findAll();
     }
     // dao injection code

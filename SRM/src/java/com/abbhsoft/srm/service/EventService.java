@@ -30,6 +30,10 @@ public interface EventService {
     
     // returns all the entities from the database
     
-    List<Event> findAll ();
+    List<Event> getAll ();
+    
+    // returns future events
+    
+    List<Event> getAllFutrueEvents ();
 
 }

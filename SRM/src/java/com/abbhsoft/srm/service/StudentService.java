@@ -30,6 +30,6 @@ public interface StudentService {
     
     // returns all the entities from the database
     
-    List<Student> findAll ();
+    List<Student> getAll ();
 
 }

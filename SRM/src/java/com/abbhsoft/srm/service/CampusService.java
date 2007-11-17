@@ -30,6 +30,6 @@ public interface CampusService {
     
     // returns all the entities from the database
     
-    List<Campus> findAll ();
+    List<Campus> getAll ();
 
 }
