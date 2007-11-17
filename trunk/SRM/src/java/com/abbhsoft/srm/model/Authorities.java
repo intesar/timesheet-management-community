@@ -23,7 +23,14 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "authorities")
-@NamedQueries({@NamedQuery(name = "Authorities.findByLastModifiedUser", query = "SELECT a FROM Authorities a WHERE a.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Authorities.findByLastModifiedDate", query = "SELECT a FROM Authorities a WHERE a.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Authorities.findByCreateUser", query = "SELECT a FROM Authorities a WHERE a.createUser = :createUser"), @NamedQuery(name = "Authorities.findByCreateDate", query = "SELECT a FROM Authorities a WHERE a.createDate = :createDate"), @NamedQuery(name = "Authorities.findById", query = "SELECT a FROM Authorities a WHERE a.id = :id"), @NamedQuery(name = "Authorities.findByAuthority", query = "SELECT a FROM Authorities a WHERE a.authority = :authority"), @NamedQuery(name = "Authorities.findByUsername", query = "SELECT a FROM Authorities a WHERE a.username = :username")})
+@NamedQueries({
+    @NamedQuery(name = "Authorities.findByLastModifiedUser", query = "SELECT a FROM Authorities a WHERE a.lastModifiedUser = ?!"),
+    @NamedQuery(name = "Authorities.findByLastModifiedDate", query = "SELECT a FROM Authorities a WHERE a.lastModifiedDate = ?!"),
+    @NamedQuery(name = "Authorities.findByCreateUser", query = "SELECT a FROM Authorities a WHERE a.createUser = ?!"), 
+    @NamedQuery(name = "Authorities.findByCreateDate", query = "SELECT a FROM Authorities a WHERE a.createDate = ?!"), 
+    @NamedQuery(name = "Authorities.findById", query = "SELECT a FROM Authorities a WHERE a.id = ?!"), 
+    @NamedQuery(name = "Authorities.findByAuthority", query = "SELECT a FROM Authorities a WHERE a.authority = ?!"), 
+    @NamedQuery(name = "Authorities.findByUsername", query = "SELECT a FROM Authorities a WHERE a.username = ?!")})
 public class Authorities extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
     @Column(name = "authority", nullable = false)
