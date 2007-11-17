@@ -7,6 +7,8 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="groupBean" type="com.abbhsoft.srm.web.formBeans.GroupBean"/>
+        <form-bean name="campusBean" type="com.abbhsoft.srm.web.formBeans.CampusBean"/>
     
     </form-beans>
     
@@ -19,6 +21,26 @@
     </global-forwards>
 
     <action-mappings>
+        <action path="/campusAction"
+            type="com.abbhsoft.srm.web.actions.CampusAction"
+            name="campusBean"
+            input="/secured/new_Campus.jsp"
+            scope="request"
+            validate="true">
+          <forward name="success" path=""/>
+          <forward name="failure" path=""/>
+        </action>
+        
+        <action path="/groupAction"
+            type="com.abbhsoft.srm.web.actions.GroupAction"
+            name="groupBean"
+            input="/secured/newGroup.jsp"
+            scope="request"
+            validate="true">
+          <forward name="success" path=""/>
+          <forward name="failure" path=""/>
+        </action>
+        
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
     </action-mappings>
     
