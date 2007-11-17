@@ -6,13 +6,11 @@
 package com.abbhsoft.srm.model;
 
 import com.abbhsoft.srm.base.BaseModel;
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -29,8 +27,30 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "student")
-@NamedQueries({@NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :?1"), @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName = :?1"), @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName = :?1"), @NamedQuery(name = "Student.findByMi", query = "SELECT s FROM Student s WHERE s.mi = :?1"), @NamedQuery(name = "Student.findByEmail", query = "SELECT s FROM Student s WHERE s.email = :?1"), @NamedQuery(name = "Student.findBySecondaryEmail", query = "SELECT s FROM Student s WHERE s.secondaryEmail = :?1"), @NamedQuery(name = "Student.findByMobilePhone", query = "SELECT s FROM Student s WHERE s.mobilePhone = ?1"), @NamedQuery(name = "Student.findByHomePhone", query = "SELECT s FROM Student s WHERE s.homePhone = :?1"), @NamedQuery(name = "Student.findByFax", query = "SELECT s FROM Student s WHERE s.fax = :?1"), @NamedQuery(name = "Student.findByOtherPhone", query = "SELECT s FROM Student s WHERE s.otherPhone = :?1"), @NamedQuery(name = "Student.findByAddress", query = "SELECT s FROM Student s WHERE s.address = :?1"), @NamedQuery(name = "Student.findByEducation", query = "SELECT s FROM Student s WHERE s.education = :?1"), @NamedQuery(name = "Student.findByVisaStatus", query = "SELECT s FROM Student s WHERE s.visaStatus = :?1"), @NamedQuery(name = "Student.findByGender", query = "SELECT s FROM Student s WHERE s.gender = :?1"), @NamedQuery(name = "Student.findByAge", query = "SELECT s FROM Student s WHERE s.age = :?1"), @NamedQuery(name = "Student.findByNationality", query = "SELECT s FROM Student s WHERE s.nationality = :?1"), @NamedQuery(name = "Student.findByRefferedBy", query = "SELECT s FROM Student s WHERE s.refferedBy = :?1"), @NamedQuery(name = "Student.findByExpectedStartDate", query = "SELECT s FROM Student s WHERE s.expectedStartDate = :?1"), @NamedQuery(name = "Student.findByCreateUser", query = "SELECT s FROM Student s WHERE s.createUser = :?1"), @NamedQuery(name = "Student.findByCreateDate", query = "SELECT s FROM Student s WHERE s.createDate = :?1"), @NamedQuery(name = "Student.findByLastModifiedUser", query = "SELECT s FROM Student s WHERE s.lastModifiedUser = :?1"), @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = :?1")})
-public class Student extends BaseModel {
+@NamedQueries({
+    @NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = ?1"), 
+    @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName = ?1"), 
+    @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName = ?1"), 
+    @NamedQuery(name = "Student.findByMi", query = "SELECT s FROM Student s WHERE s.mi = ?1"), 
+    @NamedQuery(name = "Student.findByEmail", query = "SELECT s FROM Student s WHERE s.email = ?1"), 
+    @NamedQuery(name = "Student.findBySecondaryEmail", query = "SELECT s FROM Student s WHERE s.secondaryEmail = ?1"), 
+    @NamedQuery(name = "Student.findByMobilePhone", query = "SELECT s FROM Student s WHERE s.mobilePhone = ?1"), 
+    @NamedQuery(name = "Student.findByHomePhone", query = "SELECT s FROM Student s WHERE s.homePhone = ?1"), 
+    @NamedQuery(name = "Student.findByFax", query = "SELECT s FROM Student s WHERE s.fax = ?1"), 
+    @NamedQuery(name = "Student.findByOtherPhone", query = "SELECT s FROM Student s WHERE s.otherPhone = ?1"), 
+    @NamedQuery(name = "Student.findByAddress", query = "SELECT s FROM Student s WHERE s.address = ?1"), 
+    @NamedQuery(name = "Student.findByEducation", query = "SELECT s FROM Student s WHERE s.education = ?1"), 
+    @NamedQuery(name = "Student.findByVisaStatus", query = "SELECT s FROM Student s WHERE s.visaStatus = ?1"), 
+    @NamedQuery(name = "Student.findByGender", query = "SELECT s FROM Student s WHERE s.gender = ?1"), 
+    @NamedQuery(name = "Student.findByAge", query = "SELECT s FROM Student s WHERE s.age = ?1"), 
+    @NamedQuery(name = "Student.findByNationality", query = "SELECT s FROM Student s WHERE s.nationality = ?1"), 
+    @NamedQuery(name = "Student.findByRefferedBy", query = "SELECT s FROM Student s WHERE s.refferedBy = ?1"), 
+    @NamedQuery(name = "Student.findByExpectedStartDate", query = "SELECT s FROM Student s WHERE s.expectedStartDate = ?1"), 
+    @NamedQuery(name = "Student.findByCreateUser", query = "SELECT s FROM Student s WHERE s.createUser = ?1"), 
+    @NamedQuery(name = "Student.findByCreateDate", query = "SELECT s FROM Student s WHERE s.createDate = ?1"), 
+    @NamedQuery(name = "Student.findByLastModifiedUser", query = "SELECT s FROM Student s WHERE s.lastModifiedUser = ?1"), 
+    @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = ?1")})
+public class Student extends BaseModel implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     
     @Column(name = "first_name")
