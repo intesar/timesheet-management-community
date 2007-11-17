@@ -5,6 +5,7 @@
 
 package com.abbhsoft.srm.model;
 
+import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -25,49 +26,30 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "faq")
 @NamedQueries({@NamedQuery(name = "Faq.findById", query = "SELECT f FROM Faq f WHERE f.id = :id"), @NamedQuery(name = "Faq.findByQuestion", query = "SELECT f FROM Faq f WHERE f.question = :question"), @NamedQuery(name = "Faq.findByAnswer", query = "SELECT f FROM Faq f WHERE f.answer = :answer"), @NamedQuery(name = "Faq.findByTag", query = "SELECT f FROM Faq f WHERE f.tag = :tag"), @NamedQuery(name = "Faq.findByCreateUser", query = "SELECT f FROM Faq f WHERE f.createUser = :createUser"), @NamedQuery(name = "Faq.findByCreateDate", query = "SELECT f FROM Faq f WHERE f.createDate = :createDate"), @NamedQuery(name = "Faq.findByLastModifiedUser", query = "SELECT f FROM Faq f WHERE f.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Faq.findByLastModifiedDate", query = "SELECT f FROM Faq f WHERE f.lastModifiedDate = :lastModifiedDate")})
-public class Faq implements Serializable {
+public class Faq extends BaseModel {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    
     @Column(name = "question", nullable = false)
     private String question;
     @Column(name = "answer")
     private String answer;
     @Column(name = "tag")
     private String tag;
-    @Column(name = "create_user")
-    private Integer createUser;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Column(name = "last_modified_user")
-    private Integer lastModifiedUser;
-    @Column(name = "last_modified_date")
-    @Temporal(TemporalType.DATE)
-    private Date lastModifiedDate;
     @OneToMany(mappedBy = "faq")
     private Collection<StudentFaq> studentFaqCollection;
 
     public Faq() {
     }
 
-    public Faq(Integer id) {
+    public Faq(Long id) {
         this.id = id;
     }
 
-    public Faq(Integer id, String question) {
+    public Faq(Long id, String question) {
         this.id = id;
         this.question = question;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getQuestion() {
         return question;
@@ -92,39 +74,6 @@ public class Faq implements Serializable {
     public void setTag(String tag) {
         this.tag = tag;
     }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getLastModifiedUser() {
-        return lastModifiedUser;
-    }
-
-    public void setLastModifiedUser(Integer lastModifiedUser) {
-        this.lastModifiedUser = lastModifiedUser;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
     public Collection<StudentFaq> getStudentFaqCollection() {
         return studentFaqCollection;
     }
