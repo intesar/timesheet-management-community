@@ -8,7 +8,9 @@ package com.abbhsoft.srm.service.impl;
 import com.abbhsoft.srm.dao.EventDao;
 import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.service.EventService;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -30,9 +32,19 @@ public class EventServiceImpl implements EventService {
         this.eventDao.update(event);
     }
 
-    public List<Event> findAll() {
+    public List<Event> getAll() {
         return this.eventDao.findAll();
-    } 
+    }
+
+    public List<Event> getAllFutrueEvents() {
+        Date date = null;
+        Calendar calendar = new GregorianCalendar();
+        calendar.set(Calendar.DATE, calendar.get(Calendar.DATE)+1);
+        date = calendar.getTime();
+        return this.eventDao.findByDate(date);
+    }
+    
+  
 
     // dao injection code
 

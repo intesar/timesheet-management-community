@@ -30,7 +30,7 @@ public class StudentServiceImpl implements StudentService {
         this.studentDao.update(student);
     }
 
-    public List<Student> findAll() {
+    public List<Student> getAll() {
         return this.studentDao.findAll();
     }
 

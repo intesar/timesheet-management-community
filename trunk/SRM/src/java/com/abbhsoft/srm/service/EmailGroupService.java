@@ -30,6 +30,6 @@ public interface EmailGroupService {
     
     // returns all the entities from the database
     
-    List<EmailGroup> findAll ();
+    List<EmailGroup> getAll ();
 
 }

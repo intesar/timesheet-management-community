@@ -31,7 +31,7 @@ public class EmailGroupServiceImpl implements EmailGroupService {
         emailGroupDao.update(emailGroup);
     }
 
-    public List<EmailGroup> findAll() {
+    public List<EmailGroup> getAll() {
         return emailGroupDao.findAll();
     }
     
