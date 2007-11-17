@@ -33,7 +33,9 @@ public interface GenericDao<T, PK extends Serializable> {
 
    List<T> findByLastModiiedUser ( Long userId );
 
-   List<T> findByLastModifiedDate ( Date lastModifiedDate );
+   List<T> findByLastModifiedDate ( Date lastModifiedDate ); 
+   
+   List<T> findByLastModifiedDates (Date startDate, Date endDate);
 
    List<T> findAll ();
 

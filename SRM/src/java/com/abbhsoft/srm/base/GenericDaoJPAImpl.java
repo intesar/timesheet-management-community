@@ -88,6 +88,11 @@ public class GenericDaoJPAImpl<T, PK extends Serializable> extends JpaTemplate i
 //                    }
 //                });
     }
+    
+    
+    public List<T> findByLastModifiedDates(Date startDate, Date endDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
     @SuppressWarnings(value = "unchecked")
     public List<T> executeFinder(Method method, final Object[] queryArgs) {
@@ -149,4 +154,5 @@ public class GenericDaoJPAImpl<T, PK extends Serializable> extends JpaTemplate i
     public void setNamingStrategy(FinderNamingStrategy namingStrategy) {
         this.namingStrategy = namingStrategy;
     }
+
 }
