@@ -99,14 +99,14 @@
       </property>
    </bean>
    
-   <bean id="group1Dao" parent="abstractDao">
+   <bean id="emailGroupDao" parent="abstractDao">
       <property name="proxyInterfaces">
-         <value>com.abbhsoft.srm.dao.Group1Dao</value>
+         <value>com.abbhsoft.srm.dao.EmailGroupDao</value>
       </property>
       <property name="target">
          <bean parent="abstractDaoTarget">
             <constructor-arg>
-               <value>com.abbhsoft.srm.model.Group1</value>
+               <value>com.abbhsoft.srm.model.EmailGroup</value>
             </constructor-arg>
          </bean>
       </property>

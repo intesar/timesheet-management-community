@@ -21,7 +21,7 @@ import javax.persistence.Table;
  * @author mdshannan
  */
 @Entity
-@Table(name = "group")
+@Table(name = "email_group")
 @NamedQueries({
     @NamedQuery(name = "Group1.findById", query = "SELECT g FROM Group1 g WHERE g.id = ?1"), 
     @NamedQuery(name = "Group1.findByOwner", query = "SELECT g FROM Group1 g WHERE g.owner = ?1"),
@@ -32,7 +32,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Group1.findByCreateDate", query = "SELECT g FROM Group1 g WHERE g.createDate = ?1"), 
     @NamedQuery(name = "Group1.findByLastModifiedUser", query = "SELECT g FROM Group1 g WHERE g.lastModifiedUser = ?1"),
     @NamedQuery(name = "Group1.findByLastModifiedDate", query = "SELECT g FROM Group1 g WHERE g.lastModifiedDate = ?1")})
-public class Group1 extends BaseModel implements java.io.Serializable  {
+public class EmailGroup extends BaseModel implements java.io.Serializable  {
     private static final long serialVersionUID = 1L;
    
     @Column(name = "owner")
@@ -49,14 +49,14 @@ public class Group1 extends BaseModel implements java.io.Serializable  {
     @ManyToOne
     private University university;
 
-    public Group1() {
+    public EmailGroup() {
     }
 
-    public Group1(Long id) {
+    public EmailGroup(Long id) {
         this.id = id;
     }
 
-    public Group1(Long id, String groupEmail) {
+    public EmailGroup(Long id, String groupEmail) {
         this.id = id;
         this.groupEmail = groupEmail;
     }
@@ -119,10 +119,10 @@ public class Group1 extends BaseModel implements java.io.Serializable  {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Group1)) {
+        if (!(object instanceof EmailGroup)) {
             return false;
         }
-        Group1 other = (Group1) object;
+        EmailGroup other = (EmailGroup) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

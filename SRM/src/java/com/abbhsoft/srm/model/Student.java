@@ -94,7 +94,7 @@ public class Student extends BaseModel implements java.io.Serializable {
     private Collection<Query> queryCollection;
     @JoinColumn(name = "group", referencedColumnName = "id")
     @ManyToOne
-    private Group1 group1;
+    private EmailGroup group1;
     @JoinColumn(name = "university", referencedColumnName = "id")
     @ManyToOne
     private University university;
@@ -263,11 +263,11 @@ public class Student extends BaseModel implements java.io.Serializable {
         this.queryCollection = queryCollection;
     }
 
-    public Group1 getGroup1() {
+    public EmailGroup getGroup1() {
         return group1;
     }
 
-    public void setGroup1(Group1 group1) {
+    public void setGroup1(EmailGroup group1) {
         this.group1 = group1;
     }
 
