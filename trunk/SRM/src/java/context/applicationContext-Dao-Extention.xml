@@ -85,19 +85,7 @@
       </property>
    </bean>
    
-   <bean id="queryDao" parent="abstractDao">
-      <property name="proxyInterfaces">
-         <value>com.abbhsoft.srm.dao.QueryDao</value>
-      </property>
-      <property name="target">
-         <bean parent="abstractDaoTarget">
-            <constructor-arg>
-               <value>com.abbhsoft.srm.model.Query</value>
-            </constructor-arg>
-         </bean>
-      </property>
-   </bean>
-   
+     
    <bean id="keyValueDao" parent="abstractDao">
       <property name="proxyInterfaces">
          <value>com.abbhsoft.srm.dao.KeyValueDao</value>
