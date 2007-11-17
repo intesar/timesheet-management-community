@@ -22,6 +22,18 @@
         <property name="eventDao" ref="eventDao" />
     </bean>
     
+    <bean id="campusServiceImpl" class="com.abbhsoft.srm.service.impl.CampusServiceImpl" >
+        <property name="campusDao" ref="campusDao" />
+    </bean>
+    
+    <bean id="emailGroupServiceImpl" class="com.abbhsoft.srm.service.impl.EmailGroupServiceImpl" >
+        <property name="emailGroupDao" ref="emailGroupDao" />
+    </bean>
+    
+    <bean id="studentServiceImpl" class="com.abbhsoft.srm.service.impl.StudentServiceImpl" >
+        <property name="studentDao" ref="studentDao" />
+    </bean>
+    
     <!--
      ##########################################################################
                             Services Declerations End

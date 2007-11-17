@@ -20,19 +20,19 @@ public class EmailGroupServiceImpl implements EmailGroupService {
 
     public List<EmailGroup> recentEmailGroups() {
         Date date = new Date();
-        return group1Dao.findByLastModifiedDate(date);
+        return emailGroupDao.findByLastModifiedDate(date);
     }
 
     public void save ( EmailGroup group ) {
-        group1Dao.create(group);
+        emailGroupDao.create(group);
     }
 
     // dao injection code
 
-    private EmailGroupDao group1Dao;
+    private EmailGroupDao emailGroupDao;
 
-    public void setGroup1Dao(EmailGroupDao group1Dao) {
-        this.group1Dao = group1Dao;
+    public void setEmailGroupDao(EmailGroupDao emailGroupDao) {
+        this.emailGroupDao = emailGroupDao;
     }
     
 }
