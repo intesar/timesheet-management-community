@@ -1,2 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/SRM"/>
+<Context path="/SRM">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxActive="20" maxIdle="10" maxWait="-1" name="srm" password="srm" type="javax.sql.DataSource" url="jdbc:mysql://71.57.126.129:3306/srm" username="srm"/>
+</Context>
