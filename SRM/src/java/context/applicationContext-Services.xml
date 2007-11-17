@@ -11,12 +11,12 @@
     
     <!-- Example Services Decleration -->
     
-    
+    <!--
     <bean id="personServiceImpl" class="com.company.projectname.service.impl.PersonServiceImpl" >
         <property name="personDao" ref="personDao"/>
     </bean>
     
-    
+    -->
     
 
     <!--
