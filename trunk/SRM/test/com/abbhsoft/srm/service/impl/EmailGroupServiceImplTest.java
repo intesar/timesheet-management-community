@@ -62,16 +62,6 @@ public class EmailGroupServiceImplTest extends TestCase {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of setGroup1Dao method, of class EmailGroupServiceImpl.
-     */
-    public void testSetGroup1Dao() {
-        System.out.println("setGroup1Dao");
-        EmailGroupDao group1Dao = null;
-        EmailGroupServiceImpl instance = new EmailGroupServiceImpl();
-        instance.setGroup1Dao(group1Dao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+    
 
 }
