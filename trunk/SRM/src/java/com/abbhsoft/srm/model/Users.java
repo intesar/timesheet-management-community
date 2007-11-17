@@ -18,7 +18,17 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "users")
-@NamedQueries({@NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = ?1"), @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = ?1"), @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = ?1"), @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = ?1"), @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = ?1"), @NamedQuery(name = "Users.findByEnabled", query = "SELECT u FROM Users u WHERE u.enabled = ?1"), @NamedQuery(name = "Users.findByCreateUser", query = "SELECT u FROM Users u WHERE u.createUser = ?1"), @NamedQuery(name = "Users.findByCreateDate", query = "SELECT u FROM Users u WHERE u.createDate = ?1"), @NamedQuery(name = "Users.findByLastModifiedDate", query = "SELECT u FROM Users u WHERE u.lastModifiedDate = ?1"), @NamedQuery(name = "Users.findByLastModifiedUser", query = "SELECT u FROM Users u WHERE u.lastModifiedUser = ?1")})
+@NamedQueries({
+    @NamedQuery(name = "Users.findById", query = "SELECT u FROM Users u WHERE u.id = ?1"), 
+    @NamedQuery(name = "Users.findByFirstName", query = "SELECT u FROM Users u WHERE u.firstName = ?1"), 
+    @NamedQuery(name = "Users.findByLastName", query = "SELECT u FROM Users u WHERE u.lastName = ?1"), 
+    @NamedQuery(name = "Users.findByUsername", query = "SELECT u FROM Users u WHERE u.username = ?1"), 
+    @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = ?1"), 
+    @NamedQuery(name = "Users.findByEnabled", query = "SELECT u FROM Users u WHERE u.enabled = ?1"), 
+    @NamedQuery(name = "Users.findByCreateUser", query = "SELECT u FROM Users u WHERE u.createUser = ?1"), 
+    @NamedQuery(name = "Users.findByCreateDate", query = "SELECT u FROM Users u WHERE u.createDate = ?1"), 
+    @NamedQuery(name = "Users.findByLastModifiedDate", query = "SELECT u FROM Users u WHERE u.lastModifiedDate = ?1"),
+    @NamedQuery(name = "Users.findByLastModifiedUser", query = "SELECT u FROM Users u WHERE u.lastModifiedUser = ?1")})
 
 public class Users extends BaseModel {
     private static final long serialVersionUID = 1L;
