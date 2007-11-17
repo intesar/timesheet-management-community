@@ -35,6 +35,20 @@ public class EmailGroupServiceImpl implements EmailGroupService {
         return emailGroupDao.findAll();
     }
     
+    public List<Event> getPastEvents(Long emailGroupId) {
+        EmailGroup emailGroup = this.emailGroupDao.read(emailGroupId);
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+ 
+    public List<Event> getFutureEvents(Long emailGroupId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<Event> getAllEvents(Long emailGroupId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    
     // dao injection code
 
     private EmailGroupDao emailGroupDao;
@@ -43,6 +57,7 @@ public class EmailGroupServiceImpl implements EmailGroupService {
         this.emailGroupDao = emailGroupDao;
     }
 
+    
     
     
 }
