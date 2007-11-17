@@ -5,18 +5,15 @@
 
 package com.abbhsoft.srm.model;
 
+import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -25,23 +22,11 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "campus")
 @NamedQueries({@NamedQuery(name = "Campus.findById", query = "SELECT c FROM Campus c WHERE c.id = :id"), @NamedQuery(name = "Campus.findByName", query = "SELECT c FROM Campus c WHERE c.name = :name"), @NamedQuery(name = "Campus.findByCreateUser", query = "SELECT c FROM Campus c WHERE c.createUser = :createUser"), @NamedQuery(name = "Campus.findByCreateDate", query = "SELECT c FROM Campus c WHERE c.createDate = :createDate"), @NamedQuery(name = "Campus.findByLastModifiedUser", query = "SELECT c FROM Campus c WHERE c.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Campus.findByLastModifiedDate", query = "SELECT c FROM Campus c WHERE c.lastModifiedDate = :lastModifiedDate")})
-public class Campus implements Serializable {
+public class Campus extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "create_user")
-    private Integer createUser;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Column(name = "last_modified_user")
-    private Integer lastModifiedUser;
-    @Column(name = "last_modified_date")
-    @Temporal(TemporalType.DATE)
-    private Date lastModifiedDate;
     @JoinColumn(name = "address", referencedColumnName = "id")
     @ManyToOne
     private Address address;
@@ -52,63 +37,22 @@ public class Campus implements Serializable {
     public Campus() {
     }
 
-    public Campus(Integer id) {
+    public Campus(Long id) {
         this.id = id;
     }
 
-    public Campus(Integer id, String name) {
+    public Campus(Long id, String name) {
         this.id = id;
         this.name = name;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
+public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getLastModifiedUser() {
-        return lastModifiedUser;
-    }
-
-    public void setLastModifiedUser(Integer lastModifiedUser) {
-        this.lastModifiedUser = lastModifiedUser;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
+    
     public Address getAddress() {
         return address;
     }
