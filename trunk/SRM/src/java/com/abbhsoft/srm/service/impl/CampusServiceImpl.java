@@ -27,6 +27,13 @@ public class CampusServiceImpl implements CampusService {
         campusDao.create(campus);
     }
 
+    public void update(Campus campus) {
+        campusDao.update(campus);
+    }
+
+    public List<Campus> findAll() {
+        return campusDao.findAll();
+    }
     // dao injection code
 
     private CampusDao campusDao;
@@ -34,6 +41,8 @@ public class CampusServiceImpl implements CampusService {
     public void setCampusDao(CampusDao campusDao) {
         this.campusDao = campusDao;
     }
+
+    
 
 
 }

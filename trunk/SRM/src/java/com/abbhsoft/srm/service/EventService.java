@@ -23,5 +23,13 @@ public interface EventService {
      *   saves a new Event
      */
     void save ( Event event );
+    
+    // udpates Entity
+    
+    void update ( Event event );
+    
+    // returns all the entities from the database
+    
+    List<Event> findAll ();
 
 }

@@ -5,7 +5,6 @@
 
 package com.abbhsoft.srm.service;
 
-import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.Student;
 import java.util.List;
 
@@ -21,8 +20,16 @@ public interface StudentService {
     List<Student> recentStudents () ;
 
     /*
-     *   saves a new Event
+     *   saves a new Entity
      */
     void save ( Student student );
+    
+    // udpates Entity
+    
+    void update ( Student student );
+    
+    // returns all the entities from the database
+    
+    List<Student> findAll ();
 
 }

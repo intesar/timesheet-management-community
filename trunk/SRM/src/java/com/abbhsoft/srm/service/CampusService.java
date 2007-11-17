@@ -6,7 +6,6 @@
 package com.abbhsoft.srm.service;
 
 import com.abbhsoft.srm.model.Campus;
-import com.abbhsoft.srm.model.Event;
 import java.util.List;
 
 /**
@@ -21,8 +20,16 @@ public interface CampusService {
     List<Campus> recentCampuses () ;
 
     /*
-     *   saves a new Event
+     *   saves a new Entity
      */
     void save ( Campus campus );
+    
+    // udpates Entity
+    
+    void update ( Campus campus );
+    
+    // returns all the entities from the database
+    
+    List<Campus> findAll ();
 
 }
