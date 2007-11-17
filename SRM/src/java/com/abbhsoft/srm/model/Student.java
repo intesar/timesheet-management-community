@@ -49,7 +49,8 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Student.findByCreateUser", query = "SELECT s FROM Student s WHERE s.createUser = ?1"), 
     @NamedQuery(name = "Student.findByCreateDate", query = "SELECT s FROM Student s WHERE s.createDate = ?1"), 
     @NamedQuery(name = "Student.findByLastModifiedUser", query = "SELECT s FROM Student s WHERE s.lastModifiedUser = ?1"), 
-    @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = ?1")})
+    @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = ?1"),
+    @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s ")})
 public class Student extends BaseModel implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     
