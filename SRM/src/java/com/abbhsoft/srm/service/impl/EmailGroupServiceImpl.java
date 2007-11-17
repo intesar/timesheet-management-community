@@ -27,6 +27,14 @@ public class EmailGroupServiceImpl implements EmailGroupService {
         emailGroupDao.create(group);
     }
 
+    public void update(EmailGroup emailGroup) {
+        emailGroupDao.update(emailGroup);
+    }
+
+    public List<EmailGroup> findAll() {
+        return emailGroupDao.findAll();
+    }
+    
     // dao injection code
 
     private EmailGroupDao emailGroupDao;
@@ -34,5 +42,7 @@ public class EmailGroupServiceImpl implements EmailGroupService {
     public void setEmailGroupDao(EmailGroupDao emailGroupDao) {
         this.emailGroupDao = emailGroupDao;
     }
+
+    
     
 }

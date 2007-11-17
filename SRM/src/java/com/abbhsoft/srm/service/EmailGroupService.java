@@ -5,7 +5,6 @@
 
 package com.abbhsoft.srm.service;
 
-import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.EmailGroup;
 import java.util.List;
 
@@ -21,8 +20,16 @@ public interface EmailGroupService {
     List<EmailGroup> recentEmailGroups () ;
 
     /*
-     *   saves a new Event
+     *   saves a new Entity
      */
-    void save ( EmailGroup group1 );
+    void save ( EmailGroup emailGroup );
+    
+    // udpates Entity
+    
+    void update ( EmailGroup emailGroup );
+    
+    // returns all the entities from the database
+    
+    List<EmailGroup> findAll ();
 
 }

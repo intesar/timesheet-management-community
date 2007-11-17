@@ -25,6 +25,14 @@ public class EventServiceImpl implements EventService {
     public void save ( Event event ) {
         eventDao.create(event);
     }
+    
+    public void update(Event event) {
+        this.eventDao.update(event);
+    }
+
+    public List<Event> findAll() {
+        return this.eventDao.findAll();
+    } 
 
     // dao injection code
 
@@ -33,6 +41,8 @@ public class EventServiceImpl implements EventService {
     public void setEventDao(EventDao eventDao) {
         this.eventDao = eventDao;
     }
+
+    
 
 
 }

@@ -26,6 +26,13 @@ public class StudentServiceImpl implements StudentService {
         this.studentDao.create(student);
     }
     
+    public void update(Student student) {
+        this.studentDao.update(student);
+    }
+
+    public List<Student> findAll() {
+        return this.studentDao.findAll();
+    }
 
     // dao injection code
 
@@ -35,6 +42,7 @@ public class StudentServiceImpl implements StudentService {
         this.studentDao = studentDao;
     }
 
+    
     
 
 }
