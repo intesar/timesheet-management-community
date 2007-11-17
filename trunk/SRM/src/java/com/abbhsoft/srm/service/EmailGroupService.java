@@ -6,7 +6,7 @@
 package com.abbhsoft.srm.service;
 
 import com.abbhsoft.srm.model.Event;
-import com.abbhsoft.srm.model.Group1;
+import com.abbhsoft.srm.model.EmailGroup;
 import java.util.List;
 
 /**
@@ -18,11 +18,11 @@ public interface EmailGroupService {
     /*
      *  returns todays current events
      */
-    List<Group1> recentEmailGroups () ;
+    List<EmailGroup> recentEmailGroups () ;
 
     /*
      *   saves a new Event
      */
-    void save ( Group1 group1 );
+    void save ( EmailGroup group1 );
 
 }

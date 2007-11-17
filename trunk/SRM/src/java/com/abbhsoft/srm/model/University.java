@@ -36,7 +36,7 @@ public class University extends BaseModel {
     @OneToMany(mappedBy = "university")
     private Collection<Student> studentCollection;
     @OneToMany(mappedBy = "university")
-    private Collection<Group1> group1Collection;
+    private Collection<EmailGroup> group1Collection;
     @OneToMany(mappedBy = "university")
     private Collection<Campus> campusCollection;
 
@@ -71,11 +71,11 @@ public class University extends BaseModel {
         this.studentCollection = studentCollection;
     }
 
-    public Collection<Group1> getGroup1Collection() {
+    public Collection<EmailGroup> getGroup1Collection() {
         return group1Collection;
     }
 
-    public void setGroup1Collection(Collection<Group1> group1Collection) {
+    public void setGroup1Collection(Collection<EmailGroup> group1Collection) {
         this.group1Collection = group1Collection;
     }
 
