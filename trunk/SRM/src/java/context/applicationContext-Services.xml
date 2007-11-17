@@ -18,7 +18,10 @@
     
     -->
     
-
+    <bean id="eventServiceImpl" class="com.abbhsoft.srm.service.impl.EventServiceImpl" >
+        <property name="eventDao" ref="eventDao" />
+    </bean>
+    
     <!--
      ##########################################################################
                             Services Declerations End
