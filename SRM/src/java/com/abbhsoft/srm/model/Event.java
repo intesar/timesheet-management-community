@@ -46,6 +46,16 @@ public class Event extends BaseModel implements Serializable {
     private String type;
     @Column(name = "descript")
     private String descript;
+    @Column(name = "priority")
+    private String priority;
+
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
     @JoinColumn(name = "university", referencedColumnName = "id")
     @ManyToOne
     private University university;
