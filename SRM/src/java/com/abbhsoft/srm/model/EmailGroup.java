@@ -33,6 +33,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "EmailGroup.findByCreateDate", query = "SELECT g FROM EmailGroup g WHERE g.createDate = ?1"), 
     @NamedQuery(name = "EmailGroup.findByLastModifiedUser", query = "SELECT g FROM EmailGroup g WHERE g.lastModifiedUser = ?1"),
     @NamedQuery(name = "EmailGroup.findByLastModifiedDate", query = "SELECT g FROM EmailGroup g WHERE g.lastModifiedDate = ?1"),
+    @NamedQuery(name = "EmailGroup.findByLastModifiedDate", query = "SELECT g FROM EmailGroup g WHERE g.lastModifiedDate between ?1 and ?2"),
     @NamedQuery(name = "EmailGroup.findAll", query = "SELECT g FROM EmailGroup g ")})
 public class EmailGroup extends BaseModel implements java.io.Serializable  {
     private static final long serialVersionUID = 1L;
