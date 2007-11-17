@@ -22,6 +22,10 @@ public class EventServiceImpl implements EventService {
         return eventDao.findByDate(date);
     }
 
+    public void save ( Event event ) {
+        eventDao.create(event);
+    }
+
     // dao injection code
 
     private EventDao eventDao;

@@ -26,14 +26,14 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "faq")
 @NamedQueries({
-    @NamedQuery(name = "Faq.findById", query = "SELECT f FROM Faq f WHERE f.id = ?!"),
-    @NamedQuery(name = "Faq.findByQuestion", query = "SELECT f FROM Faq f WHERE f.question = ?!"), 
-    @NamedQuery(name = "Faq.findByAnswer", query = "SELECT f FROM Faq f WHERE f.answer = answer"), 
-    @NamedQuery(name = "Faq.findByTag", query = "SELECT f FROM Faq f WHERE f.tag = ?!"),
-    @NamedQuery(name = "Faq.findByCreateUser", query = "SELECT f FROM Faq f WHERE f.createUser = ?!"), 
-    @NamedQuery(name = "Faq.findByCreateDate", query = "SELECT f FROM Faq f WHERE f.createDate = ?!"), 
-    @NamedQuery(name = "Faq.findByLastModifiedUser", query = "SELECT f FROM Faq f WHERE f.lastModifiedUser = ?!"),
-    @NamedQuery(name = "Faq.findByLastModifiedDate", query = "SELECT f FROM Faq f WHERE f.lastModifiedDate = ?!")})
+    @NamedQuery(name = "Faq.findById", query = "SELECT f FROM Faq f WHERE f.id = ?1"),
+    @NamedQuery(name = "Faq.findByQuestion", query = "SELECT f FROM Faq f WHERE f.question = ?1"), 
+    @NamedQuery(name = "Faq.findByAnswer", query = "SELECT f FROM Faq f WHERE f.answer = ?1"), 
+    @NamedQuery(name = "Faq.findByTag", query = "SELECT f FROM Faq f WHERE f.tag = ?1"),
+    @NamedQuery(name = "Faq.findByCreateUser", query = "SELECT f FROM Faq f WHERE f.createUser = ?1"), 
+    @NamedQuery(name = "Faq.findByCreateDate", query = "SELECT f FROM Faq f WHERE f.createDate = ?1"), 
+    @NamedQuery(name = "Faq.findByLastModifiedUser", query = "SELECT f FROM Faq f WHERE f.lastModifiedUser = ?1"),
+    @NamedQuery(name = "Faq.findByLastModifiedDate", query = "SELECT f FROM Faq f WHERE f.lastModifiedDate = ?1")})
 public class Faq extends BaseModel implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
     

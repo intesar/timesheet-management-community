@@ -125,7 +125,7 @@
       </property>
    </bean>
    
-   <bean id="event" parent="abstractDao">
+   <bean id="eventDao" parent="abstractDao">
       <property name="proxyInterfaces">
          <value>com.abbhsoft.srm.dao.EventDao</value>
       </property>

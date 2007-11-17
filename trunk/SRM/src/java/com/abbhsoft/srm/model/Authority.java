@@ -20,9 +20,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "authority")
 @NamedQueries({
-    @NamedQuery(name = "Authority.findById", query = "SELECT a FROM Authority a WHERE a.id = ?!"), 
-    @NamedQuery(name = "Authority.findByAuthority", query = "SELECT a FROM Authority a WHERE a.authority = :?!"), 
-    @NamedQuery(name = "Authority.findByDescription", query = "SELECT a FROM Authority a WHERE a.description = ?!")})
+    @NamedQuery(name = "Authority.findById", query = "SELECT a FROM Authority a WHERE a.id = ?1"), 
+    @NamedQuery(name = "Authority.findByAuthority", query = "SELECT a FROM Authority a WHERE a.authority = ?1"), 
+    @NamedQuery(name = "Authority.findByDescription", query = "SELECT a FROM Authority a WHERE a.description = ?1")})
 public class Authority extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
    

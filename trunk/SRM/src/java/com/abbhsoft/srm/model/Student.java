@@ -71,7 +71,7 @@ public class Student extends BaseModel implements java.io.Serializable {
     private String fax;
     @Column(name = "other_phone")
     private String otherPhone;
-    @Column(name = "address")
+    @JoinColumn(name = "address", referencedColumnName = "id")
     @ManyToOne
     private Address address;
     @Column(name = "education")

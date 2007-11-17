@@ -26,7 +26,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Group1.findById", query = "SELECT g FROM Group1 g WHERE g.id = ?1"), 
     @NamedQuery(name = "Group1.findByOwner", query = "SELECT g FROM Group1 g WHERE g.owner = ?1"),
     @NamedQuery(name = "Group1.findBySubscribeEmail", query = "SELECT g FROM Group1 g WHERE g.subscribeEmail = ?1"), 
-    @NamedQuery(name = "Group1.findByGroupEmail", query = "SELECT g FROM Group1 g WHERE g.groupEmail = 1?"), 
+    @NamedQuery(name = "Group1.findByGroupEmail", query = "SELECT g FROM Group1 g WHERE g.groupEmail = ?1"), 
     @NamedQuery(name = "Group1.findByUnsubscribeEmail", query = "SELECT g FROM Group1 g WHERE g.unsubscribeEmail = ?1"),
     @NamedQuery(name = "Group1.findByCreateUser", query = "SELECT g FROM Group1 g WHERE g.createUser = ?1"), 
     @NamedQuery(name = "Group1.findByCreateDate", query = "SELECT g FROM Group1 g WHERE g.createDate = ?1"), 

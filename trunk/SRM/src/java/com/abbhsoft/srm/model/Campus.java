@@ -22,12 +22,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "campus")
 @NamedQueries({
-    @NamedQuery(name = "Campus.findById", query = "SELECT c FROM Campus c WHERE c.id = ?!"), 
-    @NamedQuery(name = "Campus.findByName", query = "SELECT c FROM Campus c WHERE c.name = ?!"), 
-    @NamedQuery(name = "Campus.findByCreateUser", query = "SELECT c FROM Campus c WHERE c.createUser = ?!"), 
-    @NamedQuery(name = "Campus.findByCreateDate", query = "SELECT c FROM Campus c WHERE c.createDate = ?!"),
-    @NamedQuery(name = "Campus.findByLastModifiedUser", query = "SELECT c FROM Campus c WHERE c.lastModifiedUser = ?!"), 
-    @NamedQuery(name = "Campus.findByLastModifiedDate", query = "SELECT c FROM Campus c WHERE c.lastModifiedDate = ?!")})
+    @NamedQuery(name = "Campus.findById", query = "SELECT c FROM Campus c WHERE c.id = ?1"), 
+    @NamedQuery(name = "Campus.findByName", query = "SELECT c FROM Campus c WHERE c.name = ?1"), 
+    @NamedQuery(name = "Campus.findByCreateUser", query = "SELECT c FROM Campus c WHERE c.createUser = ?1"), 
+    @NamedQuery(name = "Campus.findByCreateDate", query = "SELECT c FROM Campus c WHERE c.createDate = ?1"),
+    @NamedQuery(name = "Campus.findByLastModifiedUser", query = "SELECT c FROM Campus c WHERE c.lastModifiedUser = ?1"), 
+    @NamedQuery(name = "Campus.findByLastModifiedDate", query = "SELECT c FROM Campus c WHERE c.lastModifiedDate = ?1")})
 public class Campus extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
     

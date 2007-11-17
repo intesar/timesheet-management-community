@@ -4,7 +4,7 @@
     
     <!-- EntityManagerFactory -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
-        <property name="persistenceUnitName" value="ProjectName-daoPU"/>
+        <property name="persistenceUnitName" value="SRMPU"/>
     </bean>
     
     <!-- Production Deployement -->
@@ -17,13 +17,13 @@
     -->
     
     <!-- advisor -->
-   <bean id="finderIntroductionAdvisor" class="com.company.projectname.base.FinderIntroductionAdvisor" />
+   <bean id="finderIntroductionAdvisor" class="com.abbhsoft.srm.base.FinderIntroductionAdvisor" />
 
    <!-- helper bean resolves the finder method name -->   
-   <bean id="extendedFinderNamingStrategy" class="com.company.projectname.base.ExtendedFinderNamingStrategy" />
+   <bean id="extendedFinderNamingStrategy" class="com.abbhsoft.srm.base.ExtendedFinderNamingStrategy" />
    
    <!-- target -->
-   <bean id="abstractDaoTarget" class="com.company.projectname.base.GenericDaoJPAImpl" abstract="true">
+   <bean id="abstractDaoTarget" class="com.abbhsoft.srm.base.GenericDaoJPAImpl" abstract="true">
       <property name="entityManagerFactory"><ref bean="entityManagerFactory"/></property>
       <property name="namingStrategy">
          <ref bean="extendedFinderNamingStrategy" />
@@ -51,15 +51,15 @@
     
   <!-- 
     datasource bean is used by spring unit testing 
-  
+  -->
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
       <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-      <property name="url" value="jdbc:mysql:///persons"/>
-      <property name="username" value="root"/>
-      <property name="password" value="apple123"/>
+      <property name="url" value="jdbc:mysql://71.57.126.129:3306/srm"/>
+      <property name="username" value="srm"/>
+      <property name="password" value="srm"/>
     </bean>
-   -->
+   
    
     
 </beans>
