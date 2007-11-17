@@ -138,7 +138,7 @@
       </property>
    </bean>
    
-   <bean id="campus" parent="abstractDao">
+   <bean id="campusDao" parent="abstractDao">
       <property name="proxyInterfaces">
          <value>com.abbhsoft.srm.dao.CampusDao</value>
       </property>

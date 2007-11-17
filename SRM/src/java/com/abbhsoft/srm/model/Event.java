@@ -30,7 +30,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Event.findByType", query = "SELECT e FROM Event e WHERE e.type = ?1"), 
     @NamedQuery(name = "Event.findByDescript", query = "SELECT e FROM Event e WHERE e.descript = ?1"),
     @NamedQuery(name = "Event.findByStudent", query = "SELECT e FROM Event e WHERE e.student = ?1"),
-    @NamedQuery(name = "Event.findByGroup", query = "SELECT e FROM Event e WHERE e.group = ?1"), 
+    @NamedQuery(name = "Event.findByGroup", query = "SELECT e FROM Event e WHERE e.group1 = ?1"), 
     @NamedQuery(name = "Event.findByUniversity", query = "SELECT e FROM Event e WHERE e.university = ?1"), 
     @NamedQuery(name = "Event.findByCreateDate", query = "SELECT e FROM Event e WHERE e.createDate = ?1"), 
     @NamedQuery(name = "Event.findByCreateUser", query = "SELECT e FROM Event e WHERE e.createUser = ?1"),
@@ -46,15 +46,15 @@ public class Event extends BaseModel implements Serializable {
     private String type;
     @Column(name = "descript")
     private String descript;
-    @JoinColumn(name = "student", referencedColumnName = "id")
-    @ManyToOne
-    private Student student;
-    @JoinColumn(name = "group_", referencedColumnName = "id")
-    @ManyToOne
-    private EmailGroup emailGroup;
     @JoinColumn(name = "university", referencedColumnName = "id")
     @ManyToOne
     private University university;
+    @JoinColumn(name = "group_", referencedColumnName = "id")
+    @ManyToOne
+    private EmailGroup group1;
+    @JoinColumn(name = "student", referencedColumnName = "id")
+    @ManyToOne
+    private Student student;
    
     public Event() {
     }
@@ -100,13 +100,15 @@ public class Event extends BaseModel implements Serializable {
         this.descript = descript;
     }
 
-    public EmailGroup getEmailGroup() {
-        return emailGroup;
+    public EmailGroup getGroup1() {
+        return group1;
     }
 
-    public void setEmailGroup(EmailGroup emailGroup) {
-        this.emailGroup = emailGroup;
+    public void setGroup1(EmailGroup group1) {
+        this.group1 = group1;
     }
+
+    
 
     public Student getStudent() {
         return student;
