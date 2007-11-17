@@ -35,5 +35,9 @@ public interface EventService {
     // returns future events
     
     List<Event> getAllFutrueEvents ();
+    
+    // recent entities
+    
+    List<Event> getRecentUpdates();
 
 }

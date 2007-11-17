@@ -59,6 +59,12 @@ public class StudentServiceImpl implements StudentService {
     public List<Event> getAllEvents(Long emailGroupId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+    
+     public List<Student> getRecentUpdates() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+     
+     
     // dao injection code
 
     private StudentDao studentDao;
@@ -66,4 +72,6 @@ public class StudentServiceImpl implements StudentService {
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
+
+   
 }

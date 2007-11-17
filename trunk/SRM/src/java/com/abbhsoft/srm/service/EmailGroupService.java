@@ -44,4 +44,6 @@ public interface EmailGroupService {
     // returns all events for the Entity
     List<Event> getAllEvents ( Long emailGroupId );
 
+    // recent entities
+    List<EmailGroup> getRecentUpdates();
 }
