@@ -28,6 +28,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "Campus.findByCreateDate", query = "SELECT c FROM Campus c WHERE c.createDate = ?1"),
     @NamedQuery(name = "Campus.findByLastModifiedUser", query = "SELECT c FROM Campus c WHERE c.lastModifiedUser = ?1"), 
     @NamedQuery(name = "Campus.findByLastModifiedDate", query = "SELECT c FROM Campus c WHERE c.lastModifiedDate = ?1"),
+    @NamedQuery(name = "Campus.findByLastModifiedDates", query = "SELECT c FROM Campus c WHERE  c.lastModifiedDate between ?1 and ?2"),
     @NamedQuery(name = "Campus.findAll", query = "SELECT c FROM Campus c ")})
 public class Campus extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;

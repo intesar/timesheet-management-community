@@ -35,7 +35,9 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Event.findByCreateDate", query = "SELECT e FROM Event e WHERE e.createDate = ?1"), 
     @NamedQuery(name = "Event.findByCreateUser", query = "SELECT e FROM Event e WHERE e.createUser = ?1"),
     @NamedQuery(name = "Event.findByLastModifiedUser", query = "SELECT e FROM Event e WHERE e.lastModifiedUser = ?1"), 
-    @NamedQuery(name = "Event.findByLastModifiedDate", query = "SELECT e FROM Event e WHERE e.lastModifiedDate = ?1")})
+    @NamedQuery(name = "Event.findByLastModifiedDate", query = "SELECT e FROM Event e WHERE e.lastModifiedDate = ?1"),
+    @NamedQuery(name = "Event.findByLastModifiedDates", query = "SELECT e FROM Event e WHERE e.lastModifiedDate between  ?1 and ?2"),
+    @NamedQuery(name = "Event.findAll", query = "SELECT e FROM Event e")})
 public class Event extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
     
