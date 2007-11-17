@@ -21,7 +21,18 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "address")
-@NamedQueries({@NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = :id"), @NamedQuery(name = "Address.findByType", query = "SELECT a FROM Address a WHERE a.type = :type"), @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = :street"), @NamedQuery(name = "Address.findByCity", query = "SELECT a FROM Address a WHERE a.city = :city"), @NamedQuery(name = "Address.findByState", query = "SELECT a FROM Address a WHERE a.state = :state"), @NamedQuery(name = "Address.findByZipcode", query = "SELECT a FROM Address a WHERE a.zipcode = :zipcode"), @NamedQuery(name = "Address.findByCountry", query = "SELECT a FROM Address a WHERE a.country = :country"), @NamedQuery(name = "Address.findByCreateUser", query = "SELECT a FROM Address a WHERE a.createUser = :createUser"), @NamedQuery(name = "Address.findByCreateDate", query = "SELECT a FROM Address a WHERE a.createDate = :createDate"), @NamedQuery(name = "Address.findByLastModiiedUser", query = "SELECT a FROM Address a WHERE a.lastModiiedUser = :lastModiiedUser"), @NamedQuery(name = "Address.findByLastModifiedDate", query = "SELECT a FROM Address a WHERE a.lastModifiedDate = :lastModifiedDate")})
+@NamedQueries({
+    @NamedQuery(name = "Address.findById", query = "SELECT a FROM Address a WHERE a.id = ?!"), 
+    @NamedQuery(name = "Address.findByType", query = "SELECT a FROM Address a WHERE a.type = ?!"), 
+    @NamedQuery(name = "Address.findByStreet", query = "SELECT a FROM Address a WHERE a.street = ?!"), 
+    @NamedQuery(name = "Address.findByCity", query = "SELECT a FROM Address a WHERE a.city = ?!"), 
+    @NamedQuery(name = "Address.findByState", query = "SELECT a FROM Address a WHERE a.state = ?!"), 
+    @NamedQuery(name = "Address.findByZipcode", query = "SELECT a FROM Address a WHERE a.zipcode = ?!"), 
+    @NamedQuery(name = "Address.findByCountry", query = "SELECT a FROM Address a WHERE a.country = ?!"), 
+    @NamedQuery(name = "Address.findByCreateUser", query = "SELECT a FROM Address a WHERE a.createUser = ?!"),
+    @NamedQuery(name = "Address.findByCreateDate", query = "SELECT a FROM Address a WHERE a.createDate = ?!"), 
+    @NamedQuery(name = "Address.findByLastModiiedUser", query = "SELECT a FROM Address a WHERE a.lastModiiedUser = ?!"), 
+    @NamedQuery(name = "Address.findByLastModifiedDate", query = "SELECT a FROM Address a WHERE a.lastModifiedDate = ?!")})
 public class Address extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
     
