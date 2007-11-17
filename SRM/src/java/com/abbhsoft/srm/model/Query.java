@@ -20,8 +20,14 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "query")
-@NamedQueries({@NamedQuery(name = "Query.findByMsg", query = "SELECT q FROM Query q WHERE q.msg = ?1"), @NamedQuery(name = "Query.findByCreateDate", query = "SELECT q FROM Query q WHERE q.createDate =?1"), @NamedQuery(name = "Query.findByCreateUser", query = "SELECT q FROM Query q WHERE q.createUser = ?1"), @NamedQuery(name = "Query.findByLastModifiedUser", query = "SELECT q FROM Query q WHERE q.lastModifiedUser = ?1"), @NamedQuery(name = "Query.findByLastModifiedDate", query = "SELECT q FROM Query q WHERE q.lastModifiedDate = ?1"), @NamedQuery(name = "Query.findById", query = "SELECT q FROM Query q WHERE q.id = ?1")})
-public class Query extends BaseModel  {
+@NamedQueries({
+    @NamedQuery(name = "Query.findByMsg", query = "SELECT q FROM Query q WHERE q.msg = ?1"),
+    @NamedQuery(name = "Query.findByCreateDate", query = "SELECT q FROM Query q WHERE q.createDate =?1"), 
+    @NamedQuery(name = "Query.findByCreateUser", query = "SELECT q FROM Query q WHERE q.createUser = ?1"),
+    @NamedQuery(name = "Query.findByLastModifiedUser", query = "SELECT q FROM Query q WHERE q.lastModifiedUser = ?1"), 
+    @NamedQuery(name = "Query.findByLastModifiedDate", query = "SELECT q FROM Query q WHERE q.lastModifiedDate = ?1"), 
+    @NamedQuery(name = "Query.findById", query = "SELECT q FROM Query q WHERE q.id = ?1")})
+public class Query extends BaseModel implements java.io.Serializable  {
     private static final long serialVersionUID = 1L;
     @Column(name = "msg", nullable = false)
     private String msg;
