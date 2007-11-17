@@ -5,6 +5,7 @@
 
 package com.abbhsoft.srm.model;
 
+import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
@@ -23,21 +24,8 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "authorities")
 @NamedQueries({@NamedQuery(name = "Authorities.findByLastModifiedUser", query = "SELECT a FROM Authorities a WHERE a.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Authorities.findByLastModifiedDate", query = "SELECT a FROM Authorities a WHERE a.lastModifiedDate = :lastModifiedDate"), @NamedQuery(name = "Authorities.findByCreateUser", query = "SELECT a FROM Authorities a WHERE a.createUser = :createUser"), @NamedQuery(name = "Authorities.findByCreateDate", query = "SELECT a FROM Authorities a WHERE a.createDate = :createDate"), @NamedQuery(name = "Authorities.findById", query = "SELECT a FROM Authorities a WHERE a.id = :id"), @NamedQuery(name = "Authorities.findByAuthority", query = "SELECT a FROM Authorities a WHERE a.authority = :authority"), @NamedQuery(name = "Authorities.findByUsername", query = "SELECT a FROM Authorities a WHERE a.username = :username")})
-public class Authorities implements Serializable {
+public class Authorities extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Column(name = "last_modified_user")
-    private Integer lastModifiedUser;
-    @Column(name = "last_modified_date")
-    @Temporal(TemporalType.DATE)
-    private Date lastModifiedDate;
-    @Column(name = "create_user")
-    private Integer createUser;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
     @Column(name = "authority", nullable = false)
     private String authority;
     @Column(name = "username", nullable = false)
@@ -46,56 +34,15 @@ public class Authorities implements Serializable {
     public Authorities() {
     }
 
-    public Authorities(Integer id) {
+    public Authorities(Long id) {
         this.id = id;
     }
 
-    public Authorities(Integer id, String authority, String username) {
+    public Authorities(Long id, String authority, String username) {
         this.id = id;
         this.authority = authority;
         this.username = username;
     }
-
-    public Integer getLastModifiedUser() {
-        return lastModifiedUser;
-    }
-
-    public void setLastModifiedUser(Integer lastModifiedUser) {
-        this.lastModifiedUser = lastModifiedUser;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public String getAuthority() {
         return authority;
     }
