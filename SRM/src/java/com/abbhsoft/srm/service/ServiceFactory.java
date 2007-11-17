@@ -27,7 +27,12 @@ public class ServiceFactory {
         factory = (BeanFactory) context;
     }
 
-    // bean names : eventServiceImpl
+    /*
+     *  bean names : 
+     *       eventServiceImpl, campusServiceImpl, emailGroupServiceImpl, studentServiceImpl
+     *
+     *
+     */
     public Object getBean (String bean ) {
         return factory.getBean(bean);
     }
