@@ -5,6 +5,7 @@
 
 package com.abbhsoft.srm.model;
 
+import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -29,11 +30,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "student")
 @NamedQueries({@NamedQuery(name = "Student.findById", query = "SELECT s FROM Student s WHERE s.id = :id"), @NamedQuery(name = "Student.findByFirstName", query = "SELECT s FROM Student s WHERE s.firstName = :firstName"), @NamedQuery(name = "Student.findByLastName", query = "SELECT s FROM Student s WHERE s.lastName = :lastName"), @NamedQuery(name = "Student.findByMi", query = "SELECT s FROM Student s WHERE s.mi = :mi"), @NamedQuery(name = "Student.findByEmail", query = "SELECT s FROM Student s WHERE s.email = :email"), @NamedQuery(name = "Student.findBySecondaryEmail", query = "SELECT s FROM Student s WHERE s.secondaryEmail = :secondaryEmail"), @NamedQuery(name = "Student.findByMobilePhone", query = "SELECT s FROM Student s WHERE s.mobilePhone = :mobilePhone"), @NamedQuery(name = "Student.findByHomePhone", query = "SELECT s FROM Student s WHERE s.homePhone = :homePhone"), @NamedQuery(name = "Student.findByFax", query = "SELECT s FROM Student s WHERE s.fax = :fax"), @NamedQuery(name = "Student.findByOtherPhone", query = "SELECT s FROM Student s WHERE s.otherPhone = :otherPhone"), @NamedQuery(name = "Student.findByAddress", query = "SELECT s FROM Student s WHERE s.address = :address"), @NamedQuery(name = "Student.findByEducation", query = "SELECT s FROM Student s WHERE s.education = :education"), @NamedQuery(name = "Student.findByVisaStatus", query = "SELECT s FROM Student s WHERE s.visaStatus = :visaStatus"), @NamedQuery(name = "Student.findByGender", query = "SELECT s FROM Student s WHERE s.gender = :gender"), @NamedQuery(name = "Student.findByAge", query = "SELECT s FROM Student s WHERE s.age = :age"), @NamedQuery(name = "Student.findByNationality", query = "SELECT s FROM Student s WHERE s.nationality = :nationality"), @NamedQuery(name = "Student.findByRefferedBy", query = "SELECT s FROM Student s WHERE s.refferedBy = :refferedBy"), @NamedQuery(name = "Student.findByExpectedStartDate", query = "SELECT s FROM Student s WHERE s.expectedStartDate = :expectedStartDate"), @NamedQuery(name = "Student.findByCreateUser", query = "SELECT s FROM Student s WHERE s.createUser = :createUser"), @NamedQuery(name = "Student.findByCreateDate", query = "SELECT s FROM Student s WHERE s.createDate = :createDate"), @NamedQuery(name = "Student.findByLastModifiedUser", query = "SELECT s FROM Student s WHERE s.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = :lastModifiedDate")})
-public class Student implements Serializable {
+public class Student extends BaseModel {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    
     @Column(name = "first_name")
     private String firstName;
     @Column(name = "last_name", nullable = false)
@@ -69,16 +68,7 @@ public class Student implements Serializable {
     @Column(name = "expected_start_date")
     @Temporal(TemporalType.DATE)
     private Date expectedStartDate;
-    @Column(name = "create_user")
-    private Integer createUser;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Column(name = "last_modified_user")
-    private Integer lastModifiedUser;
-    @Column(name = "last_modified_date")
-    @Temporal(TemporalType.DATE)
-    private Date lastModifiedDate;
+   
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private Collection<Query> queryCollection;
     @JoinColumn(name = "group", referencedColumnName = "id")
@@ -93,24 +83,15 @@ public class Student implements Serializable {
     public Student() {
     }
 
-    public Student(Integer id) {
+    public Student(Long id) {
         this.id = id;
     }
 
-    public Student(Integer id, String lastName) {
+    public Student(Long id, String lastName) {
         this.id = id;
         this.lastName = lastName;
     }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
+  public String getFirstName() {
         return firstName;
     }
 
@@ -245,31 +226,6 @@ public class Student implements Serializable {
     public void setExpectedStartDate(Date expectedStartDate) {
         this.expectedStartDate = expectedStartDate;
     }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getLastModifiedUser() {
-        return lastModifiedUser;
-    }
-
-    public void setLastModifiedUser(Integer lastModifiedUser) {
-        this.lastModifiedUser = lastModifiedUser;
-    }
-
     public Date getLastModifiedDate() {
         return lastModifiedDate;
     }
