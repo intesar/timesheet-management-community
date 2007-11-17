@@ -31,15 +31,7 @@ public class BaseTest extends AbstractTransactionalDataSourceSpringContextTests 
      *  declare a service instance and write getters and setters spring will
      *  inject the object at runtime which is transactional (non-commited)
      */
-//    private PersonService personService;
-//
-//    public PersonService getPersonService() {
-//        return personService;
-//    }
-//
-//    public void setPersonService(PersonService personService) {
-//        this.personService = personService;
-//    }
+
 
     @Override
     protected String[] getConfigLocations() {
