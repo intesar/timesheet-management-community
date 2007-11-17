@@ -32,6 +32,177 @@
             3. constructor-arg to dao model class
    -->
    
+   
+   <bean id="usersDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.UsersDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Users</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="universityDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.UniversityDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.University</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="studentFaqDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.StudentFaqDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.StudentFaq</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="studentDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.StudentDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Student</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="queryDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.QueryDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Query</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="keyValueDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.KeyValueDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.KeyValue</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="group1Dao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.Group1Dao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Group1</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="faqDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.FaqDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Faq</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="event" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.EventDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Event</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="campus" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.CampusDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Campus</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="authorityDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.AuthorityDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Authority</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="authoritiesDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.AuthoritiesDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Authorities</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   <bean id="addressDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.AddressDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.Address</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
+   
+   
    <!--
     #####################################################################
             Dao Declaration End
