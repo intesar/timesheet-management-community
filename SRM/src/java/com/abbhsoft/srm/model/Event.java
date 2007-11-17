@@ -22,7 +22,18 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name = "event")
-@NamedQueries({@NamedQuery(name = "Event.findById", query = "SELECT e FROM Event e WHERE e.id = :id"), @NamedQuery(name = "Event.findByDate", query = "SELECT e FROM Event e WHERE e.date = :date"), @NamedQuery(name = "Event.findByType", query = "SELECT e FROM Event e WHERE e.type = :type"), @NamedQuery(name = "Event.findByDescript", query = "SELECT e FROM Event e WHERE e.descript = :descript"), @NamedQuery(name = "Event.findByStudent", query = "SELECT e FROM Event e WHERE e.student = :student"), @NamedQuery(name = "Event.findByGroup", query = "SELECT e FROM Event e WHERE e.group = :group"), @NamedQuery(name = "Event.findByUniversity", query = "SELECT e FROM Event e WHERE e.university = :university"), @NamedQuery(name = "Event.findByCreateDate", query = "SELECT e FROM Event e WHERE e.createDate = :createDate"), @NamedQuery(name = "Event.findByCreateUser", query = "SELECT e FROM Event e WHERE e.createUser = :createUser"), @NamedQuery(name = "Event.findByLastModifiedUser", query = "SELECT e FROM Event e WHERE e.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Event.findByLastModifiedDate", query = "SELECT e FROM Event e WHERE e.lastModifiedDate = :lastModifiedDate")})
+@NamedQueries({
+    @NamedQuery(name = "Event.findById", query = "SELECT e FROM Event e WHERE e.id = ?!"), 
+    @NamedQuery(name = "Event.findByDate", query = "SELECT e FROM Event e WHERE e.date = ?!"), 
+    @NamedQuery(name = "Event.findByType", query = "SELECT e FROM Event e WHERE e.type = ?!"), 
+    @NamedQuery(name = "Event.findByDescript", query = "SELECT e FROM Event e WHERE e.descript = ?!"),
+    @NamedQuery(name = "Event.findByStudent", query = "SELECT e FROM Event e WHERE e.student = ?!"),
+    @NamedQuery(name = "Event.findByGroup", query = "SELECT e FROM Event e WHERE e.group = ?!"), 
+    @NamedQuery(name = "Event.findByUniversity", query = "SELECT e FROM Event e WHERE e.university = ?!"), 
+    @NamedQuery(name = "Event.findByCreateDate", query = "SELECT e FROM Event e WHERE e.createDate = ?!"), 
+    @NamedQuery(name = "Event.findByCreateUser", query = "SELECT e FROM Event e WHERE e.createUser = ?!"),
+    @NamedQuery(name = "Event.findByLastModifiedUser", query = "SELECT e FROM Event e WHERE e.lastModifiedUser = ?!"), 
+    @NamedQuery(name = "Event.findByLastModifiedDate", query = "SELECT e FROM Event e WHERE e.lastModifiedDate = ?!")})
 public class Event extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
     
