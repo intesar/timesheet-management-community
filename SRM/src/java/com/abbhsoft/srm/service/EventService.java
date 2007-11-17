@@ -19,4 +19,9 @@ public interface EventService {
      */
     List<Event> currentEvents () ;
 
+    /*
+     *   saves a new Event
+     */
+    void save ( Event event );
+
 }
