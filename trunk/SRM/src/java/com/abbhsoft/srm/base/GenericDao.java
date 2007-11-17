@@ -1,6 +1,8 @@
 package com.abbhsoft.srm.base;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.List;
 
 /**
  * The GenericDao interface with CRUD methods. Finders are added with interface inheritance and AOP
@@ -24,5 +26,15 @@ public interface GenericDao<T, PK extends Serializable> {
    void update(T transientObject);
 
    void delete(T persistentObject);
+
+   List<T> findByCreateUser ( Long userId );
+
+   List<T> findByCreateDate ( Date createDate);
+
+   List<T> findByLastModiiedUser ( Long userId );
+
+   List<T> findByLastModifiedDate ( Date lastModifiedDate );
+
+   List<T> findAll ();
 
 }

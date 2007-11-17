@@ -2,6 +2,7 @@ package com.abbhsoft.srm.base;
 
 import java.io.Serializable;
 import java.lang.reflect.Method;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -43,40 +44,58 @@ public class GenericDaoJPAImpl<T, PK extends Serializable> extends JpaTemplate i
 
     @SuppressWarnings(value = "unchecked")
     public T read(PK id) {
-        System.out.println ( type );
+        System.out.println(type);
         return this.find(type, id);
     }
 
     public void update(T o) {
-        System.out.println ( " Inside update ");
+        System.out.println(" Inside update ");
         this.merge(o);
     }
 
     public void delete(T o) {
-        System.out.println ( " Inside Delete ");
+        System.out.println(" Inside Delete ");
         this.remove(o);
-        
+
+    }
+
+    public List<T> findByCreateUser(Long userId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<T> findByCreateDate(Date createDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<T> findByLastModiiedUser(Long userId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public List<T> findByLastModifiedDate(Date lastModifiedDate) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+   
+    public List<T> findAll() {
+        throw new UnsupportedOperationException("Not supported yet.");
+//        final String ql = " select o from Catagory o where o.isEnabled = 1 ";
+//        return (List<T>) execute(new JpaCallback() {
+//
+//                    public Object doInJpa(EntityManager em) throws PersistenceException {
+//                        Query query = em.createQuery(ql);
+//                        List result = query.getResultList();
+//                        return result;
+//                    }
+//                });
     }
 
     @SuppressWarnings(value = "unchecked")
     public List<T> executeFinder(Method method, final Object[] queryArgs) {
         return prepareQuery(method, queryArgs);
 
-
     }
 
-    @SuppressWarnings(value = "unchecked")
-    public List<T> findAll() {
-        final String ql = " select o from Catagory o where o.isEnabled = 1 ";
-        return (List<T>) execute(new JpaCallback() {
-
-                    public Object doInJpa(EntityManager em) throws PersistenceException {
-                        Query query = em.createQuery(ql);
-                        List result = query.getResultList();
-                        return result;
-                    }
-                });
-    }
+    
 
     @SuppressWarnings(value = "unchecked")
     public Iterator<T> iterateFinder(Method method, final Object[] queryArgs) {
