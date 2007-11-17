@@ -103,7 +103,7 @@ public class Student extends BaseModel implements java.io.Serializable {
     public void setEventCollection(Collection<Event> eventCollection) {
         this.eventCollection = eventCollection;
     }
-    @JoinColumn(name = "group", referencedColumnName = "id")
+    @JoinColumn(name = "group_", referencedColumnName = "id")
     @ManyToOne
     private EmailGroup group1;
     @JoinColumn(name = "university", referencedColumnName = "id")
