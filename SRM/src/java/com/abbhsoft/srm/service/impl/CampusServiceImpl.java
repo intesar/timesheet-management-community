@@ -6,7 +6,6 @@
 package com.abbhsoft.srm.service.impl;
 
 import com.abbhsoft.srm.dao.CampusDao;
-import com.abbhsoft.srm.dao.EventDao;
 import com.abbhsoft.srm.model.Campus;
 import com.abbhsoft.srm.service.CampusService;
 import java.util.Date;
@@ -34,6 +33,12 @@ public class CampusServiceImpl implements CampusService {
     public List<Campus> getAll() {
         return campusDao.findAll();
     }
+    
+    public List<Campus> getRecentUpdates() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
+    
     // dao injection code
 
     private CampusDao campusDao;
@@ -41,6 +46,8 @@ public class CampusServiceImpl implements CampusService {
     public void setCampusDao(CampusDao campusDao) {
         this.campusDao = campusDao;
     }
+
+    
 
     
 

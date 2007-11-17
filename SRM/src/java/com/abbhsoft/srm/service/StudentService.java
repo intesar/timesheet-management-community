@@ -51,5 +51,9 @@ public interface StudentService {
     
     // returns all events for the Entity
     List<Event> getAllEvents ( Long emailGroupId );
+    
+    // recent entities
+    
+    List<Student> getRecentUpdates();
 
 }

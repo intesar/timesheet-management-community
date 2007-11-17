@@ -31,5 +31,8 @@ public interface CampusService {
     // returns all the entities from the database
     
     List<Campus> getAll ();
-
+    
+    // recent entities
+    
+    List<Campus> getRecentUpdates();
 }

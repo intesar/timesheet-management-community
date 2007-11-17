@@ -46,6 +46,10 @@ public class EventServiceImpl implements EventService {
     
   
 
+    public List<Event> getRecentUpdates() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+    
     // dao injection code
 
     private EventDao eventDao;
@@ -53,6 +57,8 @@ public class EventServiceImpl implements EventService {
     public void setEventDao(EventDao eventDao) {
         this.eventDao = eventDao;
     }
+
+    
 
     
 

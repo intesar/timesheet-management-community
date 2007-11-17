@@ -48,6 +48,9 @@ public class EmailGroupServiceImpl implements EmailGroupService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public List<EmailGroup> getRecentUpdates() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
     // dao injection code
 
@@ -56,6 +59,8 @@ public class EmailGroupServiceImpl implements EmailGroupService {
     public void setEmailGroupDao(EmailGroupDao emailGroupDao) {
         this.emailGroupDao = emailGroupDao;
     }
+
+    
 
     
     
