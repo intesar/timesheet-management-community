@@ -20,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "university")
-@NamedQueries({@NamedQuery(name = "University.findById", query = "SELECT u FROM University u WHERE u.id = :id"), @NamedQuery(name = "University.findByName", query = "SELECT u FROM University u WHERE u.name = :name"), @NamedQuery(name = "University.findByCreateUser", query = "SELECT u FROM University u WHERE u.createUser = :createUser"), @NamedQuery(name = "University.findByCreateDate", query = "SELECT u FROM University u WHERE u.createDate = :createDate"), @NamedQuery(name = "University.findByLastModifiedUser", query = "SELECT u FROM University u WHERE u.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "University.findByLastModifiedDate", query = "SELECT u FROM University u WHERE u.lastModifiedDate = :lastModifiedDate")})
+@NamedQueries({@NamedQuery(name = "University.findById", query = "SELECT u FROM University u WHERE u.id = :?1"), @NamedQuery(name = "University.findByName", query = "SELECT u FROM University u WHERE u.name = :?1"), @NamedQuery(name = "University.findByCreateUser", query = "SELECT u FROM University u WHERE u.createUser = :?1"), @NamedQuery(name = "University.findByCreateDate", query = "SELECT u FROM University u WHERE u.createDate = :?1"), @NamedQuery(name = "University.findByLastModifiedUser", query = "SELECT u FROM University u WHERE u.lastModifiedUser = :?1"), @NamedQuery(name = "University.findByLastModifiedDate", query = "SELECT u FROM University u WHERE u.lastModifiedDate = :?1")})
 public class University extends BaseModel {
     private static final long serialVersionUID = 1L;
    
