@@ -5,11 +5,11 @@
 
 package com.abbhsoft.srm.model;
 
+import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -23,11 +23,9 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "event")
 @NamedQueries({@NamedQuery(name = "Event.findById", query = "SELECT e FROM Event e WHERE e.id = :id"), @NamedQuery(name = "Event.findByDate", query = "SELECT e FROM Event e WHERE e.date = :date"), @NamedQuery(name = "Event.findByType", query = "SELECT e FROM Event e WHERE e.type = :type"), @NamedQuery(name = "Event.findByDescript", query = "SELECT e FROM Event e WHERE e.descript = :descript"), @NamedQuery(name = "Event.findByStudent", query = "SELECT e FROM Event e WHERE e.student = :student"), @NamedQuery(name = "Event.findByGroup", query = "SELECT e FROM Event e WHERE e.group = :group"), @NamedQuery(name = "Event.findByUniversity", query = "SELECT e FROM Event e WHERE e.university = :university"), @NamedQuery(name = "Event.findByCreateDate", query = "SELECT e FROM Event e WHERE e.createDate = :createDate"), @NamedQuery(name = "Event.findByCreateUser", query = "SELECT e FROM Event e WHERE e.createUser = :createUser"), @NamedQuery(name = "Event.findByLastModifiedUser", query = "SELECT e FROM Event e WHERE e.lastModifiedUser = :lastModifiedUser"), @NamedQuery(name = "Event.findByLastModifiedDate", query = "SELECT e FROM Event e WHERE e.lastModifiedDate = :lastModifiedDate")})
-public class Event implements Serializable {
+public class Event extends BaseModel implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Id
-    @Column(name = "id", nullable = false)
-    private Integer id;
+    
     @Column(name = "date", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date date;
@@ -41,37 +39,19 @@ public class Event implements Serializable {
     private String group;
     @Column(name = "university")
     private String university;
-    @Column(name = "create_date")
-    @Temporal(TemporalType.DATE)
-    private Date createDate;
-    @Column(name = "create_user")
-    private Integer createUser;
-    @Column(name = "last_modified_user")
-    private Integer lastModifiedUser;
-    @Column(name = "last_modified_date")
-    @Temporal(TemporalType.DATE)
-    private Date lastModifiedDate;
-
+   
     public Event() {
     }
 
-    public Event(Integer id) {
+    public Event(Long id) {
         this.id = id;
     }
 
-    public Event(Integer id, Date date, String student, String group) {
+    public Event(Long id, Date date, String student, String group) {
         this.id = id;
         this.date = date;
         this.student = student;
         this.group = group;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public Date getDate() {
@@ -120,38 +100,6 @@ public class Event implements Serializable {
 
     public void setUniversity(String university) {
         this.university = university;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Integer getCreateUser() {
-        return createUser;
-    }
-
-    public void setCreateUser(Integer createUser) {
-        this.createUser = createUser;
-    }
-
-    public Integer getLastModifiedUser() {
-        return lastModifiedUser;
-    }
-
-    public void setLastModifiedUser(Integer lastModifiedUser) {
-        this.lastModifiedUser = lastModifiedUser;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
     }
 
     @Override
