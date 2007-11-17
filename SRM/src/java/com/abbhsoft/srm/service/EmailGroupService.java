@@ -6,6 +6,7 @@
 package com.abbhsoft.srm.service;
 
 import com.abbhsoft.srm.model.EmailGroup;
+import com.abbhsoft.srm.model.Event;
 import java.util.List;
 
 /**
@@ -31,5 +32,16 @@ public interface EmailGroupService {
     // returns all the entities from the database
     
     List<EmailGroup> getAll ();
+    
+    // returns past events
+    
+    List<Event> getPastEvents(Long emailGroupId );
+    
+    // returns future events
+    
+    List<Event> getFutureEvents ( Long emailGroupId );
+    
+    // returns all events for the Entity
+    List<Event> getAllEvents ( Long emailGroupId );
 
 }

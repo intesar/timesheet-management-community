@@ -5,6 +5,8 @@
 
 package com.abbhsoft.srm.service;
 
+import com.abbhsoft.srm.model.Event;
+import com.abbhsoft.srm.model.Query;
 import com.abbhsoft.srm.model.Student;
 import java.util.List;
 
@@ -31,5 +33,23 @@ public interface StudentService {
     // returns all the entities from the database
     
     List<Student> getAll ();
+    
+    // returns all student conversations
+    
+    List<Query> getAllConversations ( Long studentId );
+    
+    // adds new converstaion
+    void addConversation ( Long studentId, Query query);
+    
+    // returns past events
+    
+    List<Event> getPastEvents(Long emailGroupId );
+    
+    // returns future events
+    
+    List<Event> getFutureEvents ( Long emailGroupId );
+    
+    // returns all events for the Entity
+    List<Event> getAllEvents ( Long emailGroupId );
 
 }
