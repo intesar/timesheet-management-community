@@ -99,7 +99,7 @@ public String getName() {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Campus[id=" + id + "]";
+        return name+" "+address+""+university;
     }
 
 }
