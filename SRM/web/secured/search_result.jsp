@@ -41,6 +41,7 @@
                     "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog1').show()\">Edit</button>");
 
         %>
+        
         <div dojoType="dijit.Dialog" id="dialog_student_view_<%= count %>" title="Dialog_student" execute="checkPw(arguments[0]);">
             <table>
                 <tr>
@@ -138,7 +139,7 @@
         out.println( "<br/> "+ o + 
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_campus_view_"+count+"').show()\">View</button>" +
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog1').show()\">Edit</button>");
-                      if ( o instanceof Campus ) {
+                      
    
         %> 
         
@@ -160,11 +161,7 @@
             <td><label for="name">Campus future update: </label></td>
             <td><label for="name"></label></td>
         </tr>   
-        
-        
-        
-        
-    
+           
  </table>
  
  </div>
@@ -174,7 +171,7 @@
         }               //END OF if campus
         
          if ( o instanceof EmailGroup ) {
-       EmailGroup eg = (EmailGroup) o;
+        EmailGroup eg = (EmailGroup) o;
         out.println( "<br/> "+ o + 
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_emialgroup_view_"+count+"').show()\">View</button>" +
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog1').show()\">Edit</button>");
@@ -183,8 +180,9 @@
         %>
         
          <div dojoType="dijit.Dialog" id="dialog_event_view_<%= count %>" title="Dialog_emailgroup" execute="checkPw(arguments[0]);">
-        <table>
-        <tr>
+        
+          <table>
+             <tr>
             <td><label for="name">EmailGroup owner: </label></td>
             <td><label for="name"><%= eg.getOwner() %></label></td>
             <td><label for="name">EmailGroup sub_em: </label></td>
