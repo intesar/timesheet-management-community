@@ -28,10 +28,10 @@ public class CampusServiceImplTest extends BaseTest {
         super(testName);
     }
 
-    public static Test suite() {
-        TestSuite suite = new TestSuite(CampusServiceImplTest.class);
-        return suite;
-    }
+//    public static Test suite() {
+//        TestSuite suite = new TestSuite(CampusServiceImplTest.class);
+//        return suite;
+//    }
 
 //    @Override
 //    protected void setUp() throws Exception {
