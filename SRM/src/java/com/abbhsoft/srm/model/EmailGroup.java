@@ -144,7 +144,7 @@ public class EmailGroup extends BaseModel implements java.io.Serializable  {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Group1[id=" + id + "]";
+        return owner+" "+subscribeEmail+" "+unsubscribeEmail+" "+university;
     }
 
 }
