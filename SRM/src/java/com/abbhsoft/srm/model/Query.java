@@ -86,7 +86,7 @@ public class Query extends BaseModel implements java.io.Serializable  {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Query[id=" + id + "]";
+        return msg;
     }
 
 }
