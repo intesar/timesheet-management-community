@@ -329,7 +329,7 @@ public class Student extends BaseModel implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Student[id=" + id + "]";
+        return firstName+" "+ lastName+ " "+email+" "+ secondaryEmail+" "+ mobilePhone;
     }
 
 }
