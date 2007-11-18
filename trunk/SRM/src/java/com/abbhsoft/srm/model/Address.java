@@ -139,7 +139,7 @@ public class Address extends BaseModel implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Address[id=" + id + "]";
+        return type+" "+ street+" "+ city+" "+ state+" "+zipcode+ " " +  country ;
     }
 
 }
