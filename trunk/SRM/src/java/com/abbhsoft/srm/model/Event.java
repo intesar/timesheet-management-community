@@ -164,7 +164,7 @@ public class Event extends BaseModel implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Event[id=" + id + "]";
+        return date+" "+descript+" "+type+" "+priority ;
     }
 
 }
