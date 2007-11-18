@@ -34,6 +34,12 @@
         <property name="studentDao" ref="studentDao" />
     </bean>
     
+    <bean id="searchEngineServiceImpl" class="com.abbhsoft.srm.service.impl.SearchEngineServiceImpl" >
+        <property name="studentDao" ref="studentDao" />
+        <property name="eventDao" ref="eventDao" />
+        <property name="universityDao" ref="universityDao" />
+        <property name="emailGroupDao" ref="emailGroupDao" />
+    </bean>
     <!--
      ##########################################################################
                             Services Declerations End

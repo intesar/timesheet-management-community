@@ -35,5 +35,5 @@ public interface EventDao extends GenericDao<Event, Long> {
     public List<Event> findBySingleString(String... args);
     // required 2 params all same
 
-    public List<Event> findByEventDates(String... args);
+    public List<Event> findByEventDates(Date... args);
 }

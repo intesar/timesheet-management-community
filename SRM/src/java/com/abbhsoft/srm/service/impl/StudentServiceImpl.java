@@ -66,36 +66,7 @@ public class StudentServiceImpl implements StudentService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public List search(String text) {
-        List list = new ArrayList();
-        String[] tokens = text.split(" ");
-        if (tokens.length == 1) {
-            try {
-                Date date = new SimpleDateFormat("MM/dd/yy").parse(text);
-            // todo
-            } catch (Exception e) {
-                try {
-                    Long.parseLong(text);
-                // todo
-                } catch (Exception e1) {
-                //todo
-                }
-            }
-
-        } else {
-            if (tokens.length == 2) {
-                try {
-                    Date startDate = new SimpleDateFormat("MM/dd/yy").parse(tokens[0]);
-                    Date endDate = new SimpleDateFormat("MM/dd/yy").parse(tokens[0]);
-                    // todo
-                } catch (Exception e) {
-                    //todo
-                }
-            }
-
-        }
-        return list;
-    }
+    
     // dao injection code
 
     private StudentDao studentDao;
