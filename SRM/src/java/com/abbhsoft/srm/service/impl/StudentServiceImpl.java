@@ -9,8 +9,6 @@ import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.Query;
 import com.abbhsoft.srm.model.Student;
 import com.abbhsoft.srm.service.StudentService;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;

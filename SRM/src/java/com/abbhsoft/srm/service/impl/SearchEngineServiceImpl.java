@@ -32,9 +32,11 @@ public class SearchEngineServiceImpl implements SearchEngineService {
                     Long.parseLong(text);
                     list.addAll(this.studentDao.findByPhoneNumber(text, text, text, text, text));
                 } catch (Exception e1) {
-                    list.addAll(this.studentDao.findBySingleString(text, text, text, text, text, text, text, text, text, text));
+                    List l = this.studentDao.findBySingleString(text, text, text, text, text, text, text);//, text, text, text);
+                    System.out.println ( " list size : " + l  + " " + text);
+                    list.addAll(l);
                     list.addAll(this.eventDao.findBySingleString(text, text, text));
-                    list.addAll(this.universityDao.findBytName(text));
+                    list.addAll(this.universityDao.findByName(text));
                     list.addAll(this.emailGroupDao.findByEmails(text, text, text, text));
                 }
             }

@@ -11,14 +11,11 @@ package com.abbhsoft.srm.dao;
 
 import com.abbhsoft.srm.base.GenericDao;
 import com.abbhsoft.srm.model.StudentFaq;
-import java.util.List;
 
 /**
  *
  * @author Sadd
  */
 public interface StudentFaqDao extends GenericDao <StudentFaq, Long> {
-    public List<StudentFaq> findByConvincedRate(String convincedRate );
-    public List<StudentFaq> findByStudent(Long studentId );
-
+    
 }
