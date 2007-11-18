@@ -27,8 +27,8 @@
             input="/secured/new_Campus.jsp"
             scope="request"
             validate="true">
-          <forward name="success" path=""/>
-          <forward name="failure" path=""/>
+          <forward name="success" path="/secured/search_result.jsp"/>
+          <forward name="failure" path="/secured/index.jsp"/>
         </action>
         
         <action path="/groupAction"
@@ -39,6 +39,9 @@
             validate="true">
           <forward name="success" path=""/>
           <forward name="failure" path=""/>
+        </action>
+        <action path="/searchAction" type="com.abbhsoft.srm.web.actions.SearchAction">
+            <forward name="success" path="/secured/search_result.jsp"/>
         </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
