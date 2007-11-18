@@ -42,7 +42,7 @@ public class EventServiceImplTest extends BaseTest {
         eventService.save(event1);
         eventService.save(event2);
         eventService.save(event3);
-
+        
         List<Event> result = eventService.currentEvents();
         assertTrue(result.size() >= 3);
 
