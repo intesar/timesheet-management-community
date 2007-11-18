@@ -119,7 +119,7 @@ public class Users extends BaseModel {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Users[id=" + id + "]";
+        return firstName+" "+ lastName+ " "+username+" "+password;
     }
 
 }
