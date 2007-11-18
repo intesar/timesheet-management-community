@@ -81,7 +81,7 @@ public class Authority extends BaseModel implements Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Authority[id=" + id + "]";
+        return authority + " " + description ;
     }
 
 }
