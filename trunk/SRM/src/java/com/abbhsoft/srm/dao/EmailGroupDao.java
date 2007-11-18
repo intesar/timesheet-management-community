@@ -28,5 +28,5 @@ public interface EmailGroupDao extends GenericDao<EmailGroup, Long> {
     
     // 4 params all same looks for matching emails
 
-    public List<EmailGroup> findByEmails(String... args);
+    public List<EmailGroup> findByEmails(String args0, String args1,String args2,String args3);
 }

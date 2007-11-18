@@ -21,8 +21,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "student_faq")
-@NamedQueries({
-    @NamedQuery(name = "StudentFaq.findByStudent", query = "SELECT s FROM StudentFaq s WHERE s.student1.id = ?1"), 
+@NamedQueries({    
     @NamedQuery(name = "StudentFaq.findByConvincedRate", query = "SELECT s FROM StudentFaq s WHERE s.convincedRate = ?1"), 
     @NamedQuery(name = "StudentFaq.findByCreateUser", query = "SELECT s FROM StudentFaq s WHERE s.createUser = ?1"), 
     @NamedQuery(name = "StudentFaq.findByCreateDate", query = "SELECT s FROM StudentFaq s WHERE s.createDate =?1"),

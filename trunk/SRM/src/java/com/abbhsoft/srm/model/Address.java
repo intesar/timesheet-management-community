@@ -42,7 +42,7 @@ public class Address extends BaseModel implements Serializable {
     private String street;
     @Column(name = "city", nullable = false)
     private String city;
-    @Column(name = "state")
+    @Column(name = "state_")
     private String state;
     @Column(name = "zipcode")
     private String zipcode;

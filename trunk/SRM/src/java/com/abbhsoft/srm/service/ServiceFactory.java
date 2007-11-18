@@ -29,7 +29,8 @@ public class ServiceFactory {
 
     /*
      *  bean names : 
-     *       eventServiceImpl, campusServiceImpl, emailGroupServiceImpl, studentServiceImpl
+     *       eventServiceImpl, campusServiceImpl, emailGroupServiceImpl, studentServiceImpl,
+     *       searchEngineServiceImpl
      *
      *
      */
@@ -37,7 +38,7 @@ public class ServiceFactory {
         return factory.getBean(bean);
     }
 
-    public static final ServiceFactory instance = new ServiceFactory();
+    private static final ServiceFactory instance = new ServiceFactory();
 
     public static final ServiceFactory getInstance() {
         return instance;

@@ -19,7 +19,7 @@ import java.util.List;
  */
 public interface UniversityDao extends GenericDao < University , Long> {
     
-    public List<University> findBytName (String name );
+    public List<University> findByName (String name );
     
     
 }

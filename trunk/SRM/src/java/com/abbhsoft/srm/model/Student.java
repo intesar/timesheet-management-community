@@ -52,10 +52,13 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = ?1"),
     @NamedQuery(name = "Student.findByLastModifiedDates", query = "SELECT s FROM Student s WHERE s.lastModifiedDate between ?1 and ?2"),
     @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s "),
-    @NamedQuery(name = "Student.findBySingleString", query = "SELECT s FROM Student s WHERE s.firstName like ?1 or " +
-    "s.lastName like ?2 or s.email like ?3 or s.secondaryEmail like ?4 or s.address.city like ?5 or " +
-            "s.address.state like ?6 or s.education like ?7 or s.visaStatus like ?8 or " +
-            "s.gender like ?9 or s.nationality like ?10" ),
+    @NamedQuery(name = "Student.findBySingleString", 
+        query = "SELECT s FROM Student s WHERE " +
+            //"s.firstName like ?1 "),//or " +
+            "s.lastName like ?1 or s.email like ?2 or s.secondaryEmail like ?3 or" +
+            //" or s.address.city like ?4 or s.address.state like ?5  "),
+            " s.education like ?4 or s.visaStatus like ?5 or " +
+            "s.gender like ?6 or s.nationality like ?7 "),
     @NamedQuery(name = "Student.findByFirstNameLastNameOrCityState", query = "SELECT s FROM Student s" +
     "   where (s.firstName like ?1 and s.lastName like ?2) or (s.address.city like ?3 and s.address.state like ?4)"),
     @NamedQuery(name ="Student.findByPhoneNumber", query = "SELECT s FROM Student s WHERE s.homePhone = ?1 or " +
@@ -267,13 +270,7 @@ public class Student extends BaseModel implements java.io.Serializable {
     public void setExpectedStartDate(Date expectedStartDate) {
         this.expectedStartDate = expectedStartDate;
     }
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
+    
 
     public Collection<Query> getQueryCollection() {
         return queryCollection;

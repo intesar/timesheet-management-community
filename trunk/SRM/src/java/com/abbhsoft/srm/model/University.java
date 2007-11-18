@@ -28,7 +28,7 @@ import javax.persistence.Table;
     @NamedQuery(name = "University.findByCreateDate", query = "SELECT u FROM University u WHERE u.createDate = ?1"),
     @NamedQuery(name = "University.findByLastModifiedUser", query = "SELECT u FROM University u WHERE u.lastModifiedUser = ?1"),
     @NamedQuery(name = "University.findByLastModifiedDate", query = "SELECT u FROM University u WHERE u.lastModifiedDate = ?1")})
-public class University extends BaseModel {
+public class University extends BaseModel implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
    
     @Column(name = "name", nullable = false)
