@@ -11,6 +11,7 @@ package com.abbhsoft.srm.dao;
 
 import com.abbhsoft.srm.base.GenericDao;
 import com.abbhsoft.srm.model.Campus;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,5 +21,7 @@ import java.util.List;
 public interface CampusDao extends GenericDao <Campus, Long>{
 
     public List<Campus> findByName(String name);
+    
+    public List<Campus> findByLastModifiedDates(Date startDate, Date endDate);
     
 }
