@@ -6,18 +6,13 @@
 package com.abbhsoft.srm.model;
 
 import com.abbhsoft.srm.base.BaseModel;
-import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 /**
  *
@@ -112,7 +107,7 @@ public class Faq extends BaseModel implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.Faq[id=" + id + "]";
+        return question+" "+ answer+" "+ tag;
     }
 
 }
