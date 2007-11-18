@@ -8,6 +8,7 @@ package com.abbhsoft.srm.service.impl;
 import com.abbhsoft.srm.dao.CampusDao;
 import com.abbhsoft.srm.model.Campus;
 import com.abbhsoft.srm.service.CampusService;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,12 @@ public class CampusServiceImpl implements CampusService {
     }
     
     public List<Campus> getRecentUpdates() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Date startDate = new Date();
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.DATE, c.get(Calendar.DATE) - 7 );
+        startDate = c.getTime();
+        Date endDate = new Date();
+        return this.campusDao.findByLastModifiedDates(startDate, endDate);
     }
     
     
