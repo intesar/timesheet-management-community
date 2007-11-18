@@ -144,7 +144,7 @@ public class EmailGroup extends BaseModel implements java.io.Serializable  {
 
     @Override
     public String toString() {
-        return owner+" "+subscribeEmail+" "+unsubscribeEmail+" "+university;
+        return this.groupEmail + "  "+university.getName();
     }
 
 }
