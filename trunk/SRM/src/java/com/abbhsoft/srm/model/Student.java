@@ -326,7 +326,7 @@ public class Student extends BaseModel implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return firstName+" "+ lastName+ " "+email+" "+ secondaryEmail+" "+ mobilePhone;
+        return firstName+" "+ lastName+ " "+email+" "+ this.mobilePhone;
     }
 
 }

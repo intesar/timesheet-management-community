@@ -119,7 +119,7 @@ public class Users extends BaseModel {
 
     @Override
     public String toString() {
-        return firstName+" "+ lastName+ " "+username+" "+password;
+        return firstName+" "+ lastName+ " "+username;
     }
 
 }

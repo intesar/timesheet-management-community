@@ -99,7 +99,7 @@ public String getName() {
 
     @Override
     public String toString() {
-        return name+" "+address+""+university;
+        return name+" "+address.getCity()+" "+university.getName();
     }
 
 }
