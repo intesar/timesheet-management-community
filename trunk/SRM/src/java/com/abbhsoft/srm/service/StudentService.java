@@ -56,8 +56,6 @@ public interface StudentService {
     
     List<Student> getRecentUpdates();
     
-    // searches database
     
-    List search ( String text );
 
 }

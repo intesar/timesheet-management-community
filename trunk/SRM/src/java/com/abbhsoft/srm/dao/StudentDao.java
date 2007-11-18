@@ -54,11 +54,12 @@ public interface StudentDao extends GenericDao<Student, Long> {
 
     // needs 10 params with same value 
     // otherwise throws exception
-    public List<Student> findBySingleString(String... args);
+    public List<Student> findBySingleString(String args1,String args2,String args3,String args4,
+            String args5,String args6,String args7,String args8,String args9,String args10);
     // needs 4 params with couple of them having the same value 
     // otherwise throws exception
-    public List<Student> findByFirstNameLastNameOrCityState(String ...args);
+    public List<Student> findByFirstNameLastNameOrCityState(String args1,String args2,String args3,String args4);
     // needs 5 params with  same value (phone nos or age)
     // otherwise throws exception
-    public List<Student> findByPhoneNumber(String ...args);
+    public List<Student> findByPhoneNumber(String args1,String args2,String args3,String args4, String args5);
 }
