@@ -65,30 +65,4 @@ public class CampusServiceImplTest extends BaseTest {
      * Test of save method, of class CampusServiceImpl.
      */
 
-    
-/*
-    public void testSave() {
-        System.out.println("save");
-        Campus campus = null;
-        CampusServiceImpl instance = new CampusServiceImpl();
-        instance.save(campus);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-*/
-    /**
-     * Test of setCampusDao method, of class CampusServiceImpl.
-     */
-    /*
-    public void testSetCampusDao() {
-        System.out.println("setCampusDao");
-        CampusDao campusDao = null;
-        CampusServiceImpl instance = new CampusServiceImpl();
-        instance.setCampusDao(campusDao);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-*/
-    
-    
 }
