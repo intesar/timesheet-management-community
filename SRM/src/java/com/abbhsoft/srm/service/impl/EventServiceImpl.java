@@ -58,9 +58,4 @@ public class EventServiceImpl implements EventService {
         this.eventDao = eventDao;
     }
 
-    
-
-    
-
-
 }
