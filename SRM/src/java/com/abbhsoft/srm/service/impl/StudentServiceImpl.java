@@ -9,6 +9,8 @@ import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.Query;
 import com.abbhsoft.srm.model.Student;
 import com.abbhsoft.srm.service.StudentService;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -59,12 +61,41 @@ public class StudentServiceImpl implements StudentService {
     public List<Event> getAllEvents(Long emailGroupId) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
-     public List<Student> getRecentUpdates() {
+
+    public List<Student> getRecentUpdates() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-     
-     
+
+    public List search(String text) {
+        List list = new ArrayList();
+        String[] tokens = text.split(" ");
+        if (tokens.length == 1) {
+            try {
+                Date date = new SimpleDateFormat("MM/dd/yy").parse(text);
+            // todo
+            } catch (Exception e) {
+                try {
+                    Long.parseLong(text);
+                // todo
+                } catch (Exception e1) {
+                //todo
+                }
+            }
+
+        } else {
+            if (tokens.length == 2) {
+                try {
+                    Date startDate = new SimpleDateFormat("MM/dd/yy").parse(tokens[0]);
+                    Date endDate = new SimpleDateFormat("MM/dd/yy").parse(tokens[0]);
+                    // todo
+                } catch (Exception e) {
+                    //todo
+                }
+            }
+
+        }
+        return list;
+    }
     // dao injection code
 
     private StudentDao studentDao;
@@ -72,6 +103,4 @@ public class StudentServiceImpl implements StudentService {
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
-
-   
 }
