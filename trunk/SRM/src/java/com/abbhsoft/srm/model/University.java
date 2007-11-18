@@ -119,7 +119,7 @@ public class University extends BaseModel {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.University[id=" + id + "]";
+        return name;
     }
 
 }
