@@ -7,7 +7,6 @@ package com.abbhsoft.srm.model;
 
 import com.abbhsoft.srm.base.BaseModel;
 import java.util.Collection;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -34,7 +33,9 @@ import javax.persistence.Table;
     @NamedQuery(name = "EmailGroup.findByLastModifiedUser", query = "SELECT g FROM EmailGroup g WHERE g.lastModifiedUser = ?1"),
     @NamedQuery(name = "EmailGroup.findByLastModifiedDate", query = "SELECT g FROM EmailGroup g WHERE g.lastModifiedDate = ?1"),
     @NamedQuery(name = "EmailGroup.findByLastModifiedDate", query = "SELECT g FROM EmailGroup g WHERE g.lastModifiedDate between ?1 and ?2"),
-    @NamedQuery(name = "EmailGroup.findAll", query = "SELECT g FROM EmailGroup g ")})
+    @NamedQuery(name = "EmailGroup.findAll", query = "SELECT g FROM EmailGroup g "),
+    @NamedQuery(name = "EmailGroup.findByEmails", query = "SELECT g FROM EmailGroup g " +
+    "   where g.owner like ?1 or g.subscribeEmail like ?2 or g.groupEmail like ?3 or g.unsubscribeEmail like ?4")})
 public class EmailGroup extends BaseModel implements java.io.Serializable  {
     private static final long serialVersionUID = 1L;
    

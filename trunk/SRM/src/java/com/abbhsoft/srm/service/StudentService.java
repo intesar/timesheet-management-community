@@ -55,5 +55,9 @@ public interface StudentService {
     // recent entities
     
     List<Student> getRecentUpdates();
+    
+    // searches database
+    
+    List search ( String text );
 
 }
