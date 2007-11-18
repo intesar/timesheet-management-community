@@ -14,7 +14,7 @@
         <%
             List list = (List) request.getAttribute("list");
             for ( Object o : list ) {
-                out.println(o + "<br/>");
+             out.println( "<br/><a href>" + o + "</a>");
             }
         %>
     </body>
