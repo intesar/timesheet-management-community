@@ -64,9 +64,10 @@ public class SearchEngineServiceImplTest extends BaseTest {
         this.studentService.save(s1);
         this.studentService.save(s2);
         String text = "mohammed";
-
-
-        List result = searchEngineService.search(text);
+  
+        
+        List result = searchEngineService.search("%a%");
+        System.out.println ( result.size() );
         assertTrue(result.size() >= 3);
     }
 }
