@@ -96,7 +96,7 @@ public class KeyValue extends BaseModel implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.KeyValue[id=" + id + "]";
+        return key+" "+ value+" "+ descriptIon;
     }
 
 }
