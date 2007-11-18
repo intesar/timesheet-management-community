@@ -94,7 +94,7 @@ public class StudentFaq extends BaseModel implements java.io.Serializable {
 
     @Override
     public String toString() {
-        return "com.abbhsoft.srm.model.StudentFaq[student=" + id + "]";
+        return convincedRate;
     }
 
 }
