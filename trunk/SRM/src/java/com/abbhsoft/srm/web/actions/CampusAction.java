@@ -9,10 +9,14 @@
 
 package com.abbhsoft.srm.web.actions;
 
+import com.abbhsoft.srm.model.Campus;
+import com.abbhsoft.srm.service.CampusService;
+import com.abbhsoft.srm.service.ServiceFactory;
+import com.abbhsoft.srm.web.converters.CampusConverter;
+import com.abbhsoft.srm.web.formBeans.CampusBean;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -38,7 +42,10 @@ public class CampusAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+        CampusBean bean = (CampusBean) form;
+        Campus c = CampusConverter.toModel(bean);
+        CampusService service = (CampusService) ServiceFactory.getInstance().getBean("campusServiceImpl");
+        service.save(c);
         return mapping.findForward(SUCCESS);
         
     }

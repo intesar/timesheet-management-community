@@ -7,8 +7,10 @@ package com.abbhsoft.srm.model;
 
 import com.abbhsoft.srm.base.BaseModel;
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -35,8 +37,8 @@ public class Campus extends BaseModel implements Serializable {
     
     @Column(name = "name", nullable = false)
     private String name;
-    @JoinColumn(name = "address", referencedColumnName = "id")
-    @ManyToOne
+    @JoinColumn(name = "address", referencedColumnName = "id" )
+    @ManyToOne ( cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private Address address;
     @JoinColumn(name = "university", referencedColumnName = "id")
     @ManyToOne
