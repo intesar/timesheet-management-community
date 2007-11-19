@@ -41,7 +41,7 @@ public class StudentFormBean extends org.apache.struts.action.ActionForm {
    private String zip;
    private String country;
    private String type;
-   private Long universityId;
+   private Long university;
 
     public String getAge() {
         return age;
@@ -211,12 +211,12 @@ public class StudentFormBean extends org.apache.struts.action.ActionForm {
         this.zip = zip;
     }
 
-    public Long getUniversityId() {
-        return universityId;
+    public Long getUniversity() {
+        return university;
     }
 
-    public void setUniversityId(Long universityId) {
-        this.universityId = universityId;
+    public void setUniversity(Long university) {
+        this.university = university;
     }
     
     
@@ -233,14 +233,14 @@ public class StudentFormBean extends org.apache.struts.action.ActionForm {
     @Override
    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
        ActionErrors errors = new ActionErrors();
-       if (getStreet() == null || getStreet().length() < 1) {
-           errors.add("street", new ActionMessage("error.street.required"));
-           // TODO: add 'error.name.required' key to your resources
-       }
-       if (getCity() == null || getCity().length() < 1) {
-           errors.add("city", new ActionMessage("error.city.required"));
-           // TODO: add 'error.name.required' key to your resources
-       }
+//       if (getStreet() == null || getStreet().length() < 1) {
+//           errors.add("street", new ActionMessage("error.street.required"));
+//           // TODO: add 'error.name.required' key to your resources
+//       }
+//       if (getCity() == null || getCity().length() < 1) {
+//           errors.add("city", new ActionMessage("error.city.required"));
+//           // TODO: add 'error.name.required' key to your resources
+//       }
        if (getLastName() == null || getLastName().length() < 1) {
            errors.add("lastName", new ActionMessage("error.lastName.required"));
            // TODO: add 'error.name.required' key to your resources

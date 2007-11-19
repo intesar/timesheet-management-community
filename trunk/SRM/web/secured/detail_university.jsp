@@ -38,7 +38,7 @@
         <label for="name"><%= u.getName() %> </label>
         <br/>
         
-        
+        <%-- Event information --%>
         <table border="0">
             
             <tbody>
@@ -85,6 +85,54 @@
             </table>
         </html:form>
         
+        
+        <%-- Student information --%>
+        
+        <table border="0">
+            
+            <tbody>
+                <%
+                Collection<Student> students = u.getStudentCollection();
+                if (  events != null && events.size() > 0) {
+                for ( Student s : students ) {
+                %>
+                
+                <tr>
+                    <td><%= s.getFirstName() %> </td>
+                    <td><%= s.getLastName() %></td>
+                    <td><%= s.getEmail() %></td>
+                    <td><%= s.getMobilePhone() %></td>
+                </tr>
+                
+                <%
+                }
+                }
+                %>
+                
+            </tbody>
+        </table>
+        
+        <html:form action="universityStudentAction">
+            <table border="0">
+                
+                <tbody>
+                    <tr>
+                        <td><label for="name">First Name: </label></td>
+                        <td><label for="name">Last Name: </label></td>
+                        <td><label for="name">Email: </label></td>
+                        <td><label for="name">Mobile: </label></td>
+                        <td><html:hidden property="university" value='<%= u.getId().toString() %>' /></td>
+                    </tr>
+                    <tr>
+                        <td><html:text property="firstName"/></td>
+                        <td><html:text property="lastName"/></td>
+                        <td><html:text property="email"/></td>
+                        <td><html:text property="mobilePhone"/></td>
+                        <td><html:submit/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </html:form>
         
     </body>
 </html>
