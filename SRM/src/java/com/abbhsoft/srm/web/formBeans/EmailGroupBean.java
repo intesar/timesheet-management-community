@@ -1,5 +1,5 @@
 /*
- * GroupBean.java
+ * EmailGroupBean.java
  * 
  * Created on Nov 16, 2007, 9:05:08 PM
  * 
@@ -18,7 +18,7 @@ import org.apache.struts.action.ActionMessage;
  *
  * @author Amer
  */
-public class GroupBean extends org.apache.struts.action.ActionForm {
+public class EmailGroupBean extends org.apache.struts.action.ActionForm {
     
    private String owner;
    private String subscribeEmail;
@@ -62,7 +62,7 @@ public class GroupBean extends org.apache.struts.action.ActionForm {
    /**
     *
     */
-   public GroupBean() {
+   public EmailGroupBean() {
        super();
        // TODO Auto-generated constructor stub
    }
@@ -71,8 +71,7 @@ public class GroupBean extends org.apache.struts.action.ActionForm {
    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
        ActionErrors errors = new ActionErrors();
        if (getGroupEmail() == null || getGroupEmail().length() < 1) {
-           errors.add("groupEmail", new ActionMessage("error.groupEmail.required"));
-           // TODO: add 'error.name.required' key to your resources
+           errors.add("groupEmail", new ActionMessage("error.groupEmail.required"));           
        }
        return errors;
    }

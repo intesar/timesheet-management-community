@@ -31,5 +31,6 @@
         
         <a href="../createEvent.do">Create Event</a> <br/>
         <a href="../createUniversity.do">Create University</a> <br/>
+        <a href="../createEmailGroup.do">Create Email Group</a> <br/>
     </body>
 </html>

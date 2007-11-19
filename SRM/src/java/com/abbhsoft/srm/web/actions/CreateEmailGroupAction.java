@@ -1,5 +1,5 @@
 /*
- * GroupAction.java
+ * CreateEmailGroupAction.java
  * 
  * Created on Nov 16, 2007, 9:09:27 PM
  * 
@@ -9,10 +9,14 @@
 
 package com.abbhsoft.srm.web.actions;
 
+import com.abbhsoft.srm.model.EmailGroup;
+import com.abbhsoft.srm.service.EmailGroupService;
+import com.abbhsoft.srm.service.ServiceFactory;
+import com.abbhsoft.srm.web.converters.EmailGroupConverter;
+import com.abbhsoft.srm.web.formBeans.EmailGroupBean;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -21,7 +25,7 @@ import org.apache.struts.action.ActionForward;
  *
  * @author Amer
  */
-public class GroupAction extends org.apache.struts.action.Action {
+public class CreateEmailGroupAction extends org.apache.struts.action.Action {
     
     /* forward name="success" path="" */
     private final static String SUCCESS = "success";
@@ -38,7 +42,10 @@ public class GroupAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+        EmailGroupBean bean = (EmailGroupBean) form;
+        EmailGroup model = EmailGroupConverter.toModel(bean);
+        EmailGroupService service = (EmailGroupService) ServiceFactory.getInstance().getBean("emailGroupServiceImpl");
+        service.save(model);
         return mapping.findForward(SUCCESS);
         
     }

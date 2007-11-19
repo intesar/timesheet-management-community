@@ -9,7 +9,7 @@
     <form-beans>
 <form-bean name="UniversityBean" type="com.abbhsoft.srm.web.formBeans.UniversityBean"/>
         <form-bean name="EventFormBean" type="com.abbhsoft.srm.web.formBeans.EventFormBean"/>
-        <form-bean name="groupBean" type="com.abbhsoft.srm.web.formBeans.GroupBean"/>
+        <form-bean name="groupBean" type="com.abbhsoft.srm.web.formBeans.EmailGroupBean"/>
         <form-bean name="campusBean" type="com.abbhsoft.srm.web.formBeans.CampusBean"/>
         
     </form-beans>
@@ -34,13 +34,12 @@
         </action>
         
         <action path="/groupAction"
-                type="com.abbhsoft.srm.web.actions.GroupAction"
+                type="com.abbhsoft.srm.web.actions.CreateEmailGroupAction"
                 name="groupBean"
-                input="/secured/newGroup.jsp"
+                input="/secured/create_emailgroup.jsp"
                 scope="request"
                 validate="true">
-            <forward name="success" path=""/>
-            <forward name="failure" path=""/>
+            <forward name="success" path="/secured/index.jsp"/>            
         </action>
         
         <action path="/searchAction" type="com.abbhsoft.srm.web.actions.SearchAction">
@@ -58,6 +57,7 @@
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         <action path="/createEvent" forward="/secured/create_event.jsp" />
         <action path="/createUniversity" forward="/secured/create_university.jsp" />
+        <action path="/createEmailGroup" forward="/secured/create_emailGroup.jsp" />
         
         
     </action-mappings>
