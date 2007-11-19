@@ -32,6 +32,7 @@
     
     <bean id="studentServiceImpl" class="com.abbhsoft.srm.service.impl.StudentServiceImpl" >
         <property name="studentDao" ref="studentDao" />
+        <property name="queryDao" ref="queryDao" />
     </bean>
     
     <bean id="searchEngineServiceImpl" class="com.abbhsoft.srm.service.impl.SearchEngineServiceImpl" >

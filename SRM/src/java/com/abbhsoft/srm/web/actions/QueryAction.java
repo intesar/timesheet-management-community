@@ -9,10 +9,14 @@
 
 package com.abbhsoft.srm.web.actions;
 
+import com.abbhsoft.srm.model.Query;
+import com.abbhsoft.srm.service.ServiceFactory;
+import com.abbhsoft.srm.service.StudentService;
+import com.abbhsoft.srm.web.converters.QueryConverter;
+import com.abbhsoft.srm.web.formBeans.QueryFormBean;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionForward;
@@ -38,7 +42,10 @@ public class QueryAction extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm  form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        
+        QueryFormBean bean = (QueryFormBean) form;
+        Query query = QueryConverter.toModel(bean);
+        StudentService service = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
+        service.addQuery(query);
         return mapping.findForward(SUCCESS);
         
     }
