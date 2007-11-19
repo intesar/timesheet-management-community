@@ -128,6 +128,92 @@ Author     : Sadd
             </tr>
         </table> 
         <% } %>
+        
+        <%-- Event information --%>
+        <table border="0">
+            
+            <tbody>
+                <%
+                Collection<Event> events = s.getEventCollection();
+                if (  events != null && events.size() > 0) {
+                for ( Event e : events ) {
+                %>
+                
+                <tr>
+                    <td><%= e.getDate() %> </td>
+                    <td><%= e.getDescript() %></td>
+                    <td><%= e.getType() %></td>
+                    <td><%= e.getPriority() %></td>
+                </tr>
+                
+                <%
+                }
+                }
+                %>
+                
+            </tbody>
+        </table>
+        
+        <html:form action="studentEventAction">
+            <table border="0">
+                
+                <tbody>
+                    <tr>
+                        <td><label for="name">Type: </label></td>
+                        <td><label for="name">Description: </label></td>
+                        <td><label for="name">Date: </label></td>
+                        <td><label for="name">Priority: </label></td>
+                        <td><html:hidden property="student" value='<%= s.getId().toString() %>' /></td>
+                    </tr>
+                    <tr>
+                        <td><html:text property="type"/></td>
+                        <td><html:text property="descript"/></td>
+                        <td><input type="text" name="dateString" dojoType="dijit.form.DateTextBox" required="true"/></td>
+                        <td><html:radio property="priority" value="high"/>High<html:radio property="priority" value="medium"/>Medium<html:radio property="priority" value="low"/>Low</td>
+                        <td><html:submit/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </html:form>
+        
+         <%-- Event information --%>
+        <table border="0">
+            
+            <tbody>
+                <%
+                Collection<Query> queries = s.getQueryCollection();
+                if (  queries != null && queries.size() > 0) {
+                for ( Query q : queries ) {
+                %>
+                
+                <tr>
+                    <td><%= q.getMsg() %> </td>                    
+                </tr>
+                
+                <%
+                }
+                }
+                %>
+                
+            </tbody>
+        </table>
+        
+        <html:form action="studentQueryAction">
+            <table border="0">
+                
+                <tbody>
+                    <tr>
+                        <td><label for="name">Query: </label></td>
+                        <td><html:hidden property="student" value='<%= s.getId().toString() %>' /></td>
+                    </tr>
+                    <tr>
+                        <td><html:text property="message"/></td>
+                        <td><html:submit/></td>
+                    </tr>
+                </tbody>
+            </table>
+        </html:form>
+        
     </body>
     
 </html>

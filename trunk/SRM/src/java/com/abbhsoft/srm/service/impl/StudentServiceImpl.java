@@ -4,6 +4,7 @@
  */
 package com.abbhsoft.srm.service.impl;
 
+import com.abbhsoft.srm.dao.QueryDao;
 import com.abbhsoft.srm.dao.StudentDao;
 import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.Query;
@@ -71,15 +72,20 @@ public class StudentServiceImpl implements StudentService {
         s.getQueryCollection().size();
         return s;
     }
-    
-    
+
+    public void addQuery(Query query) {
+        this.queryDao.create(query);
+    }
     // dao injection code
 
     private StudentDao studentDao;
+    private QueryDao queryDao;
 
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
 
-    
+    public void setQueryDao(QueryDao queryDao) {
+        this.queryDao = queryDao;
+    }
 }

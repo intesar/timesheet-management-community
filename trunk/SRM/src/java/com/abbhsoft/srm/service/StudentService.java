@@ -16,6 +16,8 @@ import java.util.List;
  */
 public interface StudentService {
 
+    public void addQuery(Query query);
+
     public Student getStudentByIdWithDetails(Long studentId);
     
     /*
