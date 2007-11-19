@@ -19,11 +19,23 @@ public class UniversityServiceImpl implements UniversityService {
         this.universityDao.create(u);
     }
     
+    public University getUniversityByIdWithDetails(Long id) {
+        University university = this.universityDao.read(id);
+        university.getCampusCollection();
+        university.getEventCollection();
+        university.getGroup1Collection();
+        university.getStudentCollection();
+        return university;
+    }
+    
+    
     private UniversityDao universityDao;
     
     public void setUniversityDao ( UniversityDao universityDao ) {
         this.universityDao = universityDao;
                 
     }
+
+    
 
 }

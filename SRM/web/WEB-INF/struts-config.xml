@@ -49,9 +49,17 @@
         <action input="/secured/create_event.jsp" name="EventFormBean" path="/eventAction" scope="session" type="com.abbhsoft.srm.web.actions.EventAction">
             <forward name="success" path="/secured/index.jsp"/>
         </action>
+        
+        
+        <action input="/secured/detail_university.jsp" name="EventFormBean" path="/universityEventAction" scope="session" type="com.abbhsoft.srm.web.actions.EventAction">
+            <forward name="success" path="/universityDetailAction"/>
+        </action>
 
         <action input="/secured/create_university.jsp" name="UniversityBean" path="/universityAction" scope="session" type="com.abbhsoft.srm.web.actions.CreateUniversityAction">
             <forward name="success" path="/secured/index.jsp"/>
+        </action>
+        <action path="/universityDetailAction" type="com.abbhsoft.srm.web.actions.UniversityDetailAction">
+            <forward name="success" path="/secured/detail_university.jsp"/>
         </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
