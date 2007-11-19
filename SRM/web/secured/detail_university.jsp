@@ -37,14 +37,14 @@
         %>
         <label for="name"><%= u.getName() %> </label>
         <br/>
-        <label for="name"><%= u.getName() %> </label>
+        
         
         <table border="0">
             
             <tbody>
                 <%
                 Collection<Event> events = u.getEventCollection();
-                if ( false && events != null && events.size() > 0) {
+                if (  events != null && events.size() > 0) {
                 for ( Event e : events ) {
                 %>
                 
@@ -72,6 +72,7 @@
                         <td><label for="name">Description: </label></td>
                         <td><label for="name">Date: </label></td>
                         <td><label for="name">Priority: </label></td>
+                        <td><html:hidden property="university" value='<%= u.getId().toString() %>' /></td>
                     </tr>
                     <tr>
                         <td><html:text property="type"/></td>
