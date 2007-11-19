@@ -29,6 +29,7 @@
         </form>
         <br/>
         
-        <a href="create_event.jsp">Create Event</a>
+        <a href="../createEvent.do">Create Event</a> <br/>
+        <a href="../createUniversity.do">Create University</a> <br/>
     </body>
 </html>

@@ -40,6 +40,10 @@
         <property name="universityDao" ref="universityDao" />
         <property name="emailGroupDao" ref="emailGroupDao" />
     </bean>
+
+    <bean id="universityServiceImpl" class="com.abbhsoft.srm.service.impl.UniversityServiceImpl" >
+        <property name="universityDao" ref="universityDao" />
+    </bean>
     <!--
      ##########################################################################
                             Services Declerations End
