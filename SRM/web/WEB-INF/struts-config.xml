@@ -11,7 +11,7 @@
         <form-bean name="EventFormBean" type="com.abbhsoft.srm.web.formBeans.EventFormBean"/>
         <form-bean name="groupBean" type="com.abbhsoft.srm.web.formBeans.EmailGroupBean"/>
         <form-bean name="campusBean" type="com.abbhsoft.srm.web.formBeans.CampusBean"/>
-        
+        <form-bean name="StudentFormBean" type="com.abbhsoft.srm.web.formBeans.StudentFormBean"/>
     </form-beans>
     
     <global-exceptions>
@@ -59,6 +59,9 @@
             <forward name="success" path="/secured/index.jsp"/>
         </action>
         <action path="/universityDetailAction" type="com.abbhsoft.srm.web.actions.UniversityDetailAction">
+            <forward name="success" path="/secured/detail_university.jsp"/>
+        </action>
+        <action input="/secured/detail_university.jsp" name="StudentFormBean" path="/universityStudentAction" scope="session" type="com.abbhsoft.srm.web.actions.StudentAction">
             <forward name="success" path="/secured/detail_university.jsp"/>
         </action>
         
