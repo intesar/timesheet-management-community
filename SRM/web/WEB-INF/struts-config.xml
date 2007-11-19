@@ -65,6 +65,15 @@
             <forward name="success" path="/secured/detail_university.jsp"/>
         </action>
         
+        <action input="/secured/detail_university.jsp" name="groupBean" path="/universityEmailGroupAction" scope="session" type="com.abbhsoft.srm.web.actions.CreateEmailGroupAction">
+            <forward name="success" path="/secured/detail_university.jsp"/>
+        </action>
+        
+         <action input="/secured/detail_university.jsp" name="campusBean" path="/universityCampusAction" scope="session" type="com.abbhsoft.srm.web.actions.CampusAction">
+            <forward name="success" path="/secured/detail_university.jsp"/>
+        </action>
+        
+        
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         <action path="/createEvent" forward="/secured/create_event.jsp" />
         <action path="/createUniversity" forward="/secured/create_university.jsp" />
