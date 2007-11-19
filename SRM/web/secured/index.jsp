@@ -27,4 +27,8 @@
                    invalidMessage="Empty Text!"
                    />
         </form>
-</body></html>
+        <br/>
+        
+        <a href="create_event.jsp">Create Event</a>
+    </body>
+</html>
