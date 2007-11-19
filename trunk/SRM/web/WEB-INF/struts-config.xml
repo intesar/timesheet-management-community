@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+<form-bean name="UniversityBean" type="com.abbhsoft.srm.web.formBeans.UniversityBean"/>
         <form-bean name="EventFormBean" type="com.abbhsoft.srm.web.formBeans.EventFormBean"/>
         <form-bean name="groupBean" type="com.abbhsoft.srm.web.formBeans.GroupBean"/>
         <form-bean name="campusBean" type="com.abbhsoft.srm.web.formBeans.CampusBean"/>
@@ -49,8 +50,15 @@
         <action input="/secured/create_event.jsp" name="EventFormBean" path="/eventAction" scope="session" type="com.abbhsoft.srm.web.actions.EventAction">
             <forward name="success" path="/secured/index.jsp"/>
         </action>
+
+        <action input="/secured/create_university.jsp" name="UniversityBean" path="/universityAction" scope="session" type="com.abbhsoft.srm.web.actions.CreateUniversityAction">
+            <forward name="success" path="/secured/index.jsp"/>
+        </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+        <action path="/createEvent" forward="/secured/create_event.jsp" />
+        <action path="/createUniversity" forward="/secured/create_university.jsp" />
+        
         
     </action-mappings>
     
