@@ -21,10 +21,10 @@ public class UniversityServiceImpl implements UniversityService {
     
     public University getUniversityByIdWithDetails(Long id) {
         University university = this.universityDao.read(id);
-        university.getCampusCollection();
-        university.getEventCollection();
-        university.getGroup1Collection();
-        university.getStudentCollection();
+        university.getCampusCollection().size();
+        university.getEventCollection().size();
+        university.getGroup1Collection().size();
+        university.getStudentCollection().size();
         return university;
     }
     

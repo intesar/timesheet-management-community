@@ -29,6 +29,7 @@ public abstract class BaseModel implements Serializable {
 
     @Id    
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     protected Long id;
     @Column(name = "create_user")
     protected Long createUser;
