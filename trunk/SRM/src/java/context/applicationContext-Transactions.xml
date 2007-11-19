@@ -13,7 +13,7 @@ http://www.springframework.org/schema/aop http://www.springframework.org/schema/
     </bean>
     
     <aop:config>
-        <aop:pointcut id="serviceMethods" expression="execution(* com.company.projectname.service.*.*(..))"/>
+        <aop:pointcut id="serviceMethods" expression="execution(* com.abbhsoft.srm.service.*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"/>
     </aop:config>
     
