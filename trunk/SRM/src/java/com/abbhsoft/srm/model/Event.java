@@ -53,14 +53,6 @@ public class Event extends BaseModel implements Serializable {
     private String descript;
     @Column(name = "priority")
     private String priority;
-
-    public String getPriority() {
-        return priority;
-    }
-
-    public void setPriority(String priority) {
-        this.priority = priority;
-    }
     @JoinColumn(name = "university", referencedColumnName = "id")
     @ManyToOne
     private University university;
@@ -91,6 +83,15 @@ public class Event extends BaseModel implements Serializable {
         
     }
 
+    
+    public String getPriority() {
+        return priority;
+    }
+
+    public void setPriority(String priority) {
+        this.priority = priority;
+    }
+    
     public Date getDate() {
         return date;
     }
