@@ -13,4 +13,5 @@ import com.abbhsoft.srm.model.University;
  */
 public interface UniversityService {
     void save(University u);
+    University getUniversityByIdWithDetails( Long id );
 }
