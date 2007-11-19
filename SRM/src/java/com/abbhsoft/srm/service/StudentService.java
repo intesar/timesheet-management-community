@@ -15,6 +15,8 @@ import java.util.List;
  * @author mdshannan
  */
 public interface StudentService {
+
+    public Student getStudentByIdWithDetails(Long studentId);
     
     /*
      *  returns todays current events

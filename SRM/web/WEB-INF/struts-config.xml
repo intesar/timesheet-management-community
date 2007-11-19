@@ -73,6 +73,9 @@
             <forward name="success" path="/secured/detail_university.jsp"/>
         </action>
         
+        <action path="/studentDetailAction" type="com.abbhsoft.srm.web.actions.StudentDetailAction">
+            <forward name="success" path="/secured/UserDetail.jsp"/>
+        </action>
         
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
         <action path="/createEvent" forward="/secured/create_event.jsp" />

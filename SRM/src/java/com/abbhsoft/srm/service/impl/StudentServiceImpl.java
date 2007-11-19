@@ -64,6 +64,14 @@ public class StudentServiceImpl implements StudentService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
+    public Student getStudentByIdWithDetails(Long studentId) {
+        Student s = this.studentDao.read(studentId);
+        s.getAddress();
+        s.getEventCollection().size();
+        s.getQueryCollection().size();
+        return s;
+    }
+    
     
     // dao injection code
 
@@ -72,4 +80,6 @@ public class StudentServiceImpl implements StudentService {
     public void setStudentDao(StudentDao studentDao) {
         this.studentDao = studentDao;
     }
+
+    
 }
