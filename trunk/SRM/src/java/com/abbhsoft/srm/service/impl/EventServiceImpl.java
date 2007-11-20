@@ -6,7 +6,9 @@
 package com.abbhsoft.srm.service.impl;
 
 import com.abbhsoft.srm.dao.EventDao;
+import com.abbhsoft.srm.dao.UniversityDao;
 import com.abbhsoft.srm.model.Event;
+import com.abbhsoft.srm.model.University;
 import com.abbhsoft.srm.service.EventService;
 import java.util.Calendar;
 import java.util.Date;
@@ -24,7 +26,11 @@ public class EventServiceImpl implements EventService {
         return eventDao.findByDate(date);
     }
 
-    public void save ( Event event ) {
+    public void save ( Event event ) { 
+        if ( event.getUniversity() != null) {
+            University u = this.universityDao.read(event.getUniversity().getId());
+            event.setUniversity(u);
+        }
         eventDao.create(event);
     }
     
@@ -53,9 +59,15 @@ public class EventServiceImpl implements EventService {
     // dao injection code
 
     private EventDao eventDao;
+    private UniversityDao universityDao;
 
     public void setEventDao(EventDao eventDao) {
         this.eventDao = eventDao;
     }
 
+    public void setUniversityDao(UniversityDao universityDao) {
+        this.universityDao = universityDao;
+    }
+
+    
 }

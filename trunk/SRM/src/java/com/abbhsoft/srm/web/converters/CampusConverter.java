@@ -6,6 +6,7 @@ package com.abbhsoft.srm.web.converters;
 
 import com.abbhsoft.srm.model.Address;
 import com.abbhsoft.srm.model.Campus;
+import com.abbhsoft.srm.model.University;
 import com.abbhsoft.srm.web.formBeans.CampusBean;
 
 /**
@@ -25,6 +26,10 @@ public class CampusConverter {
             a.setZipcode(bean.getZip());
             a.setCountry(bean.getCountry());
             campus.setAddress(a);
+        }
+        if ( bean.getUniversity() != null && bean.getUniversity() > 0 ) {
+            University u = new University(bean.getUniversity());
+            campus.setUniversity(u);
         }
         return campus;
     }

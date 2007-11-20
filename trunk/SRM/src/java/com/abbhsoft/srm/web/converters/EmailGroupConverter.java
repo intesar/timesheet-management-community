@@ -5,6 +5,7 @@
 package com.abbhsoft.srm.web.converters;
 
 import com.abbhsoft.srm.model.EmailGroup;
+import com.abbhsoft.srm.model.University;
 import com.abbhsoft.srm.web.formBeans.EmailGroupBean;
 
 /**
@@ -18,7 +19,12 @@ public class EmailGroupConverter {
        model.setOwner(bean.getOwner());
        model.setGroupEmail(bean.getGroupEmail());
        model.setSubscribeEmail(bean.getSubscribeEmail());
-       model.setUnsubscribeEmail(bean.getUnSubscribeEmail());
+       model.setUnsubscribeEmail(bean.getUnSubscribeEmail()); 
+  
+       if ( bean.getUniversity() != null && bean.getUniversity() > 0 ) {
+            University u = new University(bean.getUniversity());
+            model.setUniversity(u);
+        }
        return model;
     }
 

@@ -4,9 +4,6 @@
  */
 package com.abbhsoft.srm.web.actions;
 
-import com.abbhsoft.srm.model.University;
-import com.abbhsoft.srm.service.ServiceFactory;
-import com.abbhsoft.srm.service.UniversityService;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,9 +37,9 @@ public class UniversityDetailAction extends org.apache.struts.action.Action {
         if ( id == null || id.length() < 1 )
             id = "3";
         Long universityId = Long.valueOf(id);
-        UniversityService service = (UniversityService) ServiceFactory.getInstance().getBean("universityServiceImpl");
-        University u = service.getUniversityByIdWithDetails(universityId);
-        request.setAttribute("university", u);
+//        UniversityService service = (UniversityService) ServiceFactory.getInstance().getBean("universityServiceImpl");
+//        University u = service.getUniversityByIdWithDetails(universityId);
+        request.getSession().setAttribute("universityId", universityId);
         return mapping.findForward(SUCCESS);
 
     }

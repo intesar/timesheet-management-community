@@ -20,6 +20,7 @@
     
     <bean id="eventServiceImpl" class="com.abbhsoft.srm.service.impl.EventServiceImpl" >
         <property name="eventDao" ref="eventDao" />
+        <property name="universityDao" ref="universityDao" />
     </bean>
     
     <bean id="campusServiceImpl" class="com.abbhsoft.srm.service.impl.CampusServiceImpl" >

@@ -2,6 +2,7 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page import="com.abbhsoft.srm.model.*" %>
+<%@page import="com.abbhsoft.srm.service.*" %>
 <%@page import="java.util.*" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
 <%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
@@ -32,8 +33,13 @@
         </script>    
     </head>
     <body  class="tundra">
+        
         <% 
-        University u = (University) request.getAttribute("university");
+        
+        long id = Long.valueOf(session.getAttribute("universityId").toString());
+        //University u = (University) request.getAttribute("university");
+        UniversityService service = (UniversityService) ServiceFactory.getInstance().getBean("universityServiceImpl");
+        University u = service.getUniversityByIdWithDetails(id);
         %>
         <label for="name"><%= u.getName() %> </label>
         <br/>

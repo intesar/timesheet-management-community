@@ -53,7 +53,7 @@
         
         
         <action input="/secured/detail_university.jsp" name="EventFormBean" path="/universityEventAction" scope="session" type="com.abbhsoft.srm.web.actions.EventAction">
-            <forward name="success" path="/universityDetailAction"/>
+            <forward name="success" path="/secured/detail_university.jsp"/>
         </action>
 
         <action input="/secured/create_university.jsp" name="UniversityBean" path="/universityAction" scope="session" type="com.abbhsoft.srm.web.actions.CreateUniversityAction">

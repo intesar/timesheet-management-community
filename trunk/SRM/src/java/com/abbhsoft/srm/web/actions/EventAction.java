@@ -42,9 +42,12 @@ public class EventAction extends org.apache.struts.action.Action {
         EventFormBean bean = (EventFormBean) form;
         Event event = EventConverter.toEventModel(bean);
         EventService service = (EventService) ServiceFactory.getInstance().getBean("eventServiceImpl");
+        //UniversityService service = (UniversityService) ServiceFactory.getInstance().getBean("universityServiceImpl");
+        //University u = service.getUniversityByIdWithDetails(event.getUniversity().getId());
+        //u.getEventCollection().add(event);
         service.save(event);
-        
         return mapping.findForward(SUCCESS);
+        
         
     }
 }
