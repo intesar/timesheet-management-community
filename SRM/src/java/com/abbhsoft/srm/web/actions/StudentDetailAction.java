@@ -40,9 +40,9 @@ public class StudentDetailAction extends org.apache.struts.action.Action {
         if ( id == null || id.length() < 1 )
             id = "3";
         Long studentId = Long.valueOf(id);
-        StudentService service = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
-        Student s = service.getStudentByIdWithDetails(studentId);
-        request.setAttribute("student", s);
+        //StudentService service = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
+        //Student s = service.getStudentByIdWithDetails(studentId);
+        request.getSession().setAttribute("studentId", studentId);
         return mapping.findForward(SUCCESS);
 
     }

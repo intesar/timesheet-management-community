@@ -10,7 +10,8 @@ Author     : Sadd
 
 <%@page import="com.abbhsoft.srm.model.*"%>
 <%@page import="java.util.*"%>
-
+<%@page import="com.abbhsoft.srm.service.*"%>
+        
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -44,9 +45,15 @@ Author     : Sadd
     </head>
     
     <body  class="tundra">
+        
         <% 
-        Student s = (Student) request.getAttribute("student");
+        
+        long id = Long.valueOf(session.getAttribute("studentId").toString());
+        //University u = (University) request.getAttribute("university");
+        StudentService service = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
+        Student s = service.getStudentByIdWithDetails(id);
         %>
+        
         
         <table>
             <tr>
