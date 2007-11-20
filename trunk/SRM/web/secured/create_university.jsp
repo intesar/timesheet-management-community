@@ -29,7 +29,7 @@
         </script>    
     </head>
     <body class="tundra">
-        <a href="home.do">Home</a>
+        <html:link href="home.do" > Home </html:link>
         <html:errors/>
         <html:form action="universityAction">
             <table border="0">
