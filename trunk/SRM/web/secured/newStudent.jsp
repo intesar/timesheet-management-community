@@ -17,6 +17,7 @@
         <title> New Student </title>
     </head>
     <body>
+        <a href="home.do">Home</a>
         <html:form action="/studentAction">
             <table>
                 <tr>

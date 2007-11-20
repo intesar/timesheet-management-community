@@ -1,5 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -17,7 +21,7 @@
         </script>
     </head>
     <body class="tundra">
-        <form action="../searchAction.do">
+        <html:form action="searchAction">
             <input type="text" name="searchText" value=""
                    dojoType="dijit.form.TextBox"
                    trim="true"
@@ -26,11 +30,11 @@
                    promptMessage="Search String"
                    invalidMessage="Empty Text!"
                    />
-        </form>
+        </html:form>
         <br/>
         
-        <a href="../createEvent.do">Create Event</a> <br/>
-        <a href="../createUniversity.do">Create University</a> <br/>
-        <a href="../createEmailGroup.do">Create Email Group</a> <br/>
+        <a href="createEvent.do">Create Event</a> <br/>
+        <a href="createUniversity.do">Create University</a> <br/>
+        <a href="createEmailGroup.do">Create Email Group</a> <br/>
     </body>
 </html>

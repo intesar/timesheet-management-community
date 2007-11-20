@@ -17,6 +17,7 @@
         <title> Create Group </title>
     </head>
     <body>
+        <a href="home.do">Home</a>
         <html:form action="/groupAction">
             <table>
                 <tr>

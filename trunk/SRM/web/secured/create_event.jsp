@@ -30,6 +30,7 @@
     </head>
     <body class="tundra">
         
+        <a href="home.do">Home</a>
         <html:errors/>
         <html:form action="eventAction">
             <table border="0">
