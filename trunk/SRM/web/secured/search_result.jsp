@@ -1,5 +1,10 @@
 <%@ page import="com.abbhsoft.srm.model.*" %>
+<%@ page import="com.abbhsoft.srm.base.*" %>
 <%@ page import="java.util.*" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -33,14 +38,15 @@
         int count = 0;
         for ( Object o : list ) {
         count++;
-        
+        BaseModel baseModel = (BaseModel) o;
         if ( o instanceof Student ) {
         Student s = (Student) o;
-                   out.println("<br/> " + o +
-                    "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_student_view_" + count + "').show()\">View</button>" +
-                    "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog1').show()\">Edit</button>");
-
+        out.println("<br/> " + o +
+        "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_student_view_" + count + "').show()\">View</button>");
+        
         %>
+        <a href='../SRM/studentDetailAction.do?studentId=<%= baseModel.getId() %>'> Edit Lead </a>
+        
         
         <div dojoType="dijit.Dialog" id="dialog_student_view_<%= count %>" title="Dialog_student" execute="checkPw(arguments[0]);">
             <table>
@@ -107,97 +113,96 @@
         %>
         
         <div dojoType="dijit.Dialog" id="dialog_event_view_<%= count %>" title="Dialog_event" execute="checkPw(arguments[0]);">
-        <table>
-        <tr>
-            <td><label for="name">Event Date: </label></td>
-            <td><label for="name"><%= e.getDate() %></label></td>
-            <td><label for="name">Event Type: </label></td>
-            <td><label for="name"><%= e.getType() %></label></td>
-        </tr>  
-        
-        <tr>
-            <td><label for="name">Event Descript: </label></td>
-            <td><label for="name"><%= e.getDescript()%>></label></td>
-            <td><label for="name">Event Type: </label></td>
-            <td><label for="name"><%= e.getGroup1() %></label></td>
-        </tr>  
-        
-        <tr>
-            <td><label for="name">Event Student: </label></td>
-            <td><label for="name"><%= e.getStudent() %></label></td>
-            <td><label for="name">Event University: </label></td>
-            <td><label for="name"><%= e.getUniversity() %></label></td>
-        </tr>  
-        </table>
+            <table>
+                <tr>
+                    <td><label for="name">Event Date: </label></td>
+                    <td><label for="name"><%= e.getDate() %></label></td>
+                    <td><label for="name">Event Type: </label></td>
+                    <td><label for="name"><%= e.getType() %></label></td>
+                </tr>  
+                
+                <tr>
+                    <td><label for="name">Event Descript: </label></td>
+                    <td><label for="name"><%= e.getDescript()%>></label></td>
+                    <td><label for="name">Event Type: </label></td>
+                    <td><label for="name"><%= e.getGroup1() %></label></td>
+                </tr>  
+                
+                <tr>
+                    <td><label for="name">Event Student: </label></td>
+                    <td><label for="name"><%= e.getStudent() %></label></td>
+                    <td><label for="name">Event University: </label></td>
+                    <td><label for="name"><%= e.getUniversity() %></label></td>
+                </tr>  
+            </table>
         </div>
         <%        
         
         }
         
-      if ( o instanceof Campus ) {
-       Campus c = (Campus) o;
+        if ( o instanceof University ) {
+        University u = (University) o;
         out.println( "<br/> "+ o + 
-        "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_campus_view_"+count+"').show()\">View</button>" +
-        "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog1').show()\">Edit</button>");
-                      
-   
+        "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_campus_view_"+count+"').show()\">View</button>");
+        
+        
         %> 
+        <a href='../SRM/universityDetailAction.do?universityId=<%= u.getId() %>'> Edit University</a>
         
-    
-<div dojoType="dijit.Dialog" id="dialog_campus_view_<%= count %>" title="Dialog_campus" execute="checkPw(arguments[0]);"> 
-    
- <table>   
-    
-   <tr>
-            <td><label for="name">Campus Name: </label></td>
-            <td><label for="name"><%= c.getName() %></label></td>
-            <td><label for="name">Campus Address: </label></td>
-            <td><label for="name"><%= c.getAddress() %></label></td>
-        </tr>   
+        <div dojoType="dijit.Dialog" id="dialog_campus_view_<%= count %>" title="Dialog_campus" execute="checkPw(arguments[0]);"> 
+            
+            <table>   
+                
+                <tr>
+                    <td><label for="name">Name: </label></td>
+                    <td><label for="name"><%= u.getName() %></label></td>
+                    <td><label for="name"> City: </label></td>
+                    <td><label for="name"></label></td>
+                </tr>   
+                
+                <tr>
+                    <td><label for="name"></label></td>
+                    <td><label for="name"></label></td>
+                    <td><label for="name"> </label></td>
+                    <td><label for="name"></label></td>
+                </tr>   
+                
+            </table>
+            
+        </div>
         
-        <tr>
-            <td><label for="name">Campus University: </label></td>
-            <td><label for="name"><%= c.getUniversity() %></label></td>
-            <td><label for="name">Campus future update: </label></td>
-            <td><label for="name"></label></td>
-        </tr>   
-           
- </table>
- 
- </div>
- 
- 
+        
         <% 
         }               //END OF if campus
         
-         if ( o instanceof EmailGroup ) {
+        if ( o instanceof EmailGroup ) {
         EmailGroup eg = (EmailGroup) o;
         out.println( "<br/> "+ o + 
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_emialgroup_view_"+count+"').show()\">View</button>" +
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog1').show()\">Edit</button>");
-                    
-         
+        
+        
         %>
         
-         <div dojoType="dijit.Dialog" id="dialog_event_view_<%= count %>" title="Dialog_emailgroup" execute="checkPw(arguments[0]);">
-        
-          <table>
-             <tr>
-            <td><label for="name">EmailGroup owner: </label></td>
-            <td><label for="name"><%= eg.getOwner() %></label></td>
-            <td><label for="name">EmailGroup sub_em: </label></td>
-            <td><label for="name"><%= eg.getSubscribeEmail() %></label></td>
-        </tr>  
-        
-        <tr>
-            <td><label for="name">EmailGroup university: </label></td>
-            <td><label for="name"><%= eg.getUniversity() %></label></td>
-            <td><label for="name">EmailGroup unsub_em: </label></td>
-            <td><label for="name"><%= eg.getUnsubscribeEmail() %></label></td>
+        <div dojoType="dijit.Dialog" id="dialog_event_view_<%= count %>" title="Dialog_emailgroup" execute="checkPw(arguments[0]);">
             
-        </tr>  
-        
-        </table>
+            <table>
+                <tr>
+                    <td><label for="name">EmailGroup owner: </label></td>
+                    <td><label for="name"><%= eg.getOwner() %></label></td>
+                    <td><label for="name">EmailGroup sub_em: </label></td>
+                    <td><label for="name"><%= eg.getSubscribeEmail() %></label></td>
+                </tr>  
+                
+                <tr>
+                    <td><label for="name">EmailGroup university: </label></td>
+                    <td><label for="name"><%= eg.getUniversity() %></label></td>
+                    <td><label for="name">EmailGroup unsub_em: </label></td>
+                    <td><label for="name"><%= eg.getUnsubscribeEmail() %></label></td>
+                    
+                </tr>  
+                
+            </table>
         </div>
         
         

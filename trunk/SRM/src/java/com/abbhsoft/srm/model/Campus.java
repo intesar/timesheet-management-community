@@ -41,7 +41,7 @@ public class Campus extends BaseModel implements Serializable {
     @ManyToOne ( cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private Address address;
     @JoinColumn(name = "university", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     private University university;
 
     public Campus() {
