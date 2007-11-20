@@ -45,7 +45,7 @@ Author     : Sadd
     </head>
     
     <body  class="tundra">
-        <a href="home.do">Home</a>
+        <html:link href="home.do" > Home </html:link>
         <% 
         
         long id = Long.valueOf(session.getAttribute("studentId").toString());

@@ -21,6 +21,10 @@
         </script>
     </head>
     <body class="tundra">
+        <html:link href="createEvent.do" >New Event </html:link>
+        <html:link href="createUniversity.do" >New University</html:link>
+        <html:link href="createEmailGroup.do" > New Email Group </html:link>
+        <br/>
         <html:form action="searchAction">
             <input type="text" name="searchText" value=""
                    dojoType="dijit.form.TextBox"
@@ -30,11 +34,10 @@
                    promptMessage="Search String"
                    invalidMessage="Empty Text!"
                    />
+            <html:submit title="Search" />
         </html:form>
         <br/>
         
-        <a href="createEvent.do">Create Event</a> <br/>
-        <a href="createUniversity.do">Create University</a> <br/>
-        <a href="createEmailGroup.do">Create Email Group</a> <br/>
+        
     </body>
 </html>

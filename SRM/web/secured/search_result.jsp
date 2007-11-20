@@ -46,7 +46,8 @@
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_student_view_" + count + "').show()\">View</button>");
         
         %>
-        <a href='../SRM/studentDetailAction.do?studentId=<%= baseModel.getId() %>'> Edit Lead </a>
+        <html:link href="studentDetailAction.do?studentId=<%= baseModel.getId() %>"> Edit Student</html:link>
+        
         
         
         <div dojoType="dijit.Dialog" id="dialog_student_view_<%= count %>" title="Dialog_student" execute="checkPw(arguments[0]);">
@@ -148,7 +149,8 @@
         
         
         %> 
-        <a href='../SRM/universityDetailAction.do?universityId=<%= u.getId() %>'> Edit University</a>
+        <html:link href="universityDetailAction.do?universityId=<%= u.getId() %>"> Edit University</html:link>
+       
         
         <div dojoType="dijit.Dialog" id="dialog_campus_view_<%= count %>" title="Dialog_campus" execute="checkPw(arguments[0]);"> 
             
