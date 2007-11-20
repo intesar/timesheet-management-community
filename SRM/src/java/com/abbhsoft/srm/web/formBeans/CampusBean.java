@@ -20,7 +20,7 @@ import com.abbhsoft.srm.model.Address;
  */
 public class CampusBean extends org.apache.struts.action.ActionForm {
     
-   private Long universityId;
+   private Long university;
    private String campus;
    private String street;
    private String type;
@@ -37,12 +37,12 @@ public class CampusBean extends org.apache.struts.action.ActionForm {
         this.campus = campus;
     }
 
-    public Long getUniversityId() {
-        return universityId;
+    public Long getUniversity() {
+        return university;
     }
 
-    public void setUniversityId(Long universityId) {
-        this.universityId = universityId;
+    public void setUniversity(Long university) {
+        this.university = university;
     }
 
     public String getCity() {

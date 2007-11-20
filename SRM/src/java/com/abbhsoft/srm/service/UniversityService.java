@@ -12,6 +12,8 @@ import com.abbhsoft.srm.model.University;
  * @author mdshannan
  */
 public interface UniversityService {
+
+    public void update(University university);
     void save(University u);
     University getUniversityByIdWithDetails( Long id );
 }

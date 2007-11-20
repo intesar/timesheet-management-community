@@ -6,7 +6,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.abbhsoft.srm.web.formBeans;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,11 +18,12 @@ import org.apache.struts.action.ActionMessage;
  * @author Amer
  */
 public class EmailGroupBean extends org.apache.struts.action.ActionForm {
-    
-   private String owner;
-   private String subscribeEmail;
-   private String groupEmail;
-   private String unSubscribeEmail;
+
+    private String owner;
+    private String subscribeEmail;
+    private String groupEmail;
+    private String unSubscribeEmail;
+    private Long university;
 
     public String getGroupEmail() {
         return groupEmail;
@@ -56,23 +56,29 @@ public class EmailGroupBean extends org.apache.struts.action.ActionForm {
     public void setUnSubscribeEmail(String unSubscribeEmail) {
         this.unSubscribeEmail = unSubscribeEmail;
     }
-   
-   
 
-   /**
+    public Long getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(Long university) {
+        this.university = university;
+    }
+
+    /**
     *
     */
-   public EmailGroupBean() {
-       super();
-       // TODO Auto-generated constructor stub
-   }
+    public EmailGroupBean() {
+        super();
+    // TODO Auto-generated constructor stub
+    }
 
-   @Override
+    @Override
    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
-       ActionErrors errors = new ActionErrors();
-       if (getGroupEmail() == null || getGroupEmail().length() < 1) {
-           errors.add("groupEmail", new ActionMessage("error.groupEmail.required"));           
-       }
-       return errors;
-   }
+        ActionErrors errors = new ActionErrors();
+        if (getGroupEmail() == null || getGroupEmail().length() < 1) {
+            errors.add("groupEmail", new ActionMessage("error.groupEmail.required"));
+        }
+        return errors;
+    }
 }

@@ -45,7 +45,9 @@ public class GenericDaoJPAImpl<T, PK extends Serializable> extends JpaTemplate i
     @SuppressWarnings(value = "unchecked")
     public T read(PK id) {
         System.out.println(type);
-        return this.find(type, id);
+        T t = this.find(type, id);
+        this.refresh(t);
+        return t;
     }
 
     public void update(T o) {
