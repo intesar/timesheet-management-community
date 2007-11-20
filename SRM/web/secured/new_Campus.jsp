@@ -16,6 +16,7 @@
         <title>New Campus</title>
     </head>
     <body>
+        <a href="home.do">Home</a>
         <html:form action="/campusAction">
             <table>
                 <tr>

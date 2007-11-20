@@ -33,6 +33,7 @@
         </script>
     </head>
     <body  class="tundra">
+        <a href="home.do">Home</a>
         <%
         List list = (List) request.getAttribute("list");
         int count = 0;

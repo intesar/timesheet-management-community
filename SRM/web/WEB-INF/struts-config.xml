@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="SearchFormBean" type="com.abbhsoft.srm.web.formBeans.SearchFormBean"/>
 <form-bean name="UniversityBean" type="com.abbhsoft.srm.web.formBeans.UniversityBean"/>
         <form-bean name="EventFormBean" type="com.abbhsoft.srm.web.formBeans.EventFormBean"/>
         <form-bean name="groupBean" type="com.abbhsoft.srm.web.formBeans.EmailGroupBean"/>
@@ -43,7 +44,13 @@
             <forward name="success" path="/secured/index.jsp"/>            
         </action>
         
-        <action path="/searchAction" type="com.abbhsoft.srm.web.actions.SearchAction">
+        <action path="/searchAction"
+                type="com.abbhsoft.srm.web.actions.SearchAction"
+                name="SearchFormBean"
+                input="/secured/index.jsp"
+                scope="session"
+                validate="true">
+                 
             <forward name="success" path="/secured/search_result.jsp"/>
         </action>
         
@@ -90,7 +97,7 @@
         <action path="/createEvent" forward="/secured/create_event.jsp" />
         <action path="/createUniversity" forward="/secured/create_university.jsp" />
         <action path="/createEmailGroup" forward="/secured/create_emailGroup.jsp" />
-        
+        <action path="/home" forward="/secured/index.jsp"/>
         
     </action-mappings>
     
