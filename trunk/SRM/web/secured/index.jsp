@@ -234,6 +234,17 @@
             <html:form action="/groupAction">
                 <table>
                     <tr>
+                        <td> Group email : </td>
+                        <td> <input type="text" name="groupEmail" dojoType="dijit.form.TextBox"
+                                        trim="true"
+                                        lowercase="true"
+                                        required="true"
+                                        promptMessage="Email"
+                                        invalidMessage="Cannot be Empty!"
+                                        id="groupEmail"
+                                    /></td>
+                    </tr>
+                    <tr>
                         <td> Owner : </td>
                         <td> <input type="text" name="owner" 
                                         dojoType="dijit.form.TextBox"
@@ -242,6 +253,7 @@
                                         required="false"
                                         promptMessage="Owner Email"
                                         invalidMessage="Cannot be Empty!"
+                                        id="owner"
                                     /></td>
                     </tr>
                     <tr>
@@ -253,17 +265,9 @@
                                         required="false"
                                         promptMessage="Email"
                                         invalidMessage="Cannot be Empty!"
+                                        id="subscribeEmail"
                                     /> </td>
-                    </tr>
-                    <tr>
-                        <td> Group email : </td>
-                        <td> <input type="text" name="groupEmail" dojoType="dijit.form.TextBox"
-                                        trim="true"
-                                        lowercase="true"
-                                        required="true"
-                                        promptMessage="Email"
-                                        invalidMessage="Cannot be Empty!"
-                                    /></td>
+                        
                     </tr>
                     <tr>
                         <td> Unsubscribe email : </td>
@@ -273,6 +277,7 @@
                                         required="false"
                                         promptMessage="Email"
                                         invalidMessage="Cannot be Empty!"
+                                        id="unSubscribeEmail"
                                     /></td>
                     </tr>
                     <tr>
@@ -281,8 +286,28 @@
                                     iconClass="mailIconCancel">Abort</button>
                         </td>
                         <td>
-                            <button dojoType="dijit.form.Button" type="submit"
-                                    iconClass="mailIconOk">OK</button>
+                            <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callAddEmailGroupService();' value='Add EmailGroup'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
+                                    >Add EmailGroup </button>
+                            <script type='text/javascript'>
+                                function callAddEmailGroupService() {
+                                var emailGroup1 = '"'+ $("groupEmail").value + '"';
+                                var owner1 = '"'+ $("owner").value + '"';
+                                var subscribe1 = '"'+ $("subscribeEmail").value + '"';
+                                var unsubscribe1 = '"' + $("unSubscribeEmail").value +'"';                          
+                                
+                                addEntityRemoteService.addEmailGroup(objectEval(emailGroup1), 
+                                objectEval(owner1),
+                                objectEval(subscribe1), 
+                                objectEval(unsubscribe1), reply1);
+                                
+                                }
+                                var reply1 = function(data)
+                                {
+                                if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
+                                else dwr.util.setValue('d2', dwr.util.toDescriptiveString(data, 1));
+                                }
+                            </script>
+                            <span id='d2' class='reply'></span>
                         </td>
                     </tr>
                 </table>
