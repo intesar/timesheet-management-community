@@ -4,8 +4,10 @@
  */
 package com.abbhsoft.srm.service.remote;
 
+import com.abbhsoft.srm.model.EmailGroup;
 import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.University;
+import com.abbhsoft.srm.service.EmailGroupService;
 import com.abbhsoft.srm.service.EventService;
 import com.abbhsoft.srm.service.ServiceFactory;
 import com.abbhsoft.srm.service.UniversityService;
@@ -51,6 +53,24 @@ public class AddEntityRemoteService {
             throw p;
         } catch (RuntimeException re) {
             msg = "Error Creating Event!";
+            throw re;
+        } finally {
+            return msg;
+        }
+    }
+    
+    public String addEmailGroup(String emailGroup, String owner, String subscribe, String unsubscribe) {
+        String msg = "Operation Successful!";
+        EmailGroupService service = (EmailGroupService) ServiceFactory.getInstance().getBean("emailGroupServiceImpl");
+        EmailGroup e = new EmailGroup();
+        e.setOwner(owner);
+        e.setGroupEmail(emailGroup);
+        e.setSubscribeEmail(subscribe);
+        e.setUnsubscribeEmail(unsubscribe);
+        try {
+            service.save(e);
+        } catch (RuntimeException re) {
+            msg = "Error Creating Email Group!";
             throw re;
         } finally {
             return msg;
