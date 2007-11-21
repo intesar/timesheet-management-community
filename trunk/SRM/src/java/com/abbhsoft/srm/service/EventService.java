@@ -6,6 +6,7 @@
 package com.abbhsoft.srm.service;
 
 import com.abbhsoft.srm.model.Event;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,5 +40,16 @@ public interface EventService {
     // recent entities
     
     List<Event> getRecentUpdates();
+    
+    /*
+     *  returns events between the dates
+     *  maxRecords is the number of records returned
+     *  maxRecords default is 20
+     *  default startDate is current date
+     *  default endDate is startDate
+     * 
+     */
+    
+    public List<Event> getEvents ( Date startDate, Date endDate );
 
 }

@@ -36,4 +36,12 @@ public interface EventDao extends GenericDao<Event, Long> {
     // required 2 params all same
 
     public List<Event> findByEventDates(Date arg0, Date arg1);
+    
+     /*
+     *  returns events between the dates
+     *  maxRecords is the number of records returned
+     *  
+     * 
+     */
+    public List<Event> findByEventDatesWithLimit(Date startDate, Date endDate);
 }

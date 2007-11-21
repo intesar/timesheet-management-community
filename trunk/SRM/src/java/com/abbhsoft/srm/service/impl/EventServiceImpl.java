@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.abbhsoft.srm.service.impl;
 
 import com.abbhsoft.srm.dao.EventDao;
@@ -26,14 +25,14 @@ public class EventServiceImpl implements EventService {
         return eventDao.findByDate(date);
     }
 
-    public void save ( Event event ) { 
-        if ( event.getUniversity() != null) {
+    public void save(Event event) {
+        if (event.getUniversity() != null) {
             University u = this.universityDao.read(event.getUniversity().getId());
             event.setUniversity(u);
         }
         eventDao.create(event);
     }
-    
+
     public void update(Event event) {
         this.eventDao.update(event);
     }
@@ -45,16 +44,29 @@ public class EventServiceImpl implements EventService {
     public List<Event> getAllFutrueEvents() {
         Date date = null;
         Calendar calendar = new GregorianCalendar();
-        calendar.set(Calendar.DATE, calendar.get(Calendar.DATE)+1);
+        calendar.set(Calendar.DATE, calendar.get(Calendar.DATE) + 1);
         date = calendar.getTime();
         return this.eventDao.findByDate(date);
     }
-    
-  
 
     public List<Event> getRecentUpdates() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
+    public List<Event> getEvents(Date startDate, Date endDate) {
+        List<Event> events = null;
+        
+        if (startDate == null) {
+            startDate = new Date();
+        }
+        if (endDate == null) {
+            endDate = startDate;
+        }
+       
+        events = this.eventDao.findByEventDatesWithLimit(startDate, endDate);
+        return events;
+    }
+    
     
     // dao injection code
 
@@ -68,6 +80,4 @@ public class EventServiceImpl implements EventService {
     public void setUniversityDao(UniversityDao universityDao) {
         this.universityDao = universityDao;
     }
-
-    
 }
