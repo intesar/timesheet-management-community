@@ -11,6 +11,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -85,7 +86,7 @@ public class Student extends BaseModel implements java.io.Serializable {
     @Column(name = "other_phone")
     private String otherPhone;
     @JoinColumn(name = "address", referencedColumnName = "id")
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     private Address address;
     @Column(name = "education")
     private String education;
@@ -102,7 +103,8 @@ public class Student extends BaseModel implements java.io.Serializable {
     @Column(name = "expected_start_date")
     @Temporal(TemporalType.DATE)
     private Date expectedStartDate;
-   
+    @Column(name="tag")
+    private String tag;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
     private Collection<Query> queryCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
@@ -269,6 +271,14 @@ public class Student extends BaseModel implements java.io.Serializable {
 
     public void setExpectedStartDate(Date expectedStartDate) {
         this.expectedStartDate = expectedStartDate;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
     
 
