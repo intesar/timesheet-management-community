@@ -50,6 +50,8 @@
             dojo.require("dijit.form.CheckBox");            
         </script>
     </head>
+    
+    
     <body class="tundra">
         
         
@@ -61,7 +63,7 @@
         
         
         <div id="toolbar1" dojoType="dijit.Toolbar"
-             ><div dojoType="dijit.form.Button" id="toolbar1.cut" iconClass="dijitEditorIcon"   
+        ><div dojoType="dijit.form.Button" id="toolbar1.cut" iconClass="dijitEditorIcon"   
                   onclick="dijit.byId('universityDiv').show()">New University</div
             ><div dojoType="dijit.form.Button" id="toolbar1.copy" iconClass="dijitEditorIcon "
                   onclick="dijit.byId('studentDiv').show()">New Student</div
@@ -77,18 +79,21 @@
         <br/>
         
         <html:form action="searchAction">
-            <input type="text" name="searchText" value=""
-                   dojoType="dijit.form.TextBox"
-                   trim="true"
-                   lowercase="true"
-                   required="true"
-                   promptMessage="Search String"
-                   invalidMessage="Empty Text!"
-                   size="40"
-                   />
-            <button dojoType="dijit.form.Button" type="submit"
-                    iconClass="mailIconOk">Search</button>
+        <input type="text" name="searchText" value=""
+               dojoType="dijit.form.TextBox"
+               trim="true"
+               lowercase="true"
+               required="true"
+               promptMessage="Search String"
+               invalidMessage="Empty Text!"
+               size="40"
+        />
+        <button dojoType="dijit.form.Button" type="submit"
+                iconClass="mailIconOk">Search</button>
         </html:form>
+        
+        
+        
         <br/>
         
         
@@ -99,24 +104,24 @@
             
             <html:errors/>
             <html:form action="universityAction">
-                <table border="0">                        
-                    <tbody>
-                        <tr>
-                            <td><label for="name">University Name: </label></td>
-                            <td><input dojoType="dijit.form.TextBox"  name="name" id="univId"
-                                           trim="true"
-                                           lowercase="true"
-                                           required="true"
-                                           promptMessage="University Name"
-                                       invalidMessage="Cannot be Empty!"/></td>
-                        </tr>
-                        <tr>
-                        
-                        <tr>
-                            <td>
-                                <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callService();' value='Execute'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
-                                        >Add University </button>
-                                <script type='text/javascript'>
+            <table border="0">                        
+                <tbody>
+                    <tr>
+                        <td><label for="name">University Name: </label></td>
+                        <td><input dojoType="dijit.form.TextBox"  name="name" id="univId"
+                                       trim="true"
+                                       lowercase="true"
+                                       required="true"
+                                       promptMessage="University Name"
+                                   invalidMessage="Cannot be Empty!"/></td>
+                    </tr>
+                    <tr>
+                    
+                    <tr>
+                        <td>
+                            <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callService();' value='Execute'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
+                            >Add University </button>
+                            <script type='text/javascript'>
                                     function callService() {
                                     var universityName = '"'+ $("univId").value + '"';
                                     addEntityRemoteService.addUniversity(objectEval(universityName), reply0);
@@ -126,23 +131,282 @@
                                     if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
                                     else dwr.util.setValue('d0', dwr.util.toDescriptiveString(data, 1));
                                     }
-                                </script>
-                            </td>
-                            <td>
-                            <span id='d0' class='reply'></span>
-                        </tr>
-                    </tbody>
-                </table>
+                            </script>
+                        </td>
+                        
+                        <span id='d0' class='reply'></span>
+                    </tr>
+                </tbody>
+            </table>
             </html:form>          
             
         </div>
         
         <!-- End of Add University -->
+       
         
         <!-- Add Student -->
         
-        <div dojoType="dijit.Dialog" title="New Student" id="studentDiv">     
+        <div  dojoType="dijit.Dialog" title="New Student" id="studentDiv">    
+            
+            <table>
+                
+                <tr>
+                    <td>
+                        <table border="0">                        
+                            <tbody>
+                                
+                                
+                                
+                                <table>
+                                
+                                <h1> Name </h1>
+                                
+                                <tr>
+                                    <td><label for="name">First Name: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="firstName" id="firstName"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="First Name"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="name">Last Name: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="lastName" id="lastName"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="First Name"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td><label for="name"> Middle Name: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="middleName" id="mi"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Middle Name"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                
+                                </table>
+                                
+                                <table>
+                                    <h1> Contact Information </h1>
+                                    
+                                <tr>
+                                    <td><label for="name">Email: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="email" id="email"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Email"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">See Email: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="seeEame" id="secondaryEmail"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="See Email"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Mobile Phone: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="mobilePhone" id="mobilePhone"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Mobile Phone"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                <tr>
+                                    <td><label for="name">Home Phone: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="homePhone" id="homePhone"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Home Phone"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Other Contact: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="otherContact" id="otherPhone"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Other Contact"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Fax: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="fax" id="fax"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Fax"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                </table>
+                                
+                                <table>
+                                
+                                <h1> Other Information </h1>
+                                
+                                <tr>
+                                    <td><label for="name">Education: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="education" id="education"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Education"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Gender: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="gender" id="gender"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Gender"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Nationality: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="nationality" id="nationality"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Nationility"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Status: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="status" id="status"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Status"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Type: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="type" id="type"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Type"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Expected Start Date: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="expectedStartDate" id="expectedStartDate"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Expected Start Date"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><label for="name">Reffered By: </label></td>
+                                    <td><input dojoType="dijit.form.TextBox"  name="refferedBy" id="refferedBy"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Reffered By"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                                </tr>
+                                
+                                </table>        
+                                <tr>
+                                    <td>
+                                        <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callService();' value='Execute'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
+                                        >Add Student </button>
+                                    </td>
+                                </tr>             
+                            </tbody>
+                        </table>
+                    </td>
+                    <td>
+                        
+                        
+                        <table>
+                            <h1> ADDRESS </h1>
+                            <tr>
+                                
+                                
+                                <td>Street</td>
+                                <td><input dojoType="dijit.form.TextBox"  name="type" id="street"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Type"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                            </tr>
+                            <tr>
+                                <td>City</td>
+                                <td><input dojoType="dijit.form.TextBox"  name="type" id="city"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Type"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                            </tr>
+                            <tr>
+                                <td>State</td>
+                                <td><input dojoType="dijit.form.TextBox"  name="type" id="state"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Type"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Zipcode</td>
+                                <td><input dojoType="dijit.form.TextBox"  name="type" id="zipcode"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Type"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                            </tr>
+                            
+                            
+                            <tr>
+                                <td>Country</td>
+                                <td><input dojoType="dijit.form.TextBox"  name="type" id="country"
+                                                   trim="true"
+                                                   lowercase="true"
+                                                   required="true"
+                                                   promptMessage="Type"
+                                               invalidMessage="Cannot be Empty!"/></td>
+                            </tr>
+                            
+                            
+                            
+                        </table>
+                    </td>
+                </tr>
+            </table>
         </div>
+        
         
         <!-- End of Add Student -->
         
@@ -150,7 +414,7 @@
         <div dojoType="dijit.Dialog" title="New Event" id="eventDiv">   
             <html:errors/>
             <html:form action="eventAction">
-                <table border="0">
+<table border="0">
                     
                     <tbody>
                         <tr>
@@ -163,7 +427,7 @@
                                            promptMessage="Event Name"
                                            invalidMessage="Cannot be Empty!"
                                            id="eventType"
-                                       /></td>
+                            /></td>
                         </tr>
                         <tr>
                             <td><label for="name">Description: </label></td>
@@ -175,7 +439,7 @@
                                            promptMessage="Description Name"
                                            invalidMessage="Cannot be Empty!"
                                            id="eventDescription"
-                                       /></td>
+                            /></td>
                         </tr>
                         <tr>
                             <td><label for="name">Date: </label></td>
@@ -186,7 +450,7 @@
                                            invalidMessage="Cannot be Empty!"
                                            id="eventDate"
                                            value="2007-12-30"
-                                       /></td>
+                            /></td>
                         </tr>
                         <tr>
                             <td><label for="name">Priority: </label></td>
@@ -203,7 +467,7 @@
                             </td>
                             <td>
                                 <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callAddEventService();' value='Add Event'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
-                                        >Add Event </button>
+                                >Add Event </button>
                                 <script type='text/javascript'>
                                     function callAddEventService() {
                                     var eventType1 = '"'+ $("eventType").value + '"';
@@ -256,7 +520,7 @@
                                         promptMessage="Email"
                                         invalidMessage="Cannot be Empty!"
                                         id="groupEmail"
-                                    /></td>
+                        /></td>
                     </tr>
                     <tr>
                         <td> Owner : </td>
@@ -268,7 +532,7 @@
                                         promptMessage="Owner Email"
                                         invalidMessage="Cannot be Empty!"
                                         id="owner"
-                                    /></td>
+                        /></td>
                     </tr>
                     <tr>
                         <td> Subcribe email : </td>
@@ -280,7 +544,7 @@
                                         promptMessage="Email"
                                         invalidMessage="Cannot be Empty!"
                                         id="subscribeEmail"
-                                    /> </td>
+                        /> </td>
                         
                     </tr>
                     <tr>
@@ -292,7 +556,7 @@
                                         promptMessage="Email"
                                         invalidMessage="Cannot be Empty!"
                                         id="unSubscribeEmail"
-                                    /></td>
+                        /></td>
                     </tr>
                     <tr>
                         <td>
@@ -301,7 +565,7 @@
                         </td>
                         <td>
                             <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callAddEmailGroupService();' value='Add EmailGroup'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
-                                    >Add EmailGroup </button>
+                            >Add EmailGroup </button>
                             <script type='text/javascript'>
                                 function callAddEmailGroupService() {
                                 var emailGroup1 = '"'+ $("groupEmail").value + '"';
