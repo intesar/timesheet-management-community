@@ -113,7 +113,7 @@
                                        lowercase="true"
                                        required="true"
                                        promptMessage="University Name"
-                                   invalidMessage="Cannot be Empty!"/></td>
+                                       invalidMessage="Cannot be Empty!"/></td>
                     </tr>
                     <tr>
                     
@@ -158,9 +158,7 @@
                                 
                                 
                                 
-                                <table>
-                                
-                                <h1> Name </h1>
+                               
                                 
                                 <tr>
                                     <td><label for="name">First Name: </label></td>
@@ -193,11 +191,9 @@
                                 </tr>
                                 
                                 
-                                </table>
                                 
-                                <table>
-                                    <h1> Contact Information </h1>
-                                    
+                                
+                                
                                 <tr>
                                     <td><label for="name">Email: </label></td>
                                     <td><input dojoType="dijit.form.TextBox"  name="email" id="email"
@@ -257,11 +253,7 @@
                                                invalidMessage="Cannot be Empty!"/></td>
                                 </tr>
                                 
-                                </table>
                                 
-                                <table>
-                                
-                                <h1> Other Information </h1>
                                 
                                 <tr>
                                     <td><label for="name">Education: </label></td>
@@ -333,7 +325,7 @@
                                                invalidMessage="Cannot be Empty!"/></td>
                                 </tr>
                                 
-                                </table>        
+                                   
                                 <tr>
                                     <td>
                                         <button class='ibutton' type='button' dojoType="dijit.form.Button" onclick='callService();' value='Execute'  title='Calls addEntityRemoteService.addUniversity(). View source for details.'
