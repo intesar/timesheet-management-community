@@ -92,6 +92,8 @@
         <br/>
         
         
+        <!-- Add University -->
+        
         
         <div dojoType="dijit.Dialog" title="New University" id="universityDiv">           
             
@@ -135,9 +137,16 @@
             
         </div>
         
+        <!-- End of Add University -->
+        
+        <!-- Add Student -->
+        
         <div dojoType="dijit.Dialog" title="New Student" id="studentDiv">     
         </div>
         
+        <!-- End of Add Student -->
+        
+        <!-- Add Event -->
         <div dojoType="dijit.Dialog" title="New Event" id="eventDiv">   
             <html:errors/>
             <html:form action="eventAction">
@@ -229,6 +238,11 @@
             </html:form>            
         </div>
         
+        <!-- End of Add Event -->
+        
+        <!-- Add Email Group -->
+        
+        
         <div dojoType="dijit.Dialog" title="New Email Group" id="emailGroupDiv">  
             <html:errors/>
             <html:form action="/groupAction">
@@ -314,6 +328,7 @@
             </html:form>            
         </div>
         
+        <!-- End of Email Group -->
         
         <br/>
     </body>
