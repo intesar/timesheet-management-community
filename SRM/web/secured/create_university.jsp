@@ -48,5 +48,31 @@
             
         </html:form>
         
+        
+        <div dojoType="dijit.form.DropDownButton">
+            <span> New University </span>
+            <div dojoType="dijit.TooltipDialog" id="dialog1" title="First Dialog" execute="checkPw(arguments[0]);">
+                <html:errors/>
+                <html:form action="universityAction">
+                    <table border="0">
+                        
+                        <tbody>
+                            <tr>
+                                <td><label for="name">University Name: </label></td>
+                                <td><input dojoType="dijit.form.TextBox"  name="name"/></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" align="center"></td>
+                                <td><button dojoType=dijit.form.Button type="submit">OK</button></td>
+                                
+                            </tr>
+                        </tbody>
+                    </table>
+                </html:form>
+                
+                   
+            </div>
+        </div> 
+        
     </body>
 </html>
