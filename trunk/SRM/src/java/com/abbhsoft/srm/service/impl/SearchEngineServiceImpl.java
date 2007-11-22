@@ -26,30 +26,29 @@ public class SearchEngineServiceImpl implements SearchEngineService {
         if (tokens.length == 1) {
             try {
                 Date date = new SimpleDateFormat("MM/dd/yy").parse(text);
-                list.addAll(this.eventDao.findByDate(date));
+            //list.addAll(this.eventDao.findByDate(date));
             } catch (Exception e) {
                 try {
                     Long.parseLong(text);
+                    text = "%" + text + "%";
                     list.addAll(this.studentDao.findByPhoneNumber(text, text, text, text, text));
                 } catch (Exception e1) {
+                    text = "%" + text + "%";
                     List l = this.studentDao.findBySingleString(text, text, text, text, text, text, text);//, text, text, text);
-                    System.out.println ( " list size : " + l  + " " + text);
+                    //System.out.println ( " list size : " + l  + " " + text);
                     list.addAll(l);
                     list.addAll(this.eventDao.findBySingleString(text, text, text));
                     list.addAll(this.universityDao.findByName(text));
-                    list.addAll(this.emailGroupDao.findByEmails(text, text, text, text));
+                //list.addAll(this.emailGroupDao.findByEmails(text, text, text, text));
                 }
             }
 
         } else {
             if (tokens.length == 2) {
-                try {
-                    Date startDate = new SimpleDateFormat("MM/dd/yy").parse(tokens[0]);
-                    Date endDate = new SimpleDateFormat("MM/dd/yy").parse(tokens[1]);
-                    list.addAll(this.eventDao.findByEventDates(startDate, endDate));
-                } catch (Exception e) {
-                    list.addAll(this.studentDao.findByFirstNameLastNameOrCityState(tokens[0], tokens[1], tokens[0], tokens[1]));
-                }
+                tokens[0] = "%" +  tokens[0] + "%";
+                tokens[1] = "%" +  tokens[1] + "%";
+               
+                list.addAll(this.studentDao.findByFirstNameLastNameOrCityState(tokens[0], tokens[1], tokens[0], tokens[1]));
             }
 
         }
