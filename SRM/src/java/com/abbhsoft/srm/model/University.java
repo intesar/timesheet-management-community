@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Table(name = "university")
 @NamedQueries({
     @NamedQuery(name = "University.findById", query = "SELECT u FROM University u WHERE u.id = ?1"), 
-    @NamedQuery(name = "University.findByName", query = "SELECT u FROM University u WHERE u.name = ?1"), 
+    @NamedQuery(name = "University.findByName", query = "SELECT u FROM University u WHERE u.name like ?1"), 
     @NamedQuery(name = "University.findByCreateUser", query = "SELECT u FROM University u WHERE u.createUser = ?1"), 
     @NamedQuery(name = "University.findByCreateDate", query = "SELECT u FROM University u WHERE u.createDate = ?1"),
     @NamedQuery(name = "University.findByLastModifiedUser", query = "SELECT u FROM University u WHERE u.lastModifiedUser = ?1"),

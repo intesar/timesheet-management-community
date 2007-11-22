@@ -55,14 +55,14 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s "),
     @NamedQuery(name = "Student.findBySingleString", 
         query = "SELECT s FROM Student s WHERE " +
-            //"s.firstName like ?1 "),//or " +
+            "s.firstName like ?7 or " +
             "s.lastName like ?1 or s.email like ?2 or s.secondaryEmail like ?3 or" +
             //" or s.address.city like ?4 or s.address.state like ?5  "),
-            " s.education like ?4 or s.visaStatus like ?5 or " +
-            "s.gender like ?6 or s.nationality like ?7 "),
+            " s.education like ?4 or s.visaStatus like ?5 " +
+            " or s.nationality like ?6 "),
     @NamedQuery(name = "Student.findByFirstNameLastNameOrCityState", query = "SELECT s FROM Student s" +
     "   where (s.firstName like ?1 and s.lastName like ?2) or (s.address.city like ?3 and s.address.state like ?4)"),
-    @NamedQuery(name ="Student.findByPhoneNumber", query = "SELECT s FROM Student s WHERE s.homePhone = ?1 or " +
+    @NamedQuery(name ="Student.findByPhoneNumber", query = "SELECT s FROM Student s WHERE s.homePhone like ?1 or " +
     "s.mobilePhone like ?2 or s.fax like ?3 or s.otherPhone like ?4 or s.age like ?5")})
 public class Student extends BaseModel implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
