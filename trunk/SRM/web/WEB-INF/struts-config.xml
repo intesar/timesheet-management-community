@@ -97,7 +97,7 @@
         <action path="/createEvent" forward="/secured/create_event.jsp" />
         <action path="/createUniversity" forward="/secured/create_university.jsp" />
         <action path="/createEmailGroup" forward="/secured/create_emailGroup.jsp" />
-        <action path="/home" forward="/secured/index.jsp"/>
+        <action path="/home" forward="/secured/index2.jsp"/>
         
     </action-mappings>
     
