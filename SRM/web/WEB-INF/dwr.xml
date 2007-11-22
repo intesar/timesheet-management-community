@@ -7,5 +7,12 @@
     <create creator="new" javascript="addEntityRemoteService">
       <param name="class" value="com.abbhsoft.srm.service.remote.AddEntityRemoteService"/>
     </create>
+    <create creator="new" javascript="eventRemoteService">
+      <param name="class" value="com.abbhsoft.srm.service.remote.EventRemoteService"/>
+    </create>
+    <convert match="com.abbhsoft.srm.model.Event" converter="bean"/>
+    <convert match="com.abbhsoft.srm.model.Student" converter="bean"/>
+    <convert match="com.abbhsoft.srm.model.University" converter="bean"/>
+    <convert match="com.abbhsoft.srm.model.EmailGroup" converter="bean"/>
   </allow>
 </dwr>
