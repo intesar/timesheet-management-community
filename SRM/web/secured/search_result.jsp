@@ -44,9 +44,9 @@
         Student s = (Student) o;
         out.println("<br/> " + o +
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_student_view_" + count + "').show()\">View</button>");
-        
+        out.println ( "<a href=\"studentDetailAction.do?studentId="+baseModel.getId()+ "\">Edit Student</a>");
         %>
-        <html:link href="studentDetailAction.do?studentId=<%= baseModel.getId() %>"> Edit Student</html:link>
+        
         
         
         
@@ -146,11 +146,11 @@
         University u = (University) o;
         out.println( "<br/> "+ o + 
         "<button dojoType=\"dijit.form.Button\" onclick=\"dijit.byId('dialog_campus_view_"+count+"').show()\">View</button>");
-        
+        out.println ( "<a href=\"universityDetailAction.do?universityId="+u.getId()+ "\">Edit University</a>");
         
         %> 
-        <html:link href="universityDetailAction.do?universityId=<%= u.getId() %>"> Edit University</html:link>
-       
+     
+        
         
         <div dojoType="dijit.Dialog" id="dialog_campus_view_<%= count %>" title="Dialog_campus" execute="checkPw(arguments[0]);"> 
             

@@ -1,6 +1,8 @@
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
+<%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
 "http://www.w3.org/TR/html4/strict.dtd">
@@ -491,16 +493,17 @@
                                     } 
                                     
                                     
-                                    addEntityRemoteService.addEvent(objectEval(eventType1), objectEval(eventDescription1), objectEval(eventDate1), objectEval(priority1), reply1);
+                                    addEntityRemoteService.addEvent(objectEval(eventType1), objectEval(eventDescription1), objectEval(eventDate1), objectEval(priority1), addEventReply);
                                     
                                     }
-                                    var reply1 = function(data)
+                                    var addEventReply = function(data)
                                     {
+                                                                        
                                     if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
-                                    else dwr.util.setValue('d1', dwr.util.toDescriptiveString(data, 1));
+                                    else dwr.util.setValue('d11', dwr.util.toDescriptiveString(data, 1));
                                     }
                                 </script>
-                                <span id='d1' class='reply'></span>
+                                <span id='d11' class='reply'></span>
                             </td>
                         </tr>
                         
