@@ -45,6 +45,8 @@
             }
             return eval(text);
             }
+            
+                       
         </script>
         <script type="text/javascript">
             dojo.require("dojo.parser");
@@ -62,8 +64,9 @@
             
             
         </script>
+        
     </head>
-    <body class="tundra">
+    <body class="tundra" >
         
         <div dojoType="dijit.layout.LayoutContainer" style="width: 100%; height: 100%; padding: 0; margin: 0; border: 0;">
             
@@ -84,6 +87,10 @@
                     <div dojoType="dijit.form.ToggleButton" id="toolbar1.developer"
                          iconClass="dijitEditorIcon " 
                          onclick="dijit.byId('developersDiv').show()">Developers</div>
+                    <div dojoType="dijit.form.ToggleButton" id="toolbar1.logout"
+                         iconClass="dijitEditorIcon " 
+                         onclick="window.location='j_acegi_logout'">Logout</div>           
+                    
                 </div>
                 
                 <br/>
