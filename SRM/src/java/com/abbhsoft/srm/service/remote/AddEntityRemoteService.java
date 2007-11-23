@@ -99,50 +99,18 @@ public class AddEntityRemoteService {
      *  creates a new student
      * 
      */
-    public String addStudent(String firstname, String mi, String lastname,
-            String email, String secondaryEmail, String mobile, String homePhone,
-            String fax, String otherPhone, String education, String visaStatus,
-            String gender, String age, String nationality, String refferedBy,
-            String expectedStartDate, String tag, String street, String city,
-            String state, String zipcode, String country) {
+    public String addStudent(String firstname, String lastname,
+            String email, String mobile, String visaStatus,
+            String refferedBy) {
         String msg = "Operation Successful!";
         try {
             Student s = new Student();
             s.setFirstName(firstname);
-            s.setMi(mi);
             s.setLastName(lastname);
             s.setEmail(email);
-            s.setSecondaryEmail(secondaryEmail);
             s.setMobilePhone(mobile);
-            s.setHomePhone(homePhone);
-            s.setFax(fax);
-            s.setOtherPhone(otherPhone);
-            s.setEducation(education);
             s.setVisaStatus(visaStatus);
-            s.setGender(gender);
-            s.setAge(age);
-            s.setNationality(nationality);
             s.setRefferedBy(refferedBy);
-            if (expectedStartDate != null && expectedStartDate.length() > 0) {
-                try {
-                    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MM/dd/yy");
-                    java.util.Date dt = sdf.parse(expectedStartDate);
-                    s.setExpectedStartDate(dt);
-                } catch (java.text.ParseException p) {
-                    msg += " (Warning : Invalid Expected Start Date)";
-                }
-            }
-            s.setTag(tag);
-            if ((city != null && city.length() > 0) ||
-                    (street != null && street.length() > 0)) {
-                Address a = new Address();
-                a.setStreet(street);
-                a.setCity(city);
-                a.setState(state);
-                a.setZipcode(zipcode);
-                a.setCountry(country);
-                s.setAddress(a);
-            }
             StudentService service = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
             service.save(s);
         } catch (RuntimeException re) {
@@ -153,3 +121,55 @@ public class AddEntityRemoteService {
         }
     }
 }
+
+
+// public String addStudent(String firstname,  String lastname,
+//            String email,  String mobile, String visaStatus,
+//             String refferedBy       ) {
+//        String msg = "Operation Successful!";
+//        try {
+//            Student s = new Student();
+//            s.setFirstName(firstname);
+//            s.setMi(mi);
+//            s.setLastName(lastname);
+//            s.setEmail(email);
+//            s.setSecondaryEmail(secondaryEmail);
+//            s.setMobilePhone(mobile);
+//            s.setHomePhone(homePhone);
+//            s.setFax(fax);
+//            s.setOtherPhone(otherPhone);
+//            s.setEducation(education);
+//            s.setVisaStatus(visaStatus);
+//            s.setGender(gender);
+//            s.setAge(age);
+//            s.setNationality(nationality);
+//            s.setRefferedBy(refferedBy);
+//            if (expectedStartDate != null && expectedStartDate.length() > 0) {
+//                try {
+//                    java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("MM/dd/yy");
+//                    java.util.Date dt = sdf.parse(expectedStartDate);
+//                    s.setExpectedStartDate(dt);
+//                } catch (java.text.ParseException p) {
+//                    msg += " (Warning : Invalid Expected Start Date)";
+//                }
+//            }
+//            s.setTag(tag);
+//            if ((city != null && city.length() > 0) ||
+//                    (street != null && street.length() > 0)) {
+//                Address a = new Address();
+//                a.setStreet(street);
+//                a.setCity(city);
+//                a.setState(state);
+//                a.setZipcode(zipcode);
+//                a.setCountry(country);
+//                s.setAddress(a);
+//            }
+//            StudentService service = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
+//            service.save(s);
+//        } catch (RuntimeException re) {
+//            msg = "Error Creating Student!";
+//            throw re;
+//        } finally {
+//            return msg;
+//        }
+//    }
