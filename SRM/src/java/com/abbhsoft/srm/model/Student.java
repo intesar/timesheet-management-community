@@ -53,6 +53,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "Student.findByLastModifiedDate", query = "SELECT s FROM Student s WHERE s.lastModifiedDate = ?1"),
     @NamedQuery(name = "Student.findByLastModifiedDates", query = "SELECT s FROM Student s WHERE s.lastModifiedDate between ?1 and ?2"),
     @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s "),
+    @NamedQuery(name = "Student.findAllEmails", query = "SELECT s.email FROM Student s "),
     @NamedQuery(name = "Student.findBySingleString", 
         query = "SELECT s FROM Student s WHERE " +
             "s.firstName like ?7 or " +

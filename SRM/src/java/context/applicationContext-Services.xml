@@ -46,6 +46,8 @@
     <bean id="universityServiceImpl" class="com.abbhsoft.srm.service.impl.UniversityServiceImpl" >
         <property name="universityDao" ref="universityDao" />
     </bean>
+    
+    <bean id="eMailServiceImpl" class="com.abbhsoft.srm.service.impl.EMailServiceImpl" />
     <!--
      ##########################################################################
                             Services Declerations End

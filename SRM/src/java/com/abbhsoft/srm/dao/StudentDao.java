@@ -51,6 +51,8 @@ public interface StudentDao extends GenericDao<Student, Long> {
     public List<Student> findByRefferedBy(String refferedBy);
 
     public List<Student> findByExpectedStartDate(String expectedStartDate);
+    
+    public List<String> findAllEmails();
 
     // needs 10 params with same value 
     // otherwise throws exception
