@@ -17,10 +17,11 @@
         <title>Dialog demo</title>
         <style type="text/css">
             @import "http://o.aolcdn.com/dojo/0.9.0/dijit/themes/tundra/tundra.css";
-            @import "http://o.aolcdn.com/dojo/0.9.0/dojo/resources/dojo.css"
+            @import "http://o.aolcdn.com/dojo/0.9.0/dojo/resources/dojo.css";
         </style>
         <script type="text/javascript" src="http://o.aolcdn.com/dojo/0.9.0/dojo/dojo.xd.js"
                 djConfig="parseOnLoad: true"></script>
+        
         <script type="text/javascript">
             dojo.require("dojo.parser");
             dojo.require("dijit.form.Button");
@@ -149,7 +150,7 @@
         out.println ( "<a href=\"universityDetailAction.do?universityId="+u.getId()+ "\">Edit University</a>");
         
         %> 
-     
+        
         
         
         <div dojoType="dijit.Dialog" id="dialog_campus_view_<%= count %>" title="Dialog_campus" execute="checkPw(arguments[0]);"> 
