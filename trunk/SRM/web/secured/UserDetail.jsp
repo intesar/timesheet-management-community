@@ -50,7 +50,7 @@ Author     : Sadd
                 dojo.require("dijit.form.CheckBox");            
                 dojo.require("dijit.form.Textarea");
                 dojo.require("dijit.form.InlineEditBox");
-                
+                dojo.require("dijit.form.ComboBox");
                 function checkPw(dialogFields) {
                 if (dialogFields.confirmpw != dialogFields.newpw)
                 alert("Confirmation password is different.  Password is unchanged.");
@@ -197,10 +197,21 @@ Author     : Sadd
                         <td><html:hidden property="student" value='<%= s.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="type"
-                                       dojoType="dijit.form.TextBox"
-                                       trim="true"
-                                   lowercase="true"/></td>
+                        <td>
+                            <select name="type" id="type"
+                                        dojoType="dijit.form.ComboBox"
+                                        autocomplete="true"
+                                        lowercase="true"
+                                        value="Call"
+                                        >
+                                <option selected="selected">Call</option>
+                                <option >Email</option>
+                                <option >Speak Personally</option>
+                                <option >SMS</option>
+                                <option >Delegate Contact Responsibility</option>
+                                <option > Other </option>
+                        </select>
+                    </td>
                         <td><input type="text" name="descript"
                                        dojoType="dijit.form.TextBox"
                                        trim="true"
