@@ -68,35 +68,68 @@
 	<param-value>classpath:context/log4j.properties</param-value>
    </context-param>
     <!-- 2. Setup the Acegi Filter Chain Proxy -->   
-   <filter>
-        <filter-name>Acegi Filter Chain Proxy</filter-name>
-        <filter-class>net.sf.acegisecurity.util.FilterToBeanProxy</filter-class>
-        <init-param>
-            <param-name>targetClass</param-name>
-            <param-value>net.sf.acegisecurity.util.FilterChainProxy</param-value>
-        </init-param>
-   </filter>
-
-    <filter-mapping>
-      <filter-name>Acegi Filter Chain Proxy</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-    <!-- 3. Setup three listeners -->
-    <!--    a) Setup a listener to connect spring with the web context -->
-    <listener>
-	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
-
-    <!--	b) Setup a listener to connect spring with log4J --> 
-    <listener>
-	<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
-    </listener>
-
-    <!--    c) Setup ACEGI to subscribe to http session events in the web context -->
-    <listener>
-        <listener-class>net.sf.acegisecurity.ui.session.HttpSessionEventPublisher</listener-class>
-    </listener>
+   	<filter>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<filter-class>
+			org.acegisecurity.util.FilterToBeanProxy
+		</filter-class>
+		<init-param>
+			<param-name>targetClass</param-name>
+			<param-value>
+				org.acegisecurity.util.FilterChainProxy
+			</param-value>
+		</init-param>
+	</filter>
+	
+	
+	<filter-mapping>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<url-pattern>/j_acegi_security_check</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<url-pattern>/j_acegi_logout</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+        <filter-mapping>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+        <filter-mapping>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>Acegi Filter Chain Proxy</filter-name>
+		<url-pattern>*.*</url-pattern>
+	</filter-mapping>
+	
+	
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.acegisecurity.ui.session.HttpSessionEventPublisher
+		</listener-class>
+	</listener>
+	<!-- Add mappings for SiteMesh-related servlets here -->
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error.jsp</location>
+	</error-page>
     
      <servlet>
         <servlet-name>dwr-invoker</servlet-name>
