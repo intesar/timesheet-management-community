@@ -18,7 +18,8 @@ public class CampusConverter {
     public static Campus toModel(CampusBean bean) {
         Campus campus = new Campus();
         campus.setName(bean.getCampus());
-        if ( bean.getStreet() != null && bean.getStreet().length() > 0 ) {
+        if ( (bean.getStreet() != null && bean.getStreet().length() > 0) ||
+                bean.getCity() != null && bean.getCity().length() > 0 ) {
             Address a = new Address();
             a.setStreet(bean.getStreet());
             a.setCity(bean.getCity());
