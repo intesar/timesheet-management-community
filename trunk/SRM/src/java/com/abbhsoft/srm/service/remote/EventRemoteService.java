@@ -7,7 +7,6 @@ package com.abbhsoft.srm.service.remote;
 import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.service.EventService;
 import com.abbhsoft.srm.service.ServiceFactory;
-import java.util.Date;
 import java.util.List;
 
 /**

@@ -4,7 +4,6 @@
  */
 package com.abbhsoft.srm.service.remote;
 
-import com.abbhsoft.srm.model.Address;
 import com.abbhsoft.srm.model.EmailGroup;
 import com.abbhsoft.srm.model.Event;
 import com.abbhsoft.srm.model.Student;
@@ -14,6 +13,9 @@ import com.abbhsoft.srm.service.EventService;
 import com.abbhsoft.srm.service.ServiceFactory;
 import com.abbhsoft.srm.service.StudentService;
 import com.abbhsoft.srm.service.UniversityService;
+import com.abbhsoft.srm.service.impl.EMailService;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -120,9 +122,28 @@ public class AddEntityRemoteService {
             return msg;
         }
     }
+
+    public void sendEmailToAllStudents() {
+        EMailService service = (EMailService) ServiceFactory.getInstance().getBean("eMailServiceImpl");
+        StudentService studentService = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
+        List<Student> students = studentService.getAll();
+        List<String> email = studentService.getAllStudentEmails();
+        System.out.println (" $$$$$$$  : " + email);
+        String[] emails = new String[email.size()];
+        int count = 0;
+        for (String s : email) {
+            emails[count++] = s;
+        }
+        String[] s = {"mohdshannan@yahoo.com"};
+        service.SendMail(emails);
+    }
+
+//    public static void main(String[] args) {
+//
+//        AddEntityRemoteService a = new AddEntityRemoteService();
+//        a.sendEmail();
+//    }
 }
-
-
 // public String addStudent(String firstname,  String lastname,
 //            String email,  String mobile, String visaStatus,
 //             String refferedBy       ) {
@@ -173,3 +194,4 @@ public class AddEntityRemoteService {
 //            return msg;
 //        }
 //    }
+

@@ -38,6 +38,8 @@ public interface StudentService {
     
     List<Student> getAll ();
     
+    List<String> getAllStudentEmails();
+    
     // returns all student conversations
     
     List<Query> getAllConversations ( Long studentId );

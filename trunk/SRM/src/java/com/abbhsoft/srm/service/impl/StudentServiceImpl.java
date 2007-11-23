@@ -37,6 +37,9 @@ public class StudentServiceImpl implements StudentService {
         return this.studentDao.findAll();
     }
 
+    public List<String> getAllStudentEmails() {
+        return this.studentDao.findAllEmails();
+    }
     public List<Query> getAllConversations(Long studentId) {
         Student student = this.studentDao.read(studentId);
         return (List<Query>) student.getQueryCollection();
