@@ -45,8 +45,13 @@
             }
             return eval(text);
             }
+            function sendEmailToAllStudents() {
+            addEntityRemoteService.sendEmailToAllStudents(replyEmails);
+            }       
+            var replyEmails = function(data) {
+            alert ( 'Emails Send!');
+            }
             
-                       
         </script>
         <script type="text/javascript">
             dojo.require("dojo.parser");
@@ -84,7 +89,10 @@
                     <div dojoType="dijit.form.ToggleButton" id="toolbar1.emailGroup"
                          iconClass="dijitEditorIcon " 
                          onclick="dijit.byId('emailGroupDiv').show()">New Email Group</div>
-                    <div dojoType="dijit.form.ToggleButton" id="toolbar1.developer"
+                    <div dojoType="dijit.form.ToggleButton" id="toolbar1.emailStudent"
+                         iconClass="dijitEditorIcon " 
+                         onclick="sendEmailToAllStudents();">Email Students</div>
+                    <div dojoType="dijit.form.ToggleButton" id="toolbar1.developers"
                          iconClass="dijitEditorIcon " 
                          onclick="dijit.byId('developersDiv').show()">Developers</div>
                     <div dojoType="dijit.form.ToggleButton" id="toolbar1.logout"
@@ -281,20 +289,20 @@
                             <tr>
                                 <td><label for="name">Type: </label></td>
                                 <td><select name="refferedBy" id="eventType"
-                                            dojoType="dijit.form.ComboBox"
-                                            autocomplete="true"
-                                            lowercase="true"
-                                            value="Flyer"
-                                            >
-                                    <option selected="selected">Call</option>
-                                    <option >Email</option>
-                                    <option >Speak Personally</option>
-                                    <option >SMS</option>
-                                    <option >Delegate Contact Responsibility</option>
-                                    <option > Other </option>
-                                    
-                                    
-                            </select></td>
+                                                dojoType="dijit.form.ComboBox"
+                                                autocomplete="true"
+                                                lowercase="true"
+                                                value="Flyer"
+                                                >
+                                        <option selected="selected">Call</option>
+                                        <option >Email</option>
+                                        <option >Speak Personally</option>
+                                        <option >SMS</option>
+                                        <option >Delegate Contact Responsibility</option>
+                                        <option > Other </option>
+                                        
+                                        
+                                </select></td>
                             </tr>
                             <tr>
                                 <td><label for="name">Description: </label></td>
