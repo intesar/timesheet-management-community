@@ -219,7 +219,7 @@
                     <th>Subscription Email</th> 
                     <th>UnSubscription Email</th>                     
                 </tr> 
-            </thead>>
+            </thead>
             
             <tbody>
                 <%
@@ -333,6 +333,7 @@
                         <td><input type="text" name="campus"
                                        dojoType="dijit.form.TextBox"
                                        trim="true"
+                                       value="main"
                                    lowercase="true"/></td>
                         <td><input type="text" name="street"
                                        dojoType="dijit.form.TextBox"
