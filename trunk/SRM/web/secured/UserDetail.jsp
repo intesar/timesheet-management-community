@@ -11,7 +11,7 @@ Author     : Sadd
 <%@page import="com.abbhsoft.srm.model.*"%>
 <%@page import="java.util.*"%>
 <%@page import="com.abbhsoft.srm.service.*"%>
-        
+
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-html" prefix="html" %>
 <%@ taglib uri="http://jakarta.apache.org/struts/tags-logic" prefix="logic" %>
@@ -24,18 +24,33 @@ Author     : Sadd
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>University Detail</title>
+            <link rel="stylesheet" href="css/jq.css" type="text/css" media="print, projection, screen" />
+            <link rel="stylesheet" href="http://tablesorter.com/themes/blue/style.css" type="text/css" media="print, projection, screen" />
             <style type="text/css">
                 @import "http://o.aolcdn.com/dojo/0.9.0/dijit/themes/tundra/tundra.css";
-                @import "http://o.aolcdn.com/dojo/0.9.0/dojo/resources/dojo.css"
+                @import "http://o.aolcdn.com/dojo/0.9.0/dojo/resources/dojo.css";
             </style>
             <script type="text/javascript" src="http://o.aolcdn.com/dojo/0.9.0/dojo/dojo.xd.js"
                     djConfig="parseOnLoad: true"></script>
+            <script type="text/javascript" src="http://tablesorter.com/jquery-latest.js"></script> 
+            <script type="text/javascript" src="http://tablesorter.com/jquery.tablesorter.pack.js"></script> 
+            <script type="text/javascript">
+                $(function() {		
+                $("#eventTable").tablesorter();	
+                $("#queryTable").tablesorter();	
+                $("#studentTable").tablesorter();	
+                });	
+            </script>
             <script type="text/javascript">
                 dojo.require("dojo.parser");
                 dojo.require("dijit.form.Button");
                 dojo.require("dijit.Dialog");
                 dojo.require("dijit.form.TextBox");
                 dojo.require("dijit.form.DateTextBox");
+                dojo.require("dijit.form.CheckBox");            
+                dojo.require("dijit.form.Textarea");
+                dojo.require("dijit.form.InlineEditBox");
+                
                 function checkPw(dialogFields) {
                 if (dialogFields.confirmpw != dialogFields.newpw)
                 alert("Confirmation password is different.  Password is unchanged.");
@@ -46,6 +61,7 @@ Author     : Sadd
     
     <body  class="tundra">
         <html:link href="home.do" > Home </html:link>
+        <br/>
         <% 
         
         long id = Long.valueOf(session.getAttribute("studentId").toString());
@@ -55,7 +71,8 @@ Author     : Sadd
         %>
         
         
-        <table>
+        <table id="studentTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            
             <tr>
                 <td>
                     
@@ -137,8 +154,15 @@ Author     : Sadd
         <% } %>
         
         <%-- Event information --%>
-        <table border="0">
-            
+        <table id="eventTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            <thead> 
+                <tr>                      
+                    <th>Date</th> 
+                    <th>Description</th>
+                    <th>Type</th> 
+                    <th>Priority</th>                     
+                </tr> 
+            </thead>
             <tbody>
                 <%
                 Collection<Event> events = s.getEventCollection();
@@ -173,19 +197,33 @@ Author     : Sadd
                         <td><html:hidden property="student" value='<%= s.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><html:text property="type"/></td>
-                        <td><html:text property="descript"/></td>
+                        <td><input type="text" name="type"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="descript"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
                         <td><input type="text" name="dateString" dojoType="dijit.form.DateTextBox" required="true"/></td>
-                        <td><html:radio property="priority" value="high"/>High<html:radio property="priority" value="medium"/>Medium<html:radio property="priority" value="low"/>Low</td>
-                        <td><html:submit/></td>
+                        <td>
+                            <input name="priority" id="priorityHigh" value="high" dojoType="dijit.form.RadioButton" checked="checked" type="radio"/>High
+                            <input name="priority" id="priorityMedium" value="medium" dojoType="dijit.form.RadioButton"   type="radio"/>Medium
+                            <input name="priority" id="priorityLow" value="low" dojoType="dijit.form.RadioButton"   type="radio"/>Low
+                            
+                        </td>
+                        <td> <button dojoType="dijit.form.Button" type="submit"
+                                     iconClass="mailIconCancel">Save</button></td>
                     </tr>
                 </tbody>
             </table>
         </html:form>
         
-         <%-- Event information --%>
-        <table border="0">
-            
+        <%-- Event information --%>
+        <table  id="queryTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            <thead>
+                <tr><td>Queries</td></tr>
+            </thead>
             <tbody>
                 <%
                 Collection<Query> queries = s.getQueryCollection();
@@ -210,16 +248,26 @@ Author     : Sadd
                 
                 <tbody>
                     <tr>
-                        <td><label for="name">Query: </label></td>
+                        <td><label for="name">Enter Query: </label></td>
                         <td><html:hidden property="student" value='<%= s.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><html:text property="message"/></td>
-                        <td><html:submit/></td>
+                        <td>                         
+                            <textarea dojoType="dijit.form.Textarea" name="message">                                    
+                            </textarea>                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button dojoType="dijit.form.Button" type="submit"
+                                iconClass="mailIconCancel">Save</button></td>
+                        
                     </tr>
                 </tbody>
             </table>
         </html:form>
+        
+        
         
     </body>
     

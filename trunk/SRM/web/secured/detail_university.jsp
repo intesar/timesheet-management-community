@@ -14,10 +14,23 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>University Detail</title>
+        <link rel="stylesheet" href="css/jq.css" type="text/css" media="print, projection, screen" />
+        <link rel="stylesheet" href="http://tablesorter.com/themes/blue/style.css" type="text/css" media="print, projection, screen" />
+        
         <style type="text/css">
             @import "http://o.aolcdn.com/dojo/0.9.0/dijit/themes/tundra/tundra.css";
-            @import "http://o.aolcdn.com/dojo/0.9.0/dojo/resources/dojo.css"
+            @import "http://o.aolcdn.com/dojo/0.9.0/dojo/resources/dojo.css";
         </style>
+        <script type="text/javascript" src="http://tablesorter.com/jquery-latest.js"></script> 
+        <script type="text/javascript" src="http://tablesorter.com/jquery.tablesorter.pack.js"></script> 
+        <script type="text/javascript">
+            $(function() {		
+            $("#eventTable").tablesorter();	
+            $("#studentTable").tablesorter();	
+            $("#groupTable").tablesorter();	
+            $("#campusTable").tablesorter();	
+            });	
+        </script>
         <script type="text/javascript" src="http://o.aolcdn.com/dojo/0.9.0/dojo/dojo.xd.js"
                 djConfig="parseOnLoad: true"></script>
         <script type="text/javascript">
@@ -26,6 +39,7 @@
             dojo.require("dijit.Dialog");
             dojo.require("dijit.form.TextBox");
             dojo.require("dijit.form.DateTextBox");
+            dojo.require("dijit.form.CheckBox"); 
             function checkPw(dialogFields) {
             if (dialogFields.confirmpw != dialogFields.newpw)
             alert("Confirmation password is different.  Password is unchanged.");
@@ -33,7 +47,11 @@
         </script>    
     </head>
     <body  class="tundra">
-        <html:link href="home.do" > Home </html:link>
+        <h5>
+            <html:link href="home.do" > Home </html:link>
+        </h5>
+        
+        <br/>
         <% 
         
         long id = Long.valueOf(session.getAttribute("universityId").toString());
@@ -45,7 +63,15 @@
         <br/>
         
         <%-- Event information --%>
-        <table border="0">
+        <table id="eventTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            <thead> 
+                <tr>                      
+                    <th>Date</th> 
+                    <th>Description</th>
+                    <th>Type</th> 
+                    <th>Priority</th>                     
+                </tr> 
+            </thead>
             
             <tbody>
                 <%
@@ -81,11 +107,21 @@
                         <td><html:hidden property="university" value='<%= u.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><html:text property="type"/></td>
-                        <td><html:text property="descript"/></td>
+                        <td><input type="text" name="type"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="descript"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
                         <td><input type="text" name="dateString" dojoType="dijit.form.DateTextBox" required="true"/></td>
-                        <td><html:radio property="priority" value="high"/>High<html:radio property="priority" value="medium"/>Medium<html:radio property="priority" value="low"/>Low</td>
-                        <td><html:submit/></td>
+                        <td> <input name="priority" id="priorityHigh" value="high" dojoType="dijit.form.RadioButton" checked="checked" type="radio"/>High
+                            <input name="priority" id="priorityMedium" value="medium" dojoType="dijit.form.RadioButton"   type="radio"/>Medium
+                            <input name="priority" id="priorityLow" value="low" dojoType="dijit.form.RadioButton"   type="radio"/>Low
+                        </td>
+                        <td> <button dojoType="dijit.form.Button" type="submit"
+                                     iconClass="mailIconCancel">Save</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -94,7 +130,15 @@
         
         <%-- Student information --%>
         
-        <table border="0">
+        <table id="studentTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            <thead> 
+                <tr>                      
+                    <th>First Name</th> 
+                    <th>Last Name</th>
+                    <th>Email</th> 
+                    <th>Mobile</th>                     
+                </tr> 
+            </thead>
             
             <tbody>
                 <%
@@ -130,20 +174,41 @@
                         <td><html:hidden property="university" value='<%= u.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><html:text property="firstName"/></td>
-                        <td><html:text property="lastName"/></td>
-                        <td><html:text property="email"/></td>
-                        <td><html:text property="mobilePhone"/></td>
-                        <td><html:submit/></td>
+                        <td><input type="text" name="firstName"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="lastName"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="email"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="mobilePhone"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td> <button dojoType="dijit.form.Button" type="submit"
+                                     iconClass="mailIconCancel">Save</button></td>
                     </tr>
                 </tbody>
             </table>
         </html:form>
         
         
-         <%-- Email Groups information --%>
+        <%-- Email Groups information --%>
         
-        <table border="0">
+        <table id="groupTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            <thead> 
+                <tr>                      
+                    <th>Group Email</th> 
+                    <th>Group Owner Email</th>
+                    <th>Subscription Email</th> 
+                    <th>UnSubscription Email</th>                     
+                </tr> 
+            </thead>>
             
             <tbody>
                 <%
@@ -179,11 +244,24 @@
                         <td><html:hidden property="university" value='<%= u.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><html:text property="groupEmail"/></td>
-                        <td><html:text property="owner"/></td>
-                        <td><html:text property="subscribeEmail"/></td>
-                        <td><html:text property="unSubscribeEmail"/></td>
-                        <td><html:submit/></td>
+                        <td><input type="text" name="groupEmail"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="owner"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="subscribeEmail"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="unSubscribeEmail"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td> <button dojoType="dijit.form.Button" type="submit"
+                                     iconClass="mailIconCancel">Save</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -191,7 +269,17 @@
         
         <%-- Campus information --%>
         
-        <table border="0">
+        <table id="campusTable"  class="tablesorter" border="0" cellpadding="0" cellspacing="1">
+            <thead> 
+                <tr>                      
+                    <th>Campus Name</th> 
+                    <th>Street</th>
+                    <th>City</th> 
+                    <th>State</th>     
+                    <th>Zipcode</th>
+                    <th>Country</th>
+                </tr> 
+            </thead>
             
             <tbody>
                 <%
@@ -231,13 +319,32 @@
                         <td><html:hidden property="university" value='<%= u.getId().toString() %>' /></td>
                     </tr>
                     <tr>
-                        <td><html:text property="campus"/></td>
-                        <td><html:text property="street"/></td>
-                        <td><html:text property="city"/></td>
-                        <td><html:text property="state"/></td>
-                        <td><html:text property="zip"/></td>
-                        <td><html:text property="country"/></td>
-                        <td><html:submit/></td>
+                        <td><input type="text" name="campus"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="street"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="city"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="state"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="zip"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td><input type="text" name="country"
+                                       dojoType="dijit.form.TextBox"
+                                       trim="true"
+                                   lowercase="true"/></td>
+                        <td> <button dojoType="dijit.form.Button" type="submit"
+                                     iconClass="mailIconCancel">Save</button></td>
                     </tr>
                 </tbody>
             </table>
