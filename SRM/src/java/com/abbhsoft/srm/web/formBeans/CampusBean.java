@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionMapping;
 import org.apache.struts.action.ActionMessage;
-import com.abbhsoft.srm.model.Address;
 /**
  *
  * @author Amer
@@ -104,12 +103,9 @@ public class CampusBean extends org.apache.struts.action.ActionForm {
    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
        ActionErrors errors = new ActionErrors();
        if (getCampus() == null || getCampus().length() < 1) {
-           errors.add("campus", new ActionMessage("error.campus.required"));
-           // TODO: add 'error.name.required' key to your resources
+           errors.add("campus", new ActionMessage("error.campus.required"));           
        }
-       if(getStreet() == null || getStreet().length() < 1) {
-           errors.add("street", new ActionMessage("error.street.required"));
-       }
+       
        if(getCity() == null || getCity().length() < 1) {
            errors.add("city", new ActionMessage("error.city.required"));
        }
