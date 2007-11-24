@@ -76,6 +76,8 @@ public class Student extends BaseModel implements java.io.Serializable {
     private String mi;
     @Column(name = "email")
     private String email;
+    @Column(name = "tag_message")
+    private String tagMessage;
     @Column(name = "secondary_email")
     private String secondaryEmail;
     @Column(name = "mobile_phone")
@@ -154,6 +156,14 @@ public class Student extends BaseModel implements java.io.Serializable {
         this.lastName = lastName;
     }
 
+     public String getTagMessage() {
+        return tagMessage;
+    }
+
+    public void setTagMessage(String tagMessage) {
+        this.tagMessage = tagMessage;
+    }
+    
     public String getMi() {
         return mi;
     }
