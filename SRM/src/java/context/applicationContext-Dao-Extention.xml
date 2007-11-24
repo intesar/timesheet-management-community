@@ -204,6 +204,18 @@
       </property>
    </bean>
    
+   <bean id="emailTemplateDao" parent="abstractDao">
+      <property name="proxyInterfaces">
+         <value>com.abbhsoft.srm.dao.EmailTemplateDao</value>
+      </property>
+      <property name="target">
+         <bean parent="abstractDaoTarget">
+            <constructor-arg>
+               <value>com.abbhsoft.srm.model.EmailTemplate</value>
+            </constructor-arg>
+         </bean>
+      </property>
+   </bean>
    
    <!--
     #####################################################################

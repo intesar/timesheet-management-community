@@ -4,6 +4,8 @@
  */
 package com.abbhsoft.srm.service.impl;
 
+import com.abbhsoft.srm.dao.EmailTemplateDao;
+import com.abbhsoft.srm.model.EmailTemplate;
 import com.abbhsoft.srm.service.EMailService;
 import java.security.Security;
 import java.util.Properties;
@@ -24,21 +26,25 @@ import javax.mail.internet.MimeMessage;
 
 public class EMailServiceImpl implements EMailService {
 
+    public EmailTemplate getEmailTemplate(Long id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
     public void SendMail(String[] sendTo) {
         try {
 
             Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-            
+
             sendSSMessage(sendTo, emailSubjectTxt, emailMsgTxt, emailFromAddress);
         } catch (MessagingException ex) {
             Logger.getLogger(EMailServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void sendEmail (String toAddress, String body ) {
+
+    public void sendEmail(String toAddress, String body) {
         try {
 
-            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());            
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
             sendSSMessage(sendTo, emailSubjectTxt, body, emailFromAddress);
         } catch (MessagingException ex) {
             Logger.getLogger(EMailServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,6 +89,13 @@ public class EMailServiceImpl implements EMailService {
         msg.setSubject(subject);
         msg.setContent(message, "text/plain");
         Transport.send(msg);
+    }
+    // dao
+
+    private EmailTemplateDao emailTemplateDao;
+
+    public void setEmailTemplateDao(EmailTemplateDao emailTemplateDao) {
+        this.emailTemplateDao = emailTemplateDao;
     }
     }
 

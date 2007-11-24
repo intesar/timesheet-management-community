@@ -13,7 +13,7 @@ import com.abbhsoft.srm.service.ServiceFactory;
  * @author mdshannan
  */
 public class EmailRemoteService {
-    public void sentEmailToAddressWithBody(String to, String body) {
+    public void sentEmailToAddressWithBody(String to, Long body) {
         EMailService service = (EMailService) ServiceFactory.getInstance().getBean("eMailServiceImpl");
         
     }
