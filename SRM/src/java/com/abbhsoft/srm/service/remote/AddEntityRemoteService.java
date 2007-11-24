@@ -13,8 +13,7 @@ import com.abbhsoft.srm.service.EventService;
 import com.abbhsoft.srm.service.ServiceFactory;
 import com.abbhsoft.srm.service.StudentService;
 import com.abbhsoft.srm.service.UniversityService;
-import com.abbhsoft.srm.service.impl.EMailService;
-import java.util.ArrayList;
+import com.abbhsoft.srm.service.EMailService;
 import java.util.List;
 
 /**
