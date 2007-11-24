@@ -52,6 +52,8 @@ public class Event extends BaseModel implements Serializable {
     private String type;
     @Column(name = "descript")
     private String descript;
+    @Column(name = "is_executed")
+    private Long  isExecuted;
     @Column(name = "priority")
     private String priority;
     @JoinColumn(name = "university", referencedColumnName = "id")
@@ -82,6 +84,14 @@ public class Event extends BaseModel implements Serializable {
         this.id = id;
         this.date = date;
         
+    }
+
+    public Long getIsExecuted() {
+        return isExecuted;
+    }
+
+    public void setIsExecuted(Long isExecuted) {
+        this.isExecuted = isExecuted;
     }
 
     
