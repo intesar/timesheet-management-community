@@ -33,6 +33,10 @@ public abstract class BaseModel implements Serializable {
     protected Long id;
     @Column(name = "create_user")
     protected Long createUser;
+    @Column(name = "is_enable")
+    protected Long isEnable;
+    @Column(name = "version_id")
+    protected Long versionId;
     @Column(name = "create_date")
     @Temporal(TemporalType.DATE)
     protected Date createDate;
