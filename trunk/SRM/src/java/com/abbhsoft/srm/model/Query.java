@@ -19,7 +19,7 @@ import javax.persistence.Table;
  * @author mdshannan
  */
 @Entity
-@Table(name = "query")
+@Table(name = "user_query")
 @NamedQueries({
     @NamedQuery(name = "Query.findByMsg", query = "SELECT q FROM Query q WHERE q.msg = ?1"),
     @NamedQuery(name = "Query.findByCreateDate", query = "SELECT q FROM Query q WHERE q.createDate =?1"), 
