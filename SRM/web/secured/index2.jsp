@@ -620,66 +620,79 @@
                     startDate = '"'+ startDate + '"';
                     endDate = '"'+ endDate + '"'; 
                     eventRemoteService.getEvents(objectEval(startDate), 
-                    objectEval(endDate), function(people) {
-                    // Delete all the rows except for the "pattern" row
-                    var x = people;
-                    
-                    dwr.util.removeAllRows("peoplebody", { filter:function(tr) {
-                    return (tr.id != "pattern");
-                    }});
-                    
-                    // Create a new set cloned from the pattern row
-                    var person, id;
-                    people.sort(function(p1, p2) { return p1.type.localeCompare(p2.type); });
-                    for (var i = 0; i < people.length; i++) {
-                    person = people[i];
-                    id = person.id;
-                    dwr.util.cloneNode("pattern", { idSuffix:id });
-                    dwr.util.setValue("tableType" + id, person.type);
-                    dwr.util.setValue("tableDescription" + id, person.descript);
-                    dwr.util.setValue("tableDate" + id, person.date);
-                    dwr.util.setValue("tablePriority" + id, person.priority);
-                    //dwr.util.setValue("tableStudent" + id, person.student.email);
-                    //dwr.util.setValue("tableUniversity" + id, person.university.name);
-                    //dwr.util.setValue("tableGroup" + id, person.group1.groupEmail);
-                    //dwr.util.setValue("tableStatus" + id, person.date);
-                    $("pattern" + id).style.display = "table-row";
-                    peopleCache[id] = person;
+                    objectEval(endDate), displayEvents);
                     }
-                    });
+                    
+                    function displayEvents(eventList) {
+                    
+                    dwr.util.removeAllRows("peoplebody");
+                    dwr.util.addRows("peoplebody", eventList, cellFunctions);
                     }
+                    
+                    var cellFunctions =
+                    [
+                    function(event) { return event.type; }, 
+                    function(event) { return event.descript; },                            
+                    function(event) { return event.date; },                           
+                    function(event) { return event.priority; },
+                    function(event) {
+                    if ( event.student != null && event.student.email != null) {
+                    return event.student.email; 
+                    } else {
+                    return "";
+                    }
+                    },
+                    function(event) { 
+                    if ( event.university != null && event.university.name != null) {
+                    return event.university.name; 
+                    } else {
+                    return "";
+                    }                    
+                    },
+                    function(event) { 
+                    if ( event.group1 != null && event.group1.groupEmail != null ) {
+                    return event.group1.groupEmail; 
+                    } else {
+                    return "";
+                    }
+                    },
+                    function(event) {
+                    if ( event.isExecuted != null && event.isExecuted == 1 ) {
+                    
+                    return 'Y';
+                    
+                    }else { return 'N';}
+                    }
+                    ];
+                    
                 </script>
                 
                 
                 <table border="1" id="eventTable" class="rowed grey">
                     <thead>
                         <tr>
-                            <th>Event</th>                           
+                            <th>Event</th> 
+                            <th>Description</th>
                             <th>Date</th>
                             <th>Priority</th>
                             <th>Student</th>
                             <th>University</th>
                             <th>Group</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>IsExecuted</th>
                         </tr>
                     </thead>
+                    
                     <tbody id="peoplebody">
                         <tr id="pattern" style="display:none;">
-                            <td>
-                                <span id="tableType"></span><br/>
-                                <small>  <span id="tableDescription"></span></small>
-                            </td>
+                            <td> <span id="tableType"></span></td>
+                            <td> <span id="tableDescription"></span></td>
+                            
                             <td><span id="tableDate"></span></td>
                             <td><span id="tablePriority">Medium</span></td>
                             <td><span id="tableStudent"></span></td>
                             <td><span id="tableUniversity"></span></td>
                             <td><span id="tableGroup"></span></td>
-                            <td><span id="tableStatus"></span></td>
-                            <td>
-                                <input id="edit" type="button" value="Done" onclick="editClicked(this.id)"/>
-                                <input id="delete" type="button" value="Send Email" onclick="deleteClicked(this.id)"/>
-                            </td>
+                            <td><span id="tableStatus"></span></td>   
                         </tr>
                     </tbody>
                 </table>
