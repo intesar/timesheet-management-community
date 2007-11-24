@@ -4,6 +4,8 @@
  */
 package com.abbhsoft.srm.service;
 
+import com.abbhsoft.srm.model.EmailTemplate;
+
 /**
  *
  * @author mdshannan
@@ -21,4 +23,5 @@ public interface EMailService {
 
     void SendMail(String[] sendTo);
     void sendEmail (String toAddress, String body );
+    EmailTemplate getEmailTemplate(Long id);
 }

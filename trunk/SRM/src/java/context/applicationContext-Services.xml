@@ -47,7 +47,11 @@
         <property name="universityDao" ref="universityDao" />
     </bean>
     
-    <bean id="eMailServiceImpl" class="com.abbhsoft.srm.service.impl.EMailServiceImpl" />
+    <bean id="eMailServiceImpl" class="com.abbhsoft.srm.service.impl.EMailServiceImpl" >
+        <property name="emailTemplateDao" ref="emailTemplateDao"/>
+    </bean>
+    
+   
     <!--
      ##########################################################################
                             Services Declerations End
