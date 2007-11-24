@@ -35,7 +35,7 @@ public abstract class BaseModel implements Serializable {
     @Column(name = "create_user")
     protected Long createUser;
     @Column(name = "is_enable")
-    protected Long isEnable;
+    protected Long isEnable = new Long(1);
     @Version
     @Column(name = "version_id")    
     protected Long versionId;
