@@ -10,6 +10,9 @@
     <create creator="new" javascript="eventRemoteService">
       <param name="class" value="com.abbhsoft.srm.service.remote.EventRemoteService"/>
     </create>
+     <create creator="new" javascript="emailRemoteService">
+      <param name="class" value="com.abbhsoft.srm.service.remote.EmailRemoteService"/>
+    </create>
     <convert match="com.abbhsoft.srm.model.Event" converter="bean"/>
     <convert match="com.abbhsoft.srm.model.Student" converter="bean"/>
     <convert match="com.abbhsoft.srm.model.University" converter="bean"/>
