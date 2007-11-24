@@ -4,6 +4,7 @@
  */
 package com.abbhsoft.srm.service.impl;
 
+import com.abbhsoft.srm.service.EMailService;
 import java.security.Security;
 import java.util.Properties;
 
@@ -29,6 +30,16 @@ public class EMailServiceImpl implements EMailService {
             Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
             
             sendSSMessage(sendTo, emailSubjectTxt, emailMsgTxt, emailFromAddress);
+        } catch (MessagingException ex) {
+            Logger.getLogger(EMailServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void sendEmail (String toAddress, String body ) {
+        try {
+
+            Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());            
+            sendSSMessage(sendTo, emailSubjectTxt, body, emailFromAddress);
         } catch (MessagingException ex) {
             Logger.getLogger(EMailServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
