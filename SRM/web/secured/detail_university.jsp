@@ -1,4 +1,4 @@
-<%@ taglib prefix="a" uri="http://jmaki/v1.0/jsp" %>
+
 <%@page contentType="text/html"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page import="com.abbhsoft.srm.model.*" %>
