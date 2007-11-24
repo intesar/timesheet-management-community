@@ -18,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 /**
  * Base class for all persisitent domain objects.
@@ -35,7 +36,8 @@ public abstract class BaseModel implements Serializable {
     protected Long createUser;
     @Column(name = "is_enable")
     protected Long isEnable;
-    @Column(name = "version_id")
+    @Version
+    @Column(name = "version_id")    
     protected Long versionId;
     @Column(name = "create_date")
     @Temporal(TemporalType.DATE)
@@ -97,5 +99,21 @@ public abstract class BaseModel implements Serializable {
 
     public void setLastModifiedUser(Long lastModifiedUser) {
         this.lastModifiedUser = lastModifiedUser;
+    }
+
+    public Long getIsEnable() {
+        return isEnable;
+    }
+
+    public void setIsEnable(Long isEnable) {
+        this.isEnable = isEnable;
+    }
+
+    public Long getVersionId() {
+        return versionId;
+    }
+
+    public void setVersionId(Long versionId) {
+        this.versionId = versionId;
     }
 }
