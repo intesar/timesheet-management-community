@@ -33,7 +33,15 @@ public class University extends BaseModel implements java.io.Serializable {
    
     @Column(name = "name", nullable = false)
     private String name;
-   
+    @Column(name = "street")
+    private String street;
+    @Column(name = "city")
+    private String city;
+    @Column(name = "zipcode")
+    private String zipcode;
+    @Column(name = "country")
+    private String country;
+    
     @OneToMany(mappedBy = "university")
     private Collection<Student> studentCollection;
     @OneToMany(mappedBy = "university")
@@ -69,6 +77,38 @@ public class University extends BaseModel implements java.io.Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     
