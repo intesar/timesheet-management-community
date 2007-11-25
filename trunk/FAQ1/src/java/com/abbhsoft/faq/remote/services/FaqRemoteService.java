@@ -23,7 +23,7 @@ public String addTopic(String category, String topic);
 public String addQuestion(String topic,String question,String answer);
 public List search(String key);
 public String addAnswer(String question,String answer);
-public String markAnswerUnappropriate(Long id);
+public String markAnswerUnappropriate(Integer id);
 public List getAllCategories();
 public List getAllDeveloper();
 
