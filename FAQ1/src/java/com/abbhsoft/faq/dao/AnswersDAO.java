@@ -126,7 +126,9 @@ public class AnswersDAO extends BaseHibernateDAO {
 	public Answers merge(Answers detachedInstance) {
 		log.debug("merging Answers instance");
 		try {
+                        getSession().beginTransaction();
 			Answers result = (Answers) getSession().merge(detachedInstance);
+                        getSession().getTransaction().commit();
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {

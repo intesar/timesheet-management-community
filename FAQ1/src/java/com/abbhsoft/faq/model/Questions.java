@@ -1,5 +1,6 @@
 package com.abbhsoft.faq.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,81 +10,89 @@ import java.util.Set;
  * 
  * @author MyEclipse Persistence Tools
  */
-
 public class Questions implements java.io.Serializable {
 
-	// Fields
+    // Fields
 
-	private String question;
-	private Topic topic;
-	private String author;
-	private Date date;
-	private Set answerses = new HashSet(0);
+    private String question;
+    private Topic topic;
+    private String author;
+    private Date date;
+    private Set answerses = new HashSet(0);
+    private String simpleDate;
 
-	// Constructors
+    public String getSimpleDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        return sdf.format(date);
 
-	/** default constructor */
-	public Questions() {
-	}
+    }
 
-	/** minimal constructor */
-	public Questions(String question, Topic topic, String author, Date date) {
-		this.question = question;
-		this.topic = topic;
-		this.author = author;
-		this.date = date;
-	}
+    public void setSimpleDate(String simpleDate) {
+        this.simpleDate = simpleDate;
+    }
+    // Constructors
 
-	/** full constructor */
-	public Questions(String question, Topic topic, String author, Date date,
-			Set answerses) {
-		this.question = question;
-		this.topic = topic;
-		this.author = author;
-		this.date = date;
-		this.answerses = answerses;
-	}
+    /** default constructor */
+    public Questions() {
+    }
 
-	// Property accessors
+    /** minimal constructor */
+    public Questions(String question, Topic topic, String author, Date date) {
+        this.question = question;
+        this.topic = topic;
+        this.author = author;
+        this.date = date;
+    }
 
-	public String getQuestion() {
-		return this.question;
-	}
+    /** full constructor */
+    public Questions(String question, Topic topic, String author, Date date,
+            Set answerses) {
+        this.question = question;
+        this.topic = topic;
+        this.author = author;
+        this.date = date;
+        this.answerses = answerses;
+    }
 
-	public void setQuestion(String question) {
-		this.question = question;
-	}
+    // Property accessors
 
-	public Topic getTopic() {
-		return this.topic;
-	}
+    public String getQuestion() {
+        return this.question;
+    }
 
-	public void setTopic(Topic topic) {
-		this.topic = topic;
-	}
+    public void setQuestion(String question) {
+        this.question = question;
+    }
 
-	public String getAuthor() {
-		return this.author;
-	}
+    public Topic getTopic() {
+        return this.topic;
+    }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    public void setTopic(Topic topic) {
+        this.topic = topic;
+    }
 
-	public Date getDate() {
-		return this.date;
-	}
+    public String getAuthor() {
+        return this.author;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	public Set getAnswerses() {
-		return this.answerses;
-	}
+    public Date getDate() {
+        return this.date;
+    }
 
-	public void setAnswerses(Set answerses) {
-		this.answerses = answerses;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
+    public Set getAnswerses() {
+        return this.answerses;
+    }
+
+    public void setAnswerses(Set answerses) {
+        this.answerses = answerses;
+    }
 }

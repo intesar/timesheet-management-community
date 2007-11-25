@@ -312,38 +312,38 @@ Author     : Amer
                             </tr>
                         </thead>
                         <tbody>
+                            
                             <tr>
-                                <td><label for="name"> Saddam Hossain</label></td>                  
+                                <td><label for="name"> Abdul Rahman</label></td>                  
                                 <td><label for="name"> Java Developer </label></td>                  
-                                <td><label for="name"> saddam.hossain@abbhsoft.com</label></td>                  
-                                <td><label for="name"> GUI Design and Regression Testing</label></td>                  
+                                <td><label for="name"> abudl.rahman@abbhsoft.com</label></td>                  
+                                <td><label for="name"> Service Layer implmentation and Testing</label></td>                  
                                 
                             </tr>
                             <tr>
-                                <td><label for="name"> Mudarsir Khan </label></td>                  
+                                <td><label for="name"> Mudasir Khan </label></td>                  
                                 <td><label for="name"> Java Developer</label></td>                  
                                 <td><label for="name"> mir.khan@abbhsoft.com</label></td>                  
-                                <td><label for="name"> Database Design, Implementation & Code</label></td>                  
+                                <td><label for="name"> Front End Design, Implementation using AJAX</label></td>                  
                                 
                             </tr>
                             <tr>
-                                <td><label for="name"> </label></td>                  
-                                <td><label for="name"> </label></td>                  
-                                <td><label for="name"> </label></td>                  
-                                <td><label for="name"> </label></td>                  
+                                <td><label for="name"> Sumair Mohammed</label></td>                  
+                                <td><label for="name"> Java Developer</label></td>                  
+                                <td><label for="name"> sumair29@gmail.com</label></td>                  
+                                <td><label for="name"> Front End Design, Implementation using AJAX, Testing</label></td>                  
                                 
                             </tr>
                             <tr>
-                                <td><label for="name"> </label></td>                  
-                                <td><label for="name"> </label></td>                  
-                                <td><label for="name"> </label></td>                  
-                                <td><label for="name"> </label></td>                  
-                                
+                                <td><label for="name"> Amer Muqtadir</label></td>                  
+                                <td><label for="name"> Java Developer</label></td>                  
+                                <td><label for="name"> muqtadir.amer@abbhsoft.com</label></td>                  
+                                <td><label for="name"> Database and DAO Layer Implementation</label></td>                               
                             </tr>
                             
                         </tbody>
                     </table>
-                    
+                    <strong> Project Hours : 35 </strong>
                     
                 </div>
                 
@@ -351,13 +351,13 @@ Author     : Amer
                 
             </div>
             <div dojoType="dijit.layout.ContentPane" layoutAlign="left"
-                 style="width: 30%;">
+                 style="width: 15%;">
                 
                 <%    
                 %>
             </div>
             <div dojoType="dijit.layout.ContentPane" layoutAlign="right"
-                 style="width: 30%;">
+                 >
                 
                 
                 <input type="text" name="searchText" id ="key" value=""
@@ -377,40 +377,33 @@ Author     : Amer
                     var text = "'" + $("key").value + "'";
                     faqRemoteService.search(objectEval(text), displayResult);
                     }
+                    
                     function displayResult(data) {
-                                        
+                    
                     var ni = document.getElementById('tSpan');
                     ni.innerHTML = "";                    
                     for ( i = 0; i < data.length; i++ ) {
-                    ni.innerHTML += data[i].question + "<br/>";
-                                        }
-                    //dwr.util.removeAllRows("searchTable");
-                    //dwr.util.addRows("searchTable", data, cellFunctions);
-                    }
-                    var cellFunctions =
-                    [
-                    function(question) { 
-                        var q = question.question;
-                        var ans = question.answerses;
-                        var r ="";
-                        for (  i = 0; i < ans.length; i++ ) {
-                                                
-                            r += "<small> <span> "+ ans[i].answer + "</span> </small>";
-                                                }
-                        
-                                        return "<span>" + question.question + "</span>"; 
-                    },
-                    function(question) { 
-                    if ( question.topic != null && question.topic.name != null ) {
-                    return question.topic.name; 
-                    }
-                    else { return "";}
-                    },
-                    function(question) { return question.author; },
-                    function(question) { return question.date;}
+                    ni.innerHTML += "<br/>" + data[i].question + " &nbsp; " + data[i].author + " &nbsp; " + data[i].simpleDate;
+                    var ans = data[i].answerses;
+                    for ( j = 0; j < ans.length; j++ ) {
+                    ni.innerHTML += "<br/> <small> " +ans[j].answer + " &nbsp; " + ans[j].author + " &nbsp; " + ans[j].simpleDate + 
+                    "<button onclick='deActivateAnswer("+ ans[j].id +");' dojoType='dijit.form.Button' type='submit'>X <button> " +
+                    " </small>";
                     
+                    }
                     
-                    ];
+                    ni.innerHTML += "<hr/>";
+                    }
+                    }            
+                    
+                    function deActivateAnswer(id) {
+                        faqRemoteService.markAnswerUnappropriate(id, reply5);
+                    }
+                    reply5 = function(data)
+                                    {
+                                    if (data != null && typeof data == 'object') alert(dwr.util.toDescriptiveString(data, 2));
+                                    else dwr.util.setValue('span5', dwr.util.toDescriptiveString(data, 1));
+                                    }
                 </script>
             </div>
             <div dojoType="dijit.layout.ContentPane" layoutAlign="client">
@@ -420,26 +413,8 @@ Author     : Amer
                 
                 
                 <br/>
-                
+                <span id="span5"> </span>
                 <div id="tSpan"> </div>
-                <table border="0" >
-                    <thead>
-                        <tr>
-                            <th>Question </th>
-                            <th>Topic</th>
-                            <th>Author</th>
-                            <th>Date </th>
-                        </tr>
-                    </thead>
-                    <tbody id="searchTable">
-                        
-                    </tbody>
-                </table>
-                
-                
-                
-                
-                
                 
             </div>
         </div>       
