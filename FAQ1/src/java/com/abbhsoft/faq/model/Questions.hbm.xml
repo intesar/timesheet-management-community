@@ -10,7 +10,7 @@
             <column name="question" length="250" />
             <generator class="assigned" />
         </id>
-        <many-to-one name="topic" class="com.abbhsoft.faq.model.Topic" fetch="select">
+        <many-to-one name="topic" lazy="false" class="com.abbhsoft.faq.model.Topic" fetch="select">
             <column name="topic" length="45" not-null="true" />
         </many-to-one>
         <property name="author" type="java.lang.String">
