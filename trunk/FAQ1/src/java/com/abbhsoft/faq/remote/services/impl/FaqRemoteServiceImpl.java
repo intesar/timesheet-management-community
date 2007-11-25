@@ -119,8 +119,19 @@ public class FaqRemoteServiceImpl implements FaqRemoteService {
         return SUCCESS;
     }
 
-    public String markAnswerUnappropriate(Long id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public String markAnswerUnappropriate(Integer id) {
+
+        AnswersDAO adao = new AnswersDAO();
+        Answers a;
+
+        try {
+            a = adao.findById(id);
+            a.setIsAppropriate(Short.parseShort("0"));
+            adao.merge(a);
+        } catch (Exception e) {
+            return FAILURE;
+        }
+        return SUCCESS;
     }
 
     public List getAllCategories() {
