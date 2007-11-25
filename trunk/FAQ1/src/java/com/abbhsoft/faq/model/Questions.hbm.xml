@@ -19,7 +19,7 @@
         <property name="date" type="java.util.Date">
             <column name="date" length="0" not-null="true" />
         </property>
-        <set name="answerses" inverse="true">
+        <set name="answerses" lazy="false" inverse="true">
             <key>
                 <column name="question" length="45" not-null="true" />
             </key>
