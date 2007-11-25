@@ -33,8 +33,9 @@ public class AnswersDAO extends BaseHibernateDAO {
 	public void save(Answers transientInstance) {
 		log.debug("saving Answers instance");
 		try {
+			getSession().beginTransaction();
 			getSession().save(transientInstance);
-			log.debug("save successful");
+                        getSession().getTransaction().commit();
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
 			throw re;
