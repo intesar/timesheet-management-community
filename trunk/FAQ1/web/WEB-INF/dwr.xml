@@ -11,5 +11,11 @@
     
     <convert match="com.abbhsoft.srm.model.Event" converter="bean"/>
     -->
+    <create creator="new" javascript="faqRemoteService">
+        <param name="class" value="com.abbhsoft.faq.remote.services.impl.FaqRemoteServiceImpl"/>
+    </create>
+    <convert match="com.abbhsoft.faq.model.Questions" converter="bean"/>
+    <convert match="com.abbhsoft.faq.model.Topic" converter="bean"/>
+    <convert match="com.abbhsoft.faq.model.Answers" converter="bean"/>
   </allow>
 </dwr>
