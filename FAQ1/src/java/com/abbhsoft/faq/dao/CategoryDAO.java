@@ -30,7 +30,9 @@ public class CategoryDAO extends BaseHibernateDAO {
 	public void save(Category transientInstance) {
 		log.debug("saving Category instance");
 		try {
+                        getSession().beginTransaction();
 			getSession().save(transientInstance);
+                        getSession().getTransaction().commit();
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);

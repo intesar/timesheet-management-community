@@ -30,7 +30,9 @@ public class TopicDAO extends BaseHibernateDAO {
 	public void save(Topic transientInstance) {
 		log.debug("saving Topic instance");
 		try {
+			 getSession().beginTransaction();
 			getSession().save(transientInstance);
+                        getSession().getTransaction().commit();
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
