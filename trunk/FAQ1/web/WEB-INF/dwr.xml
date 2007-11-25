@@ -14,8 +14,13 @@
     <create creator="new" javascript="faqRemoteService">
         <param name="class" value="com.abbhsoft.faq.remote.services.impl.FaqRemoteServiceImpl"/>
     </create>
+     <create creator="new" javascript="jDate">
+        <param name="class" value="java.util.Date"/>
+    </create>
+   
     <convert match="com.abbhsoft.faq.model.Questions" converter="bean"/>
     <convert match="com.abbhsoft.faq.model.Topic" converter="bean"/>
     <convert match="com.abbhsoft.faq.model.Answers" converter="bean"/>
+    <convert match="java.util.Date" converter="bean"/>
   </allow>
 </dwr>

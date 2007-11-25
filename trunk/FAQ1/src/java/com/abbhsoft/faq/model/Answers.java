@@ -1,5 +1,6 @@
 package com.abbhsoft.faq.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -7,104 +8,113 @@ import java.util.Date;
  * 
  * @author MyEclipse Persistence Tools
  */
-
 public class Answers implements java.io.Serializable {
 
-	// Fields
+    // Fields
 
-	private Integer id;
-	private Questions questions;
-	private String answer;
-	private String author;
-	private Date date;
-	private Short isAppropriate;
-	private String isAppropriateBy;
+    private Integer id;
+    private Questions questions;
+    private String answer;
+    private String author;
+    private Date date;
+    private Short isAppropriate;
+    private String isAppropriateBy;
+    private String simpleDate;
 
-	// Constructors
+    public String getSimpleDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        return sdf.format(date);
 
-	/** default constructor */
-	public Answers() {
-	}
+    }
 
-	/** minimal constructor */
-	public Answers(Integer id, Questions questions, String answer,
-			String author, Date date) {
-		this.id = id;
-		this.questions = questions;
-		this.answer = answer;
-		this.author = author;
-		this.date = date;
-	}
+    public void setSimpleDate(String simpleDate) {
+        this.simpleDate = simpleDate;
+    }
 
-	/** full constructor */
-	public Answers(Integer id, Questions questions, String answer,
-			String author, Date date, Short isAppropriate,
-			String isAppropriateBy) {
-		this.id = id;
-		this.questions = questions;
-		this.answer = answer;
-		this.author = author;
-		this.date = date;
-		this.isAppropriate = isAppropriate;
-		this.isAppropriateBy = isAppropriateBy;
-	}
+    // Constructors
 
-	// Property accessors
+    /** default constructor */
+    public Answers() {
+    }
 
-	public Integer getId() {
-		return this.id;
-	}
+    /** minimal constructor */
+    public Answers(Integer id, Questions questions, String answer,
+            String author, Date date) {
+        this.id = id;
+        this.questions = questions;
+        this.answer = answer;
+        this.author = author;
+        this.date = date;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    /** full constructor */
+    public Answers(Integer id, Questions questions, String answer,
+            String author, Date date, Short isAppropriate,
+            String isAppropriateBy) {
+        this.id = id;
+        this.questions = questions;
+        this.answer = answer;
+        this.author = author;
+        this.date = date;
+        this.isAppropriate = isAppropriate;
+        this.isAppropriateBy = isAppropriateBy;
+    }
 
-	public Questions getQuestions() {
-		return this.questions;
-	}
+    // Property accessors
 
-	public void setQuestions(Questions questions) {
-		this.questions = questions;
-	}
+    public Integer getId() {
+        return this.id;
+    }
 
-	public String getAnswer() {
-		return this.answer;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
-	}
+    public Questions getQuestions() {
+        return this.questions;
+    }
 
-	public String getAuthor() {
-		return this.author;
-	}
+    public void setQuestions(Questions questions) {
+        this.questions = questions;
+    }
 
-	public void setAuthor(String author) {
-		this.author = author;
-	}
+    public String getAnswer() {
+        return this.answer;
+    }
 
-	public Date getDate() {
-		return this.date;
-	}
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
 
-	public void setDate(Date date) {
-		this.date = date;
-	}
+    public String getAuthor() {
+        return this.author;
+    }
 
-	public Short getIsAppropriate() {
-		return this.isAppropriate;
-	}
+    public void setAuthor(String author) {
+        this.author = author;
+    }
 
-	public void setIsAppropriate(Short isAppropriate) {
-		this.isAppropriate = isAppropriate;
-	}
+    public Date getDate() {
+        return this.date;
+    }
 
-	public String getIsAppropriateBy() {
-		return this.isAppropriateBy;
-	}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
-	public void setIsAppropriateBy(String isAppropriateBy) {
-		this.isAppropriateBy = isAppropriateBy;
-	}
+    public Short getIsAppropriate() {
+        return this.isAppropriate;
+    }
 
+    public void setIsAppropriate(Short isAppropriate) {
+        this.isAppropriate = isAppropriate;
+    }
+
+    public String getIsAppropriateBy() {
+        return this.isAppropriateBy;
+    }
+
+    public void setIsAppropriateBy(String isAppropriateBy) {
+        this.isAppropriateBy = isAppropriateBy;
+    }
 }

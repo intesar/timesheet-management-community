@@ -6,13 +6,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.abbhsoft.faq.remote.services.impl;
 
 import com.abbhsoft.faq.remote.services.FaqRemoteService;
 import java.util.List;
 import com.abbhsoft.faq.dao.*;
 import com.abbhsoft.faq.model.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -44,12 +44,17 @@ public class FaqRemoteServiceImpl implements FaqRemoteService {
         CategoryDAO cdao = new CategoryDAO();
 
 
-        t.setCategory(cdao.findById(category));
-        t.setName(topic);
+        System.out.println ( " Category : " + category );
+        System.out.println ( " topic : " + topic );
 
         try {
+            Category c = cdao.findById(category);
+            System.out.println ( "c : " + c );
+            t.setCategory(c);
+            t.setName(topic);
             tdao.save(t);
         } catch (Exception e) {
+            e.printStackTrace();
             return FAILURE;
         }
         return SUCCESS;
@@ -89,14 +94,14 @@ public class FaqRemoteServiceImpl implements FaqRemoteService {
     }
 
     public List search(String key) {
-        List list;
+        List list = new ArrayList();
         try {
             QuestionsDAO qdao = new QuestionsDAO();
-            return qdao.findByQuestion(key);
-        } catch (Exception e) {
-            list = null;
-            return list;
+            list =  qdao.findByQuestion(key);
+        } catch (Exception e) {            
+            e.printStackTrace();
         }
+        return list;
     }
 
     public String addAnswer(String question, String answer) {
@@ -129,6 +134,7 @@ public class FaqRemoteServiceImpl implements FaqRemoteService {
             a.setIsAppropriate(Short.parseShort("0"));
             adao.merge(a);
         } catch (Exception e) {
+            e.printStackTrace();
             return FAILURE;
         }
         return SUCCESS;
@@ -157,4 +163,6 @@ public class FaqRemoteServiceImpl implements FaqRemoteService {
             return list;
         }
     }
+
+    
 }
