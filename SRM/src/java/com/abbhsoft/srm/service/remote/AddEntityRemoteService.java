@@ -127,21 +127,32 @@ public class AddEntityRemoteService {
         StudentService studentService = (StudentService) ServiceFactory.getInstance().getBean("studentServiceImpl");
         List<Student> students = studentService.getAll();
         List<String> email = studentService.getAllStudentEmails();
-        System.out.println (" $$$$$$$  : " + email);
+        System.out.println(" $$$$$$$  : " + email);
         String[] emails = new String[email.size()];
         int count = 0;
         for (String s : email) {
-            emails[count++] = s;
+            if (isValidEmail(s)) {
+                emails[count++] = s;
+            }
         }
         String[] s = {"mohdshannan@yahoo.com"};
         service.SendMail(emails);
     }
 
-//    public static void main(String[] args) {
-//
-//        AddEntityRemoteService a = new AddEntityRemoteService();
-//        a.sendEmail();
-//    }
+    private boolean isValidEmail(String s) {
+        if (s.trim().length() < 1) {
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        // AddEntityRemoteService a = new AddEntityRemoteService();
+       // a.sendEmail();
+        AddEntityRemoteService a = new AddEntityRemoteService();
+        a.sendEmailToAllStudents();
+    }
 }
 // public String addStudent(String firstname,  String lastname,
 //            String email,  String mobile, String visaStatus,
