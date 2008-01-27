@@ -35,7 +35,7 @@ public class EMailServiceImpl implements EMailService {
 
             Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
 
-            sendSSMessage(sendTo, emailSubjectTxt, emailMsgTxt, emailFromAddress);
+            sendSSMessage(sendTo, EMAIL_SUBJECT_TEXT, EMAIL_MESSAGE_TEXT, EMAIL_FROM_ADDRESS);
         } catch (MessagingException ex) {
             Logger.getLogger(EMailServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -45,7 +45,7 @@ public class EMailServiceImpl implements EMailService {
         try {
 
             Security.addProvider(new com.sun.net.ssl.internal.ssl.Provider());
-            sendSSMessage(sendTo, emailSubjectTxt, body, emailFromAddress);
+            sendSSMessage(SEND_TO, EMAIL_SUBJECT_TEXT, body, EMAIL_FROM_ADDRESS);
         } catch (MessagingException ex) {
             Logger.getLogger(EMailServiceImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -69,7 +69,7 @@ public class EMailServiceImpl implements EMailService {
 
                     @Override
                     protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication("mdshannan1", "Abbh1234");
+                        return new PasswordAuthentication(SEND_FROM_USERNAME,SEND_FROM_PASSWORD );
                     }
                 });
 
@@ -87,7 +87,7 @@ public class EMailServiceImpl implements EMailService {
 
         // Setting the Subject and Content Type
         msg.setSubject(subject);
-        msg.setContent(message, "text/plain");
+        msg.setContent(message, EMAIL_CONTENT_TYPE);
         Transport.send(msg);
     }
     // dao
