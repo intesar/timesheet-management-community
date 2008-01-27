@@ -7,6 +7,7 @@ package com.abbhsoft.srm.service.impl;
 
 import com.abbhsoft.srm.base.BaseTest;
 import com.abbhsoft.srm.model.EmailGroup;
+import com.abbhsoft.srm.service.EMailService;
 import java.util.List;
 import com.abbhsoft.srm.service.EmailGroupService;
 
@@ -21,6 +22,13 @@ public class EmailGroupServiceImplTest extends BaseTest {
     }
     
     private EmailGroupService emailGroupService;
+    
+    private EMailService eMailService;
+
+    public void setEMailService(EMailService eMailService) {
+        this.eMailService = eMailService;
+    }
+    
     
     
 
@@ -54,6 +62,9 @@ public class EmailGroupServiceImplTest extends BaseTest {
        
     }
 
-    
+    public void testSendHTMLEmail() {
+        String[] s = new String[] {"mdshannan@gmail.com"};
+        this.eMailService.SendMail(s);
+    }
 
 }
