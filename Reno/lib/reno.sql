@@ -66,7 +66,7 @@ CREATE TABLE `payment` (
   `date` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_payment_1` (`task`),
-  KEY `FK_payment_2` (`paid_to_user`) USING BTREE,
+  KEY `FK_payment_2` (`paid_to_user`),
   KEY `FK_payment_5` (`paid_to_business`),
   KEY `FK_payment_4` (`payment_type`),
   KEY `FK_payment_6` (`percentage_task_completed`),
@@ -95,7 +95,7 @@ DROP TABLE IF EXISTS `payment_types`;
 CREATE TABLE `payment_types` (
   `code` varchar(45) NOT NULL DEFAULT '',
   `description` varchar(45) NOT NULL,
-  PRIMARY KEY (`code`) USING BTREE
+  PRIMARY KEY (`code`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -142,7 +142,7 @@ INSERT INTO `percentage_values` (`percentage_code`) VALUES
 DROP TABLE IF EXISTS `priority_types`;
 CREATE TABLE `priority_types` (
   `priority_code` varchar(45) NOT NULL,
-  PRIMARY KEY (`priority_code`) USING BTREE
+  PRIMARY KEY (`priority_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -198,7 +198,7 @@ INSERT INTO `project` (`id`,`title`,`description`,`estimated_budget`,`estimated_
 DROP TABLE IF EXISTS `status_codes`;
 CREATE TABLE `status_codes` (
   `code` varchar(45) NOT NULL,
-  PRIMARY KEY (`code`) USING BTREE
+  PRIMARY KEY (`code`) 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
