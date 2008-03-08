@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="RenoPU" transaction-type="JTA">
+        <jta-data-source>jdbc/reno</jta-data-source>
+        <properties/>
+    </persistence-unit>
+</persistence>
+<!--
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="RenoPU" transaction-type="RESOURCE_LOCAL">
+    <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+    <class>reno.PercentageValues</class>
+    <class>reno.PaymentTypes</class>
+    <class>reno.StatusCodes</class>
+    <class>reno.Task</class>
+    <class>reno.BusinessCompany</class>
+    <class>reno.Project</class>
+    <class>reno.Users</class>
+    <class>reno.PriorityTypes</class>
+    <class>reno.Payment</class>
+    <properties>
+      <property name="toplink.jdbc.url" value="jdbc:mysql:///construction_manager"/>
+      <property name="toplink.jdbc.user" value="root"/>
+      <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="toplink.jdbc.password" value="apple123"/>
+    </properties>
+  </persistence-unit>
+</persistence>
+-->
+
+
+
+
+
