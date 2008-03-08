@@ -2,7 +2,7 @@ Reno stands for renovation.
 
 how to deploy
 
-1. create data by executing the sql file in the lib folder on mysql
+1. create data by executing the sql files in the lib folder on mysql
 2. change database login information in ApplicationContext-Acegi.xml (user/pass)
 3. create connection pool in glassfish
 4. create jdbc datasource with name jdbc/reno pointing to the database created in 1 
