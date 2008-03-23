@@ -55,7 +55,7 @@
         </license>
     </licenses>
     <scm>
-        <url>http://svn.apache.org/viewcvs.cgi/maven</url>
+        <url>https://timesheet-management-community.googlecode.com/svn/trunk/JpaDaoFrameworks</url>
     </scm>
     <dependencies>
         <!-- Junit and other common dependencies -->
