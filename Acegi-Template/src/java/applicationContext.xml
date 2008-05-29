@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+<beans>
+    
+    
+    <!--
+     ##########################################################################
+                            Services Declerations Begin
+     ##########################################################################
+    -->
+
+    <!-- Example Services Decleration
+
+
+    <bean id="personServiceImpl" class="com.company.projectname.service.impl.PersonServiceImpl" >
+        <property name="personDao" ref="personDao"/>
+    </bean>
+
+    
+    -->
+    <bean id="hello" class="com.Hello" />
+        
+    <bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+        <property name="targetObject" ref="hello" />
+        <property name="targetMethod" value="sayHello" />
+        <property name="concurrent" value="false" />
+    </bean>
+    <bean name="exampleJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+        <property name="jobClass" value="com.ExampleJob" />
+        <property name="jobDataAsMap">
+            <map>
+                <entry key="timeout" value="5" />
+            </map>
+        </property>
+    </bean>
+    <bean id="dummyTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean">
+        <property name="jobDetail">
+            <ref bean="jobDetail"/>
+        </property>
+        <property name="startDelay">
+            <value>1000</value>
+        </property>
+        <property name="repeatInterval">
+            <value>45000</value>
+        </property>
+    </bean>
+    <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+        <property name="triggers">
+            <list>
+                <ref local="dummyTrigger"/>
+            </list>
+        </property>
+    </bean>
+</beans>
