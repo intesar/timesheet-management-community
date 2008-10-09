@@ -20,17 +20,15 @@ public class SQLInjectionFilterManager {
     }
     // define filters
     private SQLInjectionFilter sqlInjectionCommentsFilter = new SQLInjectionCommentsFilter();
-    private SQLInjectionFilter sqlInjectionSingleAndDoubleQuoteFilter = new SQLInjectionSingleAndDoubleQuotesFilter();
     private SQLInjectionFilter sqlInjectionOrFilter = new SQLInjectionOrFilter();
     private static final SQLInjectionFilterManager instance = new SQLInjectionFilterManager();
 
     // apply filters
     public String filter(String filterString) {
-        if (filterString == null || filterString.trim().length() == 0 ) {
+        if (filterString == null || filterString.trim().length() == 0) {
             return filterString;
         }
-        filterString = this.sqlInjectionCommentsFilter.filter(filterString);
-        //filterString = this.sqlInjectionSingleAndDoubleQuoteFilter.filter(filterString);
+        filterString = this.sqlInjectionCommentsFilter.filter(filterString);        
         filterString = this.sqlInjectionOrFilter.filter(filterString);
         return filterString;
     }
