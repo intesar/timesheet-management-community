@@ -13,7 +13,7 @@ package com.abbhsoft.sqlInjectionFilter;
  *
  * @author shannan
  * 
- *  removes database comments (--, # and block comments)
+ *  removes database comments (--, #, single & double quotes, *, and block comments)
  */
 class SQLInjectionCommentsFilter implements SQLInjectionFilter {
 
@@ -21,11 +21,19 @@ class SQLInjectionCommentsFilter implements SQLInjectionFilter {
     }
 
     public String filter(String filter) {
-        filter = filter.replace("--", SPACE);
-        filter = filter.replace("#", SPACE);
-        filter = filter.replace("/*", SPACE);
-        filter = filter.replace("*/", SPACE);
+        filter = filter.replaceAll("-", SPACE);
+        filter = filter.replaceAll("--", SPACE);
+        filter = filter.replaceAll("#", SPACE);
+        filter = filter.replaceAll("/", SPACE);
+        filter = filter.replaceAll("=", SPACE);        
+        filter = filter.replace("*", SPACE);
+        filter = filter.replaceAll("'", SPACE);
+        filter = filter.replaceAll("\"", SPACE);        
+        filter = filter.replaceAll(";", SPACE);
+        filter = filter.replaceAll(":", SPACE);
+        filter = filter.replaceAll("%", SPACE);
         return filter;
     }
 
 }
+
